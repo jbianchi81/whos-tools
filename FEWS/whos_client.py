@@ -397,5 +397,5 @@ class Client:
 if __name__ == "__main__":
     # make FEWS tables for WHOS-Plata (all stations and variables). Save into FEWS_MD folder
     client = Client()
-    client.makeFewsTables(output_dir="FEWS_MD")
+    client.makeFewsTables(output_dir="results")
 
