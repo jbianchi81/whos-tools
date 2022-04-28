@@ -1,0 +1,192 @@
+Help on class Client in module whos_client:
+
+class Client(builtins.object)
+ |  Client(config: dict = None)
+ |  
+ |  Functions for metadata retrieval from WHOS using timeseries API
+ |  plus functions to convert from native format (geoJSON) to FEWS csv format
+ |  
+ |  Methods
+ |  -------
+ |  getMonitoringPoints(view: str = "whos-plata",east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None)
+ |      Retrieves monitoring points as a geoJSON document from WHOS timeseries API
+ |  getTimeseries(view: str = "whos-plata", monitoringPoint: str = None, observedProperty: str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None))
+ |      Retrieves timeseries as a geoJSON document from WHOS timeseries API
+ |  getVariableMapping(view='whos-plata', output=None, output_xml=None)
+ |      Retrieves variable mapping from WHOS CUAHSI API
+ |  monitoringPointsToFEWS(monitoringPoints, output=None)
+ |      Converts monitoringPoints geoJSON to FEWS table 
+ |  timeseriesToFEWS(timeseries, output=None)
+ |      Converts timeseries geoJSON to FEWS table
+ |  groupTimeseriesByVar(input_ts, var_map, output_dir=None, fews=False)
+ |      Groups timeseries by observedVariable, optionally using FEWS convention
+ |  makeFewsTables(output_dir='', save_geojson=False)
+ |      Retrieves WHOS metadata and writes out FEWS tables
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, config: dict = None)
+ |      Parameters
+ |      ----------
+ |      config : dict
+ |          Configuration parameters: url, token, monitoring_points_max, monitoring_points_per_page, timeseries_max, timeseries_per_page
+ |  
+ |  getMonitoringPoints(self, view: str = 'whos-plata', east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None) -> dict
+ |      Retrieves monitoring points as a geoJSON document from the timeseries API
+ |      
+ |      Parameters
+ |      ----------
+ |      view : str
+ |          WHOS view identifier. Default whos-plata
+ |      east : float
+ |          Bounding box eastern longitude coordinate
+ |      west : float
+ |          Bounding box western longitude coordinate
+ |      north : float
+ |          Bounding box northern latitude coordinate
+ |      south : float
+ |          Bounding box southern latitude coordinate
+ |      offset : int
+ |          Start position of matched records
+ |      limit : int
+ |          Maximum number of matched records
+ |      output: string
+ |          Write JSON output into this file
+ |      
+ |      Returns
+ |      -------
+ |      dict
+ |          A dict containing geoJSON data
+ |  
+ |  getSubBasin(self, coordinates)
+ |  
+ |  getTimeseries(self, view: str = 'whos-plata', monitoringPoint: str = None, observedProperty: str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None)
+ |      Retrieves timeseries as a geoJSON document from the timeseries API
+ |      
+ |      Parameters
+ |      ----------
+ |      view : str
+ |          WHOS view identifier
+ |      monitoringPoint : str
+ |          Identifier of the monitoring point
+ |      observedProperty : str
+ |          Identifier of the observed property
+ |      beginPosition : str
+ |          Temporal interval begin position (ISO8601 date)
+ |      endPosition : str
+ |          Temporal interval end position (ISO8601 date)
+ |      offset : int
+ |          Start position of matched records
+ |      limit : int
+ |          Maximum number of matched records
+ |      output: string
+ |          Write JSON output into this file
+ |      
+ |      Returns
+ |      -------
+ |      dict
+ |          A dict containing geoJSON data
+ |  
+ |  getVariableMapping(self, view='whos-plata', output=None, output_xml=None)
+ |      Retrieves variable mapping from WHOS CUAHSI API (waterML 1.1)
+ |      
+ |      Parameters
+ |      ----------
+ |      view : str
+ |          WHOS view idenfifier
+ |      output : string
+ |          Write CSV output into this file
+ |      output_xml : string
+ |          Write XML output into this file
+ |      
+ |      Returns
+ |      -------
+ |      DataFrame
+ |          A data frame of the mapped observed variables
+ |  
+ |  groupTimeseriesByVar(self, input_ts, var_map, output_dir=None, fews=False)
+ |      Groups timeseries by observedVariable, optionally using FEWS convention
+ |      
+ |      Parameters
+ |      ----------
+ |      input_ts : DataFrame
+ |          Return value of timeseriesToFEWS()
+ |      var_map : DataFrame
+ |          Return value of getVariableMapping()
+ |      output_dir : str
+ |          Write output to this directory
+ |      fews : bool
+ |          Use FEWS variables naming convention
+ |      
+ |      Returns
+ |      -------
+ |      DataFrame
+ |          A data frame of time series grouped by variable name
+ |  
+ |  isoDurationToHours(self, aggregationDuration)
+ |  
+ |  makeFewsTables(self, output_dir='', save_geojson=False)
+ |      Retrieves WHOS metadata and writes out FEWS tables
+ |      
+ |      Parameters
+ |      ----------
+ |      output_dir : str
+ |          Write outputs in this directory. Defaults to current working directory
+ |      save_geojson : bool
+ |          Also writes out raw API responses (geoJSON files)
+ |      
+ |      Returns
+ |      -------
+ |      dict
+ |          dict containing retrieved stations and timeseries in FEWS format
+ |  
+ |  monitoringPointsToFEWS(self, monitoringPoints: Union[str, dict], output=None)
+ |      Converts monitoringPoints geoJSON to FEWS table
+ |      
+ |      Parameters
+ |      ----------
+ |      monitoringPoints : dict or str
+ |          Result of getMonitoringPoints
+ |          If str: JSON file to read from
+ |          If dict: getMonitoringPoints return value  
+ |      output: string
+ |          Write CSV output into this file
+ |      
+ |      Returns
+ |      -------
+ |      DataFrame
+ |          A data frame of the stations in FEWS format
+ |  
+ |  timeseriesToFEWS(self, timeseries: Union[str, dict], output=None)
+ |      Converts timeseries geoJSON to FEWS table
+ |      
+ |      Parameters
+ |      ----------
+ |      timeseries : dict or str
+ |          Result of getTimeseries
+ |          If str: JSON file to read from
+ |          If dict: getTimeseries return value  
+ |      output: string
+ |          Write CSV output into this file
+ |      
+ |      Returns
+ |      -------
+ |      DataFrame
+ |          A data frame of the time series in FEWS format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  default_config = {'monitoring_points_max': 6000, 'monitoring_points_pe...
+ |  
+ |  fews_var_map = {'Flux, discharge': 'Q', 'Level': 'H', 'Precipitation':...
+
