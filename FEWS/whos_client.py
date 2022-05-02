@@ -6,6 +6,7 @@ from datetime import timedelta, datetime
 from lxml import etree
 from warnings import warn
 from typing import Union
+from pathlib import Path
 
 class Client:
     """Functions for metadata retrieval from WHOS using timeseries API
@@ -35,7 +36,8 @@ class Client:
         "monitoring_points_max": 6000,
         "monitoring_points_per_page": 1000,
         "timeseries_max": 48000,
-        "timeseries_per_page": 1000
+        "timeseries_per_page": 1000,
+        "view": "whos-plata"
     }
     
     fews_var_map = {
@@ -43,6 +45,21 @@ class Client:
         "Level": "H",
         "Flux, discharge": "Q"
     }
+
+    fews_observed_properties = ["02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F",
+    "AF6C35E61AC362E0151B6458DADCB032043B67EA",
+    "D2DB8BC2930F82D1E5EFA6B529F0262EB0FFE994",
+    "5C34E7D199E2643B1AA949D920942C576A406AB4",
+    "80B052462E277E0F7D3002CA6C67E481CD953CDC",
+    "AEAF735EBFC73611C8A50B6D0319BD4258B45918",
+    "54DF3A7E4C8ED47459CDC1E3C81DED8A48797642",
+    "4E47D870E717581F520F6C4EBE8E23962A880107",
+    "B838A449A5FBC64CBB8A204A5CD614519EB0844A",
+    "CEE1F03F85E1231A57C7E756527ED41B9C43820B",
+    "F7B4831EA151DB33AA187F9C4248506E0CE6690C",
+    "E02E2A436A24C1DB98D819A4705B8089856A9579",
+    "4E47D870E717581F520F6C4EBE8E23962A880107",
+    "472D1E733D426DC0A514D0BD6A2AAA7541CCEC3A"]
     
     def __init__(self,config: dict = None):
         """
@@ -52,12 +69,12 @@ class Client:
             Configuration parameters: url, token, monitoring_points_max, monitoring_points_per_page, timeseries_max, timeseries_per_page 
         """
 
+        self.config = self.default_config
         if config is not None:
-            self.config = config
-        else:
-            self.config = self.default_config
+            for key in config:
+                self.config[key] = config[key]
     
-    def getMonitoringPoints(self, view: str = "whos-plata",east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None) -> dict:
+    def getMonitoringPoints(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None) -> dict:
         """Retrieves monitoring points as a geoJSON document from the timeseries API
         
         Parameters
@@ -92,19 +109,19 @@ class Client:
         try:
             response = requests.get(url, params)
         except:
-            raise("request failed")
+            raise Exception("request failed")
         if(response.status_code >= 400):
-            raise("request failed, status code: %s" % response.status_code)
+            raise Exception("request failed, status code: %s" % response.status_code)
         if output is not None:
             try: 
                 f = open(output,"w")
             except:
-                raise("Couldn't open file %s for writing" % output)
+                raise Exception("Couldn't open file %s for writing" % output)
             f.write(json.dumps(response.json(), indent=2, ensure_ascii=False))
             f.close()
         return response.json()
     
-    def getTimeseries(self, view: str = "whos-plata", monitoringPoint: str = None, observedProperty: str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None):
+    def getTimeseries(self, view: str = default_config["view"], monitoringPoint: str = None, observedProperty: str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None):
         """Retrieves timeseries as a geoJSON document from the timeseries API
 
         Parameters
@@ -139,14 +156,14 @@ class Client:
         try:
             response = requests.get(url, params)
         except:
-            raise("request failed")
+            raise Exception("request failed")
         if(response.status_code >= 400):
-            raise("request failed, status code: %s" % response.status_code)
+            raise Exception("request failed, status code: %s" % response.status_code)
         if output is not None:
             try: 
                 f = open(output,"w")
             except:
-                raise("Couldn't open file %s for writing" % output)
+                raise Exception("Couldn't open file %s for writing" % output)
             f.write(json.dumps(response.json(), indent=2, ensure_ascii=False))
             f.close()
         return response.json()
@@ -194,7 +211,7 @@ class Client:
             try: 
                 f = open(output,"w")
             except:
-                raise("Couldn't open file %s for writing" % output)
+                raise Exception("Couldn't open file %s for writing" % output)
             f.write(data_frame.to_csv(index=False))
             f.close()
         return data_frame
@@ -242,7 +259,7 @@ class Client:
             try: 
                 f = open(output,"w")
             except:
-                raise("Couldn't open file %s for writing" % output)
+                raise Exception("Couldn't open file %s for writing" % output)
             f.write(data_frame.to_csv(index=False))
             f.close()
         return data_frame
@@ -255,7 +272,7 @@ class Client:
         else:
             return duration.total_seconds() / 3600
     
-    def getVariableMapping(self,view="whos-plata",output=None,output_xml=None):
+    def getVariableMapping(self,view=default_config["view"],output=None,output_xml=None):
         """Retrieves variable mapping from WHOS CUAHSI API (waterML 1.1)
         
         Parameters
@@ -279,9 +296,9 @@ class Client:
         try:
             response = requests.get(url, params)
         except:
-            raise("request failed")
+            raise Exception("request failed")
         if(response.status_code >= 400):
-            raise("request failed, status code: %s" % response.status_code)
+            raise Exception("request failed, status code: %s" % response.status_code)
         xml_text = response.text.replace("&lt;","<").replace("&gt;",">")
         exml = etree.fromstring(xml_text.encode())
         namespaces = exml.nsmap
@@ -341,11 +358,12 @@ class Client:
             timeseries["variableName"] = [self.fews_var_map[variableName] if variableName in self.fews_var_map else None for variableName in timeseries["variableName"]]
             timeseries = timeseries[timeseries["variableName"].notnull()]
         if output_dir is not None:
+            output_dir = Path(output_dir)
             variableNames = set(timeseries["variableName"])
             for variableName in variableNames:
                 group = timeseries[timeseries["variableName"]==variableName]
                 del group["variableName"]
-                f = open("%s/%s.csv" % (output_dir, variableName),"w")
+                f = open(output_dir / ("%s.csv" % variableName),"w")
                 f.write(group.to_csv(index=False))
         return timeseries
 
@@ -364,38 +382,256 @@ class Client:
         dict
             dict containing retrieved stations and timeseries in FEWS format
         """
-        stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
-        for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
-            print("getMonitoringPoints offset: %i" % i)
-            output = "%s/monitoringPointsResponse_%i.json" % (output_dir,i) if save_geojson else None
-            monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],output=output)
-            # convert to FEWS stations CSV, output as gauges.csv
-            if "features" not in monitoringPoints:
-                print("no monitoring points found")
-                continue
-            stations_i = self.monitoringPointsToFEWS(monitoringPoints)
-            stations= pandas.concat([stations,stations_i])
-        f = open("%s/gauges.csv" % output_dir,"w")
-        f.write(stations.to_csv(index=False))
-        f.close()
+        output_dir = Path(output_dir)
+        monitoringPoints = self.getMonitoringPointsWithPagination(json = output_dir / "monitoringPoints.json" if save_geojson else None)
+        stations = self.monitoringPointsToFEWS(monitoringPoints, output = output_dir / "gauges.csv")
+        # stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
+        # for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
+        #     print("getMonitoringPoints offset: %i" % i)
+        #     output = "%s/monitoringPointsResponse_%i.json" % (output_dir,i) if save_geojson else None
+        #     monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],output=output)
+        #     # convert to FEWS stations CSV, output as gauges.csv
+        #     if "features" not in monitoringPoints:
+        #         print("no monitoring points found")
+        #         continue
+        #     stations_i = self.monitoringPointsToFEWS(monitoringPoints)
+        #     stations= pandas.concat([stations,stations_i])
+        # f = open("%s/gauges.csv" % output_dir,"w")
+        # f.write(stations.to_csv(index=False))
+        # f.close()
         # get WHOS-Plata variable mapping table
         var_map = self.getVariableMapping()
         # get all WHOS-Plata timeseries metadata (using pagination)
+        timeseries = self.getTimeseriesWithPagination(observedProperty=self.fews_observed_properties, json = output_dir / "timeseries.json" if save_geojson else None)
+        timeseries_fews = self.timeseriesToFEWS(timeseries)
+        # timeseries_fews = pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
+        # for i in range(1,self.config["timeseries_max"],self.config["timeseries_per_page"]):
+        #     print("getTimeseries offset: %i" % i)
+        #     output = "%s/timeseriesResponse_%i.json" % (output_dir,i) if save_geojson else None
+        #     timeseries = self.getTimeseries(offset=i,limit=self.config["timeseries_per_page"],output=output)
+        #     if "features" not in timeseries:
+        #         print("No timeseries found")
+        #         continue
+        #     timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(timeseries)])
+        #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
+        timeseries_fews_grouped = self.groupTimeseriesByVar(timeseries_fews,var_map,output_dir=output_dir,fews=False) # True)
+        return {"stations": stations, "timeseries": timeseries_fews_grouped}
+    
+    def getMonitoringPointsWithPagination(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "") -> dict:
+        output_dir = Path(output_dir)
+        stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
+        features = []
+        for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
+            print("getMonitoringPoints offset: %i" % i)
+            output = output_dir / ("monitoringPointsResponse_%i.json" % i) if save_geojson else None
+            monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output)
+            # convert to FEWS stations CSV, output as gauges.csv
+            if "features" not in monitoringPoints:
+                print("no monitoring points found")
+                break
+            features.extend(monitoringPoints["features"])
+            if fews_output:
+                stations_i = self.monitoringPointsToFEWS(monitoringPoints)
+                stations= pandas.concat([stations,stations_i])
+            if len(monitoringPoints["features"]) < self.config["monitoring_points_per_page"]:
+                break
+        result = {
+            "type": "featureCollection",
+            "features": features
+        }
+        if json_output:
+            f = open(json_output,"w")
+            f.write(json.dumps(result, indent=2, ensure_ascii=False))
+            f.close()
+        if fews_output:
+            f = open(fews_output,"w")
+            f.write(stations.to_csv())
+            f.close()
+            return stations
+        else:
+            return result
+
+    def getTimeseriesMulti(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None):
+        if monitoringPoint is not None:
+            if type(monitoringPoint) == str:
+                monitoringPoint = [monitoringPoint]
+        else:
+            monitoringPoint = []
+        if observedProperty is not None:
+            if type(observedProperty) == str:
+                observedProperty = [observedProperty]
+        else:
+            observedProperty = []
+        if len(monitoringPoint) == 0:
+            if len(observedProperty) == 0:
+                return self.getTimeseries( view = view, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output)
+            else:
+                features = []
+                for op in observedProperty:
+                    print("observedProperty: %s" % op)
+                    timeseries = self.getTimeseries(view, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output)
+                    if "features" in timeseries:
+                        features.extend(timeseries["features"])
+                return {
+                    "type": "featureCollection",
+                    "features": features
+                }
+        else:
+            features = []
+            for mp in monitoringPoint:
+                print("monitoringPoint: %s" % mp)
+                if len(observedProperty) == 0:
+                    timeseries = self.getTimeseries( view = view, monitoringPoint = mp, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output)
+                    if "features" in timeseries:
+                        features.extend(timeseries["features"])
+                else:
+                    for op in observedProperty:
+                        print("observedProperty: %s" % op)
+                        timeseries = self.getTimeseries(view, monitoringPoint = mp, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output)
+                        if "features" in timeseries:
+                            features.extend(timeseries["features"])
+            return {
+                "type": "featureCollection",
+                "features": features
+            }
+
+    def getTimeseriesWithPagination(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "", grouped : bool = False) -> dict:
+        output_dir = Path(output_dir)
+        features = []
+        var_map = self.getVariableMapping()
         timeseries_fews = pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
         for i in range(1,self.config["timeseries_max"],self.config["timeseries_per_page"]):
-            print("getTimeseries offset: %i" % i)
-            output = "%s/timeseriesResponse_%i.json" % (output_dir,i) if save_geojson else None
-            timeseries = self.getTimeseries(offset=i,limit=self.config["timeseries_per_page"],output=output)
+            print("getTimeseriesMulti, offset: %i" % i)
+            output = output_dir / ("timeseriesResponse_%i.json" % i) if save_geojson else None
+            timeseries = self.getTimeseriesMulti(offset=i,monitoringPoint=monitoringPoint,observedProperty=observedProperty,beginPosition=beginPosition,endPosition=endPosition,limit=self.config["timeseries_per_page"],output=output)
             if "features" not in timeseries:
                 print("No timeseries found")
-                continue
+                break
             timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(timeseries)])
+            features.extend(timeseries["features"])
+            if len(timeseries["features"]) < self.config["timeseries_per_page"]:
+                break
         #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
-        timeseries_fews_grouped = self.groupTimeseriesByVar(timeseries_fews,var_map,output_dir=output_dir,fews=True)
-        return {"stations": stations, "timeseries": timeseries_fews_grouped}
+        result = {
+            "type": "featureCollection",
+            "features": features
+        }
+        if json_output:
+            f = open(json_output,"w")
+            f.write(json.dumps(result, indent=2, ensure_ascii=False))
+            f.close()
+        if fews_output:
+            if grouped:
+                timeseries_fews_grouped = self.groupTimeseriesByVar(timeseries_fews,var_map,output_dir=output_dir) # ,fews=True)
+                f = open(fews_output,"w")
+                f.write(timeseries_fews_grouped.to_csv())
+                f.close()
+                return timeseries_fews_grouped
+            else:
+                f = open(fews_output,"w")
+                f.write(timeseries_fews.to_csv())
+                f.close()
+                return timeseries_fews
+        else:
+            return result
+    
+    def getOrganization(self,timeseries : dict,stations_fews : pandas.DataFrame = None) -> pandas.DataFrame:
+        '''Reads organisationName from timeseries object. If stations_fews provided, updates ORGANIZATION column. Returns DataFrame with columns STATION_ID,organisationName'''
+
+        station_organization = []
+        for f in timeseries["features"]:
+            if "relatedParties" in f["properties"]["timeseries"]["featureOfInterest"]:
+                if len(f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"]):
+                    if "organisationName" in f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"][0]:
+                        station_organization.append({
+                            "STATION_ID": f["properties"]["timeseries"]["featureOfInterest"]["sampledFeature"]["href"],
+                            "organisationName": f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"][0]["organisationName"]
+                        })
+        station_organization = pandas.DataFrame(station_organization).drop_duplicates(ignore_index=True)
+        if stations_fews is not None:
+            merged = stations_fews.merge(station_organization,how='left', on='STATION_ID')
+            stations_fews["ORGANIZATION"] = merged["organisationName"]
+            del merged
+        return station_organization
 
 if __name__ == "__main__":
-    # make FEWS tables for WHOS-Plata (all stations and variables). Save into FEWS_MD folder
     client = Client()
-    client.makeFewsTables(output_dir="results")
+    import argparse
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument('action',help="Action to perform. Accepts: 'monitoringPoints', 'timeseries', 'all'", type=str)
+    argparser.add_argument("-u","--url", help = "base url of WHOS server. Defaults to %s" % Client.default_config["url"],type=str)
+    argparser.add_argument("-t","--token", help = "user token for WHOS server. Defaults to %s" % Client.default_config["token"],type=str)
+    argparser.add_argument("-m","--monitoring_points_max", help = "Maximum index number of monitoring points request. Defaults to %s" % Client.default_config["monitoring_points_max"],type=int)
+    argparser.add_argument("-i","--timeseries_max", help = "Maximum index number of timeseries request. Defaults to %s" % Client.default_config["timeseries_max"],type=int)
+    argparser.add_argument("-M","--monitoring_points_per_page", help = "For pagination, number of items for each monitoring points request. Defaults to %s" % Client.default_config["monitoring_points_per_page"],type=int)
+    argparser.add_argument("-T","--timeseries_per_page", help = "For pagination, number of items for each timeseries request. Defaults to %s" % Client.default_config["timeseries_per_page"],type=int)
+    argparser.add_argument("-v","--view",help = "WHOS view. Defaults to %s" % Client.default_config["view"],type=str)
+    argparser.add_argument("-b","--bbox",help = "Geographical bounds in decimal degrees (W S E N) for monitoring points request. Default none",nargs=4,type=float)
+    argparser.add_argument("-f","--offset",help = "Start position of matched records",type=int)
+    argparser.add_argument("-l","--limit",help = "Maximum number of matched records",type=int)
+    argparser.add_argument("-p","--monitoringPoint",help="Identifier of the monitoring point for timeseries request. Default none",type=str,nargs="+")
+    argparser.add_argument("-o","--observedProperty",help="Identifier of the observed property  for timeseries request. Default none",type=str,nargs="+")
+    argparser.add_argument("-B","--beginPosition",help="Temporal interval begin position for timeseries request. Default none",type=str)
+    argparser.add_argument("-E","--endPosition",help="Temporal interval end position for timeseries request. Default none",type=str)
+    argparser.add_argument('-j','--json', help = "write output in json format to this file",type=str)
+    argparser.add_argument('-F','--fews', help = 'write output in FEWS csv format to this file',type=str)
+    argparser.add_argument('-O','--output_dir',help = 'output directory for fews csv', type=str)
+    args = argparser.parse_args()
+    config = {}
+    for key in ["url","token","monitoring_points_max","monitoring_points_per_page","timeseries_max","timeseries_per_page","view"]:
+        if key in vars(args) and vars(args)[key] is not None:
+            config[key] = vars(args)[key]
+    client = Client(config)
+    if args.action.lower() == "monitoringpoints":
+        # GET MONITORING POINTS
+        mp_args = {}
+        if args.view:
+            mp_args["view"] = args.view
+        if args.bbox:
+            mp_args["west"] = args.bbox[0]
+            mp_args["south"] = args.bbox[1]
+            mp_args["east"] = args.bbox[2]
+            mp_args["north"] = args.bbox[3]
+        if args.offset:
+            mp_args["offset"] = args.offset
+        if args.limit:
+            mp_args["limit"] = args.limit
+        if args.json:
+            mp_args["json_output"] = args.json
+        if args.fews:
+            mp_args["fews_output"] = args.fews
+        if "json_output" not in mp_args and "fews_output" not in mp_args:
+            raise Exception("Missing arguments: at least one of json fews must be defined")
+        client.getMonitoringPointsWithPagination(**mp_args)
+    elif args.action.lower() == "timeseries":
+        ts_args = {}
+        if args.view:
+            ts_args["view"] = args.view
+        if args.monitoringPoint:
+            ts_args["monitoringPoint"] = args.monitoringPoint
+        if args.observedProperty:
+            ts_args["observedProperty"] = args.observedProperty
+        if args.beginPosition:
+            ts_args["beginPosition"] = args.beginPosition
+        if args.endPosition:
+            ts_args["endPosition"] = args.endPosition
+        if args.offset:
+            ts_args["offset"] = args.offset
+        if args.limit:
+            ts_args["limit"] = args.limit
+        if args.json:
+            ts_args["json_output"] = args.json
+        if args.fews:
+            ts_args["fews_output"] = args.fews
+        if "json_output" not in ts_args and "fews_output" not in ts_args:
+            raise Exception("Missing arguments: at least one of json fews must be defined")
+        client.getTimeseriesWithPagination(**ts_args)
+    elif args.action.lower() == "all":
+        all_args = {}
+        if args.output_dir:
+            all_args["output_dir"] = args.output_dir
+        # make FEWS tables for WHOS-Plata (all stations and variables). Save into specified folder
+        client.makeFewsTables(**all_args)
+    else:
+        raise Exception("Invalid action. Choose one of 'monitoringPoints', 'timeseries', 'all'")
 

@@ -42,3 +42,56 @@ timeseries = client.getTimeseries(monitoringPoint=site_code, observedProperty=va
 # create FEWS tables for WHOS-Plata (all stations and variables).
 metadata_for_fews = client.makeFewsTables(output_dir="results")
 
+# timeseries filtered by array of monitoringPoints
+ts = client.getTimeseriesMulti(monitoringPoint=["FFF27D6286244D98FA3C13DCA589F70C225C41BD","FEB977ECB3A3623027BACC3A609126DBBE8418E0"])
+# timeseries filtered by array of monitoringPoints with pagination
+ts = client.getTimeseriesWithPagination(monitoringPoint=["FFF27D6286244D98FA3C13DCA589F70C225C41BD","FEB977ECB3A3623027BACC3A609126DBBE8418E0"])
+# timeseries filtered by array of monitoringPoints with pagination, save csv fews format
+ts = client.getTimeseriesWithPagination(monitoringPoint=["FFF27D6286244D98FA3C13DCA589F70C225C41BD","FEB977ECB3A3623027BACC3A609126DBBE8418E0"], fews="results/stations.csv")
+# timeseries filtered by array of observedProperties with pagination
+ts = client.getTimeseriesWithPagination(observedProperty=['B838A449A5FBC64CBB8A204A5CD614519EB0844A', '4E47D870E717581F520F6C4EBE8E23962A880107']) 
+ts = client.getTimeseriesWithPagination(observedProperty=["02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F",
+"AF6C35E61AC362E0151B6458DADCB032043B67EA",
+"D2DB8BC2930F82D1E5EFA6B529F0262EB0FFE994",
+"5C34E7D199E2643B1AA949D920942C576A406AB4",
+"80B052462E277E0F7D3002CA6C67E481CD953CDC",
+"AEAF735EBFC73611C8A50B6D0319BD4258B45918",
+"54DF3A7E4C8ED47459CDC1E3C81DED8A48797642",
+"4E47D870E717581F520F6C4EBE8E23962A880107",
+"B838A449A5FBC64CBB8A204A5CD614519EB0844A",
+"CEE1F03F85E1231A57C7E756527ED41B9C43820B",
+"F7B4831EA151DB33AA187F9C4248506E0CE6690C",
+"E02E2A436A24C1DB98D819A4705B8089856A9579",
+"4E47D870E717581F520F6C4EBE8E23962A880107",
+"472D1E733D426DC0A514D0BD6A2AAA7541CCEC3A"])
+len(ts["features"])
+observedProperties = set([f["properties"]["timeseries"]["observedProperty"]["href"] for f in ts["features"]])
+len(list(observedProperties))
+monitoringPoints = set([f["properties"]["timeseries"]["featureOfInterest"]["sampledFeature"]["href"] for f in ts["features"]])
+len(list(monitoringPoints))
+ts_df = client.timeseriesToFEWS(ts)
+# get all stations with pagination
+stations = client.getMonitoringPointsWithPagination(json_output="results/stations_all.json")
+stations_fews = client.monitoringPointsToFEWS(stations,output="results/stations_all.csv")
+# get all timeseries with pagination
+timeseries = client.getTimeseriesWithPagination(json_output="results/timeseries_all.json")
+# extract organisationNames from timeseries
+station_organization = client.getOrganization(timeseries)
+set(station_organization["organisationName"])
+merged = stations_fews.merge(station_organization,how='left', on='STATION_ID')
+merged["ORGANIZATION"] = merged["ORGANIZATION_y"]
+# read timeseries from file
+f = open("results/timeseries_all.json","r")
+import json
+timeseries = json.load(f)
+f.close()
+len(timeseries["features"])
+# read stations fews from file
+import pandas
+stations_fews = pandas.read_csv("results/gauges.csv")
+# get organization
+station_organization = client.getOrganization(timeseries,stations_fews)
+stations_fews["ORGANIZATION"]
+f = open("results/stations_all_org.csv","w")
+f.write(stations_fews.to_csv(index=False))
+f.close()
