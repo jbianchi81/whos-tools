@@ -7,6 +7,8 @@ from lxml import etree
 from warnings import warn
 from typing import Union
 from pathlib import Path
+from geopandas import read_file as gpd_read_file
+from shapely.geometry import Point
 
 class Client:
     """Functions for metadata retrieval from WHOS using timeseries API
@@ -37,7 +39,8 @@ class Client:
         "monitoring_points_per_page": 1000,
         "timeseries_max": 48000,
         "timeseries_per_page": 1000,
-        "view": "whos-plata"
+        "view": "whos-plata",
+        "basins_geojson_file": "cuencas/cuencas.geojson"
     }
     
     fews_var_map = {
@@ -68,11 +71,12 @@ class Client:
         config : dict
             Configuration parameters: url, token, monitoring_points_max, monitoring_points_per_page, timeseries_max, timeseries_per_page 
         """
-
+        
         self.config = self.default_config
         if config is not None:
             for key in config:
                 self.config[key] = config[key]
+        self.basins = gpd_read_file(self.config["basins_geojson_file"])
     
     def getMonitoringPoints(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None) -> dict:
         """Retrieves monitoring points as a geoJSON document from the timeseries API
@@ -217,8 +221,14 @@ class Client:
         return data_frame
     
     def getSubBasin(self,coordinates):
-        # TODO
-        return None
+        # def get_region(lon,lat,getNotation=False):
+        st0 = Point(coordinates[0],coordinates[1])
+        subbasin = None
+        for i in range(0,len(self.basins.geometry)):
+            if st0.within(self.basins.geometry[i]):
+                # print("is within subbasin %s" % self.basins.nombre_2[i])
+                subbasin = self.basins.nombre_2[i]
+        return subbasin
     
     def timeseriesToFEWS(self,timeseries : Union[str,dict], output=None):
         """Converts timeseries geoJSON to FEWS table
@@ -383,39 +393,24 @@ class Client:
             dict containing retrieved stations and timeseries in FEWS format
         """
         output_dir = Path(output_dir)
-        monitoringPoints = self.getMonitoringPointsWithPagination(json = output_dir / "monitoringPoints.json" if save_geojson else None)
-        stations = self.monitoringPointsToFEWS(monitoringPoints, output = output_dir / "gauges.csv")
-        # stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
-        # for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
-        #     print("getMonitoringPoints offset: %i" % i)
-        #     output = "%s/monitoringPointsResponse_%i.json" % (output_dir,i) if save_geojson else None
-        #     monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],output=output)
-        #     # convert to FEWS stations CSV, output as gauges.csv
-        #     if "features" not in monitoringPoints:
-        #         print("no monitoring points found")
-        #         continue
-        #     stations_i = self.monitoringPointsToFEWS(monitoringPoints)
-        #     stations= pandas.concat([stations,stations_i])
-        # f = open("%s/gauges.csv" % output_dir,"w")
-        # f.write(stations.to_csv(index=False))
-        # f.close()
+        monitoringPoints = self.getMonitoringPointsWithPagination(json_output = output_dir / "monitoringPoints.json" if save_geojson else None)
+        stations_fews = self.monitoringPointsToFEWS(monitoringPoints)
         # get WHOS-Plata variable mapping table
         var_map = self.getVariableMapping()
         # get all WHOS-Plata timeseries metadata (using pagination)
-        timeseries = self.getTimeseriesWithPagination(observedProperty=self.fews_observed_properties, json = output_dir / "timeseries.json" if save_geojson else None)
+        timeseries = self.getTimeseriesWithPagination(observedProperty=self.fews_observed_properties, json_output = output_dir / "timeseries.json" if save_geojson else None)
         timeseries_fews = self.timeseriesToFEWS(timeseries)
-        # timeseries_fews = pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
-        # for i in range(1,self.config["timeseries_max"],self.config["timeseries_per_page"]):
-        #     print("getTimeseries offset: %i" % i)
-        #     output = "%s/timeseriesResponse_%i.json" % (output_dir,i) if save_geojson else None
-        #     timeseries = self.getTimeseries(offset=i,limit=self.config["timeseries_per_page"],output=output)
-        #     if "features" not in timeseries:
-        #         print("No timeseries found")
-        #         continue
-        #     timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(timeseries)])
+        # filter out stations with no timeseries
+        stations_fews = self.deleteStationsWithNoTimeseries(stations_fews,timeseries_fews)
+        # get organization name from timeseries metadata
+        station_organization = self.getOrganization(timeseries,stations_fews)
+        # save stations to csv
+        f = open(output_dir / "gauges.csv","w")
+        f.write(stations_fews.to_csv())
+        f.close()
         #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
         timeseries_fews_grouped = self.groupTimeseriesByVar(timeseries_fews,var_map,output_dir=output_dir,fews=False) # True)
-        return {"stations": stations, "timeseries": timeseries_fews_grouped}
+        return {"stations": stations_fews, "timeseries": timeseries_fews_grouped}
     
     def getMonitoringPointsWithPagination(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "") -> dict:
         output_dir = Path(output_dir)
@@ -535,24 +530,37 @@ class Client:
         else:
             return result
     
-    def getOrganization(self,timeseries : dict,stations_fews : pandas.DataFrame = None) -> pandas.DataFrame:
+    def getOrganization(self,timeseries : dict,stations_fews : pandas.DataFrame = None) -> pandas.DataFrame:  # , delete_none = False
         '''Reads organisationName from timeseries object. If stations_fews provided, updates ORGANIZATION column. Returns DataFrame with columns STATION_ID,organisationName'''
 
         station_organization = []
+        # missing_organization = []
         for f in timeseries["features"]:
-            if "relatedParties" in f["properties"]["timeseries"]["featureOfInterest"]:
-                if len(f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"]):
-                    if "organisationName" in f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"][0]:
-                        station_organization.append({
-                            "STATION_ID": f["properties"]["timeseries"]["featureOfInterest"]["sampledFeature"]["href"],
-                            "organisationName": f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"][0]["organisationName"]
-                        })
+            if "relatedParties" in f["properties"]["timeseries"]["featureOfInterest"] and len(f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"]) and "organisationName" in f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"][0]:
+                station_organization.append({
+                    "STATION_ID": f["properties"]["timeseries"]["featureOfInterest"]["sampledFeature"]["href"],
+                    "organisationName": f["properties"]["timeseries"]["featureOfInterest"]["relatedParties"][0]["organisationName"]
+                })
+            # else:
+                # missing_organization.append({
+                #     "STATION_ID": f["properties"]["timeseries"]["featureOfInterest"]["sampledFeature"]["href"],
+                #     "PARAMETER_ID": f["properties"]["timeseries"]["observedProperty"]["href"]
+                # })
         station_organization = pandas.DataFrame(station_organization).drop_duplicates(ignore_index=True)
+        # missing_organization = pandas.DataFrame(missing_organization)
         if stations_fews is not None:
             merged = stations_fews.merge(station_organization,how='left', on='STATION_ID')
-            stations_fews["ORGANIZATION"] = merged["organisationName"]
+            stations_fews["ORGANIZATION"] = merged["organisationName"].combine_first(merged["ORGANIZATION"]) # merged["organisationName"]
             del merged
+            # if delete_none:
+            #     stations_fews.drop(stations_fews[stations_fews["ORGANIZATION"].isnull()].index)
         return station_organization
+    
+    def deleteStationsWithNoTimeseries(self,stations_fews,timeseries_fews):
+        ts_st = timeseries_fews[["STATION_ID"]].drop_duplicates(ignore_index=True)
+        stations_fews = stations_fews.merge(ts_st,how='inner',on="STATION_ID")
+        return stations_fews
+
 
 if __name__ == "__main__":
     client = Client()

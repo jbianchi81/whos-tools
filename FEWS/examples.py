@@ -20,13 +20,13 @@ var_map = client.getVariableMapping(output="results/var_map.csv",output_xml="res
 
 #get timeseries metadata
 timeseries = client.getTimeseries(limit=1000,output="results/timeseries.json")
-ts_df = client.timeseriesToFEWS(timeseries,output="results/timeseries.csv")
+timeseries_fews = client.timeseriesToFEWS(timeseries,output="results/timeseries.csv")
 
 #group timeseries by variableName
-ts_grouped_df = client.groupTimeseriesByVar(ts_df,var_map,output_dir="results")
+ts_grouped_df = client.groupTimeseriesByVar(timeseries_fews,var_map,output_dir="results")
 
 #group timeseries by variableName using FEWS variable names 
-ts_fews = client.groupTimeseriesByVar(ts_df,var_map,output_dir="results",fews=True)
+ts_fews = client.groupTimeseriesByVar(timeseries_fews,var_map,output_dir="results",fews=True)
 
 # get timeseries metadata of selected monitoring point
 site_code = "6640DE74329FFE939F71D366F7662275BFD62E5F"
@@ -95,3 +95,8 @@ stations_fews["ORGANIZATION"]
 f = open("results/stations_all_org.csv","w")
 f.write(stations_fews.to_csv(index=False))
 f.close()
+# get subbasin
+subbasin = client.getSubBasin([-58,-35])
+# get stations with bounding box and pagination 
+stations = client.getMonitoringPointsWithPagination(east=-57,west=-60,north=-32,south=-33)
+stations_fews = client.monitoringPointsToFEWS(stations)
