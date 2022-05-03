@@ -23,7 +23,12 @@ To download and convert all stations and time series metadata from WHOS-Plata, c
 
 Or directly from the command line:
 ```
-    python whos_client.py
+    # get stations by bounding box
+    python whos_client.py monitoringPoints --bbox -60 -35 -55 -30 --json results/mp.json --fews results/mp.csv
+    #get all stations
+    python whos_client.py monitoringPoints --json results/mp.json --fews results/mp.csv
+    # get timeseries by station ID 
+    python whos_client.py timeseries --monitoringPoint 0009BBB009E7F4067B498FC0073C2AA63D064D27 --json results/ts.json --fews results/ts.csv
 ```
 
 ## Contact
