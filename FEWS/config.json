@@ -1,0 +1,8 @@
+{
+    "api": {
+        "username":"usernane",
+        "password":"password",
+        "url":"https://alerta.ina.gob.ar/a5",
+        "token": "your_token_here"
+    }
+}
