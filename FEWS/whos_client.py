@@ -109,6 +109,7 @@ class Client:
         params = locals()
         del params["view"]
         del params["output"]
+        params["outputProperties"] = "country,monitoringPointOriginalIdentifier"
         url = "%s/gs-service/services/essi/token/%s/view/%s/timeseries-api/monitoring-points" % (self.config["url"], self.config["token"], view)
         try:
             response = requests.get(url, params)
@@ -207,7 +208,8 @@ class Client:
                 "ALTITUDE": item["geometry"]["coordinates"][2] if len(item["geometry"]["coordinates"]) > 2 else None,
                 "COUNTRY": monitoring_point_parameters["country"] if "country" in monitoring_point_parameters.keys() else None,
                 "ORGANIZATION": "WHOS",
-                "SUBBASIN": self.getSubBasin(item["geometry"]["coordinates"])
+                "SUBBASIN": self.getSubBasin(item["geometry"]["coordinates"]),
+                "ORIGINAL_STATION_ID" : monitoring_point_parameters["identifier"] if "identifier" in monitoring_point_parameters.keys() else None
             }
             rows.append(row)
         data_frame = pandas.DataFrame(rows)
