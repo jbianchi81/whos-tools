@@ -9,7 +9,8 @@ class Client:
     default_config = {
         "url":"https://alerta.ina.gob.ar/a5",
         "authenticate": False,
-        "token": ""
+        "token": "",
+        "timeout": 120
     }
     
     last_result = None
@@ -40,8 +41,8 @@ class Client:
             f.write(json.dumps(self.last_result, ensure_ascii=False, indent=2))
         f.close()
     
-    def getSeries(self,tipo : str="puntual",id : Union[int,list]=None,area_id : Union[int,list]=None,estacion_id : Union[int,list]=None,escena_id : Union[int,list]=None,var_id : Union[int,list]=None,proc_id : Union[int,list]=None,unit_id : Union[int,list]=None,fuentes_id : Union[int,list]=None,tabla : Union[str,list]=None,id_externo : Union[str,list]=None,geom : str=None,include_geom : bool=None,no_metadata : bool=None, as_DataFrame : bool=False):
-        params = {"id": id,"area_id": area_id,"estacion_id": estacion_id,"escena_id": escena_id,"var_id": var_id,"proc_id": proc_id,"unit_id": unit_id,"fuentes_id": fuentes_id,"tabla": tabla,"id_externo": id_externo,"geom": geom,"include_geom": include_geom,"no_metadata": no_metadata}
+    def getSeries(self,tipo : str="puntual",id : Union[int,list]=None,area_id : Union[int,list]=None,estacion_id : Union[int,list]=None,escena_id : Union[int,list]=None,var_id : Union[int,list]=None,proc_id : Union[int,list]=None,unit_id : Union[int,list]=None,fuentes_id : Union[int,list]=None,tabla : Union[str,list]=None,id_externo : Union[str,list]=None,geom : str=None,include_geom : bool=None,no_metadata : bool=None, as_DataFrame : bool=False, getStats: bool=False, getMonthlyStats: bool=False, date_range_after: str=None):
+        params = {"id": id,"area_id": area_id,"estacion_id": estacion_id,"escena_id": escena_id,"var_id": var_id,"proc_id": proc_id,"unit_id": unit_id,"fuentes_id": fuentes_id,"tabla": tabla,"id_externo": id_externo,"geom": geom,"include_geom": include_geom,"no_metadata": no_metadata, "getStats": getStats, "getMonthlyStats": getMonthlyStats, "date_range_after": date_range_after}
         for param in ["id","area_id","estacion_id","escena_id","var_id","proc_id","unit_id","fuentes_id","tabla","id_externo"]:
             if isinstance(params[param],list):
                 # print("%s: %s" % (param,str(params[param])))
@@ -53,7 +54,8 @@ class Client:
         response = requests.get(
             "%s/obs/%s/series" % (self.config["url"], tipo),
             params = params,
-            headers = headers
+            headers = headers,
+            timeout = self.config["timeout"]
         )
         # print("status_code: %s" % response.status_code)
         # print("url: %s" % response.url)
@@ -91,7 +93,8 @@ class Client:
                 'timestart': timestart,
                 'timeend': timeend
             },
-            headers=headers
+            headers=headers,
+            timeout = self.config["timeout"]
         )
         if response.status_code > 299:
             raise Exception(response.text)
@@ -121,7 +124,8 @@ class Client:
         response = requests.get(
             "%s/obs/variables" % self.config["url"],
             params = params,
-            headers = headers
+            headers = headers,
+            timeout = self.config["timeout"]
         )
         print("status_code: %s" % response.status_code)
         if response.status_code > 299:
@@ -144,7 +148,8 @@ class Client:
         response = requests.get(
             "%s/obs/puntual/estaciones" % (self.config["url"]),
             params = params,
-            headers = headers
+            headers = headers,
+            timeout = self.config["timeout"]
         )
         print("status_code: %s" % response.status_code)
         if response.status_code > 299:
@@ -160,7 +165,31 @@ class Client:
             estaciones = json_response
         self.last_result = estaciones
         return estaciones
-
+    
+    def getEstadisticosMensuales(self,series_id : int, as_DataFrame=False):
+        # https://alerta.ina.gob.ar/a5/obs/puntual/series/19/estadisticosMensuales?format=json
+        params = {"format" :"json"}
+        headers = {}
+        if self.config["authenticate"]:
+            headers["Authorization"] = "Bearer %s" % self.config["token"]
+        response = requests.get(
+            "%s/obs/puntual/series/%i/estadisticosMensuales" % (self.config["url"],series_id),
+            params = params,
+            headers = headers,
+            timeout = self.config["timeout"]
+        )
+        print("status_code: %s" % response.status_code)
+        if response.status_code > 299:
+            raise Exception(response.text)
+        json_response = response.json()
+        if as_DataFrame:
+            # columns = json_response["varNames"]
+            if not len(json_response["values"]):
+                print("No quantiles found for the specified series")
+                return
+            return pd.DataFrame(json_response["values"])
+        else:
+            return json_response["values"]
 
 if __name__ == "__main__":
     pass

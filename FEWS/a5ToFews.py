@@ -127,6 +127,14 @@ def seriesToFews(series : Union[str,list], output=None):
             "THRESHOLD_FLOOD_ALERT": item["estacion"]["nivel_alerta"] if item["var"]["VariableName"] == "Gage height" else None,
             "THRESHOLD_EVACUATION": item["estacion"]["nivel_evacuacion"] if item["var"]["VariableName"] == "Gage height" else None
         }
+        if "monthlyStats" in item:
+            months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
+            quantiles = ["mean","p01","p10","p50","p90","p99"]
+            for i in item["monthlyStats"]:
+                mon = i["mon"]
+                for q in quantiles:
+                    t_name = "THRESHOLD_%s_%s" % (months[mon], q)
+                    row[t_name] = i[q]
         rows.append(row)
     data_frame = pandas.DataFrame(rows).sort_values(["STATION_ID","EXTERNAL_PARAMETER_ID"])
     if output is not None:
@@ -140,6 +148,7 @@ def seriesToFews(series : Union[str,list], output=None):
 
 
 if __name__ == "__main__":
+    import datetime
     from a5_client import Client
     a5_client = Client()
     estaciones = a5_client.getEstaciones(has_obs=True, pais="Argentina", habilitar=True)
@@ -150,19 +159,22 @@ if __name__ == "__main__":
     estacion_ids = [id for id in estaciones_fews["STATION_ID"]]
     series = []
     i = 0
-    by = 10
+    by = 40
     while i < len(estacion_ids):
-        series_part = a5_client.getSeries(proc_id=[1,2],var_id=[1,2,4,39,40],estacion_id=estacion_ids[i:i+by])
+        print(datetime.datetime.now())
+        date_range_after = datetime.datetime.now() - datetime.timedelta(days=180)
+        print("downloading series for stations %i to %i" % (i, i+by))
+        series_part = a5_client.getSeries(proc_id=[1,2],var_id=[1,2,4,39,40],estacion_id=estacion_ids[i:i+by],date_range_after=date_range_after.isoformat(),getMonthlyStats=True)
         series.extend(series_part)
         i = i + by
     #len(series)
     #set([s["procedimiento"]["id"] for s in series])
     #set([s["estacion"]["id"] for s in series])
     # FILTER OUT by timeend
-    from datetime import datetime, timedelta
-    how_old_days = 180
-    series_filter = filter(lambda serie: serie["date_range"]["timeend"] is not None and datetime.fromisoformat(serie["date_range"]["timeend"].replace("Z","")) > datetime.now() - timedelta(days=how_old_days),series)
-    series = list(series_filter)
+    # from datetime import datetime, timedelta
+    # how_old_days = 180
+    # series_filter = filter(lambda serie: serie["date_range"]["timeend"] is not None and datetime.fromisoformat(serie["date_range"]["timeend"].replace("Z","")) > datetime.now() - timedelta(days=how_old_days),series)
+    # series = list(series_filter)
     series_fews = seriesToFews(series,output="results/series_fews.csv")
     # VARIABLES
     variables = a5_client.getVariables(id=[1,2,4,39,40],as_DataFrame=True)
