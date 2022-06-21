@@ -172,6 +172,12 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description='Metadata files generation for a5 service in FEWS required format')
+    parser.add_argument('--monthly_stats', action='store_true',
+        help='add monthly percentiles')
+    args = parser.parse_args()
+
     import datetime
     from a5_client import Client
     a5_client = Client()
@@ -199,7 +205,7 @@ if __name__ == "__main__":
     # how_old_days = 180
     # series_filter = filter(lambda serie: serie["date_range"]["timeend"] is not None and datetime.fromisoformat(serie["date_range"]["timeend"].replace("Z","")) > datetime.now() - timedelta(days=how_old_days),series)
     # series = list(series_filter)
-    series_fews = seriesToFews(series,output="results/series_fews.csv",stations=estaciones_fews)
+    series_fews = seriesToFews(series,output="results/series_fews.csv",stations=estaciones_fews,monthly_stats=args.monthly_stats)
     # VARIABLES
     variables = a5_client.getVariables(id=[1,2,4,39,40],as_DataFrame=True)
     a5_client.writeLastResult("results/variables.csv")
@@ -212,7 +218,7 @@ if __name__ == "__main__":
         series_filter_by_var_id = filter(lambda serie: serie["var"]["id"] == variables["id"][i],series)
         series_subset = list(series_filter_by_var_id)
         filename = series_file_map[variables["id"][i]] if variables["id"][i] in series_file_map else "results/INA_%s.csv" % variables["nombre"][i]
-        series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews)
+        series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews,monthly_stats=args.monthly_stats)
     
 
 
