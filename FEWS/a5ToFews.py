@@ -92,7 +92,7 @@ def getSubBasin(coordinates):
             subbasin = basins.nombre_2[i]
     return subbasin
 
-def seriesToFews(series : Union[str,list], output=None):
+def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stations=None):
     """Converts a5 series list to FEWS table
     
     Parameters
@@ -103,6 +103,9 @@ def seriesToFews(series : Union[str,list], output=None):
         If dict: a5_client.getSeries return value  
     output: string
         Write CSV output into this file
+    stations: DataFrame
+        result of stationsToFews
+        if not None adds station metadata to series
     
     Returns
     -------
@@ -110,6 +113,9 @@ def seriesToFews(series : Union[str,list], output=None):
         A data frame of the time series in FEWS format
     """
     
+    if stations is not None:
+        if stations.index.name != 'STATION_ID':
+            stations = stations.set_index("STATION_ID")
     # timeseries: str => path to timeseries geojson file or dict => same already parsed into dict 
     if isinstance(series,str):
         with open(series,"r") as f: 
@@ -123,18 +129,36 @@ def seriesToFews(series : Union[str,list], output=None):
             "TIMESTEP_HOUR": interval2epoch(item["var"]["timeSupport"]) / 3600 if item["var"]["timeSupport"] is not None and len(item["var"]["timeSupport"].keys()) else None,
             "UNIT": item["unidades"]["abrev"],
             "IMPORT_SOURCE": "INA",
-            "THRESHOLD_LOW_WATERS": item["estacion"]["nivel_aguas_bajas"] if item["var"]["VariableName"] == "Gage height" else None,
-            "THRESHOLD_FLOOD_ALERT": item["estacion"]["nivel_alerta"] if item["var"]["VariableName"] == "Gage height" else None,
-            "THRESHOLD_EVACUATION": item["estacion"]["nivel_evacuacion"] if item["var"]["VariableName"] == "Gage height" else None
+            "THRESHOLD_LOW": item["estacion"]["nivel_aguas_bajas"] if item["var"]["VariableName"] == "Gage height" else None,
+            "THRESHOLD_YELLOW": item["estacion"]["nivel_alerta"] if item["var"]["VariableName"] == "Gage height" else None,
+            "THRESHOLD_RED": item["estacion"]["nivel_evacuacion"] if item["var"]["VariableName"] == "Gage height" else None,
+            "IMPORT": True
         }
         if "monthlyStats" in item:
             months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
             quantiles = ["mean","p01","p10","p50","p90","p99"]
+            sums = {"mean":0,"p01":0,"p10":0,"p50":0,"p90":0,"p99":0}
+            counts = {"mean":0,"p01":0,"p10":0,"p50":0,"p90":0,"p99":0}
             for i in item["monthlyStats"]:
                 mon = i["mon"]
                 for q in quantiles:
-                    t_name = "THRESHOLD_%s_%s" % (months[mon], q)
-                    row[t_name] = i[q]
+                    if monthly_stats:
+                        t_name = "THRESHOLD_%s_%s" % (months[mon], q)
+                        row[t_name] = i[q]
+                    sums[q] = sums[q] + i[q]
+                    counts[q] = counts[q] + 1
+            for q in quantiles:
+                if counts[q] > 0:
+                    t_name = "THRESHOLD_%s" % q.upper()
+                    row[t_name] = sums[q] / counts[q]
+        if stations is not None and row["STATION_ID"] in stations.index:
+            row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
+            row["LONGITUDE"] = stations["LONGITUDE"][row["STATION_ID"]]
+            row["ALTITUDE"] = stations["ALTITUDE"][row["STATION_ID"]]
+            # row["TYPE"] = stations["TYPE"][row["STATION_ID"]]
+            row["COUNTRY"] = stations["COUNTRY"][row["STATION_ID"]]
+            row["ORGANIZATION"] = stations["ORGANIZATION"][row["STATION_ID"]]
+            row["SUBBASIN"] = stations["SUBBASIN"][row["STATION_ID"]]
         rows.append(row)
     data_frame = pandas.DataFrame(rows).sort_values(["STATION_ID","EXTERNAL_PARAMETER_ID"])
     if output is not None:
@@ -154,7 +178,7 @@ if __name__ == "__main__":
     estaciones = a5_client.getEstaciones(has_obs=True, pais="Argentina", habilitar=True)
     # len(estaciones)
     # estaciones_fews = estacionesToFews("results/estaciones.json",output="results/estaciones_fews.csv")
-    estaciones_fews = estacionesToFews(estaciones,output="results/estaciones_fews.csv")
+    estaciones_fews = estacionesToFews(estaciones,output="results/INA_locations.csv")
     # SERIES
     estacion_ids = [id for id in estaciones_fews["STATION_ID"]]
     series = []
@@ -175,16 +199,20 @@ if __name__ == "__main__":
     # how_old_days = 180
     # series_filter = filter(lambda serie: serie["date_range"]["timeend"] is not None and datetime.fromisoformat(serie["date_range"]["timeend"].replace("Z","")) > datetime.now() - timedelta(days=how_old_days),series)
     # series = list(series_filter)
-    series_fews = seriesToFews(series,output="results/series_fews.csv")
+    series_fews = seriesToFews(series,output="results/series_fews.csv",stations=estaciones_fews)
     # VARIABLES
     variables = a5_client.getVariables(id=[1,2,4,39,40],as_DataFrame=True)
     a5_client.writeLastResult("results/variables.csv")
     # WRITE SERIES IN SEPARATE FILES
+    series_file_map = {
+        39 : "results/INA_H.csv",
+        40 : "results/INA_Q.csv"
+    }
     for i in variables.index:
         series_filter_by_var_id = filter(lambda serie: serie["var"]["id"] == variables["id"][i],series)
         series_subset = list(series_filter_by_var_id)
-        filename = "results/INA_%s.csv" % variables["nombre"][i]
-        series_subset_fews = seriesToFews(series_subset,output=filename)
+        filename = series_file_map[variables["id"][i]] if variables["id"][i] in series_file_map else "results/INA_%s.csv" % variables["nombre"][i]
+        series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews)
     
 
 
