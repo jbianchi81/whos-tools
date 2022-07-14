@@ -89,7 +89,7 @@ def getSubBasin(coordinates):
     for i in range(0,len(basins.geometry)):
         if st0.within(basins.geometry[i]):
             # print("is within subbasin %s" % self.basins.nombre_2[i])
-            subbasin = basins.nombre_2[i]
+            subbasin = basins.nombre_3[i]
     return subbasin
 
 def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stations=None):
@@ -211,6 +211,7 @@ if __name__ == "__main__":
     a5_client.writeLastResult("results/variables.csv")
     # WRITE SERIES IN SEPARATE FILES
     series_file_map = {
+        1: "results/INA_P.csv",
         39 : "results/INA_H.csv",
         40 : "results/INA_Q.csv"
     }
