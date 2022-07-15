@@ -68,6 +68,7 @@ def estacionesToFews(estaciones : Union[str, list],output=None):
             "LATITUDE": item["geom"]["coordinates"][1],
             "LONGITUDE": item["geom"]["coordinates"][0],
             "ALTITUDE": item["altitud"],
+            "TYPE": "Automatic" if item["automatica"] else "Conventional",
             "COUNTRY": item["pais"],
             "ORGANIZATION": "INA",
             "SUBBASIN": getSubBasin(item["geom"]["coordinates"])
@@ -82,7 +83,6 @@ def estacionesToFews(estaciones : Union[str, list],output=None):
         f.write(data_frame.to_csv(index=False))
         f.close()
     return data_frame
-
 
 def getSubBasin(coordinates):
     # def get_region(lon,lat,getNotation=False):
@@ -174,7 +174,7 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
             row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
             row["LONGITUDE"] = stations["LONGITUDE"][row["STATION_ID"]]
             row["ALTITUDE"] = stations["ALTITUDE"][row["STATION_ID"]]
-            # row["TYPE"] = stations["TYPE"][row["STATION_ID"]]
+            row["TYPE"] = stations["TYPE"][row["STATION_ID"]]
             row["COUNTRY"] = stations["COUNTRY"][row["STATION_ID"]]
             row["ORGANIZATION"] = stations["ORGANIZATION"][row["STATION_ID"]]
             row["SUBBASIN"] = stations["SUBBASIN"][row["STATION_ID"]]
