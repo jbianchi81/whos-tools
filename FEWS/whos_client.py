@@ -11,6 +11,9 @@ from geopandas import read_file as gpd_read_file
 from shapely.geometry import Point
 import pytz
 import re
+import logging
+logging.basicConfig(filename="log/whos_client.log",level=logging.DEBUG,format="%(asctime)s %(levelname)s %(message)s")
+handler = logging.FileHandler("log/whos_client.log","w+")
 
 class Client:
     """Functions for metadata retrieval from WHOS using timeseries API
@@ -189,7 +192,7 @@ class Client:
             if params[key] == None:
                 del params[key]
         url = "%s/gs-service/services/essi/token/%s/view/%s/timeseries-api/timeseries" % (self.config["url"], self.config["token"], view)
-        print ("%s - %s?%s" % (str(datetime.now()), url, "&".join([ "%s=%s" % (key, params[key]) for key in params])))
+        logging.debug("%s - %s?%s" % (str(datetime.now()), url, "&".join([ "%s=%s" % (key, params[key]) for key in params])))
         try:
             response = requests.get(url, params)
         except:
@@ -454,11 +457,11 @@ class Client:
         var_map = self.getVariableMapping()
         # get all WHOS-Plata timeseries metadata (using pagination)
         timeseries = self.getTimeseriesWithPagination(observedProperty=self.fews_observed_properties, json_output = output_dir / "timeseries.json" if save_geojson else None, has_data = has_data)
+        station_organization = self.getOrganization(timeseries,stations_fews)
         timeseries_fews = self.timeseriesToFEWS(timeseries, stations=stations_fews)
         # filter out stations with no timeseries
         stations_fews = self.deleteStationsWithNoTimeseries(stations_fews,timeseries_fews)
         # get organization name from timeseries metadata
-        station_organization = self.getOrganization(timeseries,stations_fews)
         # save stations to csv
         f = open(output_dir / "locations.csv","w")
         f.write(stations_fews.to_csv())
@@ -472,12 +475,12 @@ class Client:
         stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
         features = []
         for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
-            print("getMonitoringPoints offset: %i" % i)
+            logging.debug("getMonitoringPoints offset: %i" % i)
             output = output_dir / ("monitoringPointsResponse_%i.json" % i) if save_geojson else None
             monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output)
             # convert to FEWS stations CSV, output as gauges.csv
             if "features" not in monitoringPoints:
-                print("no monitoring points found")
+                logging.debug("no monitoring points found")
                 break
             features.extend(monitoringPoints["features"])
             if fews_output:
@@ -518,7 +521,7 @@ class Client:
             else:
                 features = []
                 for op in observedProperty:
-                    print("observedProperty: %s" % op)
+                    logging.debug("observedProperty: %s" % op)
                     timeseries = self.getTimeseries(view, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
                     if "features" in timeseries:
                         features.extend(timeseries["features"])
@@ -529,14 +532,14 @@ class Client:
         else:
             features = []
             for mp in monitoringPoint:
-                print("monitoringPoint: %s" % mp)
+                logging.debug("monitoringPoint: %s" % mp)
                 if len(observedProperty) == 0:
                     timeseries = self.getTimeseries( view = view, monitoringPoint = mp, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
                     if "features" in timeseries:
                         features.extend(timeseries["features"])
                 else:
                     for op in observedProperty:
-                        print("observedProperty: %s" % op)
+                        logging.debug("observedProperty: %s" % op)
                         timeseries = self.getTimeseries(view, monitoringPoint = mp, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
                         if "features" in timeseries:
                             features.extend(timeseries["features"])
@@ -551,21 +554,21 @@ class Client:
         var_map = self.getVariableMapping()
         timeseries_fews = pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
         for i in range(1,self.config["timeseries_max"],self.config["timeseries_per_page"]):
-            print("getTimeseriesMulti, offset: %i" % i)
+            logging.debug("getTimeseriesMulti, offset: %i" % i)
             output = output_dir / ("timeseriesResponse_%i.json" % i) if save_geojson else None
             timeseries = self.getTimeseriesMulti(offset=i,monitoringPoint=monitoringPoint,observedProperty=observedProperty,beginPosition=beginPosition,endPosition=endPosition,limit=self.config["timeseries_per_page"],output=output,has_data=False)
             if "features" not in timeseries:
-                print("No timeseries found")
+                logging.debug("No timeseries found")
                 break
             timeseries_length = len(timeseries["features"])
-            print("Found %i features" % timeseries_length)
+            logging.debug("Found %i features" % timeseries_length)
             if has_data:
                 timeseries["features"] = filterByAvailability(timeseries["features"],self.threshold_begin_date)
-            print("Offset: %i, length: %i, got %i timeseries after filtering" % (i,self.config["timeseries_per_page"],len(timeseries["features"])))
+            logging.debug("Offset: %i, length: %i, got %i timeseries after filtering" % (i,self.config["timeseries_per_page"],len(timeseries["features"])))
             timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(timeseries)])
             features.extend(timeseries["features"])
             if timeseries_length < self.config["timeseries_per_page"]:
-                print("last page, breaking")
+                logging.debug("last page, breaking")
                 break
         #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
         result = {

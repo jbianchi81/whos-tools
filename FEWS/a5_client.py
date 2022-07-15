@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import json
 from typing import Union
+import logging
 
 class Client:
     """Functions to retrieve metadata and data from a5 JSON API"""
@@ -41,9 +42,9 @@ class Client:
             f.write(json.dumps(self.last_result, ensure_ascii=False, indent=2))
         f.close()
     
-    def getSeries(self,tipo : str="puntual",id : Union[int,list]=None,area_id : Union[int,list]=None,estacion_id : Union[int,list]=None,escena_id : Union[int,list]=None,var_id : Union[int,list]=None,proc_id : Union[int,list]=None,unit_id : Union[int,list]=None,fuentes_id : Union[int,list]=None,tabla : Union[str,list]=None,id_externo : Union[str,list]=None,geom : str=None,include_geom : bool=None,no_metadata : bool=None, as_DataFrame : bool=False, getStats: bool=False, getMonthlyStats: bool=False, date_range_after: str=None):
-        params = {"id": id,"area_id": area_id,"estacion_id": estacion_id,"escena_id": escena_id,"var_id": var_id,"proc_id": proc_id,"unit_id": unit_id,"fuentes_id": fuentes_id,"tabla": tabla,"id_externo": id_externo,"geom": geom,"include_geom": include_geom,"no_metadata": no_metadata, "getStats": getStats, "getMonthlyStats": getMonthlyStats, "date_range_after": date_range_after}
-        for param in ["id","area_id","estacion_id","escena_id","var_id","proc_id","unit_id","fuentes_id","tabla","id_externo"]:
+    def getSeries(self,tipo : str="puntual",id : Union[int,list]=None,area_id : Union[int,list]=None,estacion_id : Union[int,list]=None,escena_id : Union[int,list]=None,var_id : Union[int,list]=None,proc_id : Union[int,list]=None,unit_id : Union[int,list]=None,fuentes_id : Union[int,list]=None,tabla : Union[str,list]=None,id_externo : Union[str,list]=None,geom : str=None,include_geom : bool=None,no_metadata : bool=None, as_DataFrame : bool=False, getStats: bool=False, getMonthlyStats: bool=False, date_range_after: str=None, getPercentiles : bool=False, percentil : Union[float,list]=None):
+        params = {"id": id,"area_id": area_id,"estacion_id": estacion_id,"escena_id": escena_id,"var_id": var_id,"proc_id": proc_id,"unit_id": unit_id,"fuentes_id": fuentes_id,"tabla": tabla,"id_externo": id_externo,"geom": geom,"include_geom": include_geom,"no_metadata": no_metadata, "getStats": getStats, "getMonthlyStats": getMonthlyStats, "date_range_after": date_range_after, "getPercentiles": getPercentiles, "percentil": percentil}
+        for param in ["id","area_id","estacion_id","escena_id","var_id","proc_id","unit_id","fuentes_id","tabla","id_externo", "percentil"]:
             if isinstance(params[param],list):
                 # print("%s: %s" % (param,str(params[param])))
                 params[param] = ",".join([str(i) for i in params[param]])
@@ -127,7 +128,7 @@ class Client:
             headers = headers,
             timeout = self.config["timeout"]
         )
-        print("status_code: %s" % response.status_code)
+        logging.debug("status_code: %s" % response.status_code)
         if response.status_code > 299:
             raise Exception(response.text)
         json_response = response.json()
@@ -151,7 +152,7 @@ class Client:
             headers = headers,
             timeout = self.config["timeout"]
         )
-        print("status_code: %s" % response.status_code)
+        logging.debug("status_code: %s" % response.status_code)
         if response.status_code > 299:
             raise Exception(response.text)
         json_response = response.json()
@@ -178,14 +179,14 @@ class Client:
             headers = headers,
             timeout = self.config["timeout"]
         )
-        print("status_code: %s" % response.status_code)
+        logging.debug("status_code: %s" % response.status_code)
         if response.status_code > 299:
             raise Exception(response.text)
         json_response = response.json()
         if as_DataFrame:
             # columns = json_response["varNames"]
             if not len(json_response["values"]):
-                print("No quantiles found for the specified series")
+                logging.info("No quantiles found for the specified series")
                 return
             return pd.DataFrame(json_response["values"])
         else:
