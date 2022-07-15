@@ -5,6 +5,8 @@ from shapely.geometry import Point
 import json
 import pandas
 from warnings import warn
+import logging
+import sys
 
 config = {
     "basins_geojson_file": "cuencas/cuencas.geojson"
@@ -92,7 +94,7 @@ def getSubBasin(coordinates):
             subbasin = basins.nombre_3[i]
     return subbasin
 
-def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stations=None):
+def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stations=None,percentil=None):
     """Converts a5 series list to FEWS table
     
     Parameters
@@ -106,6 +108,8 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
     stations: DataFrame
         result of stationsToFews
         if not None adds station metadata to series
+    percentil: list
+        list of numeric percentiles to add to series metadata table (if present in series)
     
     Returns
     -------
@@ -151,6 +155,21 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
                 if counts[q] > 0:
                     t_name = "THRESHOLD_%s" % q.upper()
                     row[t_name] = sums[q] / counts[q]
+        if percentil is not None:
+            percentiles_columns = [(p,"THRESHOLD_p%02d" % int(p*100)) for p in percentil]
+            for col in percentiles_columns:
+                row[col[1]] = None
+            if "percentiles" in item:
+                logging.debug("Found percentiles for series_id %i" % item["id"])
+                for col in percentiles_columns:
+                    p_matches = [x for x in item["percentiles"] if x["percentile"] == col[0]]
+                    if len(p_matches):
+                        logging.debug("found percentil %.02f" % col[0])
+                        row[col[1]] = p_matches[0]["valor"]
+                    else:
+                        logging.debug("percentil %i not found " % col[0])
+            else:
+                logging.debug("percentiles not found for series_id %i" % item["id"])
         if stations is not None and row["STATION_ID"] in stations.index:
             row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
             row["LONGITUDE"] = stations["LONGITUDE"][row["STATION_ID"]]
@@ -161,6 +180,7 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
             row["SUBBASIN"] = stations["SUBBASIN"][row["STATION_ID"]]
         rows.append(row)
     data_frame = pandas.DataFrame(rows).sort_values(["STATION_ID","EXTERNAL_PARAMETER_ID"])
+    logging.debug("columns: %s" % ",".join(data_frame.columns))
     if output is not None:
         try: 
             f = open(output,"w")
@@ -176,8 +196,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Metadata files generation for a5 service in FEWS required format')
     parser.add_argument('--monthly_stats', action='store_true',
         help='add monthly percentiles')
+    parser.add_argument('--debug',action='store_true', help='activate debug logging')
     args = parser.parse_args()
 
+    if args.debug:
+        logging.basicConfig(stream=sys.stdout,level=logging.DEBUG,format="%(asctime)s %(levelname)s %(message)s")
+    else:
+        logging.basicConfig(stream=sys.stdout,level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s")
     import datetime
     from a5_client import Client
     a5_client = Client()
@@ -186,15 +211,16 @@ if __name__ == "__main__":
     # estaciones_fews = estacionesToFews("results/estaciones.json",output="results/estaciones_fews.csv")
     estaciones_fews = estacionesToFews(estaciones,output="results/INA_locations.csv")
     # SERIES
+    percentil = [0.05,0.5,0.95]
     estacion_ids = [id for id in estaciones_fews["STATION_ID"]]
     series = []
     i = 0
     by = 40
     while i < len(estacion_ids):
-        print(datetime.datetime.now())
+        logging.debug(datetime.datetime.now())
         date_range_after = datetime.datetime.now() - datetime.timedelta(days=180)
-        print("downloading series for stations %i to %i" % (i, i+by))
-        series_part = a5_client.getSeries(proc_id=[1,2],var_id=[1,2,4,39,40],estacion_id=estacion_ids[i:i+by],date_range_after=date_range_after.isoformat(),getMonthlyStats=True)
+        logging.info("downloading series for stations %i to %i" % (i, i+by))
+        series_part = a5_client.getSeries(proc_id=[1,2],var_id=[1,2,4,39,40],estacion_id=estacion_ids[i:i+by],date_range_after=date_range_after.isoformat(),getMonthlyStats=args.monthly_stats,getPercentiles=True,percentil=percentil)
         series.extend(series_part)
         i = i + by
     #len(series)
@@ -205,7 +231,7 @@ if __name__ == "__main__":
     # how_old_days = 180
     # series_filter = filter(lambda serie: serie["date_range"]["timeend"] is not None and datetime.fromisoformat(serie["date_range"]["timeend"].replace("Z","")) > datetime.now() - timedelta(days=how_old_days),series)
     # series = list(series_filter)
-    series_fews = seriesToFews(series,output="results/series_fews.csv",stations=estaciones_fews,monthly_stats=args.monthly_stats)
+    series_fews = seriesToFews(series,output="results/series_fews.csv",stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil)
     # VARIABLES
     variables = a5_client.getVariables(id=[1,2,4,39,40],as_DataFrame=True)
     a5_client.writeLastResult("results/variables.csv")
@@ -219,7 +245,7 @@ if __name__ == "__main__":
         series_filter_by_var_id = filter(lambda serie: serie["var"]["id"] == variables["id"][i],series)
         series_subset = list(series_filter_by_var_id)
         filename = series_file_map[variables["id"][i]] if variables["id"][i] in series_file_map else "results/INA_%s.csv" % variables["nombre"][i]
-        series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews,monthly_stats=args.monthly_stats)
+        series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil)
     
 
 
