@@ -65,6 +65,12 @@ class Client:
         "Outflow discharge (from the reservoir)": "discharge"
     }
 
+    fews_series_columns = {
+        "precipitation": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
+        "water level": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
+        "discharge": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"]
+    }
+
     fews_observed_properties = ["02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F",
     "AF6C35E61AC362E0151B6458DADCB032043B67EA",
     "D2DB8BC2930F82D1E5EFA6B529F0262EB0FFE994",
@@ -142,6 +148,7 @@ class Client:
                 del params[key]
         params["outputProperties"] = "country,monitoringPointOriginalIdentifier"
         url = "%s/gs-service/services/essi/token/%s/view/%s/timeseries-api/monitoring-points" % (self.config["url"], self.config["token"], view)
+        # print("url: %s" % url)
         try:
             response = requests.get(url, params)
         except:
@@ -194,6 +201,7 @@ class Client:
             if params[key] == None:
                 del params[key]
         url = "%s/gs-service/services/essi/token/%s/view/%s/timeseries-api/timeseries" % (self.config["url"], self.config["token"], view)
+        # print("url: %s" % url)
         logging.debug("%s - %s?%s" % (str(datetime.now()), url, "&".join([ "%s=%s" % (key, params[key]) for key in params])))
         try:
             response = requests.get(url, params)
@@ -248,6 +256,7 @@ class Client:
                 "LATITUDE": item["geometry"]["coordinates"][1],
                 "LONGITUDE": item["geometry"]["coordinates"][0],
                 "ALTITUDE": item["geometry"]["coordinates"][2] if len(item["geometry"]["coordinates"]) > 2 else None,
+                "TYPE": None,
                 "COUNTRY": monitoring_point_parameters["country"] if "country" in monitoring_point_parameters.keys() else None,
                 "ORGANIZATION": "WHOS",
                 "SUBBASIN": self.getSubBasin(item["geometry"]["coordinates"]),
@@ -311,14 +320,15 @@ class Client:
                 "EXTERNAL_PARAMETER_ID": item["properties"]["timeseries"]["observedProperty"]["href"],
                 "TIMESTEP_HOUR": self.isoDurationToHours(item["properties"]["timeseries"]["result"]["defaultPointMetadata"]["aggregationDuration"]) if "aggregationDuration" in item["properties"]["timeseries"]["result"]["defaultPointMetadata"] else None,
                 "UNIT": item["properties"]["timeseries"]["result"]["defaultPointMetadata"]["uom"] if "uom" in item["properties"]["timeseries"]["result"]["defaultPointMetadata"] else None,
-                "IMPORT_SOURCE": "WHOS"
+                "IMPORT_SOURCE": "WHOS",
+                "IMPORT": True
                 # THRESHOLD_1   THRESHOLD_2	THRESHOLD_3	THRESHOLD_4 -> not present in WHOS
             }
             if stations is not None and row["STATION_ID"] in stations.index:
                 row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
                 row["LONGITUDE"] = stations["LONGITUDE"][row["STATION_ID"]]
                 row["ALTITUDE"] = stations["ALTITUDE"][row["STATION_ID"]]
-                # row["TYPE"] = stations["TYPE"][row["STATION_ID"]]
+                row["TYPE"] = stations["TYPE"][row["STATION_ID"]]
                 row["COUNTRY"] = stations["COUNTRY"][row["STATION_ID"]]
                 row["ORGANIZATION"] = stations["ORGANIZATION"][row["STATION_ID"]]
                 row["SUBBASIN"] = stations["SUBBASIN"][row["STATION_ID"]]
@@ -433,11 +443,16 @@ class Client:
             for variableName in variableNames:
                 group = timeseries[timeseries["variableName"]==variableName]
                 del group["variableName"]
+                if fews and variableName in self.fews_series_columns:
+                    fews_group = pandas.DataFrame(columns=self.fews_series_columns[variableName])
+                    for column in fews_group.columns:
+                        fews_group[column] = group[column] if column in group else None
+                    group = fews_group
                 f = open(output_dir / ("%s.csv" % variableName),"w")
                 f.write(group.to_csv(index=False))
         return timeseries
 
-    def makeFewsTables(self,output_dir="",save_geojson=False,has_data=True,observedProperty=None,country=None):
+    def makeFewsTables(self,output_dir="",save_geojson=False,has_data=True,observedProperty=None,country=None,has_timestep=True):
         """Retrieves WHOS metadata and writes out FEWS tables
         
         Parameters
@@ -448,6 +463,8 @@ class Client:
             Also writes out raw API responses (geoJSON files)
         observedProperty: list or str
         country: str - country code (ISO3)
+        has_timestep: bool
+            filter out series without timestep. Default True
         
         Returns
         -------
@@ -464,17 +481,28 @@ class Client:
         timeseries = self.getTimeseriesWithPagination(observedProperty=observedProperty, json_output = output_dir / "timeseries.json" if save_geojson else None, has_data = has_data)
         station_organization = self.getOrganization(timeseries,stations_fews)
         timeseries_fews = self.timeseriesToFEWS(timeseries, stations=stations_fews)
+        timeseries_fews = self.deleteSeriesWithoutTimestep(timeseries_fews) if has_timestep else timeseries_fews  
         # filter out stations with no timeseries
         stations_fews = self.deleteStationsWithNoTimeseries(stations_fews,timeseries_fews)
+        stations_fews = self.setOriginalStationId(stations_fews)
         # get organization name from timeseries metadata
         # save stations to csv
         f = open(output_dir / "locations.csv","w")
         f.write(stations_fews.to_csv())
         f.close()
+        timeseries_fews = self.setOriginalStationId(timeseries_fews)
         #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
         timeseries_fews_grouped = self.groupTimeseriesByVar(timeseries_fews,var_map,output_dir=output_dir,fews= True) # False)
         return {"stations": stations_fews, "timeseries": timeseries_fews_grouped}
     
+    def setOriginalStationId(self,stations_or_timeseries_fews):
+        stations_or_timeseries_fews_original_id = stations_or_timeseries_fews.assign(STATION_ID=stations_or_timeseries_fews["ORIGINAL_STATION_ID"])
+        del stations_or_timeseries_fews_original_id["ORIGINAL_STATION_ID"]
+        return stations_or_timeseries_fews_original_id
+
+    def deleteSeriesWithoutTimestep(self,timeseries_fews):
+        return timeseries_fews[~pandas.isna(timeseries_fews["TIMESTEP_HOUR"])]
+
     def getMonitoringPointsWithPagination(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "",country: str = None) -> dict:
         output_dir = Path(output_dir)
         stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
@@ -638,7 +666,9 @@ class Client:
 
 
 if __name__ == "__main__":
-    client = Client()
+    config = open("config.json")
+    config = json.load(config)
+    client = Client(config)
     import argparse
     argparser = argparse.ArgumentParser()
     argparser.add_argument('action',help="Action to perform. Accepts: 'monitoringPoints', 'timeseries', 'all'", type=str)
