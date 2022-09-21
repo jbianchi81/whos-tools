@@ -68,6 +68,7 @@ def estacionesToFews(estaciones : Union[str, list],output=None):
             "LATITUDE": item["geom"]["coordinates"][1],
             "LONGITUDE": item["geom"]["coordinates"][0],
             "ALTITUDE": item["altitud"],
+            "TYPE": None,
             "COUNTRY": item["pais"],
             "ORGANIZATION": "INA",
             "SUBBASIN": getSubBasin(item["geom"]["coordinates"])
@@ -94,7 +95,14 @@ def getSubBasin(coordinates):
             subbasin = basins.nombre_3[i]
     return subbasin
 
-def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stations=None,percentil=None):
+fews_series_columns = {
+    1: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
+    39: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
+    40: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"]
+}
+
+
+def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stations=None,percentil=None,var_id: int=None):
     """Converts a5 series list to FEWS table
     
     Parameters
@@ -110,6 +118,8 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
         if not None adds station metadata to series
     percentil: list
         list of numeric percentiles to add to series metadata table (if present in series)
+    var_id: int
+        id of variable. If not None, result columns are selected according to FEWS requirement 
     
     Returns
     -------
@@ -156,7 +166,7 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
                     t_name = "THRESHOLD_%s" % q.upper()
                     row[t_name] = sums[q] / counts[q]
         if percentil is not None:
-            percentiles_columns = [(p,"THRESHOLD_p%02d" % int(p*100)) for p in percentil]
+            percentiles_columns = [(p,"THRESHOLD_P%02d" % int(p*100)) for p in percentil]
             for col in percentiles_columns:
                 row[col[1]] = None
             if "percentiles" in item:
@@ -174,12 +184,21 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
             row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
             row["LONGITUDE"] = stations["LONGITUDE"][row["STATION_ID"]]
             row["ALTITUDE"] = stations["ALTITUDE"][row["STATION_ID"]]
-            # row["TYPE"] = stations["TYPE"][row["STATION_ID"]]
+            row["TYPE"] = stations["TYPE"][row["STATION_ID"]]
             row["COUNTRY"] = stations["COUNTRY"][row["STATION_ID"]]
             row["ORGANIZATION"] = stations["ORGANIZATION"][row["STATION_ID"]]
             row["SUBBASIN"] = stations["SUBBASIN"][row["STATION_ID"]]
         rows.append(row)
     data_frame = pandas.DataFrame(rows).sort_values(["STATION_ID","EXTERNAL_PARAMETER_ID"])
+    # print("var_id:%s. Type:%s" % (str(var_id),type(var_id)))
+    if var_id is not None and var_id in fews_series_columns:
+        logging.info("Set columns for var_id=%s",str(var_id))
+            # raise Exception("Bad parameter var_id=%s. Valid values: %s" % (str(var_id),",".join([str(k) for k in fews_series_columns])))
+        data_frame["THRESHOLD_MEAN"] = data_frame["THRESHOLD_P50"] if "THRESHOLD_P50" in data_frame.columns else None
+        for column in fews_series_columns[var_id]:
+            if column not in data_frame.columns:
+                data_frame[column] = None
+        data_frame = data_frame[fews_series_columns[var_id]]
     logging.debug("columns: %s" % ",".join(data_frame.columns))
     if output is not None:
         try: 
@@ -203,12 +222,15 @@ if __name__ == "__main__":
         logging.basicConfig(stream=sys.stdout,level=logging.DEBUG,format="%(asctime)s %(levelname)s %(message)s")
     else:
         logging.basicConfig(stream=sys.stdout,level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s")
+    exclude_stations = [2122,2123,2127,2180,2220,2221,2849,2196]
     import datetime
     from a5_client import Client
     a5_client = Client()
-    estaciones = a5_client.getEstaciones(has_obs=True, pais="Argentina", habilitar=True)
+    estaciones = a5_client.getEstaciones(has_obs=True, pais="Argentina", habilitar=True, geom="-68,-38,-53,-21")
     # len(estaciones)
     # estaciones_fews = estacionesToFews("results/estaciones.json",output="results/estaciones_fews.csv")
+    if exclude_stations is not None:
+            estaciones = [e for e in estaciones if e["id"] not in exclude_stations]
     estaciones_fews = estacionesToFews(estaciones,output="results/INA_locations.csv")
     # SERIES
     percentil = [0.05,0.5,0.95]
@@ -245,7 +267,8 @@ if __name__ == "__main__":
         series_filter_by_var_id = filter(lambda serie: serie["var"]["id"] == variables["id"][i],series)
         series_subset = list(series_filter_by_var_id)
         filename = series_file_map[variables["id"][i]] if variables["id"][i] in series_file_map else "results/INA_%s.csv" % variables["nombre"][i]
-        series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil)
+        var_id = variables["id"][i] # if variables["id"][i] in fews_series_columns else None
+        series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil,var_id=var_id)
     
 
 
