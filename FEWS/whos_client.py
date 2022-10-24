@@ -62,7 +62,9 @@ class Client:
         "Level": "water level",
         "Flux, discharge": "discharge",
         "Inflow discharge (to the reservoir)": "discharge",
-        "Outflow discharge (from the reservoir)": "discharge"
+        "Outflow discharge (from the reservoir)": "discharge",
+        "Volume": "volume",
+        "Reservoir storage": "storage"
     }
 
     fews_series_columns = {
@@ -81,10 +83,26 @@ class Client:
     "4E47D870E717581F520F6C4EBE8E23962A880107",
     "B838A449A5FBC64CBB8A204A5CD614519EB0844A",
     "CEE1F03F85E1231A57C7E756527ED41B9C43820B",
-    "F7B4831EA151DB33AA187F9C4248506E0CE6690C",
-    "E02E2A436A24C1DB98D819A4705B8089856A9579",
-    "4E47D870E717581F520F6C4EBE8E23962A880107",
-    "472D1E733D426DC0A514D0BD6A2AAA7541CCEC3A"]
+    "47BEF10439748057FFDEAC0E655B86E41E327C0B",
+    "435723334E47400E56AAD9E883BC3314709A48D9",
+    "7075721786F52D17847D1D6369D0F3E794795E5C",
+    "B9240615C51DA438E9E02C9858887F1EE726EE2E",
+    "C83AE7E059AF1DB0D94C4036CADEA3B613204DE7",
+    "CD59B39DBBD02109859570B58EAA33621CD1F85B",
+    "E1BC0D40B78608E3806DA51ED4F5CDE1852EC46E",
+    "FA25FBBAD411D74E98BB9B663FA849BF03D0CEDE",
+    "42E0859F19D8D3EEAD80DD47CE7A7B5DC94BB52C",
+    "49934E86375E010327D50C168DE5EDA6FE12FDF3",
+    "6A1207635C2220886869225C67B8F68E0627DDE3",
+    "1B4FAD27021F87C7B176D4C5178619495C0777A4",
+    "4847D38D5EC11F3A87B3821604DDC622DF6FB5CB",
+    "514DB034F5483F30026291BB981096B437EFE11F",
+    "6AA6C8AF684BF2DAC15E4B7D7B38EC2FF631A3A8",
+    "8ABB624B5F6CE317BEC0D14A4B1AB7F121A3B1F2",
+    "8D3F156BB84DC053CB935F58D0F7FB6F816BB38E",
+    "941CC3F495C4F4D36921A953A419B73396362B7D",
+    "F923311DA0ACB1793D8E5A053F2335192518CDAE",
+    "973453E5B8A696A9C7FC01EFC5B6EA5D536A1107"]
 
     fews_organization_map = {
         "National Water Agency of Brazil": "ANA",
@@ -108,6 +126,7 @@ class Client:
         self.basins = gpd_read_file(self.config["basins_geojson_file"])
         self.threshold_begin_date = datetime.now() - timedelta(days=self.config["begin_days"])
         self.threshold_begin_date = pytz.utc.localize(self.threshold_begin_date)
+        self.fews_observed_properties = self.config["fews_observed_properties"] if "fews_observed_properties" in self.config else self.fews_observed_properties 
     
     def getMonitoringPoints(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None, country: str = None) -> dict:
         """Retrieves monitoring points as a geoJSON document from the timeseries API

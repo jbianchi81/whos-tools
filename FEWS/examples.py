@@ -2,7 +2,7 @@ from whos_client import Client
 client = Client()
 
 # get monitoring points
-monitoringPoints = client.getMonitoringPoints(offset=1,limit=1000,output="results/monitoringPoints.json")
+monitoringPoints = client.getMonitoringPoints(offset=1,limit=100,output="results/monitoringPoints.json")
 
 # get monitoring points with bounding box
 monitoringPoints = client.getMonitoringPoints(east=-57,west=-60,north=-32,south=-33,limit=10000)
@@ -44,10 +44,13 @@ metadata_for_fews = client.makeFewsTables(output_dir="results")
 
 # timeseries filtered by array of monitoringPoints
 ts = client.getTimeseriesMulti(monitoringPoint=["FFF27D6286244D98FA3C13DCA589F70C225C41BD","FEB977ECB3A3623027BACC3A609126DBBE8418E0"])
+
 # timeseries filtered by array of monitoringPoints with pagination
 ts = client.getTimeseriesWithPagination(monitoringPoint=["FFF27D6286244D98FA3C13DCA589F70C225C41BD","FEB977ECB3A3623027BACC3A609126DBBE8418E0"])
+
 # timeseries filtered by array of monitoringPoints with pagination, save csv fews format
 ts = client.getTimeseriesWithPagination(monitoringPoint=["FFF27D6286244D98FA3C13DCA589F70C225C41BD","FEB977ECB3A3623027BACC3A609126DBBE8418E0"], fews="results/stations.csv")
+
 # timeseries filtered by array of observedProperties with pagination
 ts = client.getTimeseriesWithPagination(observedProperty=['B838A449A5FBC64CBB8A204A5CD614519EB0844A', '4E47D870E717581F520F6C4EBE8E23962A880107']) 
 ts = client.getTimeseriesWithPagination(observedProperty=["02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F",
@@ -64,39 +67,69 @@ ts = client.getTimeseriesWithPagination(observedProperty=["02B12CBDEF3984F7ADB9C
 "E02E2A436A24C1DB98D819A4705B8089856A9579",
 "4E47D870E717581F520F6C4EBE8E23962A880107",
 "472D1E733D426DC0A514D0BD6A2AAA7541CCEC3A"])
+ts = client.getTimeseriesWithPagination(observedProperty=["0B62463A8F8DE9DBB777F970195DC02E26CC4629","02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F"])
 len(ts["features"])
 observedProperties = set([f["properties"]["timeseries"]["observedProperty"]["href"] for f in ts["features"]])
 len(list(observedProperties))
 monitoringPoints = set([f["properties"]["timeseries"]["featureOfInterest"]["sampledFeature"]["href"] for f in ts["features"]])
 len(list(monitoringPoints))
 ts_df = client.timeseriesToFEWS(ts)
+
 # get all stations with pagination
 stations = client.getMonitoringPointsWithPagination(json_output="results/stations_all.json")
 stations_fews = client.monitoringPointsToFEWS(stations,output="results/stations_all.csv")
+
 # get all timeseries with pagination
 timeseries = client.getTimeseriesWithPagination(json_output="results/timeseries_all.json")
+
 # extract organisationNames from timeseries
 station_organization = client.getOrganization(timeseries)
 set(station_organization["organisationName"])
 merged = stations_fews.merge(station_organization,how='left', on='STATION_ID')
 merged["ORGANIZATION"] = merged["ORGANIZATION_y"]
+
 # read timeseries from file
 f = open("results/timeseries_all.json","r")
 import json
 timeseries = json.load(f)
 f.close()
 len(timeseries["features"])
+
 # read stations fews from file
 import pandas
 stations_fews = pandas.read_csv("results/gauges.csv")
+
 # get organization
 station_organization = client.getOrganization(timeseries,stations_fews)
 stations_fews["ORGANIZATION"]
 f = open("results/stations_all_org.csv","w")
 f.write(stations_fews.to_csv(index=False))
 f.close()
+
 # get subbasin
 subbasin = client.getSubBasin([-58,-35])
+
 # get stations with bounding box and pagination 
 stations = client.getMonitoringPointsWithPagination(east=-57,west=-60,north=-32,south=-33)
 stations_fews = client.monitoringPointsToFEWS(stations)
+
+# make fews csv stepwise
+mp = client.getMonitoringPointsWithPagination(json_output="results2/mp_all.json")
+stations_fews = client.monitoringPointsToFEWS(mp)
+var_map = client.getVariableMapping()
+    # get all WHOS-Plata timeseries metadata (using pagination)
+timeseries = client.getTimeseriesWithPagination(observedProperty=client.fews_observed_properties, json_output = "results2/timeseries.json", has_data = True)
+station_organization = client.getOrganization(timeseries,stations_fews)
+timeseries_fews = client.timeseriesToFEWS(timeseries, stations=stations_fews)
+timeseries_fews_with_timestep = client.deleteSeriesWithoutTimestep(timeseries_fews)
+# filter out stations with no timeseries
+stations_fews = client.deleteStationsWithNoTimeseries(stations_fews,timeseries_fews_with_timestep)
+stations_fews = client.setOriginalStationId(stations_fews)
+# get organization name from timeseries metadata
+# save stations to csv
+f = open("results2/locations.csv","w")
+f.write(stations_fews.to_csv())
+f.close()
+timeseries_fews_with_timestep = client.setOriginalStationId(timeseries_fews_with_timestep)
+        #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
+timeseries_fews_grouped = client.groupTimeseriesByVar(timeseries_fews,var_map,output_dir="results2",fews= True) # False)
