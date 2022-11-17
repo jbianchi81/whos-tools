@@ -8,3 +8,5 @@ python3 whos_client.py monitoringPoints --json results/mp.json --fews results/mp
 python3 whos_client.py timeseries --monitoringPoint 0009BBB009E7F4067B498FC0073C2AA63D064D27 --json results/ts.json --fews results/ts.csv
 # download and convert all stations and time series metadata as required by FEWS
 python3 whos_client.py all -O results
+# download and convert stations within bounding box and time series metadata as required by FEWS
+python3 whos_client.py all -O results3 -bbox -70 -40 -40 -10

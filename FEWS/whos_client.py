@@ -471,7 +471,7 @@ class Client:
                 f.write(group.to_csv(index=False))
         return timeseries
 
-    def makeFewsTables(self,output_dir="",save_geojson=False,has_data=True,observedProperty=None,country=None,has_timestep=True):
+    def makeFewsTables(self,output_dir="",save_geojson=False,has_data=True,observedProperty=None,country=None,has_timestep=True,east=None,west=None,north=None,south=None):
         """Retrieves WHOS metadata and writes out FEWS tables
         
         Parameters
@@ -492,7 +492,7 @@ class Client:
         """
         output_dir = Path(output_dir)
         observedProperty = observedProperty if observedProperty is not None else self.fews_observed_properties
-        monitoringPoints = self.getMonitoringPointsWithPagination(json_output = output_dir / "monitoringPoints.json" if save_geojson else None,country = country)
+        monitoringPoints = self.getMonitoringPointsWithPagination(json_output = output_dir / "monitoringPoints.json" if save_geojson else None,country = country,east=east,west=west,north=north,south=south)
         stations_fews = self.monitoringPointsToFEWS(monitoringPoints)
         # get WHOS-Plata variable mapping table
         var_map = self.getVariableMapping()
@@ -769,6 +769,11 @@ if __name__ == "__main__":
             all_args["country"] = args.country
         if args.observedProperty:
             all_args["observedProperty"] = args.observedProperty
+        if args.bbox:
+            all_args["west"] = args.bbox[0]
+            all_args["south"] = args.bbox[1]
+            all_args["east"] = args.bbox[2]
+            all_args["north"] = args.bbox[3]
         # make FEWS tables for WHOS-Plata (all stations and variables). Save into specified folder
         client.makeFewsTables(**all_args)
     else:
