@@ -1,47 +1,19 @@
 STATION_ID,EXTERNAL_LOCATION_ID,EXTERNAL_PARAMETER_ID,TIMESTEP_HOUR,UNIT,IMPORT_SOURCE,THRESHOLD_YELLOW,THRESHOLD_ORANGE,THRESHOLD_RED,THRESHOLD_MEAN,THRESHOLD_P05,THRESHOLD_P10,THRESHOLD_P90,THRESHOLD_P95,IMPORT,LATITUDE,LONGITUDE,ALTITUDE,TYPE,COUNTRY,ORGANIZATION,SUBBASIN
-873,873,1,24.0,mm/d,INA,,,,,,,,,True,-34.6608222222222,-58.6277055555556,,,Argentina,INA,Rio Parana
-874,874,1,24.0,mm/d,INA,,,,,,,,,True,-34.6702861111111,-58.7250194444444,,,Argentina,INA,Rio Parana
-881,881,1,24.0,mm/d,INA,,,,,,,,,True,-35.0411111111111,-58.4094444444444,,,Argentina,INA,Rio de la Plata
-884,884,1,24.0,mm/d,INA,,,,,,,,,True,-34.8551555555556,-58.5256805555556,,,Argentina,INA,Rio de la Plata
-885,885,1,24.0,mm/d,INA,,,,,,,,,True,-35.1,-58.8,,,Argentina,INA,Rio de la Plata
-887,887,1,24.0,mm/d,INA,,,,,,,,,True,-34.51,-58.5016666666667,,,Argentina,INA,Rio Parana
-895,895,1,24.0,mm/d,INA,,,,,,,,,True,-34.804369,-58.279983,,,Argentina,INA,Rio de la Plata
-1015,1015,1,24.0,mm/d,INA,,,,,,,,,True,-30.014261,-57.85945,,,Argentina,INA,Rio Uruguay
-1016,1016,1,24.0,mm/d,INA,,,,,,,,,True,-31.404212,-58.002561,,,Argentina,INA,Rio Uruguay
-1017,1017,1,24.0,mm/d,INA,,,,,,,,,True,-29.470444,-56.81167,,,Argentina,INA,Rio Uruguay
-1019,1019,1,24.0,mm/d,INA,,,,,,,,,True,-29.112957,-56.555522,,,Argentina,INA,Rio Uruguay
-1022,1022,1,24.0,mm/d,INA,,,,,,,,,True,-30.992189,-57.913847,,,Argentina,INA,Rio Uruguay
-1024,1024,1,24.0,mm/d,INA,,,,,,,,,True,-30.971026,-58.247317,,,Argentina,INA,Rio Parana
-1035,1035,1,24.0,mm/d,INA,,,,,,,,,True,-28.177515,-55.642269,,,Argentina,INA,Rio Uruguay
-1038,1038,1,24.0,mm/d,INA,,,,,,,,,True,-27.298582,-54.193437,,,Argentina,INA,Rio Uruguay
-1039,1039,1,24.0,mm/d,INA,,,,,,,,,True,-27.153304,-53.933283,,,Argentina,INA,Rio Uruguay
-1062,1062,1,24.0,mm/d,INA,,,,,,,,,True,-29.357037,-57.705043,,,Argentina,INA,Rio Uruguay
-1064,1064,1,24.0,mm/d,INA,,,,,,,,,True,-29.377358,-58.193534,,,Argentina,INA,Rio Uruguay
-1067,1067,1,24.0,mm/d,INA,,,,,,,,,True,-29.98349,-58.295964,,,Argentina,INA,Rio Parana
-1068,1068,1,24.0,mm/d,INA,,,,,,,,,True,-30.590296,-58.468999,,,Argentina,INA,Rio Parana
-1070,1070,1,24.0,mm/d,INA,,,,,,,,,True,-30.337372,-58.317145,,,Argentina,INA,Rio Parana
-1071,1071,1,24.0,mm/d,INA,,,,,,,,,True,-30.214445,-57.966907,,,Argentina,INA,Rio Uruguay
-1074,1074,1,24.0,mm/d,INA,,,,,,,,,True,-30.249296,-57.622519,,,Argentina,INA,Rio Uruguay
-1075,1075,1,24.0,mm/d,INA,,,,,,,,,True,-30.390258,-57.880984,,,Argentina,INA,Rio Uruguay
-1077,1077,1,24.0,mm/d,INA,,,,,,,,,True,-30.626772,-57.982836,,,Argentina,INA,Rio Uruguay
-1078,1078,1,24.0,mm/d,INA,,,,,,,,,True,-29.819517,-57.429814,,,Argentina,INA,Rio Uruguay
-2154,2154,1,24.0,mm/d,INA,,,,,,,,,True,-23.1405555555556,-64.1969444444445,,,Argentina,INA,Rio Paraguay
-2158,2158,1,24.0,mm/d,INA,,,,,,,,,True,-30.9236111111111,-59.5511111111111,,,Argentina,INA,Rio Parana
-2166,2166,1,24.0,mm/d,INA,,,,,,,,,True,-27.1008333333333,-65.6361111111111,,,Argentina,INA,
-2167,2167,1,24.0,mm/d,INA,,,,,,,,,True,-26.8519444444444,-65.4316666666667,,,Argentina,INA,
-2187,2187,1,24.0,mm/d,INA,,,,,,,,,True,-22.3266666666667,-64.1263888888889,,,Argentina,INA,Rio Paraguay
-2188,2188,1,24.0,mm/d,INA,,,,,,,,,True,-26.3341666666667,-59.3625,,,Argentina,INA,Rio Paraguay
-2193,2193,1,24.0,mm/d,INA,,,,,,,,,True,-25.6511111111111,-60.1280555555556,,,Argentina,INA,Rio Paraguay
-2194,2194,1,24.0,mm/d,INA,,,,,,,,,True,-26.6605555555556,-58.6338888888889,,,Argentina,INA,Rio Paraguay
-2198,2198,1,24.0,mm/d,INA,,,,,,,,,True,-29.0311111111111,-58.7883333333333,,,Argentina,INA,Rio Parana
-2219,2219,1,24.0,mm/d,INA,,,,,,,,,True,-34.4494444444444,-62.4133333333333,,,Argentina,INA,
-2227,2227,1,24.0,mm/d,INA,,,,,,,,,True,-35.9622222222222,-57.8519444444444,,,Argentina,INA,Rio de la Plata
-2731,2731,1,24.0,mm/d,INA,,,,,,,,,True,-28.4166666666667,-56.5422222222222,,,Argentina,INA,Rio Uruguay
-2741,2741,1,24.0,mm/d,INA,,,,,,,,,True,-22.4044444444444,-65.2675,,,Argentina,INA,Rio Paraguay
-2820,2820,1,24.0,mm/d,INA,,,,,,,,,True,-27.2852777777778,-65.8719444444444,,,Argentina,INA,
-2825,2825,1,24.0,mm/d,INA,,,,,,,,,True,-28.9877777777778,-59.0905555555556,,,Argentina,INA,Rio Parana
-2840,2840,1,24.0,mm/d,INA,,,,,,,,,True,-33.4155555555556,-63.3091666666667,,,Argentina,INA,Rio Parana
-2846,2846,1,24.0,mm/d,INA,,,,,,,,,True,-22.3775,-62.5236111111111,,,Argentina,INA,Rio Paraguay
-2856,2856,1,24.0,mm/d,INA,,,,,,,,,True,-23.7119444444444,-64.5397222222222,,,Argentina,INA,Rio Paraguay
-2857,2857,1,24.0,mm/d,INA,,,,,,,,,True,-31.6105555555556,-60.2947222222222,,,Argentina,INA,Rio Parana
-5954,5954,1,24.0,mm/d,INA,,,,,,,,,True,-34.92753059,-58.9472905,,,Argentina,INA,Rio de la Plata
+2154,2154,1,24.0,mm/d,INA,,,,,,,,,True,-23.1405555555556,-64.1969444444445,,Automatic,Argentina,INA,Rio Paraguay
+2158,2158,1,24.0,mm/d,INA,,,,,,,,,True,-30.9236111111111,-59.5511111111111,,Automatic,Argentina,INA,Rio Parana
+2166,2166,1,24.0,mm/d,INA,,,,,,,,,True,-27.1008333333333,-65.6361111111111,,Automatic,Argentina,INA,
+2167,2167,1,24.0,mm/d,INA,,,,,,,,,True,-26.8519444444444,-65.4316666666667,,Automatic,Argentina,INA,
+2187,2187,1,24.0,mm/d,INA,,,,,,,,,True,-22.3266666666667,-64.1263888888889,,Automatic,Argentina,INA,Rio Paraguay
+2188,2188,1,24.0,mm/d,INA,,,,,,,,,True,-26.3341666666667,-59.3625,,Automatic,Argentina,INA,Rio Paraguay
+2193,2193,1,24.0,mm/d,INA,,,,,,,,,True,-25.6511111111111,-60.1280555555556,,Automatic,Argentina,INA,Rio Paraguay
+2194,2194,1,24.0,mm/d,INA,,,,,,,,,True,-26.6605555555556,-58.6338888888889,,Automatic,Argentina,INA,Rio Paraguay
+2198,2198,1,24.0,mm/d,INA,,,,,,,,,True,-29.0311111111111,-58.7883333333333,,Automatic,Argentina,INA,Rio Parana
+2227,2227,1,24.0,mm/d,INA,,,,,,,,,True,-35.9622222222222,-57.8519444444444,,Automatic,Argentina,INA,Rio de la Plata
+2731,2731,1,24.0,mm/d,INA,,,,,,,,,True,-28.4166666666667,-56.5422222222222,,Automatic,Argentina,INA,Rio Uruguay
+2741,2741,1,24.0,mm/d,INA,,,,,,,,,True,-22.4044444444444,-65.2675,,Automatic,Argentina,INA,Rio Paraguay
+2820,2820,1,24.0,mm/d,INA,,,,,,,,,True,-27.2852777777778,-65.8719444444444,,Automatic,Argentina,INA,
+2825,2825,1,24.0,mm/d,INA,,,,,,,,,True,-28.9877777777778,-59.0905555555556,,Automatic,Argentina,INA,Rio Parana
+2840,2840,1,24.0,mm/d,INA,,,,,,,,,True,-33.4155555555556,-63.3091666666667,,Automatic,Argentina,INA,Rio Parana
+2846,2846,1,24.0,mm/d,INA,,,,,,,,,True,-22.3775,-62.5236111111111,,Automatic,Argentina,INA,Rio Paraguay
+2856,2856,1,24.0,mm/d,INA,,,,,,,,,True,-23.7119444444444,-64.5397222222222,,Automatic,Argentina,INA,Rio Paraguay
+2857,2857,1,24.0,mm/d,INA,,,,,,,,,True,-31.6105555555556,-60.2947222222222,,Automatic,Argentina,INA,Rio Parana
