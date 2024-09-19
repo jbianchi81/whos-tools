@@ -65,7 +65,7 @@ class Client:
         json_response = response.json()
         series = None
         if as_DataFrame:
-            series = pd.DataFrame.from_dict(json_response)
+            series = pd.DataFrame.from_dict(json_response["rows"])
             if tipo == "puntual":
                 if no_metadata:
                     series["longitude"] = [geom["coordinates"][0] for geom in series["geom"]]
@@ -79,7 +79,7 @@ class Client:
             series["count"] = [date_range["count"] for date_range in series["date_range"]]
             del series["date_range"]
         else:
-            series = json_response
+            series = json_response["rows"]
         self.last_result = series
         return series
     

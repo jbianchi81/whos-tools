@@ -106,10 +106,10 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
     
     Parameters
     ----------
-    series : dict or list
+    series : str or list
         Result of a5_client.getSeries
         If str: JSON file to read from
-        If dict: a5_client.getSeries return value  
+        If list: list of a5_client.getSeries return value  
     output: string
         Write CSV output into this file
     stations: DataFrame
