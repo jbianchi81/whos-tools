@@ -188,6 +188,9 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
             row["ORGANIZATION"] = stations["ORGANIZATION"][row["STATION_ID"]]
             row["SUBBASIN"] = stations["SUBBASIN"][row["STATION_ID"]]
         rows.append(row)
+    if not len(rows):
+        logging.warning("No series found")
+        return
     data_frame = pandas.DataFrame(rows).sort_values(["STATION_ID","EXTERNAL_PARAMETER_ID"])
     # print("var_id:%s. Type:%s" % (str(var_id),type(var_id)))
     if var_id is not None and var_id in fews_series_columns:
@@ -222,6 +225,7 @@ if __name__ == "__main__":
     else:
         logging.basicConfig(stream=sys.stdout,level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s")
     exclude_stations = [2122,2123,2127,2180,2220,2221,2849,2196]
+    exclude_test_stations = True
     import datetime
     from a5_client import Client
     a5_client = Client()
@@ -229,10 +233,14 @@ if __name__ == "__main__":
     # len(estaciones)
     # estaciones_fews = estacionesToFews("results/estaciones.json",output="results/estaciones_fews.csv")
     if exclude_stations is not None:
-            estaciones = [e for e in estaciones if e["id"] not in exclude_stations]
+        estaciones = [e for e in estaciones if e["id"] not in exclude_stations]
+    if exclude_test_stations:
+        estaciones = [ e for e in estaciones if "zprueba" not in e["nombre"].lower()]
     estaciones_fews = estacionesToFews(estaciones,output="results/INA_locations.csv")
     # SERIES
     percentil = [0.05,0.5,0.95]
+    variable_id_list = [1,2,4,31,39,40,85,101]
+    output_series_raw = "results/series.json"
     estacion_ids = [id for id in estaciones_fews["STATION_ID"]]
     series = []
     i = 0
@@ -241,9 +249,12 @@ if __name__ == "__main__":
         logging.debug(datetime.datetime.now())
         date_range_after = datetime.datetime.now() - datetime.timedelta(days=180)
         logging.info("downloading series for stations %i to %i" % (i, i+by))
-        series_part = a5_client.getSeries(proc_id=[1,2],var_id=[1,2,4,39,40],estacion_id=estacion_ids[i:i+by],date_range_after=date_range_after.isoformat(),getMonthlyStats=args.monthly_stats,getPercentiles=True,percentil=percentil)
+        series_part = a5_client.getSeries(proc_id=[1,2],var_id=variable_id_list,estacion_id=estacion_ids[i:i+by],date_range_after=date_range_after.isoformat(),getMonthlyStats=args.monthly_stats,getPercentiles=True,percentil=percentil)
         series.extend(series_part)
         i = i + by
+    if output_series_raw is not None:
+        series_raw = open(output_series_raw, "w")
+        json.dump(series_part, series_raw, indent = 2)
     #len(series)
     #set([s["procedimiento"]["id"] for s in series])
     #set([s["estacion"]["id"] for s in series])
@@ -253,14 +264,20 @@ if __name__ == "__main__":
     # series_filter = filter(lambda serie: serie["date_range"]["timeend"] is not None and datetime.fromisoformat(serie["date_range"]["timeend"].replace("Z","")) > datetime.now() - timedelta(days=how_old_days),series)
     # series = list(series_filter)
     series_fews = seriesToFews(series,output="results/series_fews.csv",stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil)
+    if series_fews is None:
+        logging.error("No series found")
+        exit(1)
     # VARIABLES
-    variables = a5_client.getVariables(id=[1,2,4,39,40],as_DataFrame=True)
+    variables = a5_client.getVariables(id=variable_id_list,as_DataFrame=True)
     a5_client.writeLastResult("results/variables.csv")
     # WRITE SERIES IN SEPARATE FILES
     series_file_map = {
         1: "results/INA_P.csv",
         39 : "results/INA_H.csv",
-        40 : "results/INA_Q.csv"
+        40 : "results/INA_Q.csv",
+        31 : "results/INA_P1h.csv",
+        101 : "results/INA_H4h.csv",
+        85: "results/INA_H1h.csv" 
     }
     for i in variables.index:
         series_filter_by_var_id = filter(lambda serie: serie["var"]["id"] == variables["id"][i],series)
