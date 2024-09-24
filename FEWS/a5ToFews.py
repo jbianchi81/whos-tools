@@ -14,6 +14,18 @@ config = {
 
 basins = gpd_read_file(config["basins_geojson_file"])
 
+internal_var_ids = {
+    1: "P",
+    2: "H",
+    4: "Q",
+    39: "H",
+    40: "Q",
+    31: "P",
+    101: "H",
+    85: "H"
+}
+
+
 def interval2epoch(interval):
     seconds = 0
     for k in interval:
@@ -71,7 +83,8 @@ def estacionesToFews(estaciones : Union[str, list],output=None):
             "TYPE": "Automatic" if item["automatica"] else "Conventional",
             "COUNTRY": item["pais"],
             "ORGANIZATION": "INA",
-            "SUBBASIN": getSubBasin(item["geom"]["coordinates"])
+            "SUBBASIN": getSubBasin(item["geom"]["coordinates"]),
+            "PARENT_ID": "AR_INA_%i" % item["id"]
         }
         rows.append(row)
     data_frame = pandas.DataFrame(rows).sort_values("STATION_ID")
@@ -95,12 +108,12 @@ def getSubBasin(coordinates):
     return subbasin
 
 fews_series_columns = {
-    1: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-    31: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-    39: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-    40: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-    85: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-    101: ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
+    1: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
+    31: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
+    39: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
+    40: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
+    85: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
+    101: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"]
 }
 
 
@@ -138,17 +151,25 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
             series = json.load(f)
     rows = []
     for item in series:
+        timestep_hour = interval2epoch(item["var"]["timeSupport"]) / 3600 if item["var"]["timeSupport"] is not None and len(item["var"]["timeSupport"].keys()) else None
         row = {
             "STATION_ID": item["estacion"]["id"],
+            "STATION_NAME": item["estacion"]["nombre"],
             "EXTERNAL_LOCATION_ID": item["estacion"]["id"],
             "EXTERNAL_PARAMETER_ID": item["var"]["id"],
-            "TIMESTEP_HOUR": interval2epoch(item["var"]["timeSupport"]) / 3600 if item["var"]["timeSupport"] is not None and len(item["var"]["timeSupport"].keys()) else None,
+            "TIMESTEP_HOUR": timestep_hour,
             "UNIT": item["unidades"]["abrev"],
             "IMPORT_SOURCE": "INA",
             "THRESHOLD_LOW": item["estacion"]["nivel_aguas_bajas"] if item["var"]["VariableName"] == "Gage height" else None,
             "THRESHOLD_YELLOW": item["estacion"]["nivel_alerta"] if item["var"]["VariableName"] == "Gage height" else None,
             "THRESHOLD_RED": item["estacion"]["nivel_evacuacion"] if item["var"]["VariableName"] == "Gage height" else None,
-            "IMPORT": True
+            "IMPORT": True,
+            "PARENT_ID": "AR_INA_%i" % item["estacion"]["id"],
+            "CHILD_ID": "AR_INA_%i_INA_%i_%s" % (
+                item["estacion"]["id"], 
+                timestep_hour,  
+                internal_var_ids[item["var"]["id"]] if item["var"]["id"] in internal_var_ids else "" 
+            )
         }
         if "monthlyStats" in item:
             months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
@@ -282,13 +303,42 @@ if __name__ == "__main__":
         101 : "results/INA_H4h.csv",
         85: "results/INA_H1h.csv" 
     }
+    series_final_files = {
+        "results/INA_P_all.csv": {
+            "ids": [1, 31],
+            "df": None
+        },
+        "results/INA_H_all.csv": {
+            "ids": [39, 85, 101],
+            "df": None
+        },
+        "results/INA_Q_all.csv": {
+            "ids": [40],
+            "df": None
+        }
+    }
     for i in variables.index:
         series_filter_by_var_id = filter(lambda serie: serie["var"]["id"] == variables["id"][i],series)
         series_subset = list(series_filter_by_var_id)
         filename = series_file_map[variables["id"][i]] if variables["id"][i] in series_file_map else "results/INA_%s.csv" % variables["nombre"][i]
         var_id = variables["id"][i] # if variables["id"][i] in fews_series_columns else None
         series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil,var_id=var_id)
-    
+        for file, v in series_final_files.items():
+            if variables["id"][i] in v["ids"]:
+                if v["df"] is None:
+                    v["df"] = series_subset_fews
+                else:
+                    v["df"] = pandas.concat([v["df"], series_subset_fews], axis=0)
+        
+    for file, v in series_final_files.items():
+        if v["df"] is None:
+            logging.error("No data to write for file %s" % file)
+            exit(2)
+        with open(file, "w") as outfile:
+            outfile.write(v["df"].sort_values(["STATION_ID","EXTERNAL_PARAMETER_ID"]).to_csv(index=False))
+            outfile.close()
+
+
 
 
 
