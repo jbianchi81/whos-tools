@@ -167,7 +167,8 @@ class Client:
                 del params[key]
         params["outputProperties"] = "country,monitoringPointOriginalIdentifier"
         url = "%s/gs-service/services/essi/token/%s/view/%s/timeseries-api/monitoring-points" % (self.config["url"], self.config["token"], view)
-        # print("url: %s" % url)
+        logging.debug("url: %s" % url)
+        logging.debug(str({"params": params}))
         try:
             response = requests.get(url, params)
         except:
@@ -243,7 +244,7 @@ class Client:
         return result
     
     def monitoringPointsToFEWS(self,monitoringPoints : Union[str, dict],output=None): 
-        """Converts monitoringPoints geoJSON to FEWS table
+        """Converts monitoringPoints JSON to FEWS table
         
         Parameters
         ----------
@@ -263,22 +264,22 @@ class Client:
             with open(monitoringPoints,"r") as f: 
                 monitoringPoints = json.load(f)
         rows = []
-        for item in monitoringPoints["features"]:
+        for item in monitoringPoints["results"]:
             monitoring_point_parameters = {}
-            for i in item["properties"]["monitoring-point"]["parameters"]:
+            for i in item["parameter"]:
                 monitoring_point_parameters[i["name"]] = i["value"]
             row = {
-                "STATION_ID": item["properties"]["monitoring-point"]["sampledFeature"]["href"],
-                "STATION_NAME": item["properties"]["monitoring-point"]["sampledFeature"]["title"],
-                "STATION_SHORTNAME": item["properties"]["monitoring-point"]["sampledFeature"]["title"].replace(" ","")[0:12],
-                "TOOLTIP": item["properties"]["monitoring-point"]["sampledFeature"]["title"],
-                "LATITUDE": item["geometry"]["coordinates"][1],
-                "LONGITUDE": item["geometry"]["coordinates"][0],
-                "ALTITUDE": item["geometry"]["coordinates"][2] if len(item["geometry"]["coordinates"]) > 2 else None,
+                "STATION_ID": item["id"],
+                "STATION_NAME": item["name"],
+                "STATION_SHORTNAME": item["name"].replace(" ","")[0:12],
+                "TOOLTIP": item["name"],
+                "LATITUDE": item["shape"]["coordinates"][1],
+                "LONGITUDE": item["shape"]["coordinates"][0],
+                "ALTITUDE": item["shape"]["coordinates"][2] if len(item["shape"]["coordinates"]) > 2 else None,
                 "TYPE": None,
                 "COUNTRY": monitoring_point_parameters["country"] if "country" in monitoring_point_parameters.keys() else None,
                 "ORGANIZATION": "WHOS",
-                "SUBBASIN": self.getSubBasin(item["geometry"]["coordinates"]),
+                "SUBBASIN": self.getSubBasin(item["shape"]["coordinates"]),
                 "ORIGINAL_STATION_ID" : re.sub("^.*\:","",monitoring_point_parameters["identifier"]) if "identifier" in monitoring_point_parameters.keys() else None
             }
             rows.append(row)
@@ -531,14 +532,14 @@ class Client:
             output = output_dir / ("monitoringPointsResponse_%i.json" % i) if save_geojson else None
             monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output, country = country)
             # convert to FEWS stations CSV, output as gauges.csv
-            if "features" not in monitoringPoints:
+            if "results" not in monitoringPoints:
                 logging.debug("no monitoring points found")
                 break
-            features.extend(monitoringPoints["features"])
+            features.extend(monitoringPoints["results"])
             if fews_output:
                 stations_i = self.monitoringPointsToFEWS(monitoringPoints)
                 stations= pandas.concat([stations,stations_i])
-            if len(monitoringPoints["features"]) < self.config["monitoring_points_per_page"]:
+            if len(monitoringPoints["results"]) < self.config["monitoring_points_per_page"]:
                 break
         result = {
             "type": "featureCollection",
@@ -717,7 +718,10 @@ if __name__ == "__main__":
     client = Client(config)
     if args.action.lower() == "monitoringpoints":
         # GET MONITORING POINTS
-        mp_args = {}
+        mp_args = {
+            "output_dir": "results",
+            "save_geojson": True
+        }
         if args.view:
             mp_args["view"] = args.view
         if args.bbox:

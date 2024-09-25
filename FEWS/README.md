@@ -31,7 +31,8 @@ This folder contains:
 ### or from the command line:
 ```
     # get stations by bounding box
-    python whos_client.py monitoringPoints --bbox -60 -35 -55 -30 --json results/mp.json --fews results/mp.csvpython whos_client.py monitoringPoints --json results/mp.json --fews results/mp.csv
+    python whos_client.py monitoringPoints --bbox -60 -35 -55 -30 --json results/mp.json --fews results/mp.csv
+    python whos_client.py monitoringPoints --json results/mp.json --fews results/mp.csv
     #get all stations
     
     # get timeseries by station ID 
