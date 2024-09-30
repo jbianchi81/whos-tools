@@ -111,12 +111,12 @@ class Client:
     }
 
     fews_series_columns = {
-        "P": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-        "H": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-        "Q": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"]
+        "P": ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN","PARENT_ID", "CHILD_ID"],
+        "H": ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN","PARENT_ID", "CHILD_ID"],
+        "Q": ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN","PARENT_ID", "CHILD_ID"]
     }
 
-    fews_observed_properties = ["02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F",
+    fews_observed_properties = set(["02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F",
     "AF6C35E61AC362E0151B6458DADCB032043B67EA",
     "D2DB8BC2930F82D1E5EFA6B529F0262EB0FFE994",
     "5C34E7D199E2643B1AA949D920942C576A406AB4",
@@ -145,14 +145,24 @@ class Client:
     "8D3F156BB84DC053CB935F58D0F7FB6F816BB38E",
     "941CC3F495C4F4D36921A953A419B73396362B7D",
     "F923311DA0ACB1793D8E5A053F2335192518CDAE",
-    "973453E5B8A696A9C7FC01EFC5B6EA5D536A1107"]
+    "973453E5B8A696A9C7FC01EFC5B6EA5D536A1107"])
 
     fews_organization_map = {
-        "National Water Agency of Brazil": "ANA",
-        "INMET": "INMET",
-        "Dirección de Meteorología e Hidrología (DMH), Paraguay": "DMH",
-        "Instituto Nacional del Agua (INA)": "INA"
+        "National Water Agency of Brazil": "ANA", # provider: brazil-ana
+        "INMET": "INMET", # provider: brazil-inmet
+        "Dirección de Meteorología e Hidrología (DMH), Paraguay": "DMH", # provider: paraguay-dmh
+        "Instituto Nacional del Agua (INA)": "INA", # provider: argentina-ana
+        "Hydrologic Research Center (HRC)": "PROHMSAT", # provider: ?
+        "SAR - Agência Nacional de Águas (ANA)": "SAR" # provider: brazil-ana-sar
     }
+
+    default_var_map = [
+        {
+            "variableCode": "http://hydro.geodab.eu/hydro-ontology/concept/3",
+            "variableName": "Level",
+            "unitName": None
+        }
+    ]
     
     def __init__(self,config: dict = None):
         """
@@ -169,7 +179,7 @@ class Client:
         self.basins = gpd_read_file(self.config["basins_geojson_file"])
         self.threshold_begin_date = datetime.now() - timedelta(days=self.config["begin_days"])
         self.threshold_begin_date = pytz.utc.localize(self.threshold_begin_date)
-        self.fews_observed_properties = self.config["fews_observed_properties"] if "fews_observed_properties" in self.config else self.fews_observed_properties 
+        self.fews_observed_properties = set(self.config["fews_observed_properties"]) if "fews_observed_properties" in self.config else self.fews_observed_properties 
     
     def getMonitoringPoints(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None, country: str = None, provider : str = None) -> dict:
         """Retrieves monitoring points as a geoJSON document from the timeseries API
@@ -229,7 +239,7 @@ class Client:
             f.close()
         return response.json()
     
-    def getTimeseries(self, view: str = default_config["view"], monitoringPoint: str = None, observedProperty: str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None, has_data = False):
+    def getTimeseries(self, view: str = default_config["view"], monitoringPoint: str = None, observedProperty: str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None, has_data = False, provider : str = None):
         """Retrieves timeseries as a geoJSON document from the timeseries API
 
         Parameters
@@ -262,7 +272,7 @@ class Client:
         del params["output"]
         del params["self"]
         del params["has_data"]
-        for key in ["monitoringPoint","observedProperty","beginPosition","endPosition","limit","offset"]:
+        for key in ["monitoringPoint","observedProperty","beginPosition","endPosition","limit","offset","provider"]:
             if params[key] == None:
                 del params[key]
         url = "%s/gs-service/services/essi/token/%s/view/%s/timeseries-api/timeseries" % (self.config["url"], self.config["token"], view)
@@ -323,10 +333,11 @@ class Client:
                 "ALTITUDE": item["shape"]["coordinates"][2] if len(item["shape"]["coordinates"]) > 2 else None,
                 "TYPE": None,
                 "COUNTRY": monitoring_point_parameters["country"] if "country" in monitoring_point_parameters.keys() else None,
-                "ORGANIZATION": "WHOS",
+                "ORGANIZATION": self.getOrganizationCode(item["relatedParty"][0]["organisationName"]) if len(item["relatedParty"]) else "WHOS",
                 "SUBBASIN": self.getSubBasin(item["shape"]["coordinates"]),
                 "ORIGINAL_STATION_ID" : re.sub("^.*\:","",monitoring_point_parameters["identifier"]) if "identifier" in monitoring_point_parameters.keys() else None
             }
+            row["PARENT_ID"] = "%s_%s_%s" % (row["COUNTRY"].upper()[0:2] if row["COUNTRY"] is not None else "", row["ORGANIZATION"], str(row["ORIGINAL_STATION_ID"]))
             rows.append(row)
         data_frame = pandas.DataFrame(rows)
         if output is not None:
@@ -379,7 +390,7 @@ class Client:
                 timeseries = json.load(f)
         rows = []
         for item in timeseries["members"]:
-            timestep_hour = self.isoDurationToHours(item["result"]["defaultPointMetadata"]["aggregationDuration"]) if "aggregationDuration" in item["result"]["defaultPointMetadata"] else None
+            timestep_hour = self.isoDurationToHours(item["result"]["defaultPointMetadata"]["aggregationDuration"]) if "aggregationDuration" in item["result"]["defaultPointMetadata"] else self.isoDurationToHours(item["result"]["metadata"]["intendedObservationSpacing"]) if "metadata" in item["result"] and "intendedObservationSpacing" in item["result"]["metadata"] else None
             row = {
                 "STATION_ID": item["featureOfInterest"]["href"],
                 "EXTERNAL_LOCATION_ID": item["featureOfInterest"]["href"],
@@ -390,8 +401,10 @@ class Client:
                 "IMPORT": True
                 # THRESHOLD_1   THRESHOLD_2	THRESHOLD_3	THRESHOLD_4 -> not present in WHOS
             }
-            if stations is not None and row["STATION_ID"] in stations.index:
-                row["STATION_NAME"] =  stations["NAME"][row["STATION_ID"]]
+            if stations is not None:
+                if row["STATION_ID"] not in stations.index:
+                    continue
+                row["STATION_NAME"] =  stations["STATION_NAME"][row["STATION_ID"]]
                 row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
                 row["LONGITUDE"] = stations["LONGITUDE"][row["STATION_ID"]]
                 row["ALTITUDE"] = stations["ALTITUDE"][row["STATION_ID"]]
@@ -400,6 +413,7 @@ class Client:
                 row["ORGANIZATION"] = stations["ORGANIZATION"][row["STATION_ID"]]
                 row["SUBBASIN"] = stations["SUBBASIN"][row["STATION_ID"]]
                 row["ORIGINAL_STATION_ID"] = stations["ORIGINAL_STATION_ID"][row["STATION_ID"]]
+                row["PARENT_ID"] = "%s_%s_%s"  % (row["COUNTRY"].upper()[0:2] if row["COUNTRY"] is not None else "", row["ORGANIZATION"], row["ORIGINAL_STATION_ID"])
             rows.append(row)
         data_frame = pandas.DataFrame(rows)
         if output is not None:
@@ -452,7 +466,7 @@ class Client:
         namespaces["his"] = "http://www.cuahsi.org/his/1.1/ws/"
         namespaces["wml"] = "http://www.cuahsi.org/waterML/1.1/"
         variables = exml.xpath("./soap:Body/his:GetVariablesResponse/his:GetVariablesResult/wml:variablesResponse/wml:variables/wml:variable",namespaces=namespaces)
-        var_map = []
+        var_map = self.default_var_map
         for v in variables:
             variableCode = v.find("./wml:variableCode",namespaces=namespaces).text
             variableName = v.find("./wml:variableName",namespaces=namespaces).text
@@ -462,6 +476,8 @@ class Client:
                 "variableName": variableName,
                 "unitName": unitName
             })
+            if variableName in self.fews_var_map:
+                self.fews_observed_properties.add(variableCode)
         data_frame = pandas.DataFrame(var_map)
         if output_xml is not None:
             f = open(output_xml,"w")
@@ -473,7 +489,7 @@ class Client:
             f.close()
         return data_frame
     
-    def groupTimeseriesByVar(self,input_ts,var_map,output_dir=None,fews=False): 
+    def groupTimeseriesByVar(self,input_ts,var_map,output_dir=None,fews=False, set_child_id=True): 
         """Groups timeseries by observedVariable, optionally using FEWS convention
         
         Parameters
@@ -510,10 +526,12 @@ class Client:
                 variable_name_column.append(var_dict[variableCode]["variableName"])
                 unit_column.append(var_dict[variableCode]["unitName"])
         timeseries["variableName"] = variable_name_column
-        timeseries["UNIT"] = unit_column
+        timeseries["UNIT"] = timeseries["UNIT"].combine_first(unit_column)
         if fews:
             timeseries["variableName"] = [self.fews_var_map[variableName] if variableName in self.fews_var_map else None for variableName in timeseries["variableName"]]
             timeseries = timeseries[timeseries["variableName"].notnull()]
+            if set_child_id:
+                timeseries["CHILD_ID"] = timeseries["PARENT_ID"] + "_WHO_" + timeseries["TIMESTEP_HOUR"].astype(int).astype(str) + "_" + timeseries["variableName"]
         if output_dir is not None:
             output_dir = Path(output_dir)
             variableNames = set(timeseries["variableName"])
@@ -549,7 +567,9 @@ class Client:
             dict containing retrieved stations and timeseries in FEWS format
         """
         output_dir = Path(output_dir)
-        observedProperty = observedProperty if observedProperty is not None else self.fews_observed_properties
+        # get WHOS-Plata variable mapping table
+        var_map = self.getVariableMapping()
+        observedProperty = observedProperty if observedProperty is not None else list(self.fews_observed_properties)
         monitoringPoints = self.getMonitoringPointsWithPagination(
             json_output = output_dir / "monitoringPoints.json" if save_geojson else None,
             country = country,
@@ -559,13 +579,12 @@ class Client:
             south=south, 
             provider = provider)
         stations_fews = self.monitoringPointsToFEWS(monitoringPoints)
-        # get WHOS-Plata variable mapping table
-        var_map = self.getVariableMapping()
         # get all WHOS-Plata timeseries metadata (using pagination)
         timeseries = self.getTimeseriesWithPagination(
             observedProperty=observedProperty, 
             json_output = output_dir / "timeseries.json" if save_geojson else None, 
-            has_data = has_data)
+            has_data = has_data,
+            provider = provider)
         # station_organization = self.getOrganization(timeseries,stations_fews)
         timeseries_fews = self.timeseriesToFEWS(timeseries, stations=stations_fews)
         timeseries_fews = self.deleteSeriesWithoutTimestep(timeseries_fews) if has_timestep else timeseries_fews  
@@ -578,6 +597,7 @@ class Client:
         f.write(stations_fews.to_csv())
         f.close()
         timeseries_fews = self.setOriginalStationId(timeseries_fews)
+        # timeseries_fews["PARENT_ID"] = [str(row["COUNTRY"].upper()[0:2] if row["COUNTRY"] is not None else "") + "_" + row["ORGANIZATION"] + "_" + row["STATION_ID"] for i, row in timeseries_fews.iterrows()]
         #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
         timeseries_fews_grouped = self.groupTimeseriesByVar(timeseries_fews,var_map,output_dir=output_dir,fews= True) # False)
         return {"stations": stations_fews, "timeseries": timeseries_fews_grouped}
@@ -624,7 +644,7 @@ class Client:
         else:
             return result
 
-    def getTimeseriesMulti(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None, has_data=False):
+    def getTimeseriesMulti(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None, has_data=False, provider : str = None):
         if monitoringPoint is not None:
             if type(monitoringPoint) == str:
                 monitoringPoint = [monitoringPoint]
@@ -637,12 +657,12 @@ class Client:
             observedProperty = []
         if len(monitoringPoint) == 0:
             if len(observedProperty) == 0:
-                return self.getTimeseries( view = view, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
+                return self.getTimeseries( view = view, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data, provider = provider)
             else:
                 members = []
                 for op in observedProperty:
                     logging.debug("observedProperty: %s" % op)
-                    timeseries = self.getTimeseries(view, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
+                    timeseries = self.getTimeseries(view, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data, provider = provider)
                     if "member" in timeseries:
                         members.extend(timeseries["member"])
                 return {
@@ -668,15 +688,15 @@ class Client:
                 "members": members
             }
 
-    def getTimeseriesWithPagination(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "", grouped : bool = False, has_data : bool = True) -> dict:
+    def getTimeseriesWithPagination(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "", grouped : bool = False, has_data : bool = True, provider : str = None) -> dict:
         output_dir = Path(output_dir)
         members = []
         var_map = self.getVariableMapping()
-        timeseries_fews = pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
+        timeseries_fews = None # pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
         for i in range(1,self.config["timeseries_max"],self.config["timeseries_per_page"]):
             logging.debug("getTimeseriesMulti, offset: %i" % i)
             output = output_dir / ("timeseriesResponse_%i.json" % i) if save_geojson else None
-            timeseries = self.getTimeseriesMulti(offset=i,monitoringPoint=monitoringPoint,observedProperty=observedProperty,beginPosition=beginPosition,endPosition=endPosition,limit=self.config["timeseries_per_page"],output=output,has_data=False)
+            timeseries = self.getTimeseriesMulti(offset=i,monitoringPoint=monitoringPoint,observedProperty=observedProperty,beginPosition=beginPosition,endPosition=endPosition,limit=self.config["timeseries_per_page"],output=output,has_data=False, provider = provider)
             if "members" not in timeseries:
                 logging.debug("No timeseries found")
                 break
@@ -685,7 +705,7 @@ class Client:
             if has_data:
                 timeseries["members"] = self.filterByAvailability(timeseries["members"],self.threshold_begin_date)
             logging.debug("Offset: %i, length: %i, got %i timeseries after filtering" % (i,self.config["timeseries_per_page"],len(timeseries["members"])))
-            timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(timeseries)])
+            timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(timeseries)]) if timeseries_fews is not None else self.timeseriesToFEWS(timeseries)
             members.extend(timeseries["members"])
             if timeseries_length < self.config["timeseries_per_page"]:
                 logging.debug("last page, breaking")
@@ -713,6 +733,11 @@ class Client:
                 return timeseries_fews
         else:
             return result
+        
+    def getOrganizationCode(self, organizationName : str) -> str:
+        if organizationName not in self.fews_organization_map:
+            return self.fews_organization_map[organizationName].upper().replace(" ","")[0:5]
+        return self.fews_organization_map[organizationName]
     
     def getOrganization(self,timeseries : dict,stations_fews : pandas.DataFrame = None, fews=True) -> pandas.DataFrame:  # , delete_none = False
         '''Reads organisationName from timeseries object. If stations_fews provided, updates ORGANIZATION column. Returns DataFrame with columns STATION_ID,organisationName'''
@@ -832,6 +857,8 @@ if __name__ == "__main__":
             ts_args["json_output"] = args.json
         if args.fews:
             ts_args["fews_output"] = args.fews
+        if args.provider:
+            ts_args["provider"] = args.provider
         if "json_output" not in ts_args and "fews_output" not in ts_args:
             raise Exception("Missing arguments: at least one of json fews must be defined")
         client.getTimeseriesWithPagination(**ts_args)
