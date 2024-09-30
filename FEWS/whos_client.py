@@ -50,27 +50,70 @@ class Client:
     }
     
     fews_var_map = {
-        "Precipitation": "precipitation",
-        "PRECIPITAÇÃO TOTAL, DIARIO": "precipitation",
-        "PRECIPITAÇÃO TOTAL, MENSAL": "precipitation",
-        "PRECIPITAÇÃO TOTAL, HORÁRIO": "precipitation",
-        "PRECIPITAÇÃO TOTAL, MENSAL (AUT)": "precipitation",
-        "PRECIPITAÇÃO TOTAL, DIARIO (AUT)": "precipitation",
-        "totalPrecipitationPast24Hours": "precipitation",
-        "totalPrecipitationOrTotalWaterEquivalent": "precipitation",
-        "nivel agua": "water level",
-        "Level": "water level",
-        "Flux, discharge": "discharge",
-        "Inflow discharge (to the reservoir)": "discharge",
-        "Outflow discharge (from the reservoir)": "discharge",
+        "Precipitation": "P",
+        "PRECIPITAÇÃO TOTAL, DIARIO": "P",
+        "PRECIPITAÇÃO TOTAL, MENSAL": "P",
+        "PRECIPITAÇÃO TOTAL, HORÁRIO": "P",
+        "PRECIPITAÇÃO TOTAL, MENSAL (AUT)": "P",
+        "PRECIPITAÇÃO TOTAL, DIARIO (AUT)": "P",
+        "totalPrecipitationPast24Hours": "P",
+        "totalPrecipitationOrTotalWaterEquivalent": "P",
+        "Amount of precipitation": "P",
+        "Intensidad de la Precipitación": "P",
+        "Chuva": "P",
+        "nivel agua": "H",
+        "Level": "H",
+        "Gage height, stream": "H",
+        "Stream level": "H",
+        "Nivel de Río": "H",
+        "Flux, discharge": "Q",
+        "Inflow discharge (to the reservoir)": "Q",
+        "Outflow discharge (from the reservoir)": "Q",
+        "Stream discharge": "Q",
+        "Vazao": "Q",
         "Volume": "volume",
-        "Reservoir storage": "storage"
+        "Reservoir storage": "storage",
+        "Air temperature (at specified distance from reference surface)": "temperature",
+        "Velocity, wind": "wind velocity",
+        "Velocidad del Viento": "wind velocity",
+        "Intensidad del Viento": "wind velocity",
+        "Velocidad media del viento": "wind velocity",
+        "Wind direction": "wind direction",
+        "Dirección del Viento": "wind direction",
+        "vento, direção": "wind direction",
+        "Atmospheric pressure": "atmospheric pressure",
+        "Pressure": "atmospheric pressure",
+        "Presión a Nivel de Estación": "atmospheric pressure",
+        "Pressure reduced to mean sea level": "pressure reduced to mean sea level",
+        "Presión a Nivel del Mar": "pressure reduced to mean sea level",
+        "Radiation, Global": "solar radiation",
+        "Radiación": "solar radiation",
+        "Relative humidity": "relative humidity",
+        "Snow depth": "snow depth",
+        "Temperature, dew point": "dew point temperature",
+        "Punto de rocio": "dew point temperature",
+        "Temperatura de Rocio": "dew point temperature",
+        "Temperature, water": "water temperature",
+        "Temperatura del Agua": "water temperature",
+        "Sunshine duration": "sunshine duration",
+        "Evapotranspiration, actual": "real evapotranspiration",
+        "Evapotranspiration, potential": "potential evapotranspiration",
+        "Dry bulb temperature": "temperature",
+        "Temperatura Media": "temperature",
+        "Temperatura del Aire": "temperature",
+        "Total reservoir capacity": "total reservoir capacity",
+        "Inflow discharge (to the reservoir)": "inflow discharge",
+        "Outflow discharge (from the reservoir)": "outflow discharge",
+        "Wet bulb temperature": "wet bulb temperature",
+        "Temperatura del Bulbo Húmedo": "wet bulb temperature",
+        "Soil Moisture": "soil moisture",
+        "Evapotranspiración": "real evapotranspiration"
     }
 
     fews_series_columns = {
-        "precipitation": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-        "water level": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
-        "discharge": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"]
+        "P": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
+        "H": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"],
+        "Q": ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN"]
     }
 
     fews_observed_properties = ["02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F",
@@ -128,7 +171,7 @@ class Client:
         self.threshold_begin_date = pytz.utc.localize(self.threshold_begin_date)
         self.fews_observed_properties = self.config["fews_observed_properties"] if "fews_observed_properties" in self.config else self.fews_observed_properties 
     
-    def getMonitoringPoints(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None, country: str = None) -> dict:
+    def getMonitoringPoints(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None, country: str = None, provider : str = None) -> dict:
         """Retrieves monitoring points as a geoJSON document from the timeseries API
         
         Parameters
@@ -151,6 +194,8 @@ class Client:
             Write JSON output into this file
         country: string
             Country code (ISO3)
+        provider: string
+            Provider code
         
         Returns
         -------
@@ -162,7 +207,7 @@ class Client:
         del params["view"]
         del params["output"]
         del params["self"]
-        for key in ["east","west","north","south","limit","offset","country"]:
+        for key in ["east","west","north","south","limit","offset","country","provider"]:
             if params[key] == None:
                 del params[key]
         params["outputProperties"] = "country,monitoringPointOriginalIdentifier"
@@ -232,8 +277,8 @@ class Client:
         # filter out features with no data
         # xprint("%s - Elapsed: %s" % (str(datetime.now()),str(response.elapsed)))
         result = response.json()
-        if has_data and "features" in result:
-            result["features"] = self.filterByAvailability(result["features"],self.threshold_begin_date) 
+        if has_data and "members" in result:
+            result["members"] = self.filterByAvailability(result["members"],self.threshold_begin_date) 
         if output is not None:
             try: 
                 f = open(output,"w")
@@ -333,18 +378,20 @@ class Client:
             with open(timeseries,"r") as f: 
                 timeseries = json.load(f)
         rows = []
-        for item in timeseries["features"]:
+        for item in timeseries["members"]:
+            timestep_hour = self.isoDurationToHours(item["result"]["defaultPointMetadata"]["aggregationDuration"]) if "aggregationDuration" in item["result"]["defaultPointMetadata"] else None
             row = {
-                "STATION_ID": item["properties"]["timeseries"]["featureOfInterest"]["sampledFeature"]["href"],
-                "EXTERNAL_LOCATION_ID": item["properties"]["timeseries"]["featureOfInterest"]["sampledFeature"]["href"],
-                "EXTERNAL_PARAMETER_ID": item["properties"]["timeseries"]["observedProperty"]["href"],
-                "TIMESTEP_HOUR": self.isoDurationToHours(item["properties"]["timeseries"]["result"]["defaultPointMetadata"]["aggregationDuration"]) if "aggregationDuration" in item["properties"]["timeseries"]["result"]["defaultPointMetadata"] else None,
-                "UNIT": item["properties"]["timeseries"]["result"]["defaultPointMetadata"]["uom"] if "uom" in item["properties"]["timeseries"]["result"]["defaultPointMetadata"] else None,
+                "STATION_ID": item["featureOfInterest"]["href"],
+                "EXTERNAL_LOCATION_ID": item["featureOfInterest"]["href"],
+                "EXTERNAL_PARAMETER_ID": item["observedProperty"]["href"],
+                "TIMESTEP_HOUR": timestep_hour,
+                "UNIT": item["result"]["defaultPointMetadata"]["uom"] if "uom" in item["result"]["defaultPointMetadata"] else None,
                 "IMPORT_SOURCE": "WHOS",
                 "IMPORT": True
                 # THRESHOLD_1   THRESHOLD_2	THRESHOLD_3	THRESHOLD_4 -> not present in WHOS
             }
             if stations is not None and row["STATION_ID"] in stations.index:
+                row["STATION_NAME"] =  stations["NAME"][row["STATION_ID"]]
                 row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
                 row["LONGITUDE"] = stations["LONGITUDE"][row["STATION_ID"]]
                 row["ALTITUDE"] = stations["ALTITUDE"][row["STATION_ID"]]
@@ -452,8 +499,18 @@ class Client:
                 "variableName": var_map["variableName"][i],
                 "unitName": var_map["unitName"][i]
             }
-        timeseries["variableName"] = [var_dict[variableCode]["variableName"] for variableCode in timeseries["EXTERNAL_PARAMETER_ID"]]
-        timeseries["UNIT"] = [var_dict[variableCode]["unitName"] for variableCode in timeseries["EXTERNAL_PARAMETER_ID"]]
+        variable_name_column = []
+        unit_column = []
+        for variableCode in timeseries["EXTERNAL_PARAMETER_ID"]:
+            if variableCode not in var_dict:
+                logging.warning("Missing variable code " + variableCode + " from variable map")
+                variable_name_column.append("Unknown")
+                unit_column.append("Unknown")
+            else:
+                variable_name_column.append(var_dict[variableCode]["variableName"])
+                unit_column.append(var_dict[variableCode]["unitName"])
+        timeseries["variableName"] = variable_name_column
+        timeseries["UNIT"] = unit_column
         if fews:
             timeseries["variableName"] = [self.fews_var_map[variableName] if variableName in self.fews_var_map else None for variableName in timeseries["variableName"]]
             timeseries = timeseries[timeseries["variableName"].notnull()]
@@ -472,7 +529,7 @@ class Client:
                 f.write(group.to_csv(index=False))
         return timeseries
 
-    def makeFewsTables(self,output_dir="",save_geojson=False,has_data=True,observedProperty=None,country=None,has_timestep=True,east=None,west=None,north=None,south=None):
+    def makeFewsTables(self,output_dir="",save_geojson=False,has_data=True,observedProperty=None,country=None,has_timestep=True,east=None,west=None,north=None,south=None, provider : str = None):
         """Retrieves WHOS metadata and writes out FEWS tables
         
         Parameters
@@ -493,13 +550,23 @@ class Client:
         """
         output_dir = Path(output_dir)
         observedProperty = observedProperty if observedProperty is not None else self.fews_observed_properties
-        monitoringPoints = self.getMonitoringPointsWithPagination(json_output = output_dir / "monitoringPoints.json" if save_geojson else None,country = country,east=east,west=west,north=north,south=south)
+        monitoringPoints = self.getMonitoringPointsWithPagination(
+            json_output = output_dir / "monitoringPoints.json" if save_geojson else None,
+            country = country,
+            east=east,
+            west=west,
+            north=north,
+            south=south, 
+            provider = provider)
         stations_fews = self.monitoringPointsToFEWS(monitoringPoints)
         # get WHOS-Plata variable mapping table
         var_map = self.getVariableMapping()
         # get all WHOS-Plata timeseries metadata (using pagination)
-        timeseries = self.getTimeseriesWithPagination(observedProperty=observedProperty, json_output = output_dir / "timeseries.json" if save_geojson else None, has_data = has_data)
-        station_organization = self.getOrganization(timeseries,stations_fews)
+        timeseries = self.getTimeseriesWithPagination(
+            observedProperty=observedProperty, 
+            json_output = output_dir / "timeseries.json" if save_geojson else None, 
+            has_data = has_data)
+        # station_organization = self.getOrganization(timeseries,stations_fews)
         timeseries_fews = self.timeseriesToFEWS(timeseries, stations=stations_fews)
         timeseries_fews = self.deleteSeriesWithoutTimestep(timeseries_fews) if has_timestep else timeseries_fews  
         # filter out stations with no timeseries
@@ -523,27 +590,27 @@ class Client:
     def deleteSeriesWithoutTimestep(self,timeseries_fews):
         return timeseries_fews[~pandas.isna(timeseries_fews["TIMESTEP_HOUR"])]
 
-    def getMonitoringPointsWithPagination(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "",country: str = None) -> dict:
+    def getMonitoringPointsWithPagination(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "",country: str = None, provider : str = None) -> dict:
         output_dir = Path(output_dir)
         stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
-        features = []
+        results = []
         for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
             logging.debug("getMonitoringPoints offset: %i" % i)
             output = output_dir / ("monitoringPointsResponse_%i.json" % i) if save_geojson else None
-            monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output, country = country)
+            monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output, country = country, provider = provider)
             # convert to FEWS stations CSV, output as gauges.csv
             if "results" not in monitoringPoints:
                 logging.debug("no monitoring points found")
                 break
-            features.extend(monitoringPoints["results"])
+            results.extend(monitoringPoints["results"])
             if fews_output:
                 stations_i = self.monitoringPointsToFEWS(monitoringPoints)
                 stations= pandas.concat([stations,stations_i])
             if len(monitoringPoints["results"]) < self.config["monitoring_points_per_page"]:
                 break
         result = {
-            "type": "featureCollection",
-            "features": features
+            # "type": "featureCollection",
+            "results": results
         }
         if json_output:
             f = open(json_output,"w")
@@ -572,61 +639,61 @@ class Client:
             if len(observedProperty) == 0:
                 return self.getTimeseries( view = view, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
             else:
-                features = []
+                members = []
                 for op in observedProperty:
                     logging.debug("observedProperty: %s" % op)
                     timeseries = self.getTimeseries(view, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
-                    if "features" in timeseries:
-                        features.extend(timeseries["features"])
+                    if "member" in timeseries:
+                        members.extend(timeseries["member"])
                 return {
-                    "type": "featureCollection",
-                    "features": features
+                    # "type": "featureCollection",
+                    "members": members
                 }
         else:
-            features = []
+            members = []
             for mp in monitoringPoint:
                 logging.debug("monitoringPoint: %s" % mp)
                 if len(observedProperty) == 0:
                     timeseries = self.getTimeseries( view = view, monitoringPoint = mp, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
-                    if "features" in timeseries:
-                        features.extend(timeseries["features"])
+                    if "member" in timeseries:
+                        members.extend(timeseries["member"])
                 else:
                     for op in observedProperty:
                         logging.debug("observedProperty: %s" % op)
                         timeseries = self.getTimeseries(view, monitoringPoint = mp, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
-                        if "features" in timeseries:
-                            features.extend(timeseries["features"])
+                        if "member" in timeseries:
+                            members.extend(timeseries["member"])
             return {
-                "type": "featureCollection",
-                "features": features
+                # "type": "featureCollection",
+                "members": members
             }
 
     def getTimeseriesWithPagination(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "", grouped : bool = False, has_data : bool = True) -> dict:
         output_dir = Path(output_dir)
-        features = []
+        members = []
         var_map = self.getVariableMapping()
         timeseries_fews = pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
         for i in range(1,self.config["timeseries_max"],self.config["timeseries_per_page"]):
             logging.debug("getTimeseriesMulti, offset: %i" % i)
             output = output_dir / ("timeseriesResponse_%i.json" % i) if save_geojson else None
             timeseries = self.getTimeseriesMulti(offset=i,monitoringPoint=monitoringPoint,observedProperty=observedProperty,beginPosition=beginPosition,endPosition=endPosition,limit=self.config["timeseries_per_page"],output=output,has_data=False)
-            if "features" not in timeseries:
+            if "members" not in timeseries:
                 logging.debug("No timeseries found")
                 break
-            timeseries_length = len(timeseries["features"])
-            logging.debug("Found %i features" % timeseries_length)
+            timeseries_length = len(timeseries["members"])
+            logging.debug("Found %i members" % timeseries_length)
             if has_data:
-                timeseries["features"] = self.filterByAvailability(timeseries["features"],self.threshold_begin_date)
-            logging.debug("Offset: %i, length: %i, got %i timeseries after filtering" % (i,self.config["timeseries_per_page"],len(timeseries["features"])))
+                timeseries["members"] = self.filterByAvailability(timeseries["members"],self.threshold_begin_date)
+            logging.debug("Offset: %i, length: %i, got %i timeseries after filtering" % (i,self.config["timeseries_per_page"],len(timeseries["members"])))
             timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(timeseries)])
-            features.extend(timeseries["features"])
+            members.extend(timeseries["members"])
             if timeseries_length < self.config["timeseries_per_page"]:
                 logging.debug("last page, breaking")
                 break
         #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
         result = {
-            "type": "featureCollection",
-            "features": features
+            # "type": "featureCollection",
+            "members": members
         }
         if json_output:
             f = open(json_output,"w")
@@ -681,8 +748,8 @@ class Client:
         stations_fews = stations_fews.merge(ts_st,how='inner',on="STATION_ID")
         return stations_fews
 
-    def filterByAvailability(self,features,threshold_begin_date):
-        return [x for x in features if "phenomenonTime" in x["properties"]["timeseries"] and datetime.fromisoformat(x["properties"]["timeseries"]["phenomenonTime"]["end"].replace("Z","+00:00")) >=  threshold_begin_date]
+    def filterByAvailability(self,members,threshold_begin_date):
+        return [x for x in members if "phenomenonTime" in x and datetime.fromisoformat(x["phenomenonTime"]["end"].replace("Z","+00:00")) >=  threshold_begin_date]
 
 
 if __name__ == "__main__":
@@ -710,6 +777,7 @@ if __name__ == "__main__":
     argparser.add_argument('-F','--fews', help = 'write output in FEWS csv format to this file',type=str)
     argparser.add_argument('-O','--output_dir',help = 'output directory for fews csv', type=str)
     argparser.add_argument('-c','--country',help = 'country code (ISO3)', type=str)
+    argparser.add_argument('-P','--provider',help = 'provider code (i.e.: argentina-ina)', type=str)
     args = argparser.parse_args()
     config = {}
     for key in ["url","token","monitoring_points_max","monitoring_points_per_page","timeseries_max","timeseries_per_page","view"]:
@@ -739,6 +807,8 @@ if __name__ == "__main__":
             mp_args["fews_output"] = args.fews
         if args.country:
             mp_args["country"] = args.country
+        if args.provider:
+            mp_args["provider"] = args.provider
         if "json_output" not in mp_args and "fews_output" not in mp_args:
             raise Exception("Missing arguments: at least one of json fews must be defined")
         client.getMonitoringPointsWithPagination(**mp_args)
@@ -778,6 +848,8 @@ if __name__ == "__main__":
             all_args["south"] = args.bbox[1]
             all_args["east"] = args.bbox[2]
             all_args["north"] = args.bbox[3]
+        if args.provider:
+            all_args["provider"] = args.provider
         # make FEWS tables for WHOS-Plata (all stations and variables). Save into specified folder
         client.makeFewsTables(**all_args)
     else:
