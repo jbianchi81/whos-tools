@@ -11,6 +11,7 @@ from geopandas import read_file as gpd_read_file
 from shapely.geometry import Point
 import pytz
 import re
+import sys
 import logging
 logging.basicConfig(filename="log/whos_client.log",level=logging.DEBUG,format="%(asctime)s %(levelname)s %(message)s")
 handler = logging.FileHandler("log/whos_client.log","w+")
@@ -161,6 +162,16 @@ class Client:
             "variableCode": "http://hydro.geodab.eu/hydro-ontology/concept/3",
             "variableName": "Level",
             "unitName": None
+        },
+        {
+            "variableCode": "http://hydro.geodab.eu/hydro-ontology/concept/76",
+            "variableName": "Flux, discharge",
+            "unitName": None
+        },
+        {
+            "variableCode": "https://hydro.geodab.eu/hydro-ontology/concept/65",
+            "variableName": "Precipitation",
+            "unitName": None
         }
     ]
     
@@ -287,8 +298,8 @@ class Client:
         # filter out features with no data
         # xprint("%s - Elapsed: %s" % (str(datetime.now()),str(response.elapsed)))
         result = response.json()
-        if has_data and "members" in result:
-            result["members"] = self.filterByAvailability(result["members"],self.threshold_begin_date) 
+        if has_data and "member" in result:
+            result["member"] = self.filterByAvailability(result["member"],self.threshold_begin_date) 
         if output is not None:
             try: 
                 f = open(output,"w")
@@ -389,7 +400,7 @@ class Client:
             with open(timeseries,"r") as f: 
                 timeseries = json.load(f)
         rows = []
-        for item in timeseries["members"]:
+        for item in timeseries["member"]:
             timestep_hour = self.isoDurationToHours(item["result"]["defaultPointMetadata"]["aggregationDuration"]) if "aggregationDuration" in item["result"]["defaultPointMetadata"] else self.isoDurationToHours(item["result"]["metadata"]["intendedObservationSpacing"]) if "metadata" in item["result"] and "intendedObservationSpacing" in item["result"]["metadata"] else None
             row = {
                 "STATION_ID": item["featureOfInterest"]["href"],
@@ -403,6 +414,7 @@ class Client:
             }
             if stations is not None:
                 if row["STATION_ID"] not in stations.index:
+                    logging.warning("STATION_ID %s not found in stations" % row["STATION_ID"])
                     continue
                 row["STATION_NAME"] =  stations["STATION_NAME"][row["STATION_ID"]]
                 row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
@@ -526,7 +538,7 @@ class Client:
                 variable_name_column.append(var_dict[variableCode]["variableName"])
                 unit_column.append(var_dict[variableCode]["unitName"])
         timeseries["variableName"] = variable_name_column
-        timeseries["UNIT"] = timeseries["UNIT"].combine_first(unit_column)
+        timeseries["UNIT"] = timeseries["UNIT"].combine_first(pandas.Series(unit_column))
         if fews:
             timeseries["variableName"] = [self.fews_var_map[variableName] if variableName in self.fews_var_map else None for variableName in timeseries["variableName"]]
             timeseries = timeseries[timeseries["variableName"].notnull()]
@@ -569,7 +581,8 @@ class Client:
         output_dir = Path(output_dir)
         # get WHOS-Plata variable mapping table
         var_map = self.getVariableMapping()
-        observedProperty = observedProperty if observedProperty is not None else list(self.fews_observed_properties)
+        # if observedProperty and provider are both None, sets list of default observed properties to iterate over (to avoid huge load) 
+        observedProperty = observedProperty if observedProperty is not None else None if provider is not None else list(self.fews_observed_properties)
         monitoringPoints = self.getMonitoringPointsWithPagination(
             json_output = output_dir / "monitoringPoints.json" if save_geojson else None,
             country = country,
@@ -582,12 +595,22 @@ class Client:
         # get all WHOS-Plata timeseries metadata (using pagination)
         timeseries = self.getTimeseriesWithPagination(
             observedProperty=observedProperty, 
-            json_output = output_dir / "timeseries.json" if save_geojson else None, 
+            json_output = Path(output_dir, "timeseries.json") if save_geojson else None, 
             has_data = has_data,
             provider = provider)
+        logging.debug("timeseries length: %i" % len(timeseries["member"]))
         # station_organization = self.getOrganization(timeseries,stations_fews)
-        timeseries_fews = self.timeseriesToFEWS(timeseries, stations=stations_fews)
+        timeseries_fews = self.timeseriesToFEWS(
+            timeseries, 
+            stations = stations_fews, 
+            output = Path(output_dir, "timeseries.csv") if output_dir is not None and save_geojson else None
+        )
+        logging.debug("timeseries_fews length: %i" % len(timeseries_fews))
         timeseries_fews = self.deleteSeriesWithoutTimestep(timeseries_fews) if has_timestep else timeseries_fews  
+        logging.debug("timeseries_fews with timestep length: %i" % len(timeseries_fews))
+        if len(timeseries_fews) == 0:
+            logging.error("No timeseries found")
+            sys.exit("No timeseries found")
         # filter out stations with no timeseries
         stations_fews = self.deleteStationsWithNoTimeseries(stations_fews,timeseries_fews)
         stations_fews = self.setOriginalStationId(stations_fews)
@@ -608,6 +631,8 @@ class Client:
         return stations_or_timeseries_fews_original_id
 
     def deleteSeriesWithoutTimestep(self,timeseries_fews):
+        if len(timeseries_fews) == 0:
+            return timeseries_fews
         return timeseries_fews[~pandas.isna(timeseries_fews["TIMESTEP_HOUR"])]
 
     def getMonitoringPointsWithPagination(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "",country: str = None, provider : str = None) -> dict:
@@ -659,61 +684,61 @@ class Client:
             if len(observedProperty) == 0:
                 return self.getTimeseries( view = view, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data, provider = provider)
             else:
-                members = []
+                member = []
                 for op in observedProperty:
                     logging.debug("observedProperty: %s" % op)
                     timeseries = self.getTimeseries(view, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data, provider = provider)
                     if "member" in timeseries:
-                        members.extend(timeseries["member"])
+                        member.extend(timeseries["member"])
                 return {
                     # "type": "featureCollection",
-                    "members": members
+                    "member": member
                 }
         else:
-            members = []
+            member = []
             for mp in monitoringPoint:
                 logging.debug("monitoringPoint: %s" % mp)
                 if len(observedProperty) == 0:
                     timeseries = self.getTimeseries( view = view, monitoringPoint = mp, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
                     if "member" in timeseries:
-                        members.extend(timeseries["member"])
+                        member.extend(timeseries["member"])
                 else:
                     for op in observedProperty:
                         logging.debug("observedProperty: %s" % op)
                         timeseries = self.getTimeseries(view, monitoringPoint = mp, observedProperty = op, beginPosition = beginPosition, endPosition = endPosition, offset = offset, limit = limit, output = output, has_data=has_data)
                         if "member" in timeseries:
-                            members.extend(timeseries["member"])
+                            member.extend(timeseries["member"])
             return {
                 # "type": "featureCollection",
-                "members": members
+                "member": member
             }
 
     def getTimeseriesWithPagination(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "", grouped : bool = False, has_data : bool = True, provider : str = None) -> dict:
         output_dir = Path(output_dir)
-        members = []
+        member = []
         var_map = self.getVariableMapping()
         timeseries_fews = None # pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
         for i in range(1,self.config["timeseries_max"],self.config["timeseries_per_page"]):
             logging.debug("getTimeseriesMulti, offset: %i" % i)
             output = output_dir / ("timeseriesResponse_%i.json" % i) if save_geojson else None
             timeseries = self.getTimeseriesMulti(offset=i,monitoringPoint=monitoringPoint,observedProperty=observedProperty,beginPosition=beginPosition,endPosition=endPosition,limit=self.config["timeseries_per_page"],output=output,has_data=False, provider = provider)
-            if "members" not in timeseries:
+            if "member" not in timeseries:
                 logging.debug("No timeseries found")
                 break
-            timeseries_length = len(timeseries["members"])
+            timeseries_length = len(timeseries["member"])
             logging.debug("Found %i members" % timeseries_length)
             if has_data:
-                timeseries["members"] = self.filterByAvailability(timeseries["members"],self.threshold_begin_date)
-            logging.debug("Offset: %i, length: %i, got %i timeseries after filtering" % (i,self.config["timeseries_per_page"],len(timeseries["members"])))
+                timeseries["member"] = self.filterByAvailability(timeseries["member"],self.threshold_begin_date)
+            logging.debug("Offset: %i, length: %i, got %i timeseries after filtering" % (i,self.config["timeseries_per_page"],len(timeseries["member"])))
             timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(timeseries)]) if timeseries_fews is not None else self.timeseriesToFEWS(timeseries)
-            members.extend(timeseries["members"])
+            member.extend(timeseries["member"])
             if timeseries_length < self.config["timeseries_per_page"]:
                 logging.debug("last page, breaking")
                 break
         #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
         result = {
             # "type": "featureCollection",
-            "members": members
+            "member": member
         }
         if json_output:
             f = open(json_output,"w")
@@ -811,10 +836,7 @@ if __name__ == "__main__":
     client = Client(config)
     if args.action.lower() == "monitoringpoints":
         # GET MONITORING POINTS
-        mp_args = {
-            "output_dir": "results",
-            "save_geojson": True
-        }
+        mp_args = {}
         if args.view:
             mp_args["view"] = args.view
         if args.bbox:
@@ -863,7 +885,9 @@ if __name__ == "__main__":
             raise Exception("Missing arguments: at least one of json fews must be defined")
         client.getTimeseriesWithPagination(**ts_args)
     elif args.action.lower() == "all":
-        all_args = {}
+        all_args = {
+            "save_geojson": True
+        }
         if args.output_dir:
             all_args["output_dir"] = args.output_dir
         if args.country:
