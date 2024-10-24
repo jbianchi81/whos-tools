@@ -21,6 +21,7 @@ internal_var_ids = {
     39: "H",
     40: "Q",
     31: "P",
+    34: "P",
     101: "H",
     85: "H"
 }
@@ -110,6 +111,7 @@ def getSubBasin(coordinates):
 fews_series_columns = {
     1: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
     31: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
+    34: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
     39: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
     40: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
     85: ["STATION_ID", "STATION_NAME", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE", "THRESHOLD_LOW", "THRESHOLD_YELLOW", "THRESHOLD_ORANGE", "THRESHOLD_RED", "THRESHOLD_WATERINTAKE", "THRESHOLD_NAVIGATION", "THRESHOLD_MEAN", "THRESHOLD_P05", "THRESHOLD_P10", "THRESHOLD_P90", "THRESHOLD_P95", "IMPORT", "LATITUDE", "LONGITUDE", "ALTITUDE", "TYPE", "COUNTRY", "ORGANIZATION", "SUBBASIN", "PARENT_ID", "CHILD_ID"],
@@ -242,29 +244,40 @@ if __name__ == "__main__":
     parser.add_argument('--monthly_stats', action='store_true',
         help='add monthly percentiles')
     parser.add_argument('--debug',action='store_true', help='activate debug logging')
+    parser.add_argument('--var_id', nargs='*', help = "retrieve only this id(s)")
+    parser.add_argument('--write_in_separate_files', action=argparse.BooleanOptionalAction, default=True, help='write separate files for each variable and time step')
+    parser.add_argument('--write_final_files', action=argparse.BooleanOptionalAction, default=True, help='write final files for each variable combining all time steps')
+    parser.add_argument('--output_series_raw',nargs=1, default="results/series.json", help="write raw series response into file")
+    parser.add_argument('--output_series_fews',nargs=1, default="results/series_fews.csv", help="write series as csv as required by fews into file")
+    parser.add_argument('--output_variables',nargs=1, default="results/variables.csv", help="write variables as csv into file")
+    parser.add_argument('--output_locations_fews',nargs=1, default="results/INA_locations.csv", help="write locations as csv into file")
+    parser.add_argument('--output_locations_raw',nargs=1, default="results/INA_locations.json", help="write locations as raw json into file")
+    
     args = parser.parse_args()
 
     if args.debug:
         logging.basicConfig(stream=sys.stdout,level=logging.DEBUG,format="%(asctime)s %(levelname)s %(message)s")
     else:
         logging.basicConfig(stream=sys.stdout,level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s")
+    default_variable_id_list = [1,2,4,31,34,39,40,85,101]
     exclude_stations = [2122,2123,2127,2180,2220,2221,2849,2196]
     exclude_test_stations = True
     import datetime
     from a5_client import Client
     a5_client = Client()
     estaciones = a5_client.getEstaciones(has_obs=True, pais="Argentina", habilitar=True, geom="-68,-38,-53,-21")
+    json.dump(estaciones,open(args.output_locations_raw,"w"))
     # len(estaciones)
     # estaciones_fews = estacionesToFews("results/estaciones.json",output="results/estaciones_fews.csv")
     if exclude_stations is not None:
         estaciones = [e for e in estaciones if e["id"] not in exclude_stations]
     if exclude_test_stations:
         estaciones = [ e for e in estaciones if "zprueba" not in e["nombre"].lower()]
-    estaciones_fews = estacionesToFews(estaciones,output="results/INA_locations.csv")
+    estaciones_fews = estacionesToFews(estaciones,output=None) # args.output_locations_fews)
     # SERIES
     percentil = [0.05,0.5,0.95]
-    variable_id_list = [1,2,4,31,39,40,85,101]
-    output_series_raw = "results/series.json"
+    variable_id_list = default_variable_id_list if args.var_id is None else args.var_id
+    output_series_raw = args.output_series_raw
     estacion_ids = [id for id in estaciones_fews["STATION_ID"]]
     series = []
     i = 0
@@ -273,7 +286,14 @@ if __name__ == "__main__":
         logging.debug(datetime.datetime.now())
         date_range_after = datetime.datetime.now() - datetime.timedelta(days=180)
         logging.info("downloading series for stations %i to %i" % (i, i+by))
-        series_part = a5_client.getSeries(proc_id=[1,2],var_id=variable_id_list,estacion_id=estacion_ids[i:i+by],date_range_after=date_range_after.isoformat(),getMonthlyStats=args.monthly_stats,getPercentiles=True,percentil=percentil)
+        series_part = a5_client.getSeries(
+            proc_id=[1,2],
+            var_id=variable_id_list,
+            estacion_id=estacion_ids[i:i+by],
+            date_range_after=date_range_after.isoformat(),
+            getMonthlyStats=args.monthly_stats,
+            getPercentiles=True,
+            percentil=percentil)
         series.extend(series_part)
         i = i + by
     if output_series_raw is not None:
@@ -287,56 +307,71 @@ if __name__ == "__main__":
     # how_old_days = 180
     # series_filter = filter(lambda serie: serie["date_range"]["timeend"] is not None and datetime.fromisoformat(serie["date_range"]["timeend"].replace("Z","")) > datetime.now() - timedelta(days=how_old_days),series)
     # series = list(series_filter)
-    series_fews = seriesToFews(series,output="results/series_fews.csv",stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil)
+    series_fews = seriesToFews(
+        series,
+        output=args.output_series_fews,
+        stations=estaciones_fews,
+        monthly_stats=args.monthly_stats,
+        percentil=percentil)
     if series_fews is None:
         logging.error("No series found")
         exit(1)
+    # filter and write locations
+    estaciones_fews = estaciones_fews[estaciones_fews['PARENT_ID'].isin(series_fews['PARENT_ID'].unique())]
+    try: 
+        f = open(args.output_locations_fews,"w")
+    except:
+        raise Exception("Couldn't open file %s for writing" % args.output_locations_fews)
+    f.write(estaciones_fews.to_csv(index=False))
+    f.close()
     # VARIABLES
     variables = a5_client.getVariables(id=variable_id_list,as_DataFrame=True)
-    a5_client.writeLastResult("results/variables.csv")
+    a5_client.writeLastResult(args.output_variables)
     # WRITE SERIES IN SEPARATE FILES
-    series_file_map = {
-        1: "results/INA_P.csv",
-        39 : "results/INA_H.csv",
-        40 : "results/INA_Q.csv",
-        31 : "results/INA_P1h.csv",
-        101 : "results/INA_H4h.csv",
-        85: "results/INA_H1h.csv" 
-    }
-    series_final_files = {
-        "results/INA_P_all.csv": {
-            "ids": [1, 31],
-            "df": None
-        },
-        "results/INA_H_all.csv": {
-            "ids": [39, 85, 101],
-            "df": None
-        },
-        "results/INA_Q_all.csv": {
-            "ids": [40],
-            "df": None
+    if args.write_in_separate_files:
+        series_file_map = {
+            1: "results/INA_P.csv",
+            39 : "results/INA_H.csv",
+            40 : "results/INA_Q.csv",
+            31 : "results/INA_P1h.csv",
+            34 : "results/INA_P3h.csv",
+            101 : "results/INA_H4h.csv",
+            85: "results/INA_H1h.csv" 
         }
-    }
-    for i in variables.index:
-        series_filter_by_var_id = filter(lambda serie: serie["var"]["id"] == variables["id"][i],series)
-        series_subset = list(series_filter_by_var_id)
-        filename = series_file_map[variables["id"][i]] if variables["id"][i] in series_file_map else "results/INA_%s.csv" % variables["nombre"][i]
-        var_id = variables["id"][i] # if variables["id"][i] in fews_series_columns else None
-        series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil,var_id=var_id)
-        for file, v in series_final_files.items():
-            if variables["id"][i] in v["ids"]:
+        series_final_files = {
+            "results/INA_P_all.csv": {
+                "ids": [1, 31, 34],
+                "df": None
+            },
+            "results/INA_H_all.csv": {
+                "ids": [39, 85, 101],
+                "df": None
+            },
+            "results/INA_Q_all.csv": {
+                "ids": [40],
+                "df": None
+            }
+        }
+        for i in variables.index:
+            series_filter_by_var_id = filter(lambda serie: serie["var"]["id"] == variables["id"][i],series)
+            series_subset = list(series_filter_by_var_id)
+            filename = series_file_map[variables["id"][i]] if variables["id"][i] in series_file_map else "results/INA_%s.csv" % variables["nombre"][i]
+            var_id = variables["id"][i] # if variables["id"][i] in fews_series_columns else None
+            series_subset_fews = seriesToFews(series_subset,output=filename,stations=estaciones_fews,monthly_stats=args.monthly_stats,percentil=percentil,var_id=var_id)
+            for file, v in series_final_files.items():
+                if variables["id"][i] in v["ids"]:
+                    if v["df"] is None:
+                        v["df"] = series_subset_fews
+                    else:
+                        v["df"] = pandas.concat([v["df"], series_subset_fews], axis=0)            
+        if args.write_final_files:
+            for file, v in series_final_files.items():
                 if v["df"] is None:
-                    v["df"] = series_subset_fews
-                else:
-                    v["df"] = pandas.concat([v["df"], series_subset_fews], axis=0)
-        
-    for file, v in series_final_files.items():
-        if v["df"] is None:
-            logging.error("No data to write for file %s" % file)
-            exit(2)
-        with open(file, "w") as outfile:
-            outfile.write(v["df"].sort_values(["STATION_ID","EXTERNAL_PARAMETER_ID"]).to_csv(index=False))
-            outfile.close()
+                    logging.error("No data to write for file %s" % file)
+                    exit(2)
+                with open(file, "w") as outfile:
+                    outfile.write(v["df"].sort_values(["STATION_ID","EXTERNAL_PARAMETER_ID"]).to_csv(index=False))
+                    outfile.close()
 
 
 

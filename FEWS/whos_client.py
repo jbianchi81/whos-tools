@@ -47,7 +47,7 @@ class Client:
         "timeseries_per_page": 1000,
         "view": "whos-plata",
         "basins_geojson_file": "cuencas/cuencas.geojson",
-        "begin_days": 120 
+        "begin_days": 180 
     }
     
     fews_var_map = {
@@ -346,7 +346,7 @@ class Client:
                 "COUNTRY": monitoring_point_parameters["country"] if "country" in monitoring_point_parameters.keys() else None,
                 "ORGANIZATION": self.getOrganizationCode(item["relatedParty"][0]["organisationName"]) if len(item["relatedParty"]) else "WHOS",
                 "SUBBASIN": self.getSubBasin(item["shape"]["coordinates"]),
-                "ORIGINAL_STATION_ID" : re.sub("^.*\:","",monitoring_point_parameters["identifier"]) if "identifier" in monitoring_point_parameters.keys() else None
+                "ORIGINAL_STATION_ID" : re.sub("^.*:","",monitoring_point_parameters["identifier"]) if "identifier" in monitoring_point_parameters.keys() else None
             }
             row["PARENT_ID"] = "%s_%s_%s" % (row["COUNTRY"].upper()[0:2] if row["COUNTRY"] is not None else "", row["ORGANIZATION"], str(row["ORIGINAL_STATION_ID"]))
             rows.append(row)
@@ -617,7 +617,7 @@ class Client:
         # get organization name from timeseries metadata
         # save stations to csv
         f = open(output_dir / "locations.csv","w")
-        f.write(stations_fews.to_csv())
+        f.write(stations_fews.to_csv(index=False))
         f.close()
         timeseries_fews = self.setOriginalStationId(timeseries_fews)
         # timeseries_fews["PARENT_ID"] = [str(row["COUNTRY"].upper()[0:2] if row["COUNTRY"] is not None else "") + "_" + row["ORGANIZATION"] + "_" + row["STATION_ID"] for i, row in timeseries_fews.iterrows()]

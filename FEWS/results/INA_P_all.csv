@@ -1,0 +1,156 @@
+STATION_ID,STATION_NAME,EXTERNAL_LOCATION_ID,EXTERNAL_PARAMETER_ID,TIMESTEP_HOUR,UNIT,IMPORT_SOURCE,THRESHOLD_YELLOW,THRESHOLD_ORANGE,THRESHOLD_RED,THRESHOLD_MEAN,THRESHOLD_P05,THRESHOLD_P10,THRESHOLD_P90,THRESHOLD_P95,IMPORT,LATITUDE,LONGITUDE,ALTITUDE,TYPE,COUNTRY,ORGANIZATION,SUBBASIN,PARENT_ID,CHILD_ID
+2115,Paraná - Corrientes,2115,1,24.0,mm/d,INA,,,,,,,,,True,-27.4597222222222,-58.8333333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2115,AR_INA_2115_INA_24_P
+2115,Paraná - Corrientes,2115,34,3.0,mm,INA,,,,,,,,,True,-27.4597222222222,-58.8333333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2115,AR_INA_2115_INA_3_P
+2154,Bermejo - Pozo Sarmiento,2154,1,24.0,mm/d,INA,,,,,,,,,True,-23.1405555555556,-64.1969444444445,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2154,AR_INA_2154_INA_24_P
+2154,Bermejo - Pozo Sarmiento,2154,34,3.0,mm,INA,,,,,,,,,True,-23.1405555555556,-64.1969444444445,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2154,AR_INA_2154_INA_3_P
+2156,Laguna Iberá - Carlos Pellegri,2156,1,24.0,mm/d,INA,,,,,,,,,True,-28.5380555555556,-57.1869444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_2156,AR_INA_2156_INA_24_P
+2156,Laguna Iberá - Carlos Pellegri,2156,34,3.0,mm,INA,,,,,,,,,True,-28.5380555555556,-57.1869444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_2156,AR_INA_2156_INA_3_P
+2158,Aº Feliciano - Paso Medina,2158,1,24.0,mm/d,INA,,,,,,,,,True,-30.9236111111111,-59.5511111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_2158,AR_INA_2158_INA_24_P
+2158,Aº Feliciano - Paso Medina,2158,34,3.0,mm,INA,,,,,,,,,True,-30.9236111111111,-59.5511111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_2158,AR_INA_2158_INA_3_P
+2166,Los Sosa - RP30 km19,2166,1,24.0,mm/d,INA,,,,,,,,,True,-27.1008333333333,-65.6361111111111,,Automatic,Argentina,INA,,AR_INA_2166,AR_INA_2166_INA_24_P
+2166,Los Sosa - RP30 km19,2166,34,3.0,mm,INA,,,,,,,,,True,-27.1008333333333,-65.6361111111111,,Automatic,Argentina,INA,,AR_INA_2166,AR_INA_2166_INA_3_P
+2170,Atuel - Villa Atuel,2170,1,24.0,mm/d,INA,,,,,,,,,True,-34.8225,-67.9227777777778,,Automatic,Argentina,INA,,AR_INA_2170,AR_INA_2170_INA_24_P
+2170,Atuel - Villa Atuel,2170,31,1.0,mm,INA,,,,,,,,,True,-34.8225,-67.9227777777778,,Automatic,Argentina,INA,,AR_INA_2170,AR_INA_2170_INA_1_P
+2170,Atuel - Villa Atuel,2170,34,3.0,mm,INA,,,,,,,,,True,-34.8225,-67.9227777777778,,Automatic,Argentina,INA,,AR_INA_2170,AR_INA_2170_INA_3_P
+2194,Bermejo - Puerto Velaz,2194,1,24.0,mm/d,INA,,,,,,,,,True,-26.6605555555556,-58.6338888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2194,AR_INA_2194_INA_24_P
+2194,Bermejo - Puerto Velaz,2194,34,3.0,mm,INA,,,,,,,,,True,-26.6605555555556,-58.6338888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2194,AR_INA_2194_INA_3_P
+2198,Aº Batel - Paso Cerrito,2198,1,24.0,mm/d,INA,,,,,,,,,True,-29.0311111111111,-58.7883333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2198,AR_INA_2198_INA_24_P
+2198,Aº Batel - Paso Cerrito,2198,34,3.0,mm,INA,,,,,,,,,True,-29.0311111111111,-58.7883333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2198,AR_INA_2198_INA_3_P
+2227,Salado - RN Nº02,2227,1,24.0,mm/d,INA,,,,,,,,,True,-35.9622222222222,-57.8519444444444,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_2227,AR_INA_2227_INA_24_P
+2227,Salado - RN Nº02,2227,31,1.0,mm,INA,,,,,,,,,True,-35.9622222222222,-57.8519444444444,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_2227,AR_INA_2227_INA_1_P
+2227,Salado - RN Nº02,2227,34,3.0,mm,INA,,,,,,,,,True,-35.9622222222222,-57.8519444444444,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_2227,AR_INA_2227_INA_3_P
+2741,Iruya - Tuc Tuca,2741,1,24.0,mm/d,INA,,,,,,,,,True,-22.4044444444444,-65.2675,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2741,AR_INA_2741_INA_24_P
+2741,Iruya - Tuc Tuca,2741,34,3.0,mm,INA,,,,,,,,,True,-22.4044444444444,-65.2675,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2741,AR_INA_2741_INA_3_P
+2820,PN - Centro Operativo Santa Ro,2820,1,24.0,mm/d,INA,,,,,,,,,True,-27.2852777777778,-65.8719444444444,,Automatic,Argentina,INA,,AR_INA_2820,AR_INA_2820_INA_24_P
+2820,PN - Centro Operativo Santa Ro,2820,34,3.0,mm,INA,,,,,,,,,True,-27.2852777777778,-65.8719444444444,,Automatic,Argentina,INA,,AR_INA_2820,AR_INA_2820_INA_3_P
+2825,Santa Lucia - Santa Lucia,2825,1,24.0,mm/d,INA,,,,,,,,,True,-28.9877777777778,-59.0905555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_2825,AR_INA_2825_INA_24_P
+2825,Santa Lucia - Santa Lucia,2825,31,1.0,mm,INA,,,,,,,,,True,-28.9877777777778,-59.0905555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_2825,AR_INA_2825_INA_1_P
+2825,Santa Lucia - Santa Lucia,2825,34,3.0,mm,INA,,,,,,,,,True,-28.9877777777778,-59.0905555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_2825,AR_INA_2825_INA_3_P
+2846,Pilcomayo - Misión La Paz,2846,1,24.0,mm/d,INA,,,,,,,,,True,-22.3775,-62.5236111111111,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2846,AR_INA_2846_INA_24_P
+2846,Pilcomayo - Misión La Paz,2846,34,3.0,mm,INA,,,,,,,,,True,-22.3775,-62.5236111111111,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2846,AR_INA_2846_INA_3_P
+2856,San Fransisco Caimancito,2856,1,24.0,mm/d,INA,,,,,,,,,True,-23.7119444444444,-64.5397222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2856,AR_INA_2856_INA_24_P
+2856,San Fransisco Caimancito,2856,31,1.0,mm,INA,,,,,,,,,True,-23.7119444444444,-64.5397222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2856,AR_INA_2856_INA_1_P
+2856,San Fransisco Caimancito,2856,34,3.0,mm,INA,,,,,,,,,True,-23.7119444444444,-64.5397222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2856,AR_INA_2856_INA_3_P
+2857,Paraná - Chapetón,2857,1,24.0,mm/d,INA,,,,,,,,,True,-31.6105555555556,-60.2947222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_2857,AR_INA_2857_INA_24_P
+2857,Paraná - Chapetón,2857,34,3.0,mm,INA,,,,,,,,,True,-31.6105555555556,-60.2947222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_2857,AR_INA_2857_INA_3_P
+5904,PN Ciervo de los Pantanos,5904,1,24.0,mm/d,INA,,,,,,,,,True,-34.2255555555556,-58.8988888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_5904,AR_INA_5904_INA_24_P
+5904,PN Ciervo de los Pantanos,5904,34,3.0,mm,INA,,,,,,,,,True,-34.2255555555556,-58.8988888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_5904,AR_INA_5904_INA_3_P
+6365,Mojotoro - Güemes,6365,1,24.0,mm/d,INA,,,,,,,,,True,-24.7316666666667,-65.0288888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6365,AR_INA_6365_INA_24_P
+6365,Mojotoro - Güemes,6365,31,1.0,mm,INA,,,,,,,,,True,-24.7316666666667,-65.0288888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6365,AR_INA_6365_INA_1_P
+6365,Mojotoro - Güemes,6365,34,3.0,mm,INA,,,,,,,,,True,-24.7316666666667,-65.0288888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6365,AR_INA_6365_INA_3_P
+6389,Las Tapias - Las Tapias,6389,1,24.0,mm/d,INA,,,,,,,,,True,-32.8036111111111,-64.7763888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6389,AR_INA_6389_INA_24_P
+6389,Las Tapias - Las Tapias,6389,34,3.0,mm,INA,,,,,,,,,True,-32.8036111111111,-64.7763888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6389,AR_INA_6389_INA_3_P
+6391,Laguna La Margarita,6391,1,24.0,mm/d,INA,,,,,,,,,True,-34.6533333333333,-63.7230555555556,,Automatic,Argentina,INA,,AR_INA_6391,AR_INA_6391_INA_24_P
+6391,Laguna La Margarita,6391,34,3.0,mm,INA,,,,,,,,,True,-34.6533333333333,-63.7230555555556,,Automatic,Argentina,INA,,AR_INA_6391,AR_INA_6391_INA_3_P
+6423,Aº Del Doll - RN 11,6423,1,24.0,mm/d,INA,,,,,,,,,True,-32.3058333333333,-60.4261111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6423,AR_INA_6423_INA_24_P
+6423,Aº Del Doll - RN 11,6423,34,3.0,mm,INA,,,,,,,,,True,-32.3058333333333,-60.4261111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6423,AR_INA_6423_INA_3_P
+6428,Salado -A.Ab. Azud Cruz Bajada,6428,1,24.0,mm/d,INA,,,,,,,,,True,-25.7166666666667,-63.8916666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_6428,AR_INA_6428_INA_24_P
+6431,PN  - Copo  - El Aibal ,6431,1,24.0,mm/d,INA,,,,,,,,,True,-25.9227777777778,-61.7138888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6431,AR_INA_6431_INA_24_P
+6431,PN  - Copo  - El Aibal ,6431,34,3.0,mm,INA,,,,,,,,,True,-25.9227777777778,-61.7138888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6431,AR_INA_6431_INA_3_P
+6432,Negro - Laguna Blanca,6432,1,24.0,mm/d,INA,,,,,,,,,True,-27.2633333333333,-59.1961111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6432,AR_INA_6432_INA_24_P
+6432,Negro - Laguna Blanca,6432,31,1.0,mm,INA,,,,,,,,,True,-27.2633333333333,-59.1961111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6432,AR_INA_6432_INA_1_P
+6432,Negro - Laguna Blanca,6432,34,3.0,mm,INA,,,,,,,,,True,-27.2633333333333,-59.1961111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6432,AR_INA_6432_INA_3_P
+6436,Iruya - Colanzulí,6436,1,24.0,mm/d,INA,,,,,,,,,True,-22.8716666666667,-65.2144444444445,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6436,AR_INA_6436_INA_24_P
+6436,Iruya - Colanzulí,6436,34,3.0,mm,INA,,,,,,,,,True,-22.8716666666667,-65.2144444444445,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6436,AR_INA_6436_INA_3_P
+6439,Piray Mini - Valle Hermoso,6439,1,24.0,mm/d,INA,,,,,,,,,True,-26.355,-54.4983333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_6439,AR_INA_6439_INA_24_P
+6439,Piray Mini - Valle Hermoso,6439,34,3.0,mm,INA,,,,,,,,,True,-26.355,-54.4983333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_6439,AR_INA_6439_INA_3_P
+6446,De Las Barrancas-A.Corral RP23,6446,1,24.0,mm/d,INA,,,,,,,,,True,-32.6894444444444,-64.7202777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6446,AR_INA_6446_INA_24_P
+6446,De Las Barrancas-A.Corral RP23,6446,31,1.0,mm,INA,,,,,,,,,True,-32.6894444444444,-64.7202777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6446,AR_INA_6446_INA_1_P
+6446,De Las Barrancas-A.Corral RP23,6446,34,3.0,mm,INA,,,,,,,,,True,-32.6894444444444,-64.7202777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6446,AR_INA_6446_INA_3_P
+6447,Dulce - La Escuela - Río Hondo,6447,1,24.0,mm/d,INA,,,,,,,,,True,-27.5033333333333,-64.8558333333333,,Automatic,Argentina,INA,,AR_INA_6447,AR_INA_6447_INA_24_P
+6447,Dulce - La Escuela - Río Hondo,6447,31,1.0,mm,INA,,,,,,,,,True,-27.5033333333333,-64.8558333333333,,Automatic,Argentina,INA,,AR_INA_6447,AR_INA_6447_INA_1_P
+6447,Dulce - La Escuela - Río Hondo,6447,34,3.0,mm,INA,,,,,,,,,True,-27.5033333333333,-64.8558333333333,,Automatic,Argentina,INA,,AR_INA_6447,AR_INA_6447_INA_3_P
+6479,El Tala - El Brete,6479,1,24.0,mm/d,INA,,,,,,,,,True,-26.0658333333333,-65.3411111111111,,Automatic,Argentina,INA,,AR_INA_6479,AR_INA_6479_INA_24_P
+6479,El Tala - El Brete,6479,31,1.0,mm,INA,,,,,,,,,True,-26.0658333333333,-65.3411111111111,,Automatic,Argentina,INA,,AR_INA_6479,AR_INA_6479_INA_1_P
+6479,El Tala - El Brete,6479,34,3.0,mm,INA,,,,,,,,,True,-26.0658333333333,-65.3411111111111,,Automatic,Argentina,INA,,AR_INA_6479,AR_INA_6479_INA_3_P
+6511,Paraguay - Las Palmas,6511,1,24.0,mm/d,INA,,,,,,,,,True,-27.1180555555556,-58.6427777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6511,AR_INA_6511_INA_24_P
+6511,Paraguay - Las Palmas,6511,31,1.0,mm,INA,,,,,,,,,True,-27.1180555555556,-58.6427777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6511,AR_INA_6511_INA_1_P
+6511,Paraguay - Las Palmas,6511,34,3.0,mm,INA,,,,,,,,,True,-27.1180555555556,-58.6427777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6511,AR_INA_6511_INA_3_P
+6512,INA - Ezeiza,6512,1,24.0,mm/d,INA,,,,,,,,,True,-34.7972222222222,-58.5202777777778,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6512,AR_INA_6512_INA_24_P
+6512,INA - Ezeiza,6512,31,1.0,mm,INA,,,,,,,,,True,-34.7972222222222,-58.5202777777778,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6512,AR_INA_6512_INA_1_P
+6512,INA - Ezeiza,6512,34,3.0,mm,INA,,,,,,,,,True,-34.7972222222222,-58.5202777777778,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6512,AR_INA_6512_INA_3_P
+6518,Atuel - La Puntilla,6518,1,24.0,mm/d,INA,,,,,,,,,True,-36.2413888888889,-67.1866666666667,,Automatic,Argentina,INA,,AR_INA_6518,AR_INA_6518_INA_24_P
+6518,Atuel - La Puntilla,6518,34,3.0,mm,INA,,,,,,,,,True,-36.2413888888889,-67.1866666666667,,Automatic,Argentina,INA,,AR_INA_6518,AR_INA_6518_INA_3_P
+6526,Jesus Maria - MET,6526,1,24.0,mm/d,INA,,,,,,,,,True,-30.9769444444444,-64.1394444444445,,Automatic,Argentina,INA,,AR_INA_6526,AR_INA_6526_INA_24_P
+6526,Jesus Maria - MET,6526,31,1.0,mm,INA,,,,,,,,,True,-30.9769444444444,-64.1394444444445,,Automatic,Argentina,INA,,AR_INA_6526,AR_INA_6526_INA_1_P
+6526,Jesus Maria - MET,6526,34,3.0,mm,INA,,,,,,,,,True,-30.9769444444444,-64.1394444444445,,Automatic,Argentina,INA,,AR_INA_6526,AR_INA_6526_INA_3_P
+6527,General Acha - La Pampa,6527,1,24.0,mm/d,INA,,,,,,,,,True,-37.3647222222222,-64.5919444444444,,Automatic,Argentina,INA,,AR_INA_6527,AR_INA_6527_INA_24_P
+6527,General Acha - La Pampa,6527,34,3.0,mm,INA,,,,,,,,,True,-37.3647222222222,-64.5919444444444,,Automatic,Argentina,INA,,AR_INA_6527,AR_INA_6527_INA_3_P
+6536,Iruya - Poscaya,6536,1,24.0,mm/d,INA,,,,,,,,,True,-22.4547222222222,-65.0805555555555,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6536,AR_INA_6536_INA_24_P
+6536,Iruya - Poscaya,6536,34,3.0,mm,INA,,,,,,,,,True,-22.4547222222222,-65.0805555555555,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6536,AR_INA_6536_INA_3_P
+6537,Iruya - San Antonio,6537,1,24.0,mm/d,INA,,,,,,,,,True,-22.8258333333333,-64.9708333333333,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6537,AR_INA_6537_INA_24_P
+6537,Iruya - San Antonio,6537,34,3.0,mm,INA,,,,,,,,,True,-22.8258333333333,-64.9708333333333,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6537,AR_INA_6537_INA_3_P
+6538,Iruya - Las Higueras,6538,1,24.0,mm/d,INA,,,,,,,,,True,-22.7541666666667,-65.0972222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6538,AR_INA_6538_INA_24_P
+6538,Iruya - Las Higueras,6538,34,3.0,mm,INA,,,,,,,,,True,-22.7541666666667,-65.0972222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6538,AR_INA_6538_INA_3_P
+6541,Guanasacate - Col. San Jorge,6541,1,24.0,mm/d,INA,,,,,,,,,True,-30.8797222222222,-64.3483333333333,,Automatic,Argentina,INA,,AR_INA_6541,AR_INA_6541_INA_24_P
+6541,Guanasacate - Col. San Jorge,6541,34,3.0,mm,INA,,,,,,,,,True,-30.8797222222222,-64.3483333333333,,Automatic,Argentina,INA,,AR_INA_6541,AR_INA_6541_INA_3_P
+6542,Puesto Cam. San Jaime - RN127,6542,1,24.0,mm/d,INA,,,,,,,,,True,-30.2827777777778,-58.2511111111111,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6542,AR_INA_6542_INA_24_P
+6542,Puesto Cam. San Jaime - RN127,6542,34,3.0,mm,INA,,,,,,,,,True,-30.2827777777778,-58.2511111111111,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6542,AR_INA_6542_INA_3_P
+6544,Areco - Carmen de Areco,6544,1,24.0,mm/d,INA,,,,,,,,,True,-34.3519444444444,-59.8169444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6544,AR_INA_6544_INA_24_P
+6544,Areco - Carmen de Areco,6544,34,3.0,mm,INA,,,,,,,,,True,-34.3519444444444,-59.8169444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6544,AR_INA_6544_INA_3_P
+6546,Las Lomitas,6546,1,24.0,mm/d,INA,,,,,,,,,True,-24.7119444444444,-60.5827777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6546,AR_INA_6546_INA_24_P
+6546,Las Lomitas,6546,34,3.0,mm,INA,,,,,,,,,True,-24.7119444444444,-60.5827777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6546,AR_INA_6546_INA_3_P
+6549,Juramento - El Tunal,6549,1,24.0,mm/d,INA,,,,,,,,,True,-25.2497222222222,-64.3902777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6549,AR_INA_6549_INA_24_P
+6549,Juramento - El Tunal,6549,31,1.0,mm,INA,,,,,,,,,True,-25.2497222222222,-64.3902777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6549,AR_INA_6549_INA_1_P
+6555,Santa Maria - Pie de Medano,6555,1,24.0,mm/d,INA,,,,,,,,,True,-26.9955555555556,-66.2175,,Automatic,Argentina,INA,Rio Parana,AR_INA_6555,AR_INA_6555_INA_24_P
+6555,Santa Maria - Pie de Medano,6555,34,3.0,mm,INA,,,,,,,,,True,-26.9955555555556,-66.2175,,Automatic,Argentina,INA,Rio Parana,AR_INA_6555,AR_INA_6555_INA_3_P
+6567,CIRHBAS - MET EL GUANAGAN RP13,6567,1,24.0,mm/d,INA,,,,,,,,,True,-28.7297222222222,-60.9019444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6567,AR_INA_6567_INA_24_P
+6576,Laguna Yema,6576,1,24.0,mm/d,INA,,,,,,,,,True,-24.2563888888889,-61.2419444444444,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6576,AR_INA_6576_INA_24_P
+6576,Laguna Yema,6576,31,1.0,mm,INA,,,,,,,,,True,-24.2563888888889,-61.2419444444444,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6576,AR_INA_6576_INA_1_P
+6577,Las Conchas - Coropampa,6577,1,24.0,mm/d,INA,,,,,,,,,True,-25.5091666666667,-65.5238888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6577,AR_INA_6577_INA_24_P
+6577,Las Conchas - Coropampa,6577,31,1.0,mm,INA,,,,,,,,,True,-25.5091666666667,-65.5238888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6577,AR_INA_6577_INA_1_P
+6577,Las Conchas - Coropampa,6577,34,3.0,mm,INA,,,,,,,,,True,-25.5091666666667,-65.5238888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6577,AR_INA_6577_INA_3_P
+6578,Uruguay - El Soberbio,6578,1,24.0,mm/d,INA,,,,,,,,,True,-27.2922222222222,-54.1955555555556,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6578,AR_INA_6578_INA_24_P
+6578,Uruguay - El Soberbio,6578,34,3.0,mm,INA,,,,,,,,,True,-27.2922222222222,-54.1955555555556,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6578,AR_INA_6578_INA_3_P
+6595,Lag. La Picasa-Inter. Can. A22,6595,1,24.0,mm/d,INA,,,,,,,,,True,-34.4494444444444,-62.4133333333333,,Automatic,Argentina,INA,,AR_INA_6595,AR_INA_6595_INA_24_P
+6595,Lag. La Picasa-Inter. Can. A22,6595,34,3.0,mm,INA,,,,,,,,,True,-34.4494444444444,-62.4133333333333,,Automatic,Argentina,INA,,AR_INA_6595,AR_INA_6595_INA_3_P
+6599,Aº Los Amores - Escuela 1256,6599,1,24.0,mm/d,INA,,,,,,,,,True,-28.2275,-59.7155555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_6599,AR_INA_6599_INA_24_P
+6599,Aº Los Amores - Escuela 1256,6599,34,3.0,mm,INA,,,,,,,,,True,-28.2275,-59.7155555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_6599,AR_INA_6599_INA_3_P
+6602,Iruya - El Molino,6602,1,24.0,mm/d,INA,,,,,,,,,True,-22.5988888888889,-65.1502777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6602,AR_INA_6602_INA_24_P
+6602,Iruya - El Molino,6602,34,3.0,mm,INA,,,,,,,,,True,-22.5988888888889,-65.1502777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6602,AR_INA_6602_INA_3_P
+6603,Pavas - Las Mesadas,6603,1,24.0,mm/d,INA,,,,,,,,,True,-27.2141666666667,-65.9288888888889,,Automatic,Argentina,INA,,AR_INA_6603,AR_INA_6603_INA_24_P
+6603,Pavas - Las Mesadas,6603,34,3.0,mm,INA,,,,,,,,,True,-27.2141666666667,-65.9288888888889,,Automatic,Argentina,INA,,AR_INA_6603,AR_INA_6603_INA_3_P
+6604,Areco - Puente Quemado,6604,1,24.0,mm/d,INA,,,,,,,,,True,-34.2880555555556,-59.7027777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6604,AR_INA_6604_INA_24_P
+6604,Areco - Puente Quemado,6604,34,3.0,mm,INA,,,,,,,,,True,-34.2880555555556,-59.7027777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6604,AR_INA_6604_INA_3_P
+6618,Yabebiry - Colonia Martires,6618,1,24.0,mm/d,INA,,,,,,,,,True,-27.4011111111111,-55.335,,Automatic,Argentina,INA,Rio Parana,AR_INA_6618,AR_INA_6618_INA_24_P
+6645,Esc. Prov. 355 - Piedra Larga,6645,1,24.0,mm/d,INA,,,,,,,,,True,-27.6022222222222,-67.1977777777778,,Automatic,Argentina,INA,,AR_INA_6645,AR_INA_6645_INA_24_P
+6645,Esc. Prov. 355 - Piedra Larga,6645,34,3.0,mm,INA,,,,,,,,,True,-27.6022222222222,-67.1977777777778,,Automatic,Argentina,INA,,AR_INA_6645,AR_INA_6645_INA_3_P
+6652,Lipeo - Puente Colgante,6652,1,24.0,mm/d,INA,,,,,,,,,True,-22.4311111111111,-64.7372222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6652,AR_INA_6652_INA_24_P
+6652,Lipeo - Puente Colgante,6652,34,3.0,mm,INA,,,,,,,,,True,-22.4311111111111,-64.7372222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6652,AR_INA_6652_INA_3_P
+6676,PN Trinidad - Condorito ,6676,1,24.0,mm/d,INA,,,,,,,,,True,-31.6911111111111,-64.8527777777778,,Automatic,Argentina,INA,,AR_INA_6676,AR_INA_6676_INA_24_P
+6678,Bermejo - Alarache,6678,1,24.0,mm/d,INA,,,,,,,,,True,-22.1902777777778,-64.6527777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6678,AR_INA_6678_INA_24_P
+6701,Santa Rosa - Meteorológica,6701,1,24.0,mm/d,INA,,,,,,,,,True,-36.6213888888889,-64.3219444444444,,Automatic,Argentina,INA,,AR_INA_6701,AR_INA_6701_INA_24_P
+6701,Santa Rosa - Meteorológica,6701,31,1.0,mm,INA,,,,,,,,,True,-36.6213888888889,-64.3219444444444,,Automatic,Argentina,INA,,AR_INA_6701,AR_INA_6701_INA_1_P
+6702,Cuarto - La Carlota,6702,1,24.0,mm/d,INA,,,,,,,,,True,-33.4155555555556,-63.3086111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6702,AR_INA_6702_INA_24_P
+6702,Cuarto - La Carlota,6702,31,1.0,mm,INA,,,,,,,,,True,-33.4155555555556,-63.3086111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6702,AR_INA_6702_INA_1_P
+6708,Salto Chico - Concordia,6708,1,24.0,mm/d,INA,,,,,,,,,True,-31.3147222222222,-57.9902777777778,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6708,AR_INA_6708_INA_24_P
+6708,Salto Chico - Concordia,6708,34,3.0,mm,INA,,,,,,,,,True,-31.3147222222222,-57.9902777777778,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6708,AR_INA_6708_INA_3_P
+6709,Esc. Mariano Moreno Nº232,6709,1,24.0,mm/d,INA,,,,,,,,,True,-23.8619444444444,-65.0913888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6709,AR_INA_6709_INA_24_P
+6709,Esc. Mariano Moreno Nº232,6709,34,3.0,mm,INA,,,,,,,,,True,-23.8619444444444,-65.0913888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6709,AR_INA_6709_INA_3_P
+6711,PN - Calilegua - La Mesada,6711,1,24.0,mm/d,INA,,,,,,,,,True,-23.8663888888889,-64.8669444444444,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6711,AR_INA_6711_INA_24_P
+6711,PN - Calilegua - La Mesada,6711,34,3.0,mm,INA,,,,,,,,,True,-23.8663888888889,-64.8669444444444,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6711,AR_INA_6711_INA_3_P
+6713,Salto Chico - Gualeguaychú,6713,1,24.0,mm/d,INA,,,,,,,,,True,-32.9841666666667,-58.3491666666667,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6713,AR_INA_6713_INA_24_P
+6713,Salto Chico - Gualeguaychú,6713,34,3.0,mm,INA,,,,,,,,,True,-32.9841666666667,-58.3491666666667,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6713,AR_INA_6713_INA_3_P
+6714,San José del Boquerón,6714,1,24.0,mm/d,INA,,,,,,,,,True,-26.1144444444444,-63.7044444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6714,AR_INA_6714_INA_24_P
+6714,San José del Boquerón,6714,34,3.0,mm,INA,,,,,,,,,True,-26.1144444444444,-63.7044444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6714,AR_INA_6714_INA_3_P
+6735,Miriñay - San Roquito,6735,1,24.0,mm/d,INA,,,,,,,,,True,-29.2969444444444,-57.5655555555556,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6735,AR_INA_6735_INA_24_P
+6747,Areco - San Antonio de Areco,6747,1,24.0,mm/d,INA,,,,,,,,,True,-34.2405555555556,-59.4994444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6747,AR_INA_6747_INA_24_P
+6747,Areco - San Antonio de Areco,6747,31,1.0,mm,INA,,,,,,,,,True,-34.2405555555556,-59.4994444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6747,AR_INA_6747_INA_1_P
+6750,Quinto - Malvin Reich,6750,1,24.0,mm/d,INA,,,,,,,,,True,-33.4383333333333,-65.8830555555555,,Automatic,Argentina,INA,,AR_INA_6750,AR_INA_6750_INA_24_P
+6750,Quinto - Malvin Reich,6750,31,1.0,mm,INA,,,,,,,,,True,-33.4383333333333,-65.8830555555555,,Automatic,Argentina,INA,,AR_INA_6750,AR_INA_6750_INA_1_P
+6750,Quinto - Malvin Reich,6750,34,3.0,mm,INA,,,,,,,,,True,-33.4383333333333,-65.8830555555555,,Automatic,Argentina,INA,,AR_INA_6750,AR_INA_6750_INA_3_P
+7311,RMA02_LUJ - Luján,7311,1,24.0,mm/d,INA,,,,,,,,,True,-34.5880555555556,-59.0625,,Automatic,Argentina,INA,Rio Parana,AR_INA_7311,AR_INA_7311_INA_24_P
+7311,RMA02_LUJ - Luján,7311,31,1.0,mm,INA,,,,,,,,,True,-34.5880555555556,-59.0625,,Automatic,Argentina,INA,Rio Parana,AR_INA_7311,AR_INA_7311_INA_1_P
+7317,RMA03_PTL - Puente Lavalle,7317,1,24.0,mm/d,INA,,,,,,,,,True,-25.6763888888889,-60.14,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_7317,AR_INA_7317_INA_24_P
+7318,RMA03_PZL - Posta Zalazar,7318,1,24.0,mm/d,INA,,,,,,,,,True,-24.2119444444444,-60.1972222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_7318,AR_INA_7318_INA_24_P
+7318,RMA03_PZL - Posta Zalazar,7318,31,1.0,mm,INA,,,,,,,,,True,-24.2119444444444,-60.1972222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_7318,AR_INA_7318_INA_1_P
+7320,RMA04_COL - Cote Lai,7320,1,24.0,mm/d,INA,,,,,,,,,True,-27.5327777777778,-59.5763888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_7320,AR_INA_7320_INA_24_P
+7320,RMA04_COL - Cote Lai,7320,31,1.0,mm,INA,,,,,,,,,True,-27.5327777777778,-59.5763888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_7320,AR_INA_7320_INA_1_P
+7321,RMA04_LAE - La Escondida,7321,1,24.0,mm/d,INA,,,,,,,,,True,-27.1333333333333,-59.4727777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_7321,AR_INA_7321_INA_24_P
+7321,RMA04_LAE - La Escondida,7321,31,1.0,mm,INA,,,,,,,,,True,-27.1333333333333,-59.4727777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_7321,AR_INA_7321_INA_1_P
+7322,RMA04_PCH - Parque Nacional Chaco,7322,1,24.0,mm/d,INA,,,,,,,,,True,-26.8069444444444,-59.6066666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_7322,AR_INA_7322_INA_24_P
+7322,RMA04_PCH - Parque Nacional Chaco,7322,31,1.0,mm,INA,,,,,,,,,True,-26.8069444444444,-59.6066666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_7322,AR_INA_7322_INA_1_P
+7323,RMA04_PMB - Parque Nacional Mburucuyá,7323,1,24.0,mm/d,INA,,,,,,,,,True,-28.0427777777778,-58.1016666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_7323,AR_INA_7323_INA_24_P
+7323,RMA04_PMB - Parque Nacional Mburucuyá,7323,31,1.0,mm,INA,,,,,,,,,True,-28.0427777777778,-58.1016666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_7323,AR_INA_7323_INA_1_P
+7324,RMA05_ELD - Eldorado,7324,1,24.0,mm/d,INA,,,,,,,,,True,-26.3933333333333,-54.5761111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_7324,AR_INA_7324_INA_24_P
+7324,RMA05_ELD - Eldorado,7324,31,1.0,mm,INA,,,,,,,,,True,-26.3933333333333,-54.5761111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_7324,AR_INA_7324_INA_1_P

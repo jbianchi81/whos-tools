@@ -10,13 +10,19 @@ This folder contains:
 
 ## Installation
 - Install and/or upgrade python (3.9 or higher)
-- Copy content of this folder into a local folder
-- Install dependencies (e.g. in Linux):
+- Clone the repository into a local directory and cd into the direcory
 ```
+    git clone https://github.com/jbianchi81/whos-tools.git
+    cd whos-tools
+```
+- Create a python environment, activate the environment and install dependencies (e.g. in Linux):
+```
+    python -m venv .
+    source bin/activate
     python -m pip install requests pandas isodate datetime lxml typing geopandas shapely
 ```
 ## Usage
-### from python console
+### from python script / console
 
     from whos_client import Client
     client = Client()o    # get stations with bounding box and pagination 

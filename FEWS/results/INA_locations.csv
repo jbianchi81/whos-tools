@@ -1,347 +1,313 @@
-STATION_ID,STATION_NAME,STATION_SHORTNAME,TOOLTIP,LATITUDE,LONGITUDE,ALTITUDE,TYPE,COUNTRY,ORGANIZATION,SUBBASIN
-2,Rosario del Tala,TALA,station 2: Rosario del Tala,-32.3085,-59.0768055555556,,Conventional,Argentina,INA,Rio Parana
-8,Andresito,ANDRE,station 8: Andresito - property of PNA,-25.5833333333333,-53.9833333333333,,Conventional,Argentina,INA,Rio Parana
-9,Puerto Iguazú,PuertoIguazú,station 9: Puerto Iguazú - property of PNA,-25.5833333333333,-54.5666666666667,,Conventional,Argentina,INA,Rio Parana
-10,Libertad,Libertad,station 10: Libertad - property of PNA,-25.916679,-54.621134,,Conventional,Argentina,INA,Rio Parana
-11,El Dorado,ElDorado,station 11: El Dorado - property of PNA,-26.3833333333333,-54.7,,Conventional,Argentina,INA,Rio Parana
-12,Libertador,Libertador,station 12: Libertador - property of PNA,-26.8,-55.0333333333333,,Conventional,Argentina,INA,Rio Parana
-13,Santa Ana,SantaAna,station 13: Santa Ana - property of PNA,-27.33509,-55.588412,,Conventional,Argentina,INA,Rio Parana
-14,Posadas,Posadas,station 14: Posadas - property of PNA,-27.3666666666667,-55.8833333333333,,Conventional,Argentina,INA,Rio Parana
-15,Ituzaingó,ITUZA,station 15: Ituzaingó - property of PNA,-27.5833333333333,-56.7,,Conventional,Argentina,INA,Rio Parana
-16,Itá Ibaté,ITAIBATE,station 16: Itá Ibaté - property of PNA,-27.42336098,-57.33326783,,Conventional,Argentina,INA,Rio Parana
-17,Itatí,ITATI,station 17: Itatí - property of PNA,-27.26677773,-58.24407387,,Conventional,Argentina,INA,Rio Parana
-18,Paso de la Patria,PasodelaPatr,station 18: Paso de la Patria - property of PNA,-27.3333333333333,-58.5833333333333,,Conventional,Argentina,INA,Rio Parana
-19,Corrientes,CORR,station 19: Corrientes - property of PNA,-27.46364349,-58.8388696,,Conventional,Argentina,INA,Rio Parana
-20,Barranqueras,BARRANC,station 20: Barranqueras - property of PNA,-27.4833333333333,-58.9333333333333,,Conventional,Argentina,INA,Rio Parana
-21,Empedrado,EMPE,station 21: Empedrado - property of PNA,-27.95412346,-58.81852419,,Conventional,Argentina,INA,Rio Parana
-22,Bella Vista,BVIS,station 22: Bella Vista - property of PNA,-28.51840072,-59.05931723,,Conventional,Argentina,INA,Rio Parana
-23,Goya,GOYA,station 23: Goya - property of PNA,-29.14376844,-59.27303952,,Conventional,Argentina,INA,Rio Parana
-24,Reconquista,RECO,station 24: Reconquista - property of PNA,-29.23756092,-59.58115833,,Conventional,Argentina,INA,Rio Parana
-25,Esquina,ESQU,station 25: Esquina - property of PNA,-30.01924089,-59.53663483,,Conventional,Argentina,INA,Rio Parana
-26,La Paz,LAPA,station 26: La Paz - property of PNA,-30.73419972,-59.6381167,,Conventional,Argentina,INA,Rio Parana
-27,Santa Elena,SantaElena,station 27: Santa Elena - property of PNA,-30.95,-59.7833333333333,,Conventional,Argentina,INA,Rio Parana
-28,Hernandarias,HERNANDA,station 28: Hernandarias - property of PNA,-31.22650904,-59.99193936,,Conventional,Argentina,INA,Rio Parana
-29,Paraná,PARAN,station 29: Paraná - property of PNA,-31.7182378629681,-60.5225697750899,,Conventional,Argentina,INA,Rio Parana
-30,Santa Fe,SAFE,station 30: Santa Fe - property of PNA,-31.6514772196376,-60.7002319185745,,Conventional,Argentina,INA,Rio Parana
-31,Diamante,DIAM,station 31: Diamante - property of PNA,-32.0715615377843,-60.6432219715378,,Conventional,Argentina,INA,Rio Parana
-32,Victoria,Victoria,station 32: Victoria - property of PNA,-32.6558456373673,-60.2195849446607,,Conventional,Argentina,INA,Rio Parana
-33,San Lorenzo (San Martín),SANLOR,station 33: San Lorenzo (San Martín) - property of PNA,-32.7336256031375,-60.7256705696322,,Conventional,Argentina,INA,Rio Parana
-34,Rosario,ROSA,station 34: Rosario - property of PNA,-32.9432699442268,-60.6308206029857,,Conventional,Argentina,INA,Rio Parana
-35,Villa Constitución,VCON,station 35: Villa Constitución - property of PNA,-33.2354221667103,-60.3091044341421,,Conventional,Argentina,INA,Rio Parana
-36,San Nicolás,SNICO,station 36: San Nicolás - property of PNA,-33.3420008188866,-60.1895279977149,,Conventional,Argentina,INA,Rio Parana
-37,Ramallo,Ramallo,station 37: Ramallo - property of PNA,-33.4780656197056,-59.9957013181522,,Conventional,Argentina,INA,Rio Parana
-38,San Pedro,SPEDRO,station 38: San Pedro - property of PNA,-33.6745267329027,-59.6497183332918,,Conventional,Argentina,INA,Rio Parana
-39,Baradero,Baradero,station 39: Baradero - property of PNA,-33.8006916108445,-59.4955962110789,,Conventional,Argentina,INA,Rio Parana
-40,Zárate,Zárate,station 40: Zárate - property of PNA,-34.0987818311696,-59.0108657589595,,Conventional,Argentina,INA,Rio Parana
-41,Campana,Campana,station 41: Campana - property of PNA,-34.1555854281116,-58.9581750062675,,Conventional,Argentina,INA,Rio Parana
-42,Escobar,Escobar,station 42: Escobar - property of PNA,-34.3,-58.7333333333,,Conventional,Argentina,INA,Rio Parana
-43,Villa Paranacito,VillaParanac,station 43: Villa Paranacito - property of PNA,-33.7,-58.65,,Conventional,Argentina,INA,Rio Parana
-44,Canal Nuevo,CanalNuevo,station 44: Canal Nuevo - property of PNA,-33.8627031166646,-58.6604197120006,,Conventional,Argentina,INA,Rio Parana
-45,Ibicuy,IBIC,station 45: Ibicuy - property of PNA,-33.7619777376355,-59.1800594404244,,Conventional,Argentina,INA,Rio Parana
-46,Puerto Ruiz,RUIZ,station 46: Puerto Ruiz - property of PNA,-33.2166666667,-59.3666666667,,Conventional,Argentina,INA,Rio Parana
-47,Martín García,MART,station 47: Martín García - property of PNA,-34.1902896924007,-58.2530455191105,,Conventional,Argentina,INA,Rio de la Plata
-48,Guazucito,Guazucito,station 48: Guazucito - property of PNA,-34.0166666667,-58.4,,Conventional,Argentina,INA,Rio Parana
-49,Tigre,Tigre,station 49: Tigre - property of PNA,-34.4159316389634,-58.5779747237367,,Conventional,Argentina,INA,Rio Parana
-50,Dique Luján,DiqueLuján,station 50: Dique Luján - property of PNA,-34.351576,-58.686115,,Conventional,Argentina,INA,Rio Parana
-51,Chaná Miní,ChanáMiní,station 51: Chaná Miní - property of PNA,-34.2,-58.4833333333,,Conventional,Argentina,INA,Rio Parana
-52,San Fernando,SanFernando,station 52: San Fernando - property of PNA,-34.4333333333,-58.55,,Conventional,Argentina,INA,Rio Parana
-53,San Isidro,SanIsidro,station 53: San Isidro - property of PNA,-34.457166,-58.507163,,Conventional,Argentina,INA,Rio Parana
-54,Olivos,Olivos,station 54: Olivos - property of PNA,-34.506666,-58.475863,,Conventional,Argentina,INA,Rio Parana
-55,Puerto Pilcomayo,PILC,station 55: Puerto Pilcomayo - property of PNA,-25.3666666666667,-57.65,,Conventional,Argentina,INA,Rio Paraguay
-56,Bouvier,Bouvier,station 56: Bouvier - property of PNA,-25.451947,-57.568182,,Conventional,Argentina,INA,Rio Paraguay
-57,Puerto Formosa,FORMOSA,station 57: Puerto Formosa - property of PNA,-26.1833333333333,-58.1833333333333,,Conventional,Argentina,INA,Rio Paraguay
-58,Bermejo,BERMEJO,station 58: Bermejo,-26.92629,-58.506205,,Conventional,Argentina,INA,Rio Paraguay
-59,Isla del Cerrito,IsladelCerri,station 59: Isla del Cerrito,-27.3166666666667,-58.6166666666667,,Conventional,Argentina,INA,Rio Parana
-60,Pepirí Miní,PepiríMiní,station 60: Pepirí Miní,-27.153744,-53.933149,,Conventional,Argentina,INA,Rio Uruguay
-61,El Soberbio,SOBER,station 61: El Soberbio,-27.3,-54.2,,Conventional,Argentina,INA,Rio Uruguay
-62,Alicia,Alicia,station 62: Alicia,-27.4375,-54.3553,,Conventional,Argentina,INA,Rio Uruguay
-63,Alba Posse,AlbaPosse,station 63: Alba Posse,-27.572,-54.678494,,Conventional,Argentina,INA,Rio Uruguay
-64,Panambí,Panambí,station 64: Panambí,-27.730627,-54.91305,,Conventional,Argentina,INA,Rio Uruguay
-65,San Javier,SJAVI,station 65: San Javier - property of PNA,-27.8833333333333,-55.1333333333333,,Conventional,Argentina,INA,Rio Uruguay
-66,Puerto Concepción,PuertoConcep,station 66: Puerto Concepción - property of PNA,-28.119193,-55.581369,,Conventional,Argentina,INA,Rio Uruguay
-67,Garruchos,Garruchos,station 67: Garruchos - property of PNA,-28.1833333333333,-55.65,,Conventional,Argentina,INA,Rio Uruguay
-68,Santo Tomé,TOME,station 68: Santo Tomé - property of PNA,-28.55,-56.0333333333333,,Conventional,Argentina,INA,Rio Uruguay
-69,Alvear,Alvear,station 69: Alvear - property of PNA,-29.1,-56.55,,Conventional,Argentina,INA,Rio Uruguay
-70,La Cruz,LaCruz,station 70: La Cruz - property of PNA,-29.18062,-56.633977,,Conventional,Argentina,INA,Rio Uruguay
-71,Yapeyú,Yapeyú,station 71: Yapeyú - property of PNA,-29.470031,-56.810674,,Conventional,Argentina,INA,Rio Uruguay
-72,Paso de los Libres,PasodelosLib,station 72: Paso de los Libres - property of PNA,-29.7166666666667,-57.0833333333333,,Conventional,Argentina,INA,Rio Uruguay
-73,Bompland,Bompland,station 73: Bompland - property of PNA,-29.872652,-57.332887,,Conventional,Argentina,INA,Rio Uruguay
-74,Monte Caseros,MonteCaseros,station 74: Monte Caseros - property of PNA,-30.25,-57.6333333333333,,Conventional,Argentina,INA,Rio Uruguay
-75,Mocoretá,Mocoretá,station 75: Mocoretá - property of PNA,-30.715682,-57.81776,,Conventional,Argentina,INA,Rio Uruguay
-76,Federación,Federación,station 76: Federación - property of PNA,-30.993221,-57.914682,,Conventional,Argentina,INA,Rio Uruguay
-77,Salto Grande Arriba,SGRANDE,station 77: Salto Grande Arriba - property of PNA,-31.27547,-57.936945,,Conventional,Argentina,INA,Rio Uruguay
-78,Salto Grande Abajo,SGRANDE,station 78: Salto Grande Abajo - property of PNA,-31.27547,-57.936945,,Conventional,Argentina,INA,Rio Uruguay
-79,Concordia,null,station 79: Concordia - property of PNA,-31.4,-58.0166666666667,,Conventional,Argentina,INA,Rio Uruguay
-80,Colón,Colón,station 80: Colón - property of PNA,-32.2333333333333,-58.1166666666667,,Conventional,Argentina,INA,Rio Uruguay
-81,Concepción del Uruguay,Concepciónde,station 81: Concepción del Uruguay - property of PNA,-32.4833333333333,-58.2333333333333,,Conventional,Argentina,INA,Rio Uruguay
-82,Campichuelo,Campichuelo,station 82: Campichuelo - property of PNA,-32.70101,-58.1834,,Conventional,Argentina,INA,Rio Uruguay
-83,Puerto Gualeguaychú,PuertoGualeg,station 83: Puerto Gualeguaychú,-33.0166666666667,-58.5,,Conventional,Argentina,INA,Rio Uruguay
-84,Boca Gualeguaychú,BocaGualegua,station 84: Boca Gualeguaychú - property of PNA,-33.0666666666667,-58.4166666666667,,Conventional,Argentina,INA,Rio Uruguay
-85,Buenos Aires,BuenosAires,station 85: Buenos Aires - property of PNA,-34.56108,-58.399288,,Conventional,Argentina,INA,Rio de la Plata
-86,La Plata,LaPlata,station 86: La Plata - property of PNA,-34.824196,-57.873546,,Conventional,Argentina,INA,Rio de la Plata
-87,Yacyretá afluente,YACY,station 87: Yacyretá afluente,-27.482557,-56.727244,,Conventional,Argentina,INA,Rio Parana
-88,Yacyretá efluente,Yacyretáeflu,station 88: Yacyretá efluente,-27.482557,-56.727244,,Conventional,Argentina,INA,Rio Parana
-92,Represa Itaipú,Parana regulada,station 92: Represa Itaipú - property of Itaipu,-25.4,-54.583,,Conventional,Argentina,INA,Rio Parana
-93,Confluencia,CONFLU,station 93: Confluencia - property of Itaipu,-25.592701,-54.593363,,Conventional,Argentina,INA,Rio Parana
-99,Gualeguaychú,Gualeguaychú,station 99: Gualeguaychú - property of PNA,-33.0144444444444,-58.5041666666667,,Conventional,Argentina,INA,Rio Uruguay
-103,Recreo - Ruta Provincial nº 70,SALADO,station 103: Recreo - Ruta Provincial nº 70 - property of RHN-SSRH,-31.4912222222222,-60.7805555555556,,Conventional,Argentina,INA,Rio Parana
-105,Tostado,TOSTADO,station 105: Tostado - property of RHN-SSRH,-29.2751666666667,-61.7439444444444,,Conventional,Argentina,INA,Rio Parana
-131,Puerto Maní,PuertoManí,station 131: Puerto Maní - property of PNA,-27.1063611111111,-55.5221666666667,,Conventional,Argentina,INA,Rio Parana
-149,Canal Seoane,seoane,station 149: Canal Seoane - property of INA,-34.166861111,-58.638166667,,Automatic,Argentina,INA,Rio Parana
-175,Emilia - Ruta Provincial nº 62,Emilia-RutaP,station 175: Emilia - Ruta Provincial nº 62 - property of FICH,-31.042868,-60.841003,,Conventional,Argentina,INA,Rio Parana
-773,Anguil -EEA Anguil - EEA INTA Anguil - Guillermo Covas,ANGUILEEA,station 773: Anguil -EEA Anguil - EEA INTA Anguil - Guillermo Covas - property of INTA,-36.5419998168945,-63.9910011291504,,Automatic,Argentina,INA,
-775,Arrecifes - EEA Pergamino - Escuela Agropecuaria N 1 de Arrecifes,ARRECIFES,station 775: Arrecifes - EEA Pergamino - Escuela Agropecuaria N 1 de Arrecifes - property of INTA,-34.0499992370605,-60.1360015869141,,Automatic,Argentina,INA,Rio Parana
-777,Bandera - Predio AER INTA Bandera,BANDERAPR,station 777: Bandera - Predio AER INTA Bandera - property of INTA,-28.8929996490479,-62.2750015258789,,Automatic,Argentina,INA,Rio Parana
-778,Basail - INTA - Basail,BASAILINT,station 778: Basail - INTA - Basail - property of INTA,-27.8969993591309,-59.2949981689453,,Automatic,Argentina,INA,Rio Parana
-782,Castelar (Observatorio) - Obs. Principal-Predio INTA Castelar,CASTELAR(,station 782: Castelar (Observatorio) - Obs. Principal-Predio INTA Castelar - property of INTA,-34.6049995422363,-58.6699981689453,,Automatic,Argentina,INA,Rio Parana
-784,Concepcion del Uruguay - Predio observatorio agrometeorologico,CONCEPCIO,station 784: Concepcion del Uruguay - Predio observatorio agrometeorologico - property of INTA,-32.4879989624023,-58.3479995727539,,Automatic,Argentina,INA,Rio Uruguay
-785,Coronel Suarez - EEA Bordenave - Municipalidad de Coronel Suarez,CORONELSU,station 785: Coronel Suarez - EEA Bordenave - Municipalidad de Coronel Suarez - property of INTA,-37.4440002441406,-61.9249992370605,,Automatic,Argentina,INA,
-787,EFA Bernardo de Irigoyen - Predio del Servicio Meteorologico Nacional,EFABERNAR,station 787: EFA Bernardo de Irigoyen - Predio del Servicio Meteorologico Nacional - property of INTA,-26.4360008239746,-53.673999786377,,Automatic,Argentina,INA,Rio Uruguay
-790,El Portezuelo - EEA La Rioja - AER El Portezuelo,ELPORTEZU,station 790: El Portezuelo - EEA La Rioja - AER El Portezuelo - property of INTA,-30.8360004425049,-66.6969985961914,,Automatic,Argentina,INA,
-792,Esquina - Predio del Aero Club Esquina,ESQUINAPR,station 792: Esquina - Predio del Aero Club Esquina - property of INTA,-30.0389995574951,-59.5330009460449,,Automatic,Argentina,INA,Rio Parana
-793,Federal - Parcela frutal de experimental Va. Federal,FEDERALPA,station 793: Federal - Parcela frutal de experimental Va. Federal - property of INTA,-30.9290008544922,-58.7729988098145,,Automatic,Argentina,INA,Rio Parana
-794,Ferre - EEA Pergamino - Escuela Agrotecnica Salesiana de Ferre,FERREEEAP,station 794: Ferre - EEA Pergamino - Escuela Agrotecnica Salesiana de Ferre - property of INTA,-34.0999984741211,-61.1399993896484,,Automatic,Argentina,INA,Rio Parana
-797,Hermoso Campo - INTA - Hermoso Campo,HERMOSOCA,station 797: Hermoso Campo - INTA - Hermoso Campo - property of INTA,-27.6019992828369,-61.3110008239746,,Automatic,Argentina,INA,Rio Parana
-816,Juan Jose Castelli - Juan Jose Castelli,JUANJOSEC,station 816: Juan Jose Castelli - Juan Jose Castelli - property of INTA,-25.9400005340576,-60.6069984436035,,Automatic,Argentina,INA,Rio Parana
-817,Jumial Grande - Parque agente INTA Prohuerta,JUMIALGRA,station 817: Jumial Grande - Parque agente INTA Prohuerta - property of INTA,-27.4300003051758,-63.3199996948242,,Automatic,Argentina,INA,Rio Parana
-822,Las Marianas - Establecimiento Las Marianas,LASMARIAN,station 822: Las Marianas - Establecimiento Las Marianas - property of INTA,-27.2740001678467,-59.1440010070801,,Automatic,Argentina,INA,Rio Parana
-825,Las Tunas - Establecimiento San Antonio,LASTUNASE,station 825: Las Tunas - Establecimiento San Antonio - property of INTA,-31.871000289917,-59.685001373291,,Automatic,Argentina,INA,Rio Parana
-826,Lima - EEA San Pedro - Empresa Granel del Sur (Planta de Acopio),LIMAEEASA,station 826: Lima - EEA San Pedro - Empresa Granel del Sur (Planta de Acopio) - property of INTA,-34.0800018310547,-59.2060012817383,,Automatic,Argentina,INA,Rio Parana
-829,Marcos Juarez - En predio de EEA Marcos Juarez,MARCOSJUA,station 829: Marcos Juarez - En predio de EEA Marcos Juarez - property of INTA,-32.7190017700195,-62.1059989929199,,Automatic,Argentina,INA,Rio Parana
-832,Posadas - Ruta Nacional 12 km 7.5 Villa Miguel Lanus,POSADASRU,station 832: Posadas - Ruta Nacional 12 km 7.5 Villa Miguel Lanus - property of INTA,-27.4270000457764,-55.8899993896484,,Automatic,Argentina,INA,Rio Parana
-837,S.J. de la Frontera - Estancia la Colorada de TILO PARANA SA,S.J.DELAF,station 837: S.J. de la Frontera - Estancia la Colorada de TILO PARANA SA - property of INTA,-30.3570003509521,-58.314998626709,,Automatic,Argentina,INA,Rio Uruguay
-842,Santa Sylvina - INTA - Santa Sylvina,SANTASYLV,station 842: Santa Sylvina - INTA - Santa Sylvina - property of INTA,-27.8500003814697,-61.1319999694824,,Automatic,Argentina,INA,Rio Parana
-844,Trenque Lauquen - EEA Villegas - Predio de Aeroclub T. Lauquen,TRENQUELA,station 844: Trenque Lauquen - EEA Villegas - Predio de Aeroclub T. Lauquen - property of INTA,-35.9729995727539,-62.7649993896484,,Automatic,Argentina,INA,
-846,UNLZ - Fac. Cs. Agrarias - Predio Facultad de Cs. Agrarias de UNLZ,UNLZFAC.C,station 846: UNLZ - Fac. Cs. Agrarias - Predio Facultad de Cs. Agrarias de UNLZ - property of INTA,-34.7799987792969,-58.4599990844727,,Automatic,Argentina,INA,Rio de la Plata
-848,Villa Cañas - EEA Oliveros - Predio Aeroclub,VILLACANA,station 848: Villa Cañas - EEA Oliveros - Predio Aeroclub - property of INTA,-33.9630012512207,-61.6319999694824,,Automatic,Argentina,INA,Rio de la Plata
-849,Curuzu Cuatia - EEA Mercedes - Estancia Santa Braulia,CURUZUCUAT,station 849: Curuzu Cuatia - EEA Mercedes - Estancia Santa Braulia - property of INTA,-29.87,-58.11,,Automatic,Argentina,INA,Rio Uruguay
-850,Alejandro Roca - EEA Marcos Juárez,ALEJANDRO,station 850: Alejandro Roca - EEA Marcos Juárez - property of INTA,-33.4959983825684,-63.6609992980957,,Automatic,Argentina,INA,Rio Parana
-870,villa amelia,VILLAAMELI,station 870: villa amelia - property of GSF,-32.4797210693359,-61.5666656494141,,Automatic,Argentina,INA,Rio Parana
-873,Morón,MORÓN,station 873: Morón - property of ACUMAR,-34.6608222222222,-58.6277055555556,,Automatic,Argentina,INA,Rio Parana
-874,Merlo,MERLO,station 874: Merlo - property of ACUMAR,-34.6702861111111,-58.7250194444444,,Automatic,Argentina,INA,Rio Parana
-881,San Vicente,SANVICENTE,station 881: San Vicente - property of ACUMAR,-35.0411111111111,-58.4094444444444,,Automatic,Argentina,INA,Rio de la Plata
-884,Ezeiza,EZEIZA,station 884: Ezeiza - property of ACUMAR,-34.8551555555556,-58.5256805555556,,Automatic,Argentina,INA,Rio de la Plata
-885,Cañuelas,CAÑUELAS,station 885: Cañuelas - property of ACUMAR,-35.1,-58.8,,Automatic,Argentina,INA,Rio de la Plata
-887,Mercobras,MERCOBRAS,station 887: Mercobras - property of MERCOBRAS,-34.51,-58.5016666666667,,Automatic,Argentina,INA,Rio Parana
-889,FCEN,FCEN,station 889: FCEN - property of FCEN,-34.5419444444444,-58.44,,Automatic,Argentina,INA,Rio Parana
-895,Florencio Varela M,FLORENCIOV,station 895: Florencio Varela M - property of FLORENCIOV,-34.804369,-58.279983,,Automatic,Argentina,INA,Rio de la Plata
-914,macia,macia,station 914: macia - property of DPHER,-32.1728527777778,-59.399925,,Automatic,Argentina,INA,Rio Parana
-928,concepciondeluruguay,concepcionde,station 928: concepciondeluruguay - property of DPHER,-32.5,-58.3,,Automatic,Argentina,INA,Rio Uruguay
-929,gualeguaychu,gualeguaychu,station 929: gualeguaychu - property of DPHER,-33.0144444444444,-58.5041666666667,,Automatic,Argentina,INA,Rio Uruguay
-932,urdinarrain,urdinarrain,station 932: urdinarrain - property of DPHER,-32.6790694444444,-58.8918,,Automatic,Argentina,INA,Rio Parana
-1015,Libertad,Libertad,station 1015: Libertad - property of Salto Grande,-30.014261,-57.85945,,Automatic,Argentina,INA,Rio Uruguay
-1016,Puerto Concordia,null,station 1016: Puerto Concordia - property of Salto Grande,-31.404212,-58.002561,,Automatic,Argentina,INA,Rio Uruguay
-1017,Yapeyú,Yapeyú,station 1017: Yapeyú - property of Salto Grande,-29.470444,-56.81167,,Automatic,Argentina,INA,Rio Uruguay
-1019,Alvear,Alvear,station 1019: Alvear - property of Salto Grande,-29.112957,-56.555522,,Automatic,Argentina,INA,Rio Uruguay
-1022,Federación,Federación,station 1022: Federación - property of Salto Grande,-30.992189,-57.913847,,Automatic,Argentina,INA,Rio Uruguay
-1024,El Trompo,ElTrompo,station 1024: El Trompo - property of Salto Grande,-30.971026,-58.247317,,Automatic,Argentina,INA,Rio Parana
-1035,Garruchos,Garruchos,station 1035: Garruchos - property of Salto Grande,-28.177515,-55.642269,,Automatic,Argentina,INA,Rio Uruguay
-1038,El Soberbio,ElSoberbio,station 1038: El Soberbio - property of Salto Grande,-27.298582,-54.193437,,Automatic,Argentina,INA,Rio Uruguay
-1039,Pepirí Miní,PepiríMiní,station 1039: Pepirí Miní - property of Salto Grande,-27.153304,-53.933283,,Automatic,Argentina,INA,Rio Uruguay
-1062,Miriñay Medio,MiriñayMedio,station 1062: Miriñay Medio - property of Salto Grande,-29.357037,-57.705043,,Automatic,Argentina,INA,Rio Uruguay
-1064,Solari,Solari,station 1064: Solari - property of Salto Grande,-29.377358,-58.193534,,Automatic,Argentina,INA,Rio Uruguay
-1067,Cazadores Correntinos,CazadoresCor,station 1067: Cazadores Correntinos - property of Salto Grande,-29.98349,-58.295964,,Automatic,Argentina,INA,Rio Parana
-1068,Los Conquistadores,LosConquista,station 1068: Los Conquistadores - property of Salto Grande,-30.590296,-58.468999,,Automatic,Argentina,INA,Rio Parana
-1070,San Jaime,SanJaime,station 1070: San Jaime - property of Salto Grande,-30.337372,-58.317145,,Automatic,Argentina,INA,Rio Parana
-1071,Mocoretá Medio,MocoretáMedi,station 1071: Mocoretá Medio - property of Salto Grande,-30.214445,-57.966907,,Automatic,Argentina,INA,Rio Uruguay
-1074,Monte Caseros,MonteCaseros,station 1074: Monte Caseros - property of Salto Grande,-30.249296,-57.622519,,Automatic,Argentina,INA,Rio Uruguay
-1075,Pujol,Pujol,station 1075: Pujol - property of Salto Grande,-30.390258,-57.880984,,Automatic,Argentina,INA,Rio Uruguay
-1077,Mocoretá Río,MocoretáRío,station 1077: Mocoretá Río - property of Salto Grande,-30.626772,-57.982836,,Automatic,Argentina,INA,Rio Uruguay
-1078,Bonpland,Bonpland,station 1078: Bonpland - property of Salto Grande,-29.819517,-57.429814,,Automatic,Argentina,INA,Rio Uruguay
-1094,RP38,RP38,station 1094: RP38 - property of FICH,-29.867045,-60.337943,,Conventional,Argentina,INA,Rio Parana
-1257,Arroyo Borches,BORCHES,station 1257: Arroyo Borches - property of INA,-34.0752137139779,-58.4426647718186,,Automatic,Argentina,INA,Rio Parana
-1261,Las Rosas - EEA Oliveros,LASROSAS -,station 1261: Las Rosas - EEA Oliveros,-32.4900016784668,-61.5699996948242,,Automatic,Argentina,INA,Rio Parana
-1299,Bordenave - EEA Bordenave,BORDENAVE-,station 1299: Bordenave - EEA Bordenave,-37.75,-63.0800018310547,,Automatic,Argentina,INA,
-1306,Mercedes - EEA Mercedes,MERCEDES- ,station 1306: Mercedes - EEA Mercedes,-29.2000007629395,-58.0400009155273,,Automatic,Argentina,INA,Rio Parana
-1311,Cerro Azul - EEA Cerro Azul,CERROAZUL ,station 1311: Cerro Azul - EEA Cerro Azul,-27.6599998474121,-55.439998626709,,Automatic,Argentina,INA,Rio Parana
-1354,Bella Vista - EEA Bella Vista,BELLAVISTA,station 1354: Bella Vista - EEA Bella Vista,-28.4500007629395,-58.9900016784668,,Automatic,Argentina,INA,Rio Parana
-1369,Cañada Ombu - EEA Reconquista,CAÑADAOMBU,station 1369: Cañada Ombu - EEA Reconquista,-28.3600006103516,-60.1500015258789,,Automatic,Argentina,INA,Rio Parana
-1370,Cañada Seca - EEA Villegas,CAÑADASECA,station 1370: Cañada Seca - EEA Villegas,-34.5499992370605,-62.9000015258789,,Automatic,Argentina,INA,Rio de la Plata
-1374,Ceres - EEA Rafaela,CERES- EEA,station 1374: Ceres - EEA Rafaela,-29.8700008392334,-61.9599990844727,,Automatic,Argentina,INA,Rio Parana
-1378,Chascomus - EEA Cuenca Salado,CHASCOMUS-,station 1378: Chascomus - EEA Cuenca Salado,-35.7400016784668,-58.0499992370605,,Automatic,Argentina,INA,Rio de la Plata
-1396,Dean Funes - EEA Manfredi,DEANFUNES ,station 1396: Dean Funes - EEA Manfredi,-30.3400001525879,-64.3199996948242,,Automatic,Argentina,INA,
-1400,Du Graty - EEA Sáenz Peña,DUGRATY - ,station 1400: Du Graty - EEA Sáenz Peña,-27.7000007629395,-60.9099998474121,,Automatic,Argentina,INA,Rio Parana
-1420,Goya - EEA Bella Vista,GOYA- EEA ,station 1420: Goya - EEA Bella Vista,-29.1800003051758,-59.0900001525879,,Automatic,Argentina,INA,Rio Parana
-1431,Hornillos - IPAF NOA,HORNILLOS-,station 1431: Hornillos - IPAF NOA,-23.6599998474121,-65.4300003051758,,Automatic,Argentina,INA,Rio Paraguay
-1514,La Cigüeña - EEA Reconquista,LACIGÜEÑA ,station 1514: La Cigüeña - EEA Reconquista,-29.25,-61.0200004577637,,Automatic,Argentina,INA,Rio Parana
-1527,Lincoln - EEA Villegas,LINCOLN- E,station 1527: Lincoln - EEA Villegas,-34.8400001525879,-61.5999984741211,,Automatic,Argentina,INA,Rio de la Plata
-1531,Los Juríes - EEA E Santiago,LOSJURÍES ,station 1531: Los Juríes - EEA E Santiago,-28.6100006103516,-62.1599998474121,,Automatic,Argentina,INA,Rio Parana
-1537,Malbran - EEA E Sgo del Estero,MALBRAN- E,station 1537: Malbran - EEA E Sgo del Estero,-29.3199996948242,-62.4599990844727,,Automatic,Argentina,INA,
-1549,Monte Quemado - EEA E Santiago,MONTEQUEMA,station 1549: Monte Quemado - EEA E Santiago,-25.8600006103516,-62.7099990844727,,Automatic,Argentina,INA,Rio Parana
-1550,Montecarlo - EEA Montecarlo,MONTECARLO,station 1550: Montecarlo - EEA Montecarlo,-26.5699996948242,-54.7299995422363,,Automatic,Argentina,INA,Rio Parana
-1561,P. de la Plaza -EEA Sáenz Peña,P.DE LA PL,station 1561: P. de la Plaza -EEA Sáenz Peña,-26.9300003051758,-59.7999992370605,,Automatic,Argentina,INA,Rio Parana
-1584,Quimilí - EEA E Santiago,QUIMILÍ- E,station 1584: Quimilí - EEA E Santiago,-27.5400009155273,-62.3499984741211,,Automatic,Argentina,INA,Rio Parana
-1589,Rauch - EEA Cuenca Salado,RAUCH- EEA,station 1589: Rauch - EEA Cuenca Salado,-36.7999992370605,-59.1100006103516,,Automatic,Argentina,INA,Rio de la Plata
-1600,San Fernando - EEA Delta,SANFERNAND,station 1600: San Fernando - EEA Delta,-34.25,-58.6100006103516,,Automatic,Argentina,INA,Rio Parana
-1605,San Jorge - EEA Rafaela,SANJORGE -,station 1605: San Jorge - EEA Rafaela,-31.9500007629395,-61.8300018310547,,Automatic,Argentina,INA,Rio Parana
-1607,San Pedro - EEA San Pedro,SANPEDRO -,station 1607: San Pedro - EEA San Pedro,-33.7400016784668,-59.7999992370605,,Automatic,Argentina,INA,Rio Parana
-1623,Sombrerito - EEA Corrientes,SOMBRERITO,station 1623: Sombrerito - EEA Corrientes,-27.6499996185303,-58.7700004577637,,Automatic,Argentina,INA,Rio Parana
-1629,Tilisarao - EEA San Luis,TILISARAO-,station 1629: Tilisarao - EEA San Luis,-32.6699981689453,-65.2300033569336,,Automatic,Argentina,INA,
-1639,Villa Ana - EEA Reconquista,VILLAANA -,station 1639: Villa Ana - EEA Reconquista,-28.4400005340576,-59.7999992370605,,Automatic,Argentina,INA,Rio Parana
-1678,Paso Duarte - RP 22,PasoDuarte-R,station 1678: Paso Duarte - RP 22 - property of snih:1,-31.1051388888889,-58.7711666666667,53.0,Automatic,Argentina,INA,Rio Parana
-1679,Santo Tomé,STOME_SALADO,station 1679: Santo Tomé - property of FICH,-31.667601,-60.752233,,Conventional,Argentina,INA,Rio Parana
-1698,Arroyo Carapachay,carapachay,station 1698: Arroyo Carapachay,-34.356202,-58.633833,,Conventional,Argentina,INA,Rio Parana
-1701,Gualeguaychú FdX,GCHUFXD,station 1701: Gualeguaychú FdX - property of Municipalidad de Gualeguaychú,-33.0666666666667,-58.4166666666667,,Automatic,Argentina,INA,Rio Uruguay
-1702,Braga,Braga,station 1702: Braga,-34.3363990783691,-58.4844017028809,,Automatic,Argentina,INA,Rio de la Plata
-1703,San Clemente,SanClemente,station 1703: San Clemente,-36.3544006347656,-56.7153015136719,,Automatic,Argentina,INA,
-1704,Punta Indio,PuntaIndio,station 1704: Punta Indio,-35.0780982971191,-55.9880981445312,,Automatic,Argentina,INA,Rio de la Plata
-1705,Brasileira,Brasileira,station 1705: Brasileira,-35.1744003295898,-56.6105995178223,,Automatic,Argentina,INA,Rio de la Plata
-1706,Oyarvide,Oyarvide,station 1706: Oyarvide,-35.0999984741211,-57.13330078125,,Automatic,Argentina,INA,Rio de la Plata
-1707,Magadalena,Magadalena,station 1707: Magadalena,-34.9300003051758,-57.4617004394531,,Automatic,Argentina,INA,Rio de la Plata
-1708,La Plata,LaPlata,station 1708: La Plata,-34.8339004516602,-57.8800010681152,,Automatic,Argentina,INA,Rio de la Plata
-1709,Buenos Aires,BuenosAires,station 1709: Buenos Aires,-34.6305999755859,-58.3516998291016,,Automatic,Argentina,INA,Rio de la Plata
-1710,Desembocadura,Desembocadur,station 1710: Desembocadura,-33.997200012207,-58.4702987670898,,Automatic,Argentina,INA,Rio Parana
-1711,Las Rosas,LasRosas,station 1711: Las Rosas,-34.1836013793945,-58.8894004821777,,Automatic,Argentina,INA,Rio Parana
-1712,Carabelitas,Carabelitas,station 1712: Carabelitas,-33.9491996765137,-58.7689018249512,,Automatic,Argentina,INA,Rio Parana
-1713,Zárate,Zárate,station 1713: Zárate,-34.0918998718262,-59.0139007568359,,Automatic,Argentina,INA,Rio Parana
-1714,Baradero,Baradero,station 1714: Baradero,-33.9366989135742,-59.2578010559082,,Automatic,Argentina,INA,Rio Parana
-1715,Brazo Largo,BrazoLargo,station 1715: Brazo Largo,-33.8880996704102,-58.9166984558105,,Automatic,Argentina,INA,Rio Parana
-1716,Ibicuy,Ibicuy,station 1716: Ibicuy,-33.755298614502,-59.1786003112793,,Automatic,Argentina,INA,Rio Parana
-1717,Bifurcación,Bifurcación,station 1717: Bifurcación,-33.7224998474121,-59.2907981872559,,Automatic,Argentina,INA,Rio Parana
-1718,San Pedro,SanPedro,station 1718: San Pedro,-33.6852989196777,-59.6411018371582,,Automatic,Argentina,INA,Rio Parana
-1719,Ramallo,Ramallo,station 1719: Ramallo,-33.4766998291016,-59.997501373291,,Automatic,Argentina,INA,Rio Parana
-1720,San Nicolas,SanNicolas,station 1720: San Nicolas,-33.323600769043,-60.2181015014648,,Automatic,Argentina,INA,Rio Parana
-1721,Villa Constitución,VillaConstit,station 1721: Villa Constitución,-33.2263984680176,-60.3213996887207,,Automatic,Argentina,INA,Rio Parana
-1722,Rosario,Rosario,station 1722: Rosario,-32.9730987548828,-60.6183013916016,,Automatic,Argentina,INA,Rio Parana
-1723,San Martín,SanMartín,station 1723: San Martín,-32.7071990966797,-60.7249984741211,,Automatic,Argentina,INA,Rio Parana
-1724,Paraná,Paraná,station 1724: Paraná,-31.7208003997803,-60.5155982971191,,Automatic,Argentina,INA,Rio Parana
-1725,Diamante,Diamante,station 1725: Diamante,-32.0560989379883,-60.6439018249512,,Automatic,Argentina,INA,Rio Parana
-1726,Santa Fé,SantaFé,station 1726: Santa Fé,-31.6513004302979,-60.703498840332,,Automatic,Argentina,INA,Rio Parana
-1727,Hernandarias,Hernandarias,station 1727: Hernandarias,-31.2299995422363,-59.9926986694336,,Automatic,Argentina,INA,Rio Parana
-1728,Santa Elena,SantaElena,station 1728: Santa Elena,-30.9685001373291,-59.8147010803223,,Automatic,Argentina,INA,Rio Parana
-1729,La Paz,LaPaz,station 1729: La Paz,-30.7325992584229,-59.6391983032227,,Automatic,Argentina,INA,Rio Parana
-1730,Esquina,Esquina,station 1730: Esquina,-30.0167007446289,-59.5368995666504,,Automatic,Argentina,INA,Rio Parana
-1731,Reconquista,Reconquista,station 1731: Reconquista,-29.2353000640869,-59.5794982910156,,Automatic,Argentina,INA,Rio Parana
-1732,Goya,Goya,station 1732: Goya,-29.1431999206543,-59.2727012634277,,Automatic,Argentina,INA,Rio Parana
-1733,Bella Vista,BellaVista,station 1733: Bella Vista,-28.503999710083,-59.048900604248,,Automatic,Argentina,INA,Rio Parana
-1734,Empedrado,Empedrado,station 1734: Empedrado,-27.9589004516602,-58.8203010559082,,Automatic,Argentina,INA,Rio Parana
-1735,Barranqueras,Barranqueras,station 1735: Barranqueras,-27.4885005950928,-58.923900604248,,Automatic,Argentina,INA,Rio Parana
-1736,Corrientes,Corrientes,station 1736: Corrientes,-27.4598999023438,-58.8333015441895,,Automatic,Argentina,INA,Rio Parana
-1737,Paso de la Patria,PasodelaPatr,station 1737: Paso de la Patria,-27.3222999572754,-58.5824012756348,,Automatic,Argentina,INA,Rio Parana
-1739,Atalaya,Atalaya,station 1739: Atalaya - property of Servicio de Hidrografía Naval,-35.015278,-57.536111,,Automatic,Argentina,INA,Rio de la Plata
-1740,Pilote Norden,PiloteNorden,station 1740: Pilote Norden - property of CARP,-34.62625,-57.927417,,Automatic,Argentina,INA,Rio de la Plata
-1743,Arroyo Las Piedras - Rep. del Líbano,LASPIEDRAS,station 1743: Arroyo Las Piedras - Rep. del Líbano - property of INA,-34.7383417,-58.3096056,,Automatic,Argentina,INA,Rio de la Plata
-1744,Arroyo San Francisco,SANFRAN,station 1744: Arroyo San Francisco - property of INA,-34.7277556,-58.3200389,,Automatic,Argentina,INA,Rio de la Plata
-1746,Arroyo Águila Negra,AGUILANEGRA,station 1746: Arroyo Águila Negra - property of Arauco,-33.964052,-58.95525,,Conventional,Argentina,INA,Rio Parana
-1747,Pasaje Talavera c/ Canal Irigoyen,TALAVERA,station 1747: Pasaje Talavera c/ Canal Irigoyen - property of Arauco,-33.923719,-58.965237,,Conventional,Argentina,INA,Rio Parana
-1758,San Javier (Santa Fe),SANJAVIERSFE,station 1758: San Javier (Santa Fe) - property of RHN-SSRH,-30.5803888888889,-59.9234444444444,,Conventional,Argentina,INA,Rio Parana
-1813,Bomberos S. A. de Giles,BomberosS.A.,station 1813: Bomberos S. A. de Giles,-34.446782,-59.448323,,Conventional,Argentina,INA,Rio Parana
-1814,Pilar,Pilar,station 1814: Pilar,-34.459039,-58.911101,,Conventional,Argentina,INA,Rio Parana
-1815,Robles,Robles,station 1815: Robles,-34.376133,-59.123335,,Conventional,Argentina,INA,Rio Parana
-1877,Paraná Miní,ParanáMiní,station 1877: Paraná Miní,-34.185121,-58.501874,,Automatic,Argentina,INA,Rio Parana
-2046,El Colorado,ElColorado,station 2046: El Colorado - property of SSRH,-26.3342777777778,-59.3624166666667,79.0,Automatic,Argentina,INA,Rio Paraguay
-2111,Río Salado – RP51 (Achupallas),RíoSalado–RP,station 2111: Río Salado – RP51 (Achupallas) - property of RHN,-35.0880555555556,-60.1088888888889,,Automatic,Argentina,INA,Rio de la Plata
-2112,Río Gualeguaychú en RN Nº 14,RíoGualeguay,station 2112: Río Gualeguaychú en RN Nº 14 - property of RHN,-32.7680555555556,-58.4983333333333,,Automatic,Argentina,INA,Rio Uruguay
-2113,Aº Colastiné en Autopista - AU,AºColastinée,station 2113: Aº Colastiné en Autopista - AU - property of RHN,-32.0177777777778,-60.9902777777778,,Automatic,Argentina,INA,Rio Parana
-2114,Aº Del Medio en La Emilia,AºDelMedioen,station 2114: Aº Del Medio en La Emilia - property of RHN,-33.3988888888889,-60.3347222222222,,Automatic,Argentina,INA,Rio Parana
-2115,Río Paraná en Corrientes,RíoParanáenC,station 2115: Río Paraná en Corrientes - property of RHN,-27.4597222222222,-58.8333333333333,,Automatic,Argentina,INA,Rio Parana
-2116,Río Paraguay en Pto. Formosa,RíoParaguaye,station 2116: Río Paraguay en Pto. Formosa - property of RHN,-26.1830555555556,-58.1619444444444,,Automatic,Argentina,INA,Rio Paraguay
-2117,Río Salto - Salto,RíoSalto-Sal,station 2117: Río Salto - Salto - property of RHN,-34.2861111111111,-60.2591666666667,,Automatic,Argentina,INA,Rio Parana
-2118,Río Primero (Suquía) Camino Se,RíoPrimero(S,station 2118: Río Primero (Suquía) Camino Se - property of RHN,-30.9641666666667,-62.9961111111111,,Automatic,Argentina,INA,
-2119,Río Segundo (Plujunta) en RP N,RíoSegundo(P,station 2119: Río Segundo (Plujunta) en RP N - property of RHN,-31.0105555555556,-62.7883333333333,,Automatic,Argentina,INA,
-2120,Laguna Mar Chiquita (Ansenuza),LagunaMarChi,station 2120: Laguna Mar Chiquita (Ansenuza) - property of RHN,-30.9119444444444,-62.6777777777778,,Automatic,Argentina,INA,
-2121,Aº Monje en Autopista A01,AºMonjeenAut,station 2121: Aº Monje en Autopista A01 - property of RHN,-32.3922222222222,-60.9408333333333,,Automatic,Argentina,INA,Rio Parana
-2129,Río Arrecifes - Arrecifes 	,RíoArrecifes,station 2129: Río Arrecifes - Arrecifes 	 - property of RHN,-34.0866666666667,-60.0072222222222,,Automatic,Argentina,INA,Rio Parana
-2131,Río Paraná - Itatí,RíoParaná- I,station 2131: Río Paraná - Itatí - property of RHN,-27.2663888888889,-58.2444444444444,,Automatic,Argentina,INA,Rio Parana
-2132,Río Paraná - Goya,RíoParaná- G,station 2132: Río Paraná - Goya - property of RHN,-29.165,-59.3283333333333,,Automatic,Argentina,INA,Rio Parana
-2133,Río Paraguay - Pto. Pilcomayo,RíoParaguay-,station 2133: Río Paraguay - Pto. Pilcomayo - property of RHN,-25.3719444444444,-57.6502777777778,,Automatic,Argentina,INA,Rio Paraguay
-2134,Río Juramento - El Tunal,RíoJuramento,station 2134: Río Juramento - El Tunal - property of RHN,-25.2497222222222,-64.3902777777778,,Automatic,Argentina,INA,Rio Parana
-2139,Río Coronda en Coronda,RíoCorondaen,station 2139: Río Coronda en Coronda - property of RHN,-31.9741666666667,-60.9138888888889,,Automatic,Argentina,INA,Rio Parana
-2140,Rio Quinto - Justo Daract,RioQuinto-Ju,station 2140: Rio Quinto - Justo Daract - property of RHN,-33.92,-65.1522222222222,,Automatic,Argentina,INA,
-2149,Iguazú - PERFIL TIPO,Iguazú-PERFI,station 2149: Iguazú - PERFIL TIPO - property of RHN,-25.6766666666667,-54.4213888888889,,Automatic,Argentina,INA,Rio Parana
-2150,Miriñay - PASO LEDESMA,Miriñay-PASO,station 2150: Miriñay - PASO LEDESMA - property of RHN,-29.8458333333333,-57.675,,Automatic,Argentina,INA,Rio Uruguay
-2154,Río Bermejo en Pozo Sarmiento,RíoBermejoen,station 2154: Río Bermejo en Pozo Sarmiento - property of RHN,-23.1405555555556,-64.1969444444445,,Automatic,Argentina,INA,Rio Paraguay
-2156,Laguna Ibera en Carlos Pellegr,LagunaIberae,station 2156: Laguna Ibera en Carlos Pellegr - property of RHN,-28.5383333333333,-57.1869444444444,,Automatic,Argentina,INA,Rio Parana
-2158,Aº Feliciano-Paso Medina,AºFeliciano-,station 2158: Aº Feliciano-Paso Medina - property of RHN,-30.9236111111111,-59.5511111111111,,Automatic,Argentina,INA,Rio Parana
-2166,Los Sosa en RP30 km19,LosSosaenRP3,station 2166: Los Sosa en RP30 km19 - property of RHN,-27.1008333333333,-65.6361111111111,,Automatic,Argentina,INA,
-2167,Río Lules en Potrero de las Ta,RíoLulesenPo,station 2167: Río Lules en Potrero de las Ta - property of RHN,-26.8519444444444,-65.4316666666667,,Automatic,Argentina,INA,
-2175,Canal MACAPILLO 	,CanalMACAPIL,station 2175: Canal MACAPILLO 	 - property of RHN,-25.4136111111111,-63.9761111111111,,Automatic,Argentina,INA,Rio Parana
-2176,Canal de Dios	,CanaldeDios	,station 2176: Canal de Dios	 - property of RHN,-25.6108333333333,-63.9480555555556,,Automatic,Argentina,INA,Rio Parana
-2177,Canal Liag - Quebrachal,CanalLiag-Qu,station 2177: Canal Liag - Quebrachal - property of RHN,-25.3452777777778,-64.045,,Automatic,Argentina,INA,Rio Parana
-2178,Río Iguazú en Puerto Andresito,RíoIguazúenP,station 2178: Río Iguazú en Puerto Andresito - property of RHN,-25.5905555555556,-53.995,,Automatic,Argentina,INA,Rio Parana
-2185,Río Dulce Paso de la Cina,RíoDulcePaso,station 2185: Río Dulce Paso de la Cina - property of RHN,-29.795,-62.8061111111111,,Automatic,Argentina,INA,
-2186,Río Bermejo - Balapuca,RíoBermejo-B,station 2186: Río Bermejo - Balapuca - property of RHN,-22.4919444444444,-64.4694444444444,,Automatic,Argentina,INA,Rio Paraguay
-2187,Rio Grande Tarija-El Cajón,RioGrandeTar,station 2187: Rio Grande Tarija-El Cajón - property of RHN,-22.3266666666667,-64.1263888888889,,Automatic,Argentina,INA,Rio Paraguay
-2188,Rio Bermejo-El Colorado,RioBermejo-E,station 2188: Rio Bermejo-El Colorado - property of RHN,-26.3341666666667,-59.3625,,Automatic,Argentina,INA,Rio Paraguay
-2189,Rio Bermejo-Embarcacion,RioBermejo-E,station 2189: Rio Bermejo-Embarcacion - property of RHN,-23.2480555555556,-64.1380555555556,,Automatic,Argentina,INA,Rio Paraguay
-2190,Rio Bermejo-Finca Jujeños,RioBermejo-F,station 2190: Rio Bermejo-Finca Jujeños - property of RHN,-23.1352777777778,-64.2047222222222,,Automatic,Argentina,INA,Rio Paraguay
-2191,Rio Bermejo-Puente Internacion,RioBermejo-P,station 2191: Rio Bermejo-Puente Internacion - property of RHN,-22.7263888888889,-64.3694444444444,,Automatic,Argentina,INA,Rio Paraguay
-2192,Rio San Francisco-Puente RP 1,RioSanFranci,station 2192: Rio San Francisco-Puente RP 1 - property of RHN,-23.7108333333333,-64.5369444444444,,Automatic,Argentina,INA,Rio Paraguay
-2193,Rio Bermejo-Puerto Lavalle,RioBermejo-P,station 2193: Rio Bermejo-Puerto Lavalle - property of RHN,-25.6511111111111,-60.1280555555556,,Automatic,Argentina,INA,Rio Paraguay
-2194,Rio Bermejo-Puerto Velaz,RioBermejo-P,station 2194: Rio Bermejo-Puerto Velaz - property of RHN,-26.6605555555556,-58.6338888888889,,Automatic,Argentina,INA,Rio Paraguay
-2195,Rio Bermejo-Sauzalito,RioBermejo-S,station 2195: Rio Bermejo-Sauzalito - property of RHN,-24.4333333333333,-61.6563888888889,,Automatic,Argentina,INA,Rio Paraguay
-2197,Río Salado - Pinto,RíoSalado-Pi,station 2197: Río Salado - Pinto - property of RHN,-29.1058333333333,-62.5761111111111,,Automatic,Argentina,INA,Rio Parana
-2198,Aº Batel en Paso Cerrito,AºBatelenPas,station 2198: Aº Batel en Paso Cerrito - property of RHN,-29.0311111111111,-58.7883333333333,,Automatic,Argentina,INA,Rio Parana
-2199,Río Corrientes  en Los Laurele,RíoCorriente,station 2199: Río Corrientes  en Los Laurele - property of RHN,-29.7572222222222,-59.2172222222222,,Automatic,Argentina,INA,Rio Parana
-2201,A° El Soberbio-Pje La Lechuza,A°ElSoberbio,station 2201: A° El Soberbio-Pje La Lechuza - property of RHN,-27.2572222222222,-54.2355555555556,,Automatic,Argentina,INA,Rio Uruguay
-2202,Río Cuarto en RN8,RíoCuartoenR,station 2202: Río Cuarto en RN8 - property of RHN,-33.1386111111111,-64.2847222222222,,Automatic,Argentina,INA,Rio Parana
-2203,Río Gualeguay Rosario del Tala,RíoGualeguay,station 2203: Río Gualeguay Rosario del Tala - property of RHN,-32.3086111111111,-59.0769444444445,,Automatic,Argentina,INA,Rio Parana
-2204,Río Carcarañá en pueblo Andino,RíoCarcarañá,station 2204: Río Carcarañá en pueblo Andino - property of RHN,-32.6733333333333,-60.8658333333333,,Automatic,Argentina,INA,Rio Parana
-2205,Río Gualeguay en Villaguay,RíoGualeguay,station 2205: Río Gualeguay en Villaguay - property of RHN,-31.8016666666667,-59.1261111111111,,Automatic,Argentina,INA,Rio Parana
-2206,Río Areco - Puente Quemado,RíoAreco-Pue,station 2206: Río Areco - Puente Quemado - property of RHN,-34.2880555555556,-59.7027777777778,,Automatic,Argentina,INA,Rio Parana
-2207,Seminario Diocesano de Azul,SeminarioDio,station 2207: Seminario Diocesano de Azul - property of RHN,-36.8311111111111,-59.8938888888889,,Automatic,Argentina,INA,Rio de la Plata
-2211,Ruta Provincial N°50,RutaProvinci,station 2211: Ruta Provincial N°50 - property of RHN,-34.3225,-61.3513888888889,,Automatic,Argentina,INA,Rio de la Plata
-2212,Compuerta Alternativa Norte AD,CompuertaAlt,station 2212: Compuerta Alternativa Norte AD - property of RHN,-34.2419444444444,-62.1211111111111,,Automatic,Argentina,INA,
-2213,Canal Regulador N°4 - La Panta,CanalRegulad,station 2213: Canal Regulador N°4 - La Panta - property of RHN,-34.2580555555556,-61.6386111111111,,Automatic,Argentina,INA,Rio de la Plata
-2215,Río Areco - San Antonio de Are,RíoAreco-San,station 2215: Río Areco - San Antonio de Are - property of RHN,-34.2405555555556,-59.4994444444444,,Automatic,Argentina,INA,Rio Parana
-2217,Laguna La Picasa - RN33,LagunaLaPica,station 2217: Laguna La Picasa - RN33 - property of RHN,-34.3269444444445,-62.8113888888889,,Automatic,Argentina,INA,
-2218,Cruz Alta,CruzAlta,station 2218: Cruz Alta - property of RHN,-33.0063888888889,-61.7875,,Automatic,Argentina,INA,Rio Parana
-2219,Intersección Canales A22,Intersección,station 2219: Intersección Canales A22 - property of RHN,-34.4494444444444,-62.4133333333333,,Automatic,Argentina,INA,
-2222,Canal de Dios - Salado,CanaldeDios-,station 2222: Canal de Dios - Salado - property of RHN,-25.6105555555556,-63.9488888888889,,Automatic,Argentina,INA,Rio Parana
-2223,Suncho Corral,SunchoCorral,station 2223: Suncho Corral - property of RHN,-27.9402777777778,-63.4397222222222,,Automatic,Argentina,INA,Rio Parana
-2224,Añatuya-RP 92,Añatuya-RP92,station 2224: Añatuya-RP 92 - property of RHN,-28.5033333333333,-62.8813888888889,,Automatic,Argentina,INA,Rio Parana
-2227,Rio Salado-RN2,RioSalado-RN,station 2227: Rio Salado-RN2 - property of RHN,-35.9622222222222,-57.8519444444444,,Automatic,Argentina,INA,Rio de la Plata
-2356,Río Paraná Túnel,RíoParanáTún,station 2356: Río Paraná Túnel - property of RHN,-31.7197222222222,-60.5175,,Automatic,Argentina,INA,Rio Parana
-2357,Sistema Setúbal - Santa Fe - L,SistemaSetúb,station 2357: Sistema Setúbal - Santa Fe - L - property of RHN,-31.6302777777778,-60.6777777777778,,Automatic,Argentina,INA,Rio Parana
-2593,Río Arenales - La Maroma,RíoArenales-,station 2593: Río Arenales - La Maroma - property of RHN,-25.1538888888889,-65.42,,Automatic,Argentina,INA,Rio Parana
-2605,Río Cuarto - La Carlota RN8,RíoCuarto-La,station 2605: Río Cuarto - La Carlota RN8 - property of RHN,-33.4127777777778,-63.2561111111111,,Automatic,Argentina,INA,Rio Parana
-2671,Canal Finca Agropecuaria,CanalFincaAg,station 2671: Canal Finca Agropecuaria - property of RHN,-25.1608333333333,-64.1061111111111,,Automatic,Argentina,INA,Rio Parana
-2672,Rio Juramento - Finca Agropecu,RioJuramento,station 2672: Rio Juramento - Finca Agropecu - property of RHN,-25.1613888888889,-64.1061111111111,,Automatic,Argentina,INA,Rio Parana
-2673,Rio Colastine RN N° 168,RioColastine,station 2673: Rio Colastine RN N° 168 - property of RHN,-31.6611111111111,-60.6019444444444,,Automatic,Argentina,INA,Rio Parana
-2706,ZEstacion de prueba 9003,ZEstaciondep,station 2706: ZEstacion de prueba 9003 - property of RHN,-34.6130555555556,-58.3772222222222,,Automatic,Argentina,INA,Rio Parana
-2731,Río Aguapey - La Sirena,RíoAguapey-L,station 2731: Río Aguapey - La Sirena - property of RHN,-28.4166666666667,-56.5422222222222,,Automatic,Argentina,INA,Rio Uruguay
-2741,Río Iruya - Tuc Tuca,RíoIruya-Tuc,station 2741: Río Iruya - Tuc Tuca - property of RHN,-22.4044444444444,-65.2675,,Automatic,Argentina,INA,Rio Paraguay
-2807,Salado - El Arenal,Salado-ElAre,station 2807: Salado - El Arenal - property of RHN,-26.3741666666667,-63.7244444444444,,Automatic,Argentina,INA,Rio Parana
-2809,Río Quinto - RP26,RíoQuinto-RP,station 2809: Río Quinto - RP26 - property of RHN,-34.7627777777778,-63.645,,Automatic,Argentina,INA,
-2810,Río Juramento El Quebrachal,RíoJuramento,station 2810: Río Juramento El Quebrachal - property of RHN,-25.3441666666667,-64.0461111111111,,Automatic,Argentina,INA,Rio Parana
-2813,Río Miriñay - Paso Mesa,RíoMiriñay-P,station 2813: Río Miriñay - Paso Mesa - property of RHN,-28.9166666666667,-57.2363888888889,,Automatic,Argentina,INA,Rio Uruguay
-2814,Río Metan - Desembocadura,RíoMetan-Des,station 2814: Río Metan - Desembocadura - property of RHN,-25.3933333333333,-64.5922222222222,,Automatic,Argentina,INA,Rio Parana
-2819,PN Copo  - El Aibal ,PNCopo-ElAib,station 2819: PN Copo  - El Aibal  - property of RHN,-25.9227777777778,-61.7138888888889,,Automatic,Argentina,INA,Rio Parana
-2820,Centro Operativo Santa Rosa PN,CentroOperat,station 2820: Centro Operativo Santa Rosa PN - property of RHN,-27.2852777777778,-65.8719444444444,,Automatic,Argentina,INA,
-2821,Río Salado RP Nº 51 - Achupall,RíoSaladoRPN,station 2821: Río Salado RP Nº 51 - Achupall - property of RHN,-35.0880555555556,-60.1088888888889,,Automatic,Argentina,INA,Rio de la Plata
-2822,Río Pilcomayo - El Raúl,RíoPilcomayo,station 2822: Río Pilcomayo - El Raúl - property of RHN,-22.65,-62.2163888888889,,Automatic,Argentina,INA,Rio Paraguay
-2823,Río Juramento - Cabra Corral,RíoJuramento,station 2823: Río Juramento - Cabra Corral - property of RHN,-25.2677777777778,-65.2372222222222,,Automatic,Argentina,INA,Rio Parana
-2825,Río Santa Lucia - Santa Lucia,RíoSantaLuci,station 2825: Río Santa Lucia - Santa Lucia - property of RHN,-28.9877777777778,-59.0905555555556,,Automatic,Argentina,INA,Rio Parana
-2826,Río Pilcomayo - Puesto Jerez,RíoPilcomayo,station 2826: Río Pilcomayo - Puesto Jerez - property of RHN,-22.7280555555556,-62.2133333333333,,Automatic,Argentina,INA,Rio Paraguay
-2828,Río Salado RN Nº 11,RíoSaladoRNN,station 2828: Río Salado RN Nº 11 - property of RHN,-27.5413888888889,-59.1308333333333,,Automatic,Argentina,INA,Rio Parana
-2829,Río San Javier - San Javier,RíoSanJavier,station 2829: Río San Javier - San Javier - property of RHN,-30.5802777777778,-59.9233333333333,,Automatic,Argentina,INA,Rio Parana
-2830,Río Paraná Guazú - Brazo Largo,BLARGOAUT,station 2830: Río Paraná Guazú - Brazo Largo - property of RHN,-33.8830555555556,-58.9,,Automatic,Argentina,INA,Rio Parana
-2832,Río Corriente - Paso Lucero,RíoCorriente,station 2832: Río Corriente - Paso Lucero - property of RHN,-28.995,-58.5583333333333,,Automatic,Argentina,INA,Rio Parana
-2833,Aº Leyes - RP 1,AºLeyes-RP1,station 2833: Aº Leyes - RP 1 - property of RHN,-31.4947222222222,-60.425,,Automatic,Argentina,INA,Rio Parana
-2835,Río Tercero - Villa María,RíoTercero-V,station 2835: Río Tercero - Villa María - property of RHN,-32.4219444444444,-63.2447222222222,,Automatic,Argentina,INA,Rio Parana
-2836,Aº Barrancas en Paso La Llana,AºBarrancase,station 2836: Aº Barrancas en Paso La Llana - property of RHN,-30.2172222222222,-59.3244444444444,,Automatic,Argentina,INA,Rio Parana
-2837,Río Nogoya - RP039ER,RíoNogoya-RP,station 2837: Río Nogoya - RP039ER - property of RHN,-32.3947222222222,-59.7638888888889,,Automatic,Argentina,INA,Rio Parana
-2838,Aº Saladillo - RN Nº205,AºSaladillo-,station 2838: Aº Saladillo - RN Nº205 - property of RHN,-35.4594444444445,-59.5747222222222,,Automatic,Argentina,INA,Rio de la Plata
-2840,Río Cuarto - La Carlota,RíoCuarto-La,station 2840: Río Cuarto - La Carlota - property of RHN,-33.4155555555556,-63.3091666666667,,Automatic,Argentina,INA,Rio Parana
-2841,Río Negro - Laguna Blanca,RíoNegro-Lag,station 2841: Río Negro - Laguna Blanca - property of RHN,-27.2633333333333,-59.1961111111111,,Automatic,Argentina,INA,Rio Parana
-2846,Río Pilcomayo - Misión La Paz,RíoPilcomayo,station 2846: Río Pilcomayo - Misión La Paz - property of RHN,-22.3775,-62.5236111111111,,Automatic,Argentina,INA,Rio Paraguay
-2853,Río Gualeguay - Paso Alonso,RíoGualeguay,station 2853: Río Gualeguay - Paso Alonso - property of RHN,-33.1005555555556,-59.2702777777778,,Automatic,Argentina,INA,Rio Parana
-2854,Riachuelo - RP 5,Riachuelo-RP,station 2854: Riachuelo - RP 5 - property of RHN,-27.5105555555556,-58.5697222222222,,Automatic,Argentina,INA,Rio Parana
-2855,Río Salado - RP 41,RíoSalado-RP,station 2855: Río Salado - RP 41 - property of RHN,-35.7263888888889,-58.5363888888889,,Automatic,Argentina,INA,Rio de la Plata
-2856,Río San Fransisco Caimancito,RíoSanFransi,station 2856: Río San Fransisco Caimancito - property of RHN,-23.7119444444444,-64.5397222222222,,Automatic,Argentina,INA,Rio Paraguay
-2857,Río Paraná - Chapetón,RíoParaná-Ch,station 2857: Río Paraná - Chapetón - property of RHN,-31.6105555555556,-60.2947222222222,,Automatic,Argentina,INA,Rio Parana
-5430,Federación Embalse,FederaciónEm,station 5430: Federación Embalse - property of PNA,-30.994853,-57.899273,,Conventional,Argentina,INA,Rio Uruguay
-5873,Arroyo Las Piedras - Gob. Monteverde,LASPIEDRAS2,station 5873: Arroyo Las Piedras - Gob. Monteverde - property of INA,-34.783421,-58.298648,,Automatic,Argentina,INA,Rio de la Plata
-5874,Arroyo San Francisco - Dr. Torre,ArroyoSanFra,station 5874: Arroyo San Francisco - Dr. Torre,-34.7650541,-58.3234008,,Automatic,Argentina,INA,Rio de la Plata
-5876,Carabelas,Carabelas,station 5876: Carabelas,-34.05977,-58.835841,,Automatic,Argentina,INA,Rio Parana
-5884,La Picada - RN 12,LaPicada-RN1,station 5884: La Picada - RN 12 - property of SSRH,-31.7288333333333,-60.3076111111111,100.0,Conventional,Argentina,INA,Rio Parana
-5888,Sauzalito,Sauzalito,station 5888: Sauzalito - property of snih:21,-24.4332722222222,-61.6563305555556,172.0,Automatic,Argentina,INA,Rio Paraguay
-5893,Paraná - Rosario,ROSA,station 5893: Paraná - Rosario - property of RHN,-32.9513888888889,-60.6255555555556,,Automatic,Argentina,INA,Rio Parana
-5894,Riacho Victoria - Victoria,VICT,station 5894: Riacho Victoria - Victoria - property of RHN,-32.6316666666667,-60.1652777777778,,Automatic,Argentina,INA,Rio Parana
-5900,Paraná - Diamante,DIAM,station 5900: Paraná - Diamante - property of RHN,-32.057777777778,-60.645,,Automatic,Argentina,INA,Rio Parana
-5901,Paraná - Túnel subfluvial,PARA,station 5901: Paraná - Túnel subfluvial - property of RHN,-31.72,-60.5175,,Automatic,Argentina,INA,Rio Parana
-5904,PN Ciervo de los Pantanos,PNCPAN,station 5904: PN Ciervo de los Pantanos - property of RHN,-34.2255555555556,-58.8988888888889,,Automatic,Argentina,INA,Rio Parana
-5905,Paraná - Villa Constitución,VCON,station 5905: Paraná - Villa Constitución - property of RHN,-33.2272222222222,-60.32,,Automatic,Argentina,INA,Rio Parana
-5907,Paraná Las Palmas - Zárate,ZARA,station 5907: Paraná Las Palmas - Zárate - property of RHN,-34.1019444444444,-59.0088888888889,,Automatic,Argentina,INA,Rio Parana
-5910,SANTA FE - LA GUARDIA,SANTAFE-LAGU,station 5910: SANTA FE - LA GUARDIA - property of snih:1,-31.6301388888889,-60.6779722222222,17.0,Automatic,Argentina,INA,Rio Parana
-5954,Las Heras,lheras,station 5954: Las Heras - property of ACUMAR,-34.92753059,-58.9472905,,Automatic,Argentina,INA,Rio de la Plata
+STATION_ID,STATION_NAME,STATION_SHORTNAME,TOOLTIP,LATITUDE,LONGITUDE,ALTITUDE,TYPE,COUNTRY,ORGANIZATION,SUBBASIN,PARENT_ID
+8,Andresito,ANDRE,station 8: Andresito - property of PNA,-25.5833333333333,-53.9833333333333,,Conventional,Argentina,INA,Rio Parana,AR_INA_8
+9,Puerto Iguazú,PuertoIguazú,station 9: Puerto Iguazú - property of PNA,-25.5833333333333,-54.5666666666667,,Conventional,Argentina,INA,Rio Parana,AR_INA_9
+10,Libertad,Libertad,station 10: Libertad - property of PNA,-25.916679,-54.621134,,Conventional,Argentina,INA,Rio Parana,AR_INA_10
+11,El Dorado,ElDorado,station 11: El Dorado - property of PNA,-26.3833333333333,-54.7,,Conventional,Argentina,INA,Rio Parana,AR_INA_11
+12,Libertador,Libertador,station 12: Libertador - property of PNA,-26.8,-55.0333333333333,,Conventional,Argentina,INA,Rio Parana,AR_INA_12
+13,Santa Ana,SantaAna,station 13: Santa Ana - property of PNA,-27.33509,-55.588412,,Conventional,Argentina,INA,Rio Parana,AR_INA_13
+14,Posadas,Posadas,station 14: Posadas - property of PNA,-27.3666666666667,-55.8833333333333,,Conventional,Argentina,INA,Rio Parana,AR_INA_14
+15,Ituzaingó,ITUZA,station 15: Ituzaingó - property of PNA,-27.5833333333333,-56.7,,Conventional,Argentina,INA,Rio Parana,AR_INA_15
+16,Itá Ibaté,ITAIBATE,station 16: Itá Ibaté - property of PNA,-27.42336098,-57.33326783,,Conventional,Argentina,INA,Rio Parana,AR_INA_16
+17,Itatí,ITATI,station 17: Itatí - property of PNA,-27.26677773,-58.24407387,,Conventional,Argentina,INA,Rio Parana,AR_INA_17
+18,Paso de la Patria,PasodelaPatr,station 18: Paso de la Patria - property of PNA,-27.3333333333333,-58.5833333333333,,Conventional,Argentina,INA,Rio Parana,AR_INA_18
+19,Corrientes,CORR,station 19: Corrientes - property of PNA,-27.46364349,-58.8388696,,Conventional,Argentina,INA,Rio Parana,AR_INA_19
+20,Barranqueras,BARRANC,station 20: Barranqueras - property of PNA,-27.4833333333333,-58.9333333333333,,Conventional,Argentina,INA,Rio Parana,AR_INA_20
+21,Empedrado,EMPE,station 21: Empedrado - property of PNA,-27.95412346,-58.81852419,,Conventional,Argentina,INA,Rio Parana,AR_INA_21
+22,Bella Vista,BVIS,station 22: Bella Vista - property of PNA,-28.51840072,-59.05931723,,Conventional,Argentina,INA,Rio Parana,AR_INA_22
+23,Goya,GOYA,station 23: Goya - property of PNA,-29.14376844,-59.27303952,,Conventional,Argentina,INA,Rio Parana,AR_INA_23
+24,Reconquista,RECO,station 24: Reconquista - property of PNA,-29.23756092,-59.58115833,,Conventional,Argentina,INA,Rio Parana,AR_INA_24
+25,Esquina,ESQU,station 25: Esquina - property of PNA,-30.01924089,-59.53663483,,Conventional,Argentina,INA,Rio Parana,AR_INA_25
+26,La Paz,LAPA,station 26: La Paz - property of PNA,-30.73419972,-59.6381167,,Conventional,Argentina,INA,Rio Parana,AR_INA_26
+27,Santa Elena,SantaElena,station 27: Santa Elena - property of PNA,-30.95,-59.7833333333333,,Conventional,Argentina,INA,Rio Parana,AR_INA_27
+28,Hernandarias,HERNANDA,station 28: Hernandarias - property of PNA,-31.22650904,-59.99193936,,Conventional,Argentina,INA,Rio Parana,AR_INA_28
+29,Paraná,PARAN,station 29: Paraná - property of PNA,-31.7182378629681,-60.5225697750899,,Conventional,Argentina,INA,Rio Parana,AR_INA_29
+30,Santa Fe,SAFE,station 30: Santa Fe - property of PNA,-31.6514772196376,-60.7002319185745,,Conventional,Argentina,INA,Rio Parana,AR_INA_30
+31,Diamante,DIAM,station 31: Diamante - property of PNA,-32.0715615377843,-60.6432219715378,,Conventional,Argentina,INA,Rio Parana,AR_INA_31
+32,Victoria,Victoria,station 32: Victoria - property of PNA,-32.6558456373673,-60.2195849446607,,Conventional,Argentina,INA,Rio Parana,AR_INA_32
+33,San Lorenzo (San Martín),SANLOR,station 33: San Lorenzo (San Martín) - property of PNA,-32.7336256031375,-60.7256705696322,,Conventional,Argentina,INA,Rio Parana,AR_INA_33
+34,Rosario,ROSA,station 34: Rosario - property of PNA,-32.9432699442268,-60.6308206029857,,Conventional,Argentina,INA,Rio Parana,AR_INA_34
+35,Villa Constitución,VCON,station 35: Villa Constitución - property of PNA,-33.2354221667103,-60.3091044341421,,Conventional,Argentina,INA,Rio Parana,AR_INA_35
+36,San Nicolás,SNICO,station 36: San Nicolás - property of PNA,-33.3420008188866,-60.1895279977149,,Conventional,Argentina,INA,Rio Parana,AR_INA_36
+37,Ramallo,Ramallo,station 37: Ramallo - property of PNA,-33.4780656197056,-59.9957013181522,,Conventional,Argentina,INA,Rio Parana,AR_INA_37
+38,San Pedro,SPEDRO,station 38: San Pedro - property of PNA,-33.6745267329027,-59.6497183332918,,Conventional,Argentina,INA,Rio Parana,AR_INA_38
+39,Baradero,Baradero,station 39: Baradero - property of PNA,-33.8006916108445,-59.4955962110789,,Conventional,Argentina,INA,Rio Parana,AR_INA_39
+40,Zárate,Zárate,station 40: Zárate - property of PNA,-34.0987818311696,-59.0108657589595,,Conventional,Argentina,INA,Rio Parana,AR_INA_40
+41,Campana,Campana,station 41: Campana - property of PNA,-34.1555854281116,-58.9581750062675,,Conventional,Argentina,INA,Rio Parana,AR_INA_41
+42,Escobar,Escobar,station 42: Escobar - property of PNA,-34.3,-58.7333333333,,Conventional,Argentina,INA,Rio Parana,AR_INA_42
+43,Villa Paranacito,VillaParanac,station 43: Villa Paranacito - property of PNA,-33.7,-58.65,,Conventional,Argentina,INA,Rio Parana,AR_INA_43
+44,Canal Nuevo,CanalNuevo,station 44: Canal Nuevo - property of PNA,-33.8627031166646,-58.6604197120006,,Conventional,Argentina,INA,Rio Parana,AR_INA_44
+45,Ibicuy,IBIC,station 45: Ibicuy - property of PNA,-33.7619777376355,-59.1800594404244,,Conventional,Argentina,INA,Rio Parana,AR_INA_45
+46,Puerto Ruiz,RUIZ,station 46: Puerto Ruiz - property of PNA,-33.2166666667,-59.3666666667,,Conventional,Argentina,INA,Rio Parana,AR_INA_46
+48,Guazucito,Guazucito,station 48: Guazucito - property of PNA,-34.0166666667,-58.4,,Conventional,Argentina,INA,Rio Parana,AR_INA_48
+49,Tigre,Tigre,station 49: Tigre - property of PNA,-34.4159316389634,-58.5779747237367,,Conventional,Argentina,INA,Rio Parana,AR_INA_49
+50,Dique Luján,DiqueLuján,station 50: Dique Luján - property of PNA,-34.351576,-58.686115,,Conventional,Argentina,INA,Rio Parana,AR_INA_50
+51,Chaná Miní,ChanáMiní,station 51: Chaná Miní - property of PNA,-34.2,-58.4833333333,,Conventional,Argentina,INA,Rio Parana,AR_INA_51
+52,San Fernando,SanFernando,station 52: San Fernando - property of PNA,-34.4333333333,-58.55,,Conventional,Argentina,INA,Rio Parana,AR_INA_52
+53,San Isidro,SanIsidro,station 53: San Isidro - property of PNA,-34.457166,-58.507163,,Conventional,Argentina,INA,Rio Parana,AR_INA_53
+54,Olivos,Olivos,station 54: Olivos - property of PNA,-34.506666,-58.475863,,Conventional,Argentina,INA,Rio Parana,AR_INA_54
+55,Puerto Pilcomayo,PILC,station 55: Puerto Pilcomayo - property of PNA,-25.3666666666667,-57.65,,Conventional,Argentina,INA,Rio Paraguay,AR_INA_55
+57,Puerto Formosa,FORMOSA,station 57: Puerto Formosa - property of PNA,-26.1833333333333,-58.1833333333333,,Conventional,Argentina,INA,Rio Paraguay,AR_INA_57
+58,Bermejo,BERMEJO,station 58: Bermejo,-26.92629,-58.506205,,Conventional,Argentina,INA,Rio Paraguay,AR_INA_58
+59,Isla del Cerrito,IsladelCerri,station 59: Isla del Cerrito,-27.3166666666667,-58.6166666666667,,Conventional,Argentina,INA,Rio Parana,AR_INA_59
+60,Pepirí Miní,PepiríMiní,station 60: Pepirí Miní,-27.153744,-53.933149,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_60
+61,El Soberbio,SOBER,station 61: El Soberbio,-27.3,-54.2,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_61
+63,Alba Posse,AlbaPosse,station 63: Alba Posse,-27.572,-54.678494,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_63
+64,Panambí,Panambí,station 64: Panambí,-27.730627,-54.91305,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_64
+65,San Javier,SJAVI,station 65: San Javier - property of PNA,-27.8833333333333,-55.1333333333333,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_65
+66,Puerto Concepción,PuertoConcep,station 66: Puerto Concepción - property of PNA,-28.119193,-55.581369,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_66
+67,Garruchos,Garruchos,station 67: Garruchos - property of PNA,-28.1833333333333,-55.65,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_67
+68,Santo Tomé,TOME,station 68: Santo Tomé - property of PNA,-28.55,-56.0333333333333,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_68
+69,Alvear,Alvear,station 69: Alvear - property of PNA,-29.1,-56.55,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_69
+70,La Cruz,LaCruz,station 70: La Cruz - property of PNA,-29.18062,-56.633977,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_70
+71,Yapeyú,Yapeyú,station 71: Yapeyú - property of PNA,-29.470031,-56.810674,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_71
+72,Paso de los Libres,PasodelosLib,station 72: Paso de los Libres - property of PNA,-29.7166666666667,-57.0833333333333,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_72
+73,Bompland,Bompland,station 73: Bompland - property of PNA,-29.872652,-57.332887,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_73
+74,Monte Caseros,MonteCaseros,station 74: Monte Caseros - property of PNA,-30.25,-57.6333333333333,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_74
+75,Mocoretá,Mocoretá,station 75: Mocoretá - property of PNA,-30.715682,-57.81776,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_75
+76,Federación,Federación,station 76: Federación - property of PNA,-30.993221,-57.914682,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_76
+77,Salto Grande Arriba,SGRANDE,station 77: Salto Grande Arriba - property of PNA,-31.27547,-57.936945,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_77
+78,Salto Grande Abajo,SGRANDE,station 78: Salto Grande Abajo - property of PNA,-31.27547,-57.936945,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_78
+79,Concordia,null,station 79: Concordia - property of PNA,-31.4,-58.0166666666667,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_79
+80,Colón,Colón,station 80: Colón - property of PNA,-32.2333333333333,-58.1166666666667,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_80
+81,Concepción del Uruguay,Concepciónde,station 81: Concepción del Uruguay - property of PNA,-32.4833333333333,-58.2333333333333,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_81
+82,Campichuelo,Campichuelo,station 82: Campichuelo - property of PNA,-32.70101,-58.1834,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_82
+83,Puerto Gualeguaychú,PuertoGualeg,station 83: Puerto Gualeguaychú,-33.0166666666667,-58.5,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_83
+84,Boca Gualeguaychú,BocaGualegua,station 84: Boca Gualeguaychú - property of PNA,-33.0666666666667,-58.4166666666667,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_84
+85,Buenos Aires,BuenosAires,station 85: Buenos Aires - property of PNA,-34.56108,-58.399288,,Conventional,Argentina,INA,Rio de la Plata,AR_INA_85
+86,La Plata,LaPlata,station 86: La Plata - property of PNA,-34.824196,-57.873546,,Conventional,Argentina,INA,Rio de la Plata,AR_INA_86
+87,Yacyretá afluente,YACY,station 87: Yacyretá afluente,-27.482557,-56.727244,,Conventional,Argentina,INA,Rio Parana,AR_INA_87
+88,Yacyretá efluente,Yacyretáeflu,station 88: Yacyretá efluente,-27.482557,-56.727244,,Conventional,Argentina,INA,Rio Parana,AR_INA_88
+93,Confluencia,CONFLU,station 93: Confluencia - property of Itaipu,-25.592701,-54.593363,,Conventional,Argentina,INA,Rio Parana,AR_INA_93
+99,Gualeguaychú,Gualeguaychú,station 99: Gualeguaychú - property of PNA,-33.0144444444444,-58.5041666666667,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_99
+103,Recreo - Ruta Provincial nº 70,SALADO,station 103: Recreo - Ruta Provincial nº 70 - property of RHN-SSRH,-31.4912222222222,-60.7805555555556,,Conventional,Argentina,INA,Rio Parana,AR_INA_103
+105,Tostado,TOSTADO,station 105: Tostado - property of RHN-SSRH,-29.2751666666667,-61.7439444444444,,Conventional,Argentina,INA,Rio Parana,AR_INA_105
+131,Puerto Maní,PuertoManí,station 131: Puerto Maní - property of PNA,-27.1063611111111,-55.5221666666667,,Conventional,Argentina,INA,Rio Parana,AR_INA_131
+175,Emilia - Ruta Provincial nº 62,Emilia-RutaP,station 175: Emilia - Ruta Provincial nº 62 - property of FICH,-31.042868,-60.841003,,Conventional,Argentina,INA,Rio Parana,AR_INA_175
+1257,Arroyo Borches,BORCHES,station 1257: Arroyo Borches - property of INA,-34.0752137139779,-58.4426647718186,,Automatic,Argentina,INA,Rio Parana,AR_INA_1257
+1679,Santo Tomé,STOME_SALADO,station 1679: Santo Tomé - property of FICH,-31.667601,-60.752233,,Conventional,Argentina,INA,Rio Parana,AR_INA_1679
+1701,Gualeguaychú FdX,GCHUFXD,station 1701: Gualeguaychú FdX - property of Municipalidad de Gualeguaychú,-33.0666666666667,-58.4166666666667,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_1701
+1706,Oyarvide,Oyarvide,station 1706: Oyarvide,-35.0999984741211,-57.13330078125,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_1706
+1708,La Plata,LaPlata,station 1708: La Plata,-34.8339004516602,-57.8800010681152,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_1708
+1739,Atalaya,Atalaya,station 1739: Atalaya - property of Servicio de Hidrografía Naval,-35.015278,-57.536111,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_1739
+1744,Arroyo San Francisco,SANFRAN,station 1744: Arroyo San Francisco - property of INA,-34.7277556,-58.3200389,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_1744
+2112,Gualeguaychú - RN Nº 14,Gualeguaychú,station 2112: Gualeguaychú - RN Nº 14 - property of RHN,-32.7680555555556,-58.4983333333333,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_2112
+2113,Aº Colastiné - Autopista - A01,AºColastiné-,station 2113: Aº Colastiné - Autopista - A01 - property of RHN,-32.0177777777778,-60.9902777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_2113
+2115,Paraná - Corrientes,Paraná-Corri,station 2115: Paraná - Corrientes - property of RHN,-27.4597222222222,-58.8333333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2115
+2116,Paraguay - Pto. Formosa,Paraguay-Pto,station 2116: Paraguay - Pto. Formosa - property of RHN,-26.1830555555556,-58.1619444444444,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2116
+2119,Segundo (Plujunta) - RP Nº 17,Segundo(Pluj,station 2119: Segundo (Plujunta) - RP Nº 17 - property of RHN,-31.0105555555556,-62.7883333333333,,Automatic,Argentina,INA,,AR_INA_2119
+2121,Aº El Monje - Autopista A01,AºElMonje-Au,station 2121: Aº El Monje - Autopista A01 - property of RHN,-32.3922222222222,-60.9408333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2121
+2129,Arrecifes - Arrecifes,Arrecifes-Ar,station 2129: Arrecifes - Arrecifes - property of RHN,-34.0866666666667,-60.0072222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_2129
+2131,Paraná - Itatí,Paraná- Itat,station 2131: Paraná - Itatí - property of RHN,-27.2663888888889,-58.2444444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_2131
+2139,Coronda - Coronda,Coronda-Coro,station 2139: Coronda - Coronda - property of RHN,-31.9741666666667,-60.9138888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_2139
+2149,Iguazú - Perfil Tipo,Iguazú-Perfi,station 2149: Iguazú - Perfil Tipo - property of RHN,-25.6766666666667,-54.4213888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_2149
+2150,Miriñay - Paso Ledesma,Miriñay-Paso,station 2150: Miriñay - Paso Ledesma - property of RHN,-29.8458333333333,-57.675,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_2150
+2154,Bermejo - Pozo Sarmiento,Bermejo-Pozo,station 2154: Bermejo - Pozo Sarmiento - property of RHN,-23.1405555555556,-64.1969444444445,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2154
+2156,Laguna Iberá - Carlos Pellegri,LagunaIberá-,station 2156: Laguna Iberá - Carlos Pellegri - property of RHN,-28.5380555555556,-57.1869444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_2156
+2158,Aº Feliciano - Paso Medina,AºFeliciano-,station 2158: Aº Feliciano - Paso Medina - property of RHN,-30.9236111111111,-59.5511111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_2158
+2166,Los Sosa - RP30 km19,LosSosa-RP30,station 2166: Los Sosa - RP30 km19 - property of RHN,-27.1008333333333,-65.6361111111111,,Automatic,Argentina,INA,,AR_INA_2166
+2170,Atuel - Villa Atuel,Atuel-VillaA,station 2170: Atuel - Villa Atuel - property of RHN,-34.8225,-67.9227777777778,,Automatic,Argentina,INA,,AR_INA_2170
+2175,Canal Macapillo,CanalMacapil,station 2175: Canal Macapillo - property of RHN,-25.4136111111111,-63.9761111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_2175
+2177,Canal Liag - Quebrachal,CanalLiag-Qu,station 2177: Canal Liag - Quebrachal - property of RHN,-25.3452777777778,-64.045,,Automatic,Argentina,INA,Rio Parana,AR_INA_2177
+2185,Dulce - Paso de la Cina,Dulce-Pasode,station 2185: Dulce - Paso de la Cina - property of RHN,-29.795,-62.8061111111111,,Automatic,Argentina,INA,,AR_INA_2185
+2193,Bermejo - Puerto Lavalle,Bermejo-Puer,station 2193: Bermejo - Puerto Lavalle - property of RHN,-25.6511111111111,-60.1280555555556,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2193
+2194,Bermejo - Puerto Velaz,Bermejo-Puer,station 2194: Bermejo - Puerto Velaz - property of RHN,-26.6605555555556,-58.6338888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2194
+2197,Salado - Pinto,Salado-Pinto,station 2197: Salado - Pinto - property of RHN,-29.1058333333333,-62.5761111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_2197
+2198,Aº Batel - Paso Cerrito,AºBatel-Paso,station 2198: Aº Batel - Paso Cerrito - property of RHN,-29.0311111111111,-58.7883333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2198
+2199,Corrientes - Los Laureles,Corrientes-L,station 2199: Corrientes - Los Laureles - property of RHN,-29.7572222222222,-59.2172222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_2199
+2201,A° El Soberbio - Pje La Lechuz,A°ElSoberbio,station 2201: A° El Soberbio - Pje La Lechuz - property of RHN,-27.2572222222222,-54.2355555555556,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_2201
+2202,Cuarto - RN Nº 8,Cuarto-RNNº8,station 2202: Cuarto - RN Nº 8 - property of RHN,-33.1605555555556,-64.26,,Automatic,Argentina,INA,Rio Parana,AR_INA_2202
+2203,Gualeguay - Rosario del Tala,Gualeguay-Ro,station 2203: Gualeguay - Rosario del Tala - property of RHN,-32.3086111111111,-59.0769444444445,,Automatic,Argentina,INA,Rio Parana,AR_INA_2203
+2204,Carcarañá - Pueblo Andino,Carcarañá-Pu,station 2204: Carcarañá - Pueblo Andino - property of RHN,-32.6733333333333,-60.8658333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2204
+2205,Gualeguay - Villaguay,Gualeguay-Vi,station 2205: Gualeguay - Villaguay - property of RHN,-31.8016666666667,-59.1261111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_2205
+2211,Salado - RP Nº50,Salado-RPNº5,station 2211: Salado - RP Nº50 - property of RHN,-34.3225,-61.3513888888889,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_2211
+2213,Canal Regulador N°4 - La Pantanosa,CanalRegulad,station 2213: Canal Regulador N°4 - La Pantanosa - property of RHN,-34.2580555555556,-61.6386111111111,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_2213
+2215,Río Areco - San Antonio de Are,RíoAreco-San,station 2215: Río Areco - San Antonio de Are - property of RHN,-34.2405555555556,-59.4994444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_2215
+2218,Cruz Alta,CruzAlta,station 2218: Cruz Alta - property of RHN,-33.0063888888889,-61.7875,,Automatic,Argentina,INA,Rio Parana,AR_INA_2218
+2223,Salado - Suncho Corral,Salado-Sunch,station 2223: Salado - Suncho Corral - property of RHN,-27.9402777777778,-63.4397222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_2223
+2227,Salado - RN Nº02,Salado-RNNº0,station 2227: Salado - RN Nº02 - property of RHN,-35.9622222222222,-57.8519444444444,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_2227
+2233,Concepción del Uruguay - CARU,CONCURUG,station 2233: Concepción del Uruguay - CARU - property of CARU,-32.477173,-58.221219,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_2233
+2593,Arenales - La Maroma,Arenales-LaM,station 2593: Arenales - La Maroma - property of RHN,-25.1538888888889,-65.42,,Automatic,Argentina,INA,Rio Parana,AR_INA_2593
+2671,Canal Finca Agropecuaria,CanalFincaAg,station 2671: Canal Finca Agropecuaria - property of RHN,-25.1608333333333,-64.1058333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2671
+2672,Juramento - Finca Agropecuari,Juramento-Fi,station 2672: Juramento - Finca Agropecuari - property of RHN,-25.1613888888889,-64.1061111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_2672
+2673,Colastiné - RN N° 168,Colastiné-RN,station 2673: Colastiné - RN N° 168 - property of RHN,-31.6611111111111,-60.6019444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_2673
+2741,Iruya - Tuc Tuca,Iruya-TucTuc,station 2741: Iruya - Tuc Tuca - property of RHN,-22.4044444444444,-65.2675,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2741
+2807,Salado - El Arenal,Salado-ElAre,station 2807: Salado - El Arenal - property of RHN,-26.3741666666667,-63.7244444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_2807
+2809,Quinto - RP Nº26,Quinto-RPNº2,station 2809: Quinto - RP Nº26 - property of RHN,-34.7627777777778,-63.645,,Automatic,Argentina,INA,,AR_INA_2809
+2813,Miriñay - Paso Mesa,Miriñay-Paso,station 2813: Miriñay - Paso Mesa - property of RHN,-28.9166666666667,-57.2363888888889,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_2813
+2820,PN - Centro Operativo Santa Ro,PN-CentroOpe,station 2820: PN - Centro Operativo Santa Ro - property of RHN,-27.2852777777778,-65.8719444444444,,Automatic,Argentina,INA,,AR_INA_2820
+2822,Pilcomayo - El Raúl,Pilcomayo-El,station 2822: Pilcomayo - El Raúl - property of RHN,-22.65,-62.2163888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2822
+2823,Juramento - Cabra Corral,Juramento-Ca,station 2823: Juramento - Cabra Corral - property of RHN,-25.2677777777778,-65.2372222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_2823
+2825,Santa Lucia - Santa Lucia,SantaLucia-S,station 2825: Santa Lucia - Santa Lucia - property of RHN,-28.9877777777778,-59.0905555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_2825
+2826,Pilcomayo - Puesto Jerez,Pilcomayo-Pu,station 2826: Pilcomayo - Puesto Jerez - property of RHN,-22.7280555555556,-62.2133333333333,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2826
+2829,San Javier - San Javier,SanJavier-Sa,station 2829: San Javier - San Javier - property of RHN,-30.5802777777778,-59.9233333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2829
+2830,Paraná Guazú - Brazo Largo,BLARGOAUT,station 2830: Paraná Guazú - Brazo Largo - property of RHN,-33.8830555555556,-58.9,,Automatic,Argentina,INA,Rio Parana,AR_INA_2830
+2832,Corriente - Paso Lucero,Corriente-Pa,station 2832: Corriente - Paso Lucero - property of RHN,-28.995,-58.5583333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_2832
+2833,Aº Leyes - RP Nº 1,AºLeyes-RPNº,station 2833: Aº Leyes - RP Nº 1 - property of RHN,-31.4947222222222,-60.425,,Automatic,Argentina,INA,Rio Parana,AR_INA_2833
+2836,Aº Barrancas - Paso La Llana,AºBarrancas-,station 2836: Aº Barrancas - Paso La Llana - property of RHN,-30.2172222222222,-59.3244444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_2836
+2837,Nogoya - RN Nº12,Nogoya-RNNº1,station 2837: Nogoya - RN Nº12 - property of RHN,-32.3947222222222,-59.7638888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_2837
+2838,Aº Saladillo - RN Nº205,AºSaladillo-,station 2838: Aº Saladillo - RN Nº205 - property of RHN,-35.4594444444445,-59.5747222222222,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_2838
+2846,Pilcomayo - Misión La Paz,Pilcomayo-Mi,station 2846: Pilcomayo - Misión La Paz - property of RHN,-22.3775,-62.5236111111111,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2846
+2853,Gualeguay - Paso Alonso,Gualeguay-Pa,station 2853: Gualeguay - Paso Alonso - property of RHN,-33.1005555555556,-59.2702777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_2853
+2854,Aº Riachuelo - RP Nº5,AºRiachuelo-,station 2854: Aº Riachuelo - RP Nº5 - property of RHN,-27.5105555555556,-58.5697222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_2854
+2855,Salado - RP Nº 41,Salado-RPNº4,station 2855: Salado - RP Nº 41 - property of RHN,-35.7263888888889,-58.5363888888889,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_2855
+2856,San Fransisco Caimancito,SanFransisco,station 2856: San Fransisco Caimancito - property of RHN,-23.7119444444444,-64.5397222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_2856
+2857,Paraná - Chapetón,Paraná-Chape,station 2857: Paraná - Chapetón - property of RHN,-31.6105555555556,-60.2947222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_2857
+5430,Federación Embalse,FederaciónEm,station 5430: Federación Embalse - property of PNA,-30.994853,-57.899273,,Conventional,Argentina,INA,Rio Uruguay,AR_INA_5430
+5873,Arroyo Las Piedras - Gob. Monteverde,LASPIEDRAS2,station 5873: Arroyo Las Piedras - Gob. Monteverde - property of INA,-34.783421,-58.298648,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_5873
+5874,Arroyo San Francisco - Dr. Torre,ArroyoSanFra,station 5874: Arroyo San Francisco - Dr. Torre,-34.7650541,-58.3234008,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_5874
+5876,Carabelas,Carabelas,station 5876: Carabelas,-34.05977,-58.835841,,Automatic,Argentina,INA,Rio Parana,AR_INA_5876
+5893,Paraná - Rosario,ROSA,station 5893: Paraná - Rosario - property of RHN,-32.9513888888889,-60.6255555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_5893
+5894,Riacho Victoria - Victoria,VICT,station 5894: Riacho Victoria - Victoria - property of RHN,-32.6316666666667,-60.1652777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_5894
+5900,Paraná - Diamante,DIAM,station 5900: Paraná - Diamante - property of RHN,-32.0577777777778,-60.645,,Automatic,Argentina,INA,Rio Parana,AR_INA_5900
+5901,Paraná - Túnel subfluvial,PARA,station 5901: Paraná - Túnel subfluvial - property of RHN,-31.72,-60.5175,,Automatic,Argentina,INA,Rio Parana,AR_INA_5901
+5904,PN Ciervo de los Pantanos,PNCPAN,station 5904: PN Ciervo de los Pantanos - property of RHN,-34.2255555555556,-58.8988888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_5904
+5905,Paraná - Villa Constitución,VCON,station 5905: Paraná - Villa Constitución - property of RHN,-33.2272222222222,-60.32,,Automatic,Argentina,INA,Rio Parana,AR_INA_5905
+5907,Paraná Las Palmas - Zárate,ZARA,station 5907: Paraná Las Palmas - Zárate - property of RHN,-34.1019444444444,-59.0088888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_5907
+6163,INTA Delta,intadelta,station 6163: INTA Delta - property of INA-INTA,-34.17675,-58.8643,,Automatic,ARGENTINA,INA,Rio Parana,AR_INA_6163
+6263,Primero (Suquía) Camino Secund,Primero(Suqu,station 6263: Primero (Suquía) Camino Secund - property of RHN,-30.9641666666667,-62.9961111111111,,Automatic,Argentina,INA,,AR_INA_6263
+6354,Paraná - La Paz,Paraná-LaPaz,station 6354: Paraná - La Paz - property of RHN,-30.7325,-59.6386111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6354
+6356,Aº Malabrigo - RN Nº11,AºMalabrigo-,station 6356: Aº Malabrigo - RN Nº11 - property of RHN,-29.2788888888889,-59.7863888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6356
+6357,Carcarañá - Cruz Alta,Carcarañá-Cr,station 6357: Carcarañá - Cruz Alta - property of RHN,-33.0063888888889,-61.7875,,Automatic,Argentina,INA,Rio Parana,AR_INA_6357
+6359,Salado - Puente Carretero,Salado-Puent,station 6359: Salado - Puente Carretero - property of RHN,-34.6113888888889,-60.9572222222222,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6359
+6360,Saladillo - Dique Aforador,Saladillo-Di,station 6360: Saladillo - Dique Aforador - property of RHN,-32.9316666666667,-62.3322222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_6360
+6361,Tercero - Piedras Moras,Tercero-Pied,station 6361: Tercero - Piedras Moras - property of RHN,-32.1694444444444,-64.2327777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6361
+6365,Mojotoro - Güemes,Mojotoro-Güe,station 6365: Mojotoro - Güemes - property of RHN,-24.7316666666667,-65.0288888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6365
+6374,Dulce - Dique Los Quiroga,Dulce-DiqueL,station 6374: Dulce - Dique Los Quiroga - property of RHN,-27.6511111111111,-64.3616666666667,,Automatic,Argentina,INA,,AR_INA_6374
+6380,Aº De las Chañaritas,AºDelasChaña,station 6380: Aº De las Chañaritas - property of RHN,-34.2797222222222,-59.5894444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6380
+6383,De Las Cañitas - La Tapa,DeLasCañitas,station 6383: De Las Cañitas - La Tapa - property of RHN,-32.855,-64.7672222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_6383
+6389,Las Tapias - Las Tapias,LasTapias-La,station 6389: Las Tapias - Las Tapias - property of RHN,-32.8036111111111,-64.7763888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6389
+6391,Laguna La Margarita,LagunaLaMarg,station 6391: Laguna La Margarita - property of RHN,-34.6533333333333,-63.7230555555556,,Automatic,Argentina,INA,,AR_INA_6391
+6393,Aº Las Flores - Gral. Alvear,AºLasFlores-,station 6393: Aº Las Flores - Gral. Alvear - property of RHN,-35.9875,-60.0194444444444,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6393
+6395,Paraná - Vuelta de Obligado,Paraná-Vuelt,station 6395: Paraná - Vuelta de Obligado - property of RHN,-33.5941666666667,-59.8130555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_6395
+6396,Cuarto - La Carlota LIM,Cuarto-LaCar,station 6396: Cuarto - La Carlota LIM - property of RHN,-33.4075,-63.2941666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_6396
+6397,Aº Pergamino - Pergamino,AºPergamino-,station 6397: Aº Pergamino - Pergamino - property of RHN,-33.9041666666667,-60.5702777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6397
+6400,Paraná - Bella Vista,Paraná-Bella,station 6400: Paraná - Bella Vista - property of RHN,-28.5052777777778,-59.0497222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_6400
+6401,Aº Del Medio - Motomel,AºDelMedio-M,station 6401: Aº Del Medio - Motomel - property of RHN,-33.3505555555556,-60.3230555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_6401
+6405,Uruguay - Concep. del Uruguay,Uruguay-Conc,station 6405: Uruguay - Concep. del Uruguay - property of RHN,-32.4775,-58.2208333333333,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6405
+6418,Arroyo Potrol - La Pampa,ArroyoPotrol,station 6418: Arroyo Potrol - La Pampa - property of RHN,-37.1438888888889,-67.0725,,Automatic,Argentina,INA,,AR_INA_6418
+6421,Atuel - Paso de Loro,Atuel-Pasode,station 6421: Atuel - Paso de Loro - property of RHN,-35.6361111111111,-67.4261111111111,,Automatic,Argentina,INA,,AR_INA_6421
+6422,Mocoretá - RN Nº 127,Mocoretá-RNN,station 6422: Mocoretá - RN Nº 127 - property of RHN,-30.1083333333333,-58.0588888888889,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6422
+6423,Aº Del Doll - RN 11,AºDelDoll-RN,station 6423: Aº Del Doll - RN 11 - property of RHN,-32.3058333333333,-60.4261111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6423
+6424,Cuarto - Tincunaco,Cuarto-Tincu,station 6424: Cuarto - Tincunaco - property of RHN,-32.9033333333333,-64.7161111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6424
+6427,Aº De los Huesos - RN 226,AºDelosHueso,station 6427: Aº De los Huesos - RN 226 - property of RHN,-37.0811111111111,-59.5388888888889,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6427
+6428,Salado -A.Ab. Azud Cruz Bajada,Salado-A.Ab.,station 6428: Salado -A.Ab. Azud Cruz Bajada - property of RHN,-25.7166666666667,-63.8916666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_6428
+6431,PN  - Copo  - El Aibal ,PN-Copo-ElAi,station 6431: PN  - Copo  - El Aibal  - property of RHN,-25.9227777777778,-61.7138888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6431
+6432,Negro - Laguna Blanca,Negro-Laguna,station 6432: Negro - Laguna Blanca - property of RHN,-27.2633333333333,-59.1961111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6432
+6435,Piray Guazú - R. Nac. 12 Vieja,PirayGuazú-R,station 6435: Piray Guazú - R. Nac. 12 Vieja - property of RHN,-26.4858333333333,-54.5883333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_6435
+6436,Iruya - Colanzulí,Iruya-Colanz,station 6436: Iruya - Colanzulí - property of RHN,-22.8716666666667,-65.2144444444445,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6436
+6439,Piray Mini - Valle Hermoso,PirayMini-Va,station 6439: Piray Mini - Valle Hermoso - property of RHN,-26.355,-54.4983333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_6439
+6441,Quinto - Dique Villa Mercedes,Quinto-Dique,station 6441: Quinto - Dique Villa Mercedes - property of RHN,-33.6538888888889,-65.5336111111111,,Automatic,Argentina,INA,,AR_INA_6441
+6444,Trapiche - Hosteria El Trapich,Trapiche-Hos,station 6444: Trapiche - Hosteria El Trapich - property of RHN,-33.1058333333333,-66.0633333333333,,Automatic,Argentina,INA,,AR_INA_6444
+6445,Quinto - Justo Daract,Quinto-Justo,station 6445: Quinto - Justo Daract - property of RHN,-33.9186111111111,-65.1516666666667,,Automatic,Argentina,INA,,AR_INA_6445
+6446,De Las Barrancas-A.Corral RP23,DeLasBarranc,station 6446: De Las Barrancas-A.Corral RP23 - property of RHN,-32.6894444444444,-64.7202777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6446
+6447,Dulce - La Escuela - Río Hondo,Dulce-LaEscu,station 6447: Dulce - La Escuela - Río Hondo - property of RHN,-27.5033333333333,-64.8558333333333,,Automatic,Argentina,INA,,AR_INA_6447
+6449,Paraguay - Isla del Cerrito,Paraguay-Isl,station 6449: Paraguay - Isla del Cerrito - property of RHN,-27.2891666666667,-58.61,,Automatic,Argentina,INA,Rio Parana,AR_INA_6449
+6454,Negro-Obra de Ctrl. Agua Abajo,Negro-Obrade,station 6454: Negro-Obra de Ctrl. Agua Abajo - property of RHN,-27.4563888888889,-58.8988888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6454
+6456,Dulce - Villa San Martín,Dulce-VillaS,station 6456: Dulce - Villa San Martín - property of RHN,-28.3291666666667,-64.0066666666667,,Automatic,Argentina,INA,,AR_INA_6456
+6457,Embalse Cruz Bajada,EmbalseCruzB,station 6457: Embalse Cruz Bajada - property of RHN,-25.7158333333333,-63.8916666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_6457
+6458,Paraná - Puerto Libertad,Paraná-Puert,station 6458: Paraná - Puerto Libertad - property of RHN,-25.9166666666667,-54.6205555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_6458
+6459,Canal de Dios - Cruz Bajada,CanaldeDios-,station 6459: Canal de Dios - Cruz Bajada - property of RHN,-25.7163888888889,-63.8905555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_6459
+6461,Aº Las Garzas - RN Nº 11,AºLasGarzas-,station 6461: Aº Las Garzas - RN Nº 11 - property of RHN,-28.7766666666667,-59.4738888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6461
+6463,Ledesma -Fraile Pintado-RN 34 ,Ledesma-Frai,station 6463: Ledesma -Fraile Pintado-RN 34  - property of RHN,-23.9094444444444,-64.8080555555556,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6463
+6464,San Pedro - Ledesma - RN 34,SanPedro-Led,station 6464: San Pedro - Ledesma - RN 34 - property of RHN,-24.2644444444444,-64.8986111111111,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6464
+6469,Vipos - Toma Obras Sanitarias,Vipos-TomaOb,station 6469: Vipos - Toma Obras Sanitarias - property of RHN,-26.4775,-65.3163888888889,,Automatic,Argentina,INA,,AR_INA_6469
+6479,El Tala - El Brete,ElTala-ElBre,station 6479: El Tala - El Brete - property of RHN,-26.0658333333333,-65.3411111111111,,Automatic,Argentina,INA,,AR_INA_6479
+6480,Canal - Jume Esquina,Canal-JumeEs,station 6480: Canal - Jume Esquina - property of RHN,-27.6966666666667,-63.9333333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_6480
+6481,Grande - Ruta Provincia Nº 9,Grande-RutaP,station 6481: Grande - Ruta Provincia Nº 9 - property of RHN,-32.9019444444444,-66.1055555555556,,Automatic,Argentina,INA,,AR_INA_6481
+6483,Desaguadero - Salto de la Tosc,Desaguadero-,station 6483: Desaguadero - Salto de la Tosc - property of RHN,-34.0869444444444,-66.71,,Automatic,Argentina,INA,,AR_INA_6483
+6498,Urueña -7 de Abril - RN34,Urueña-7deAb,station 6498: Urueña -7 de Abril - RN34 - property of RHN,-26.2188888888889,-64.5119444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6498
+6504,Seco - RN Nº 157,Seco-RNNº157,station 6504: Seco - RN Nº 157 - property of RHN,-27.3361111111111,-65.3175,,Automatic,Argentina,INA,,AR_INA_6504
+6505,Chico - RN Nº157 Monteagudo,Chico-RNNº15,station 6505: Chico - RN Nº157 Monteagudo - property of RHN,-27.5211111111111,-65.2663888888889,,Automatic,Argentina,INA,,AR_INA_6505
+6506,Salí - Alta Gracia,Salí-AltaGra,station 6506: Salí - Alta Gracia - property of RHN,-26.7191666666667,-65.1619444444444,,Automatic,Argentina,INA,,AR_INA_6506
+6508,Paraná - Puerto Rico,Paraná-Puert,station 6508: Paraná - Puerto Rico - property of RHN,-26.7916666666667,-55.025,,Automatic,Argentina,INA,Rio Parana,AR_INA_6508
+6511,Paraguay - Las Palmas,Paraguay-Las,station 6511: Paraguay - Las Palmas - property of RHN,-27.1180555555556,-58.6427777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6511
+6512,INA - Ezeiza,null,station 6512: INA - Ezeiza - property of RHN,-34.7972222222222,-58.5202777777778,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6512
+6518,Atuel - La Puntilla,Atuel-LaPunt,station 6518: Atuel - La Puntilla - property of RHN,-36.2413888888889,-67.1866666666667,,Automatic,Argentina,INA,,AR_INA_6518
+6523,Laguna El Uncal - AM20,LagunaElUnca,station 6523: Laguna El Uncal - AM20 - property of RHN,-36.6852777777778,-67.1,,Automatic,Argentina,INA,,AR_INA_6523
+6526,Jesus Maria - MET,JesusMaria-M,station 6526: Jesus Maria - MET - property of RHN,-30.9769444444444,-64.1394444444445,,Automatic,Argentina,INA,,AR_INA_6526
+6527,General Acha - La Pampa,GeneralAcha-,station 6527: General Acha - La Pampa - property of RHN,-37.3647222222222,-64.5919444444444,,Automatic,Argentina,INA,,AR_INA_6527
+6528,Desaguadero - El Encón,Desaguadero-,station 6528: Desaguadero - El Encón - property of RHN,-32.2247222222222,-67.8069444444444,,Automatic,Argentina,INA,,AR_INA_6528
+6536,Iruya - Poscaya,Iruya-Poscay,station 6536: Iruya - Poscaya - property of RHN,-22.4547222222222,-65.0805555555555,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6536
+6537,Iruya - San Antonio,Iruya-SanAnt,station 6537: Iruya - San Antonio - property of RHN,-22.8258333333333,-64.9708333333333,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6537
+6538,Iruya - Las Higueras,Iruya-LasHig,station 6538: Iruya - Las Higueras - property of RHN,-22.7541666666667,-65.0972222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6538
+6540,Salado - Icaño,Salado-Icaño,station 6540: Salado - Icaño - property of RHN,-28.6152777777778,-62.7786111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6540
+6541,Guanasacate - Col. San Jorge,Guanasacate-,station 6541: Guanasacate - Col. San Jorge - property of RHN,-30.8797222222222,-64.3483333333333,,Automatic,Argentina,INA,,AR_INA_6541
+6542,Puesto Cam. San Jaime - RN127,PuestoCam.Sa,station 6542: Puesto Cam. San Jaime - RN127 - property of RHN,-30.2827777777778,-58.2511111111111,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6542
+6544,Areco - Carmen de Areco,Areco-Carmen,station 6544: Areco - Carmen de Areco - property of RHN,-34.3519444444444,-59.8169444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6544
+6546,Las Lomitas,LasLomitas,station 6546: Las Lomitas - property of RHN,-24.7119444444444,-60.5827777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6546
+6548,Bermejo - Aguas Blancas LIM,Bermejo-Agua,station 6548: Bermejo - Aguas Blancas LIM - property of RHN,-22.7263888888889,-64.3691666666667,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6548
+6549,Juramento - El Tunal,Juramento-El,station 6549: Juramento - El Tunal - property of RHN,-25.2497222222222,-64.3902777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6549
+6551,Uruguay - Monte Caseros,Uruguay-Mont,station 6551: Uruguay - Monte Caseros - property of RHN,-30.2516666666667,-57.6216666666667,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6551
+6553,Bañado La Estrella - RP Nº28,BañadoLaEstr,station 6553: Bañado La Estrella - RP Nº28 - property of RHN,-24.4086111111111,-60.3341666666667,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6553
+6555,Santa Maria - Pie de Medano,SantaMaria-P,station 6555: Santa Maria - Pie de Medano - property of RHN,-26.9955555555556,-66.2175,,Automatic,Argentina,INA,Rio Parana,AR_INA_6555
+6567,CIRHBAS - MET EL GUANAGAN RP13,CIRHBAS-METE,station 6567: CIRHBAS - MET EL GUANAGAN RP13 - property of RHN,-28.7297222222222,-60.9019444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6567
+6575,Chimiray - Colonia Liebig,Chimiray-Col,station 6575: Chimiray - Colonia Liebig - property of RHN,-27.9122222222222,-55.8177777777778,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6575
+6576,Laguna Yema,LagunaYema,station 6576: Laguna Yema - property of RHN,-24.2563888888889,-61.2419444444444,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6576
+6577,Las Conchas - Coropampa,LasConchas-C,station 6577: Las Conchas - Coropampa - property of RHN,-25.5091666666667,-65.5238888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6577
+6578,Uruguay - El Soberbio,Uruguay-ElSo,station 6578: Uruguay - El Soberbio - property of RHN,-27.2922222222222,-54.1955555555556,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6578
+6586,Metán - Desembocadura,Metán-Desemb,station 6586: Metán - Desembocadura - property of RHN,-25.3933333333333,-64.5922222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_6586
+6587,Uruguay - Santo Tomé,Uruguay-Sant,station 6587: Uruguay - Santo Tomé - property of RHN,-28.545,-56.0288888888889,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6587
+6592,A° Saltito - El Saltito,A°Saltito-El,station 6592: A° Saltito - El Saltito - property of RHN,-27.4405555555556,-54.5766666666667,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6592
+6595,Lag. La Picasa-Inter. Can. A22,Lag.LaPicasa,station 6595: Lag. La Picasa-Inter. Can. A22 - property of RHN,-34.4494444444444,-62.4133333333333,,Automatic,Argentina,INA,,AR_INA_6595
+6597,Arenales - El Encon,Arenales-ElE,station 6597: Arenales - El Encon - property of RHN,-24.8422222222222,-65.5933333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_6597
+6599,Aº Los Amores - Escuela 1256,AºLosAmores-,station 6599: Aº Los Amores - Escuela 1256 - property of RHN,-28.2275,-59.7155555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_6599
+6602,Iruya - El Molino,Iruya-ElMoli,station 6602: Iruya - El Molino - property of RHN,-22.5988888888889,-65.1502777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6602
+6603,Pavas - Las Mesadas,Pavas-LasMes,station 6603: Pavas - Las Mesadas - property of RHN,-27.2141666666667,-65.9288888888889,,Automatic,Argentina,INA,,AR_INA_6603
+6604,Areco - Puente Quemado,Areco-Puente,station 6604: Areco - Puente Quemado - property of RHN,-34.2880555555556,-59.7027777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6604
+6616,Dique Belén - Aguas Abajo,DiqueBelén-A,station 6616: Dique Belén - Aguas Abajo - property of RHN,-27.6155555555556,-67.0163888888889,,Automatic,Argentina,INA,,AR_INA_6616
+6618,Yabebiry - Colonia Martires,Yabebiry-Col,station 6618: Yabebiry - Colonia Martires - property of RHN,-27.4011111111111,-55.335,,Automatic,Argentina,INA,Rio Parana,AR_INA_6618
+6622,Quinto - R.N. 35,Quinto-R.N.3,station 6622: Quinto - R.N. 35 - property of RHN,-34.2163888888889,-64.3861111111111,,Automatic,Argentina,INA,,AR_INA_6622
+6623,Quinto - Canal Devoto RP 4,Quinto-Canal,station 6623: Quinto - Canal Devoto RP 4 - property of RHN,-33.9330555555556,-63.4491666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_6623
+6624,Aº El Aji - RN Nº35 y RN Nº7,AºElAji-RNNº,station 6624: Aº El Aji - RN Nº35 y RN Nº7 - property of RHN,-33.9311111111111,-64.3963888888889,,Automatic,Argentina,INA,,AR_INA_6624
+6626,Guayquiraró - RN 12 - A°Curupí,Guayquiraró-,station 6626: Guayquiraró - RN 12 - A°Curupí - property of RHN,-30.3511111111111,-59.5147222222222,,Automatic,Argentina,INA,Rio Parana,AR_INA_6626
+6627,Compuerta Alternativa Norte AD,CompuertaAlt,station 6627: Compuerta Alternativa Norte AD - property of RHN,-34.2419444444444,-62.1211111111111,,Automatic,Argentina,INA,,AR_INA_6627
+6628,Colorado - Villa de Mazán,Colorado-Vil,station 6628: Colorado - Villa de Mazán - property of RHN,-28.6491666666667,-66.5491666666667,,Automatic,Argentina,INA,,AR_INA_6628
+6631,Dique Sotomayor - Aguas abajo,DiqueSotomay,station 6631: Dique Sotomayor - Aguas abajo - property of RHN,-28.5911111111111,-65.2877777777778,,Automatic,Argentina,INA,,AR_INA_6631
+6633,Salado - RN Nº 11,Salado-RNNº1,station 6633: Salado - RN Nº 11 - property of RHN,-27.5413888888889,-59.1308333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_6633
+6638,Dique Belén - Embalse,DiqueBelén-E,station 6638: Dique Belén - Embalse - property of RHN,-27.615,-67.0163888888889,,Automatic,Argentina,INA,,AR_INA_6638
+6645,Esc. Prov. 355 - Piedra Larga,Esc.Prov.355,station 6645: Esc. Prov. 355 - Piedra Larga - property of RHN,-27.6022222222222,-67.1977777777778,,Automatic,Argentina,INA,,AR_INA_6645
+6650,Salí - RP Nº323,Salí-RPNº323,station 6650: Salí - RP Nº323 - property of RHN,-27.1333333333333,-65.3155555555555,,Automatic,Argentina,INA,,AR_INA_6650
+6651,Dulce - Tuhama,Dulce-Tuhama,station 6651: Dulce - Tuhama - property of RHN,-28.0144444444444,-64.0980555555555,,Automatic,Argentina,INA,,AR_INA_6651
+6652,Lipeo - Puente Colgante,Lipeo-Puente,station 6652: Lipeo - Puente Colgante - property of RHN,-22.4311111111111,-64.7372222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6652
+6655,Aº Azul - Seminario Diocesano,AºAzul-Semin,station 6655: Aº Azul - Seminario Diocesano - property of RHN,-36.8311111111111,-59.8938888888889,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6655
+6658,Paraguay - Puerto Dalmacia,Paraguay-Pue,station 6658: Paraguay - Puerto Dalmacia - property of RHN,-25.875,-57.8730555555556,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6658
+6659,Riacho Salado - Tatané - RN 11,RiachoSalado,station 6659: Riacho Salado - Tatané - RN 11 - property of RHN,-26.4077777777778,-58.3591666666667,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6659
+6660,Pilcomayo - Villa Gral. Güemes,Pilcomayo-Vi,station 6660: Pilcomayo - Villa Gral. Güemes - property of RHN,-24.7469444444444,-59.4997222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6660
+6661,Abaucán - Limite con La Rioja,Abaucán-Limi,station 6661: Abaucán - Limite con La Rioja - property of RHN,-28.2613888888889,-67.0208333333333,,Automatic,Argentina,INA,,AR_INA_6661
+6664,Aº Mocoretá - RN Nº 14,AºMocoretá-R,station 6664: Aº Mocoretá - RN Nº 14 - property of RHN,-30.6275,-57.9827777777778,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6664
+6665,San Antonio - San Antonio,SanAntonio-S,station 6665: San Antonio - San Antonio - property of RHN,-26.0566666666667,-53.7311111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6665
+6669,San Javier - Cayastá,SanJavier-Ca,station 6669: San Javier - Cayastá - property of RHN,-31.1933333333333,-60.1530555555556,,Automatic,Argentina,INA,Rio Parana,AR_INA_6669
+6676,PN Trinidad - Condorito ,PNTrinidad-C,station 6676: PN Trinidad - Condorito  - property of RHN,-31.6911111111111,-64.8527777777778,,Automatic,Argentina,INA,,AR_INA_6676
+6678,Bermejo - Alarache,Bermejo-Alar,station 6678: Bermejo - Alarache - property of RHN,-22.1902777777778,-64.6527777777778,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6678
+6681,Rio Hondo - HID - Sitio 2,RioHondo-HID,station 6681: Rio Hondo - HID - Sitio 2 - property of RHN,-27.6669444444444,-67.1658333333333,,Automatic,Argentina,INA,,AR_INA_6681
+6684,Piedra Larga - HID - Sitio 1,PiedraLarga-,station 6684: Piedra Larga - HID - Sitio 1 - property of RHN,-27.6125,-67.1947222222222,,Automatic,Argentina,INA,,AR_INA_6684
+6685,Sis. Setúbal-Sta. Fé-La Guard.,Sis.Setúbal-,station 6685: Sis. Setúbal-Sta. Fé-La Guard. - property of RHN,-31.6302777777778,-60.6777777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_6685
+6698,Salado RP Nº 51 - Achupallas,SaladoRPNº51,station 6698: Salado RP Nº 51 - Achupallas - property of RHN,-35.0880555555556,-60.1088888888889,,Automatic,Argentina,INA,Rio de la Plata,AR_INA_6698
+6701,Santa Rosa - Meteorológica,SantaRosa-Me,station 6701: Santa Rosa - Meteorológica - property of RHN,-36.6213888888889,-64.3219444444444,,Automatic,Argentina,INA,,AR_INA_6701
+6702,Cuarto - La Carlota,Cuarto-LaCar,station 6702: Cuarto - La Carlota - property of RHN,-33.4155555555556,-63.3086111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6702
+6707,Juramento - El Quebrachal,Juramento-El,station 6707: Juramento - El Quebrachal - property of RHN,-25.3441666666667,-64.0461111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_6707
+6708,Salto Chico - Concordia,SaltoChico-C,station 6708: Salto Chico - Concordia - property of RHN,-31.3147222222222,-57.9902777777778,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6708
+6709,Esc. Mariano Moreno Nº232,Esc.MarianoM,station 6709: Esc. Mariano Moreno Nº232 - property of RHN,-23.8619444444444,-65.0913888888889,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6709
+6711,PN - Calilegua - La Mesada,PN-Calilegua,station 6711: PN - Calilegua - La Mesada - property of RHN,-23.8663888888889,-64.8669444444444,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_6711
+6713,Salto Chico - Gualeguaychú,SaltoChico-G,station 6713: Salto Chico - Gualeguaychú - property of RHN,-32.9841666666667,-58.3491666666667,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6713
+6714,San José del Boquerón,SanJosédelBo,station 6714: San José del Boquerón - property of RHN,-26.1144444444444,-63.7044444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6714
+6730,Coronda - Puerto Gaboto,Coronda-Puer,station 6730: Coronda - Puerto Gaboto - property of RHN,-32.4275,-60.8158333333333,,Automatic,Argentina,INA,Rio Parana,AR_INA_6730
+6735,Miriñay - San Roquito,Miriñay-SanR,station 6735: Miriñay - San Roquito - property of RHN,-29.2969444444444,-57.5655555555556,,Automatic,Argentina,INA,Rio Uruguay,AR_INA_6735
+6738,Miraflores - Sayate,Miraflores-S,station 6738: Miraflores - Sayate - property of RHN,-22.9008333333333,-65.8494444444444,,Automatic,Argentina,INA,,AR_INA_6738
+6742,Dique Sotomayor - Embalse,DiqueSotomay,station 6742: Dique Sotomayor - Embalse - property of RHN,-28.59,-65.2883333333333,,Automatic,Argentina,INA,,AR_INA_6742
+6743,Durazno - Chilecito,Durazno-Chil,station 6743: Durazno - Chilecito - property of RHN,-29.1511111111111,-67.49,,Automatic,Argentina,INA,,AR_INA_6743
+6745,Guanasacate - Jesús Maria,Guanasacate-,station 6745: Guanasacate - Jesús Maria - property of RHN,-30.9702777777778,-64.0911111111111,,Automatic,Argentina,INA,,AR_INA_6745
+6746,Canal San Antonio- RP Nº66,CanalSanAnto,station 6746: Canal San Antonio- RP Nº66 - property of RHN,-31.9905555555556,-62.1688888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_6746
+6747,Areco - San Antonio de Areco,Areco-SanAnt,station 6747: Areco - San Antonio de Areco - property of RHN,-34.2405555555556,-59.4994444444444,,Automatic,Argentina,INA,Rio Parana,AR_INA_6747
+6748,Lag. La Picasa - Escollera FFC,Lag.LaPicasa,station 6748: Lag. La Picasa - Escollera FFC - property of RHN,-34.3372222222222,-62.3247222222222,,Automatic,Argentina,INA,,AR_INA_6748
+6750,Quinto - Malvin Reich,Quinto-Malvi,station 6750: Quinto - Malvin Reich - property of RHN,-33.4383333333333,-65.8830555555555,,Automatic,Argentina,INA,,AR_INA_6750
+6763,Del Valle - Huaycama,DelValle-Hua,station 6763: Del Valle - Huaycama - property of RHN,-28.1202777777778,-65.7980555555555,,Automatic,Argentina,INA,,AR_INA_6763
+6832,Palmas,palmas,station 6832: Palmas - property of INA-INTA,-34.304489,-58.543689,,Automatic,ARGENTINA,INA,Rio de la Plata,AR_INA_6832
+7311,RMA02_LUJ - Luján,RMA02_LUJ-Lu,station 7311: RMA02_LUJ - Luján - property of RHN,-34.5880555555556,-59.0625,,Automatic,Argentina,INA,Rio Parana,AR_INA_7311
+7317,RMA03_PTL - Puente Lavalle,RMA03_PTL-Pu,station 7317: RMA03_PTL - Puente Lavalle - property of RHN,-25.6763888888889,-60.14,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_7317
+7318,RMA03_PZL - Posta Zalazar,RMA03_PZL-Po,station 7318: RMA03_PZL - Posta Zalazar - property of RHN,-24.2119444444444,-60.1972222222222,,Automatic,Argentina,INA,Rio Paraguay,AR_INA_7318
+7320,RMA04_COL - Cote Lai,RMA04_COL-Co,station 7320: RMA04_COL - Cote Lai - property of RHN,-27.5327777777778,-59.5763888888889,,Automatic,Argentina,INA,Rio Parana,AR_INA_7320
+7321,RMA04_LAE - La Escondida,RMA04_LAE-La,station 7321: RMA04_LAE - La Escondida - property of RHN,-27.1333333333333,-59.4727777777778,,Automatic,Argentina,INA,Rio Parana,AR_INA_7321
+7322,RMA04_PCH - Parque Nacional Chaco,RMA04_PCH-Pa,station 7322: RMA04_PCH - Parque Nacional Chaco - property of RHN,-26.8069444444444,-59.6066666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_7322
+7323,RMA04_PMB - Parque Nacional Mburucuyá,RMA04_PMB-Pa,station 7323: RMA04_PMB - Parque Nacional Mburucuyá - property of RHN,-28.0427777777778,-58.1016666666667,,Automatic,Argentina,INA,Rio Parana,AR_INA_7323
+7324,RMA05_ELD - Eldorado,RMA05_ELD-El,station 7324: RMA05_ELD - Eldorado - property of RHN,-26.3933333333333,-54.5761111111111,,Automatic,Argentina,INA,Rio Parana,AR_INA_7324

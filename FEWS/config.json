@@ -6,6 +6,7 @@
         "token": "your_token_here",
         "timeout": 120
     },
+    "begin_days": 180,
     "fews_observed_properties": ["02B12CBDEF3984F7ADB9CFDFBF065FC1D3AEF13F",
     "AF6C35E61AC362E0151B6458DADCB032043B67EA",
     "D2DB8BC2930F82D1E5EFA6B529F0262EB0FFE994",

@@ -152,6 +152,7 @@ class Client:
             headers = headers,
             timeout = self.config["timeout"]
         )
+        logging.debug("getEstaciones request: %s" % response.url)
         logging.debug("status_code: %s" % response.status_code)
         if response.status_code > 299:
             raise Exception(response.text)

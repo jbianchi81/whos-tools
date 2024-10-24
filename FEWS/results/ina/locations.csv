@@ -1,0 +1,439 @@
+,STATION_ID,STATION_NAME,STATION_SHORTNAME,TOOLTIP,LATITUDE,LONGITUDE,ALTITUDE,TYPE,COUNTRY,ORGANIZATION,SUBBASIN,PARENT_ID
+0,7277,Iguazú - Pto. Iguazú,Iguazú-Pto.I,Iguazú - Pto. Iguazú,-25.5933333333333,-54.58,,,Argentina,INA,Rio Parana,AR_INA_7277
+1,7205,CIRHBAS - PF EL CABURE,CIRHBAS-PFEL,CIRHBAS - PF EL CABURE,-27.4780555555556,-60.9980555555556,,,Argentina,INA,Rio Parana,AR_INA_7205
+2,5876,Carabelas,Carabelas,Carabelas,-34.05977,-58.835841,,,Argentina,INA,Rio Parana,AR_INA_5876
+3,7204,CIRHBAS - PF EL AGUARA,CIRHBAS-PFEL,CIRHBAS - PF EL AGUARA,-27.0722222222222,-60.0758333333333,,,Argentina,INA,Rio Parana,AR_INA_7204
+4,7327,RMA05_URU - Paisaje Protegido ,RMA05_URU-Pa,RMA05_URU - Paisaje Protegido ,-25.8738888888889,-54.5513888888889,,,Argentina,INA,Rio Parana,AR_INA_7327
+5,15,Ituzaingó,Ituzaingó,Ituzaingó,-27.5833333333333,-56.7,,,Argentina,INA,Rio Parana,AR_INA_15
+6,1037,San Javier,SanJavier,San Javier,-27.869343,-55.129216,,,Argentina,INA,Rio Uruguay,AR_INA_1037
+7,7186,CIRHBAS - LIM  RUTA PROVINCIAL 40-CANAL HIDROVIAL ,CIRHBAS-LIMR,CIRHBAS - LIM  RUTA PROVINCIAL 40-CANAL HIDROVIAL ,-29.1247222222222,-60.8397222222222,,,Argentina,INA,Rio Parana,AR_INA_7186
+8,2822,Pilcomayo - El Raúl,Pilcomayo-El,Pilcomayo - El Raúl,-22.65,-62.2163888888889,,,Argentina,INA,Rio Paraguay,AR_INA_2822
+9,20,Barranqueras,Barranqueras,Barranqueras,-27.4833333333333,-58.9333333333333,,,Argentina,INA,Rio Parana,AR_INA_20
+10,7360,RMA11_PH - Pozo Hondo,RMA11_PH-Poz,RMA11_PH - Pozo Hondo,-27.1625,-64.4902777777778,,,Argentina,INA,Rio Parana,AR_INA_7360
+11,7386,Tercero - Villa María,Tercero-Vill,Tercero - Villa María,-32.4219444444444,-63.2447222222222,,,Argentina,INA,Rio Parana,AR_INA_7386
+12,76,Federación,Federación,Federación,-30.993221,-57.914682,,,Argentina,INA,Rio Uruguay,AR_INA_76
+13,7358,RMA11_LM - Lamadrid,RMA11_LM-Lam,RMA11_LM - Lamadrid,-28.1944444444444,-65.1102777777778,,,Argentina,INA,,AR_INA_7358
+14,2218,Cruz Alta,CruzAlta,Cruz Alta,-33.0063888888889,-61.7875,,,Argentina,INA,Rio Parana,AR_INA_2218
+15,7194,CIRHBAS - LIM MOJON DE FIERRO-CANAL INTERPROVINCIA,CIRHBAS-LIMM,CIRHBAS - LIM MOJON DE FIERRO-CANAL INTERPROVINCIA,-29.1316666666667,-61.9016666666667,,,Argentina,INA,Rio Parana,AR_INA_7194
+16,6383,De Las Cañitas - La Tapa,DeLasCañitas,De Las Cañitas - La Tapa,-32.855,-64.7672222222222,,,Argentina,INA,Rio Parana,AR_INA_6383
+17,33,San Lorenzo (San Martín),SanLorenzo(S,San Lorenzo (San Martín),-32.7336256031375,-60.7256705696322,,,Argentina,INA,Rio Parana,AR_INA_33
+18,99,Gualeguaychú,Gualeguaychú,Gualeguaychú,-33.0144444444444,-58.5041666666667,,,Argentina,INA,Rio Uruguay,AR_INA_99
+19,6832,Palmas,Palmas,Palmas,-34.304489,-58.543689,,,ARGENTINA,INA,Rio de la Plata,AR_INA_6832
+20,6449,Paraguay - Isla del Cerrito,Paraguay-Isl,Paraguay - Isla del Cerrito,-27.2891666666667,-58.61,,,Argentina,INA,Rio Parana,AR_INA_6449
+21,6735,Miriñay - San Roquito,Miriñay-SanR,Miriñay - San Roquito,-29.2969444444444,-57.5655555555556,,,Argentina,INA,Rio Uruguay,AR_INA_6735
+22,2593,Arenales - La Maroma,Arenales-LaM,Arenales - La Maroma,-25.1538888888889,-65.42,,,Argentina,INA,Rio Parana,AR_INA_2593
+23,7230,Aguapey - Caá Caraí,Aguapey-CaáC,Aguapey - Caá Caraí,-27.8244444444444,-56.2583333333333,,,Argentina,INA,Rio Uruguay,AR_INA_7230
+24,10,Libertad,Libertad,Libertad,-25.916679,-54.621134,,,Argentina,INA,Rio Parana,AR_INA_10
+25,6750,Quinto - Malvin Reich,Quinto-Malvi,Quinto - Malvin Reich,-33.4383333333333,-65.8830555555555,,,Argentina,INA,,AR_INA_6750
+26,6664,Aº Mocoretá - RN Nº 14,AºMocoretá-R,Aº Mocoretá - RN Nº 14,-30.6275,-57.9827777777778,,,Argentina,INA,Rio Uruguay,AR_INA_6664
+27,6665,San Antonio - San Antonio,SanAntonio-S,San Antonio - San Antonio,-26.0566666666667,-53.7311111111111,,,Argentina,INA,Rio Parana,AR_INA_6665
+28,6650,Salí - RP Nº323,Salí-RPNº323,Salí - RP Nº323,-27.1333333333333,-65.3155555555555,,,Argentina,INA,,AR_INA_6650
+29,6441,Quinto - Dique Villa Mercedes,Quinto-Dique,Quinto - Dique Villa Mercedes,-33.6538888888889,-65.5336111111111,,,Argentina,INA,,AR_INA_6441
+30,7225,CIRHBAS - PLU PAMPA SANDI,CIRHBAS-PLUP,CIRHBAS - PLU PAMPA SANDI,-26.9275,-61.3663888888889,,,Argentina,INA,Rio Parana,AR_INA_7225
+31,1744,Arroyo San Francisco,ArroyoSanFra,Arroyo San Francisco,-34.7277556,-58.3200389,,,Argentina,INA,Rio de la Plata,AR_INA_1744
+32,2854,Aº Riachuelo - RP Nº5,AºRiachuelo-,Aº Riachuelo - RP Nº5,-27.5105555555556,-58.5697222222222,,,Argentina,INA,Rio Parana,AR_INA_2854
+33,7323,RMA04_PMB - Parque Nacional Mburucuyá,RMA04_PMB-Pa,RMA04_PMB - Parque Nacional Mburucuyá,-28.0427777777778,-58.1016666666667,,,Argentina,INA,Rio Parana,AR_INA_7323
+34,2829,San Javier - San Javier,SanJavier-Sa,San Javier - San Javier,-30.5802777777778,-59.9233333333333,,,Argentina,INA,Rio Parana,AR_INA_2829
+35,23,Goya,Goya,Goya,-29.14376844,-59.27303952,,,Argentina,INA,Rio Parana,AR_INA_23
+36,2149,Iguazú - Perfil Tipo,Iguazú-Perfi,Iguazú - Perfil Tipo,-25.6766666666667,-54.4213888888889,,,Argentina,INA,Rio Parana,AR_INA_2149
+37,43,Villa Paranacito,VillaParanac,Villa Paranacito,-33.7,-58.65,,,Argentina,INA,Rio Parana,AR_INA_43
+38,6457,Embalse Cruz Bajada,EmbalseCruzB,Embalse Cruz Bajada,-25.7158333333333,-63.8916666666667,,,Argentina,INA,Rio Parana,AR_INA_6457
+39,7325,RMA05_SAN - San Antonio,RMA05_SAN-Sa,RMA05_SAN - San Antonio,-26.0494444444444,-53.7683333333333,,,Argentina,INA,Rio Parana,AR_INA_7325
+40,7318,RMA03_PZL - Posta Zalazar,RMA03_PZL-Po,RMA03_PZL - Posta Zalazar,-24.2119444444444,-60.1972222222222,,,Argentina,INA,Rio Paraguay,AR_INA_7318
+41,7184,CIRHBAS - LIM  Aº TAPENAGA - ESTANCIA TAPENAGA,CIRHBAS-LIMA,CIRHBAS - LIM  Aº TAPENAGA - ESTANCIA TAPENAGA,-27.5672222222222,-59.6588888888889,,,Argentina,INA,Rio Parana,AR_INA_7184
+42,6526,Jesus Maria - MET,JesusMaria-M,Jesus Maria - MET,-30.9769444444444,-64.1394444444445,,,Argentina,INA,,AR_INA_6526
+43,6541,Guanasacate - Col. San Jorge,Guanasacate-,Guanasacate - Col. San Jorge,-30.8797222222222,-64.3483333333333,,,Argentina,INA,,AR_INA_6541
+44,6393,Aº Las Flores - Gral. Alvear,AºLasFlores-,Aº Las Flores - Gral. Alvear,-35.9875,-60.0194444444444,,,Argentina,INA,Rio de la Plata,AR_INA_6393
+45,6537,Iruya - San Antonio,Iruya-SanAnt,Iruya - San Antonio,-22.8258333333333,-64.9708333333333,,,Argentina,INA,Rio Paraguay,AR_INA_6537
+46,85,Buenos Aires,BuenosAires,Buenos Aires,-34.56108,-58.399288,,,Argentina,INA,Rio de la Plata,AR_INA_85
+47,7215,CIRHBAS - PLU CUATRO BOCAS,CIRHBAS-PLUC,CIRHBAS - PLU CUATRO BOCAS,-28.8644444444444,-61.8583333333333,,,Argentina,INA,Rio Parana,AR_INA_7215
+48,6548,Bermejo - Aguas Blancas LIM,Bermejo-Agua,Bermejo - Aguas Blancas LIM,-22.7263888888889,-64.3691666666667,,,Argentina,INA,Rio Paraguay,AR_INA_6548
+49,7283,Laguna Melincué - Melincué,LagunaMelinc,Laguna Melincué - Melincué,-33.6508333333333,-61.4552777777778,,,Argentina,INA,Rio Parana,AR_INA_7283
+50,6711,PN - Calilegua - La Mesada,PN-Calilegua,PN - Calilegua - La Mesada,-23.8663888888889,-64.8669444444444,,,Argentina,INA,Rio Paraguay,AR_INA_6711
+51,7239,Aº Pilagá - RN Nº11,AºPilagá-RNN,Aº Pilagá - RN Nº11,-25.9844444444444,-58.1625,,,Argentina,INA,Rio Paraguay,AR_INA_7239
+52,7211,CIRHBAS - PF PALMAR NORTE,CIRHBAS-PFPA,CIRHBAS - PF PALMAR NORTE,-27.1652777777778,-61.4686111111111,,,Argentina,INA,Rio Parana,AR_INA_7211
+53,2127,Salado - Santa Isabel,Salado-Santa,Salado - Santa Isabel,-36.2911111111111,-66.8291666666667,,,Argentina,INA,,AR_INA_2127
+54,7314,RMA02_ZAR - Zárate,RMA02_ZAR-Zá,RMA02_ZAR - Zárate,-34.085,-59.0236111111111,,,Argentina,INA,Rio Parana,AR_INA_7314
+55,7219,CIRHBAS - PLU EL TRIANGULO /ESTANCIA LA PRIMERA,CIRHBAS-PLUE,CIRHBAS - PLU EL TRIANGULO /ESTANCIA LA PRIMERA,-29.2058333333333,-61.4319444444444,,,Argentina,INA,Rio Parana,AR_INA_7219
+56,7361,RMA11_SA - Sierra Ancasti,RMA11_SA-Sie,RMA11_SA - Sierra Ancasti,-28.4986111111111,-65.6083333333333,,,Argentina,INA,,AR_INA_7361
+57,68,Santo Tomé,SantoTomé,Santo Tomé,-28.55,-56.0333333333333,,,Argentina,INA,Rio Uruguay,AR_INA_68
+58,6708,Salto Chico - Concordia,SaltoChico-C,Salto Chico - Concordia,-31.3147222222222,-57.9902777777778,,,Argentina,INA,Rio Uruguay,AR_INA_6708
+59,1708,La Plata,LaPlata,La Plata,-34.8339004516602,-57.8800010681152,,,Argentina,INA,Rio de la Plata,AR_INA_1708
+60,7271,Grande de Tarija - San Telmo,GrandedeTari,Grande de Tarija - San Telmo,-22.5677777777778,-64.245,,,Argentina,INA,Rio Paraguay,AR_INA_7271
+61,6263,Primero (Suquía) Camino Secund,Primero(Suqu,Primero (Suquía) Camino Secund,-30.9641666666667,-62.9961111111111,,,Argentina,INA,,AR_INA_6263
+62,6404,Aº Aguapey - San Carlos,AºAguapey-Sa,Aº Aguapey - San Carlos,-27.7475,-55.8916666666667,,,Argentina,INA,Rio Uruguay,AR_INA_6404
+63,5893,Paraná - Rosario,Paraná-Rosar,Paraná - Rosario,-32.9513888888889,-60.6255555555556,,,Argentina,INA,Rio Parana,AR_INA_5893
+64,22,Bella Vista,BellaVista,Bella Vista,-28.51840072,-59.05931723,,,Argentina,INA,Rio Parana,AR_INA_22
+65,30,Santa Fe,SantaFe,Santa Fe,-31.6514772196376,-60.7002319185745,,,Argentina,INA,Rio Parana,AR_INA_30
+66,2154,Bermejo - Pozo Sarmiento,Bermejo-Pozo,Bermejo - Pozo Sarmiento,-23.1405555555556,-64.1969444444445,,,Argentina,INA,Rio Paraguay,AR_INA_2154
+67,49,Tigre,Tigre,Tigre,-34.4159316389634,-58.5779747237367,,,Argentina,INA,Rio Parana,AR_INA_49
+68,44,Canal Nuevo,CanalNuevo,Canal Nuevo,-33.8627031166646,-58.6604197120006,,,Argentina,INA,Rio Parana,AR_INA_44
+69,6714,San José del Boquerón,SanJosédelBo,San José del Boquerón,-26.1144444444444,-63.7044444444444,,,Argentina,INA,Rio Parana,AR_INA_6714
+70,2836,Aº Barrancas - Paso La Llana,AºBarrancas-,Aº Barrancas - Paso La Llana,-30.2172222222222,-59.3244444444444,,,Argentina,INA,Rio Parana,AR_INA_2836
+71,7213,CIRHBAS - PF TRES MOJONES,CIRHBAS-PFTR,CIRHBAS - PF TRES MOJONES,-28.0283333333333,-62.0844444444444,,,Argentina,INA,Rio Parana,AR_INA_7213
+72,7363,RMA3_IJU - Ingeniero Juarez,RMA3_IJU-Ing,RMA3_IJU - Ingeniero Juarez,-23.9025,-61.8408333333333,,,Argentina,INA,Rio Paraguay,AR_INA_7363
+73,2855,Salado - RP Nº 41,Salado-RPNº4,Salado - RP Nº 41,-35.7263888888889,-58.5363888888889,,,Argentina,INA,Rio de la Plata,AR_INA_2855
+74,2139,Coronda - Coronda,Coronda-Coro,Coronda - Coronda,-31.9741666666667,-60.9138888888889,,,Argentina,INA,Rio Parana,AR_INA_2139
+75,7237,Aº Medrano Reser. - Tecnópolis,AºMedranoRes,Aº Medrano Reser. - Tecnópolis,-34.5611111111111,-58.5077777777778,,,Argentina,INA,Rio Parana,AR_INA_7237
+76,6540,Salado - Icaño,Salado-Icaño,Salado - Icaño,-28.6152777777778,-62.7786111111111,,,Argentina,INA,Rio Parana,AR_INA_6540
+77,7188,CIRHBAS - LIM BAJO CHOROTIS-RN 95,CIRHBAS-LIMB,CIRHBAS - LIM BAJO CHOROTIS-RN 95,-28.0886111111111,-61.3519444444444,,,Argentina,INA,Rio Parana,AR_INA_7188
+78,71,Yapeyú,Yapeyú,Yapeyú,-29.470031,-56.810674,,,Argentina,INA,Rio Uruguay,AR_INA_71
+79,7191,CIRHBAS - LIM LAGUNAS SALADAS- RP 77,CIRHBAS-LIML,CIRHBAS - LIM LAGUNAS SALADAS- RP 77,-28.2908333333333,-61.1952777777778,,,Argentina,INA,Rio Parana,AR_INA_7191
+80,7256,Centro Regional Litoral - INA,CentroRegion,Centro Regional Litoral - INA,-31.6158333333333,-60.6747222222222,,,Argentina,INA,Rio Parana,AR_INA_7256
+81,6520,Aº Yaboti - San Pedro,AºYaboti-San,Aº Yaboti - San Pedro,-26.6352777777778,-54.0897222222222,,,Argentina,INA,Rio Uruguay,AR_INA_6520
+82,6745,Guanasacate - Jesús Maria,Guanasacate-,Guanasacate - Jesús Maria,-30.9702777777778,-64.0911111111111,,,Argentina,INA,,AR_INA_6745
+83,7217,CIRHBAS - PLU EL 38 SUR,CIRHBAS-PLUE,CIRHBAS - PLU EL 38 SUR,-29.4861111111111,-60.5416666666667,,,Argentina,INA,Rio Parana,AR_INA_7217
+84,52,San Fernando,SanFernando,San Fernando,-34.4333333333,-58.55,,,Argentina,INA,Rio Parana,AR_INA_52
+85,6354,Paraná - La Paz,Paraná-LaPaz,Paraná - La Paz,-30.7325,-59.6386111111111,,,Argentina,INA,Rio Parana,AR_INA_6354
+86,6506,Salí - Alta Gracia,Salí-AltaGra,Salí - Alta Gracia,-26.7191666666667,-65.1619444444444,,,Argentina,INA,,AR_INA_6506
+87,6763,Del Valle - Huaycama,DelValle-Hua,Del Valle - Huaycama,-28.1202777777778,-65.7980555555555,,,Argentina,INA,,AR_INA_6763
+88,6458,Paraná - Puerto Libertad,Paraná-Puert,Paraná - Puerto Libertad,-25.9166666666667,-54.6205555555556,,,Argentina,INA,Rio Parana,AR_INA_6458
+89,2833,Aº Leyes - RP Nº 1,AºLeyes-RPNº,Aº Leyes - RP Nº 1,-31.4947222222222,-60.425,,,Argentina,INA,Rio Parana,AR_INA_2833
+90,2838,Aº Saladillo - RN Nº205,AºSaladillo-,Aº Saladillo - RN Nº205,-35.4594444444445,-59.5747222222222,,,Argentina,INA,Rio de la Plata,AR_INA_2838
+91,7315,RMA03_IBA - Ibarreta,RMA03_IBA-Ib,RMA03_IBA - Ibarreta,-25.2041666666667,-59.8694444444444,,,Argentina,INA,Rio Paraguay,AR_INA_7315
+92,88,Yacyretá efluente,Yacyretáeflu,Yacyretá efluente,-27.482557,-56.727244,,,Argentina,INA,Rio Parana,AR_INA_88
+93,6447,Dulce - La Escuela - Río Hondo,Dulce-LaEscu,Dulce - La Escuela - Río Hondo,-27.5033333333333,-64.8558333333333,,,Argentina,INA,,AR_INA_6447
+94,2185,Dulce - Paso de la Cina,Dulce-Pasode,Dulce - Paso de la Cina,-29.795,-62.8061111111111,,,Argentina,INA,,AR_INA_2185
+95,2122,Atuel - Paso Maroma,Atuel-PasoMa,Atuel - Paso Maroma,-36.8425,-66.9952777777778,,,Argentina,INA,,AR_INA_2122
+96,2211,Salado - RP Nº50,Salado-RPNº5,Salado - RP Nº50,-34.3225,-61.3513888888889,,,Argentina,INA,Rio de la Plata,AR_INA_2211
+97,2166,Los Sosa - RP30 km19,LosSosa-RP30,Los Sosa - RP30 km19,-27.1008333333333,-65.6361111111111,,,Argentina,INA,,AR_INA_2166
+98,53,San Isidro,SanIsidro,San Isidro,-34.457166,-58.507163,,,Argentina,INA,Rio Parana,AR_INA_53
+99,21,Empedrado,Empedrado,Empedrado,-27.95412346,-58.81852419,,,Argentina,INA,Rio Parana,AR_INA_21
+100,6660,Pilcomayo - Villa Gral. Güemes,Pilcomayo-Vi,Pilcomayo - Villa Gral. Güemes,-24.7469444444444,-59.4997222222222,,,Argentina,INA,Rio Paraguay,AR_INA_6660
+101,6655,Aº Azul - Seminario Diocesano,AºAzul-Semin,Aº Azul - Seminario Diocesano,-36.8311111111111,-59.8938888888889,,,Argentina,INA,Rio de la Plata,AR_INA_6655
+102,54,Olivos,Olivos,Olivos,-34.506666,-58.475863,,,Argentina,INA,Rio Parana,AR_INA_54
+103,7166,Santa Lucia - San Roque,SantaLucia-S,Santa Lucia - San Roque,-28.57,-58.7177777777778,,,Argentina,INA,Rio Parana,AR_INA_7166
+104,13,Santa Ana,SantaAna,Santa Ana,-27.33509,-55.588412,,,Argentina,INA,Rio Parana,AR_INA_13
+105,50,Dique Luján,DiqueLuján,Dique Luján,-34.351576,-58.686115,,,Argentina,INA,Rio Parana,AR_INA_50
+106,7231,Anizacate - Santa Ana,Anizacate-Sa,Anizacate - Santa Ana,-31.6908333333333,-64.5375,,,Argentina,INA,,AR_INA_7231
+107,2223,Salado - Suncho Corral,Salado-Sunch,Salado - Suncho Corral,-27.9402777777778,-63.4397222222222,,,Argentina,INA,Rio Parana,AR_INA_2223
+108,6603,Pavas - Las Mesadas,Pavas-LasMes,Pavas - Las Mesadas,-27.2141666666667,-65.9288888888889,,,Argentina,INA,,AR_INA_6603
+109,2133,Paraguay - Pto. Pilcomayo,Paraguay-Pto,Paraguay - Pto. Pilcomayo,-25.3719444444444,-57.6502777777778,,,Argentina,INA,Rio Paraguay,AR_INA_2133
+110,1696,Arroyo Martínez (Villa Paranacito),ArroyoMartín,Arroyo Martínez (Villa Paranacito),-33.6580427638889,-58.5811476,,,Argentina,INA,Rio Parana,AR_INA_1696
+111,51,Chaná Miní,ChanáMiní,Chaná Miní,-34.2,-58.4833333333,,,Argentina,INA,Rio Parana,AR_INA_51
+112,6701,Santa Rosa - Meteorológica,SantaRosa-Me,Santa Rosa - Meteorológica,-36.6213888888889,-64.3219444444444,,,Argentina,INA,,AR_INA_6701
+113,5904,PN Ciervo de los Pantanos,PNCiervodelo,PN Ciervo de los Pantanos,-34.2255555555556,-58.8988888888889,,,Argentina,INA,Rio Parana,AR_INA_5904
+114,65,San Javier,SanJavier,San Javier,-27.8833333333333,-55.1333333333333,,,Argentina,INA,Rio Uruguay,AR_INA_65
+115,2213,Canal Regulador N°4 - La Pantanosa,CanalRegulad,Canal Regulador N°4 - La Pantanosa,-34.2580555555556,-61.6386111111111,,,Argentina,INA,Rio de la Plata,AR_INA_2213
+116,7263,Dulce - Paso de Oscares,Dulce-Pasode,Dulce - Paso de Oscares,-29.2533333333333,-63.2069444444444,,,Argentina,INA,,AR_INA_7263
+117,86,La Plata,LaPlata,La Plata,-34.824196,-57.873546,,,Argentina,INA,Rio de la Plata,AR_INA_86
+118,31,Diamante,Diamante,Diamante,-32.0715615377843,-60.6432219715378,,,Argentina,INA,Rio Parana,AR_INA_31
+119,7341,RMA08_PIB - Parque Nacional Ib,RMA08_PIB-Pa,RMA08_PIB - Parque Nacional Ib,-28.1280555555556,-57.4363888888889,,,Argentina,INA,Rio Parana,AR_INA_7341
+120,2188,Bermejo - El Colorado,Bermejo-ElCo,Bermejo - El Colorado,-26.3341666666667,-59.3625,,,Argentina,INA,Rio Paraguay,AR_INA_2188
+121,2197,Salado - Pinto,Salado-Pinto,Salado - Pinto,-29.1058333333333,-62.5761111111111,,,Argentina,INA,Rio Parana,AR_INA_2197
+122,6748,Lag. La Picasa - Escollera FFC,Lag.LaPicasa,Lag. La Picasa - Escollera FFC,-34.3372222222222,-62.3247222222222,,,Argentina,INA,,AR_INA_6748
+123,6746,Canal San Antonio- RP Nº66,CanalSanAnto,Canal San Antonio- RP Nº66,-31.9905555555556,-62.1688888888889,,,Argentina,INA,Rio Parana,AR_INA_6746
+124,6567,CIRHBAS - MET EL GUANAGAN RP13,CIRHBAS-METE,CIRHBAS - MET EL GUANAGAN RP13,-28.7297222222222,-60.9019444444444,,,Argentina,INA,Rio Parana,AR_INA_6567
+125,78,Salto Grande Abajo,SaltoGrandeA,Salto Grande Abajo,-31.27547,-57.936945,,,Argentina,INA,Rio Uruguay,AR_INA_78
+126,7242,Aº Tapalqué - Av de los Trabaj,AºTapalqué-A,Aº Tapalqué - Av de los Trabaj,-36.8791666666667,-60.3108333333333,,,Argentina,INA,Rio de la Plata,AR_INA_7242
+127,6397,Aº Pergamino - Pergamino,AºPergamino-,Aº Pergamino - Pergamino,-33.9041666666667,-60.5702777777778,,,Argentina,INA,Rio Parana,AR_INA_6397
+128,175,Emilia - Ruta Provincial nº 62,Emilia-RutaP,Emilia - Ruta Provincial nº 62,-31.042868,-60.841003,,,Argentina,INA,Rio Parana,AR_INA_175
+129,5912,Paraná - Timbúes,Paraná-Timbú,Paraná - Timbúes,-32.7197222222222,-60.7261111111111,,,Argentina,INA,Rio Parana,AR_INA_5912
+130,2820,PN - Centro Operativo Santa Ro,PN-CentroOpe,PN - Centro Operativo Santa Ro,-27.2852777777778,-65.8719444444444,,,Argentina,INA,,AR_INA_2820
+131,5900,Paraná - Diamante,Paraná-Diama,Paraná - Diamante,-32.0577777777778,-60.645,,,Argentina,INA,Rio Parana,AR_INA_5900
+132,2112,Gualeguaychú - RN Nº 14,Gualeguaychú,Gualeguaychú - RN Nº 14,-32.7680555555556,-58.4983333333333,,,Argentina,INA,Rio Uruguay,AR_INA_2112
+133,6615,Uruguay - Garruchos,Uruguay-Garr,Uruguay - Garruchos,-28.1772222222222,-55.6422222222222,,,Argentina,INA,Rio Uruguay,AR_INA_6615
+134,6360,Saladillo - Dique Aforador,Saladillo-Di,Saladillo - Dique Aforador,-32.9316666666667,-62.3322222222222,,,Argentina,INA,Rio Parana,AR_INA_6360
+135,12,Libertador,Libertador,Libertador,-26.8,-55.0333333333333,,,Argentina,INA,Rio Parana,AR_INA_12
+136,7190,CIRHBAS - LIM CANAL LINEA PARANA TRAMO IV,CIRHBAS-LIMC,CIRHBAS - LIM CANAL LINEA PARANA TRAMO IV,-27.9977777777778,-60.7155555555556,,,Argentina,INA,Rio Parana,AR_INA_7190
+137,6551,Uruguay - Monte Caseros,Uruguay-Mont,Uruguay - Monte Caseros,-30.2516666666667,-57.6216666666667,,,Argentina,INA,Rio Uruguay,AR_INA_6551
+138,32,Victoria,Victoria,Victoria,-32.6558456373673,-60.2195849446607,,,Argentina,INA,Rio Parana,AR_INA_32
+139,1680,Cululú - RP50-s,Cululú-RP50-,Cululú - RP50-s,-31.254531,-60.887765,,,Argentina,INA,Rio Parana,AR_INA_1680
+140,6401,Aº Del Medio - Motomel,AºDelMedio-M,Aº Del Medio - Motomel,-33.3505555555556,-60.3230555555556,,,Argentina,INA,Rio Parana,AR_INA_6401
+141,2198,Aº Batel - Paso Cerrito,AºBatel-Paso,Aº Batel - Paso Cerrito,-29.0311111111111,-58.7883333333333,,,Argentina,INA,Rio Parana,AR_INA_2198
+142,38,San Pedro,SanPedro,San Pedro,-33.6745267329027,-59.6497183332918,,,Argentina,INA,Rio Parana,AR_INA_38
+143,6361,Tercero - Piedras Moras,Tercero-Pied,Tercero - Piedras Moras,-32.1694444444444,-64.2327777777778,,,Argentina,INA,Rio Parana,AR_INA_6361
+144,7270,Grande - Ume Pay,Grande-UmePa,Grande - Ume Pay,-32.2183333333333,-64.7513888888889,,,Argentina,INA,Rio Parana,AR_INA_7270
+145,7274,Gualeguaychú - RN Nº 39,Gualeguaychú,Gualeguaychú - RN Nº 39,-32.445,-58.5547222222222,,,Argentina,INA,Rio Uruguay,AR_INA_7274
+146,34,Rosario,Rosario,Rosario,-32.9432699442268,-60.6308206029857,,,Argentina,INA,Rio Parana,AR_INA_34
+147,7252,Canal 9 - Autovia 2,Canal9-Autov,Canal 9 - Autovia 2,-36.2811111111111,-57.7038888888889,,,Argentina,INA,Rio de la Plata,AR_INA_7252
+148,2809,Quinto - RP Nº26,Quinto-RPNº2,Quinto - RP Nº26,-34.7627777777778,-63.645,,,Argentina,INA,,AR_INA_2809
+149,2180,Desaguadero - Canalejas,Desaguadero-,Desaguadero - Canalejas,-35.1686111111111,-66.4963888888889,,,Argentina,INA,,AR_INA_2180
+150,7221,CIRHBAS - PLU LA HORQUETA,CIRHBAS-PLUL,CIRHBAS - PLU LA HORQUETA,-27.8,-60.2316666666667,,,Argentina,INA,Rio Parana,AR_INA_7221
+151,7209,CIRHBAS - PF LOTE 48 (LA MONTENEGRINA),CIRHBAS-PFLO,CIRHBAS - PF LOTE 48 (LA MONTENEGRINA),-26.9119444444444,-60.6766666666667,,,Argentina,INA,Rio Parana,AR_INA_7209
+152,7241,Aº Saladillo Dulce - RP Nº 81,AºSaladilloD,Aº Saladillo Dulce - RP Nº 81,-30.8547222222222,-60.2822222222222,,,Argentina,INA,Rio Parana,AR_INA_7241
+153,72,Paso de los Libres,PasodelosLib,Paso de los Libres,-29.7166666666667,-57.0833333333333,,,Argentina,INA,Rio Uruguay,AR_INA_72
+154,2673,Colastiné - RN N° 168,Colastiné-RN,Colastiné - RN N° 168,-31.6611111111111,-60.6019444444444,,,Argentina,INA,Rio Parana,AR_INA_2673
+155,79,Concordia,Concordia,Concordia,-31.4,-58.0166666666667,,,Argentina,INA,Rio Uruguay,AR_INA_79
+156,7193,CIRHBAS - LIM LOS AMORES - CAN,CIRHBAS-LIML,CIRHBAS - LIM LOS AMORES - CAN,-28.1102777777778,-59.9755555555556,,,Argentina,INA,Rio Parana,AR_INA_7193
+157,7264,Dulce III – Los Quiroga,DulceIII–Los,Dulce III – Los Quiroga,-27.6058333333333,-64.4075,,,Argentina,INA,,AR_INA_7264
+158,7251,Calchaquí - Cachi,Calchaquí-Ca,Calchaquí - Cachi,-25.1205555555556,-66.1588888888889,,,Argentina,INA,Rio Parana,AR_INA_7251
+159,103,Recreo - Ruta Provincial nº 70,Recreo-RutaP,Recreo - Ruta Provincial nº 70,-31.4912222222222,-60.7805555555556,,,Argentina,INA,Rio Parana,AR_INA_103
+160,6405,Uruguay - Concep. del Uruguay,Uruguay-Conc,Uruguay - Concep. del Uruguay,-32.4775,-58.2208333333333,,,Argentina,INA,Rio Uruguay,AR_INA_6405
+161,7226,CIRHBAS - PLU POZO LAS PIEDRAS,CIRHBAS-PLUP,CIRHBAS - PLU POZO LAS PIEDRAS,-27.1663888888889,-61.6869444444444,,,Argentina,INA,Rio Parana,AR_INA_7226
+162,8,Andresito,Andresito,Andresito,-25.5833333333333,-53.9833333333333,,,Argentina,INA,Rio Parana,AR_INA_8
+163,6445,Quinto - Justo Daract,Quinto-Justo,Quinto - Justo Daract,-33.9186111111111,-65.1516666666667,,,Argentina,INA,,AR_INA_6445
+164,7203,CIRHBAS - MET VILLA MINETTI,CIRHBAS-METV,CIRHBAS - MET VILLA MINETTI,-28.6219444444444,-61.6047222222222,,,Argentina,INA,Rio Parana,AR_INA_7203
+165,75,Mocoretá,Mocoretá,Mocoretá,-30.715682,-57.81776,,,Argentina,INA,Rio Uruguay,AR_INA_75
+166,2215,Río Areco - San Antonio de Are,RíoAreco-San,Río Areco - San Antonio de Are,-34.2405555555556,-59.4994444444444,,,Argentina,INA,Rio Parana,AR_INA_2215
+167,17,Itatí,Itatí,Itatí,-27.26677773,-58.24407387,,,Argentina,INA,Rio Parana,AR_INA_17
+168,2177,Canal Liag - Quebrachal,CanalLiag-Qu,Canal Liag - Quebrachal,-25.3452777777778,-64.045,,,Argentina,INA,Rio Parana,AR_INA_2177
+169,2115,Paraná - Corrientes,Paraná-Corri,Paraná - Corrientes,-27.4597222222222,-58.8333333333333,,,Argentina,INA,Rio Parana,AR_INA_2115
+170,6357,Carcarañá - Cruz Alta,Carcarañá-Cr,Carcarañá - Cruz Alta,-33.0063888888889,-61.7875,,,Argentina,INA,Rio Parana,AR_INA_6357
+171,6482,Desaguadero - Navia,Desaguadero-,Desaguadero - Navia,-34.7741666666667,-66.5886111111111,,,Argentina,INA,,AR_INA_6482
+172,6505,Chico - RN Nº157 Monteagudo,Chico-RNNº15,Chico - RN Nº157 Monteagudo,-27.5211111111111,-65.2663888888889,,,Argentina,INA,,AR_INA_6505
+173,2178,Iguazú - Puerto Andresito,Iguazú-Puert,Iguazú - Puerto Andresito,-25.5905555555556,-53.995,,,Argentina,INA,Rio Parana,AR_INA_2178
+174,7210,CIRHBAS - PF MEDRANO,CIRHBAS-PFME,CIRHBAS - PF MEDRANO,-28.4488888888889,-61.4947222222222,,,Argentina,INA,Rio Parana,AR_INA_7210
+175,2150,Miriñay - Paso Ledesma,Miriñay-Paso,Miriñay - Paso Ledesma,-29.8458333333333,-57.675,,,Argentina,INA,Rio Uruguay,AR_INA_2150
+176,7326,RMA05_SVI - San Vicente,RMA05_SVI-Sa,RMA05_SVI - San Vicente,-26.9208333333333,-54.4227777777778,,,Argentina,INA,Rio Uruguay,AR_INA_7326
+177,6685,Sis. Setúbal-Sta. Fé-La Guard.,Sis.Setúbal-,Sis. Setúbal-Sta. Fé-La Guard.,-31.6302777777778,-60.6777777777778,,,Argentina,INA,Rio Parana,AR_INA_6685
+178,2201,A° El Soberbio - Pje La Lechuz,A°ElSoberbio,A° El Soberbio - Pje La Lechuz,-27.2572222222222,-54.2355555555556,,,Argentina,INA,Rio Uruguay,AR_INA_2201
+179,2158,Aº Feliciano - Paso Medina,AºFeliciano-,Aº Feliciano - Paso Medina,-30.9236111111111,-59.5511111111111,,,Argentina,INA,Rio Parana,AR_INA_2158
+180,6587,Uruguay - Santo Tomé,Uruguay-Sant,Uruguay - Santo Tomé,-28.545,-56.0288888888889,,,Argentina,INA,Rio Uruguay,AR_INA_6587
+181,2825,Santa Lucia - Santa Lucia,SantaLucia-S,Santa Lucia - Santa Lucia,-28.9877777777778,-59.0905555555556,,,Argentina,INA,Rio Parana,AR_INA_2825
+182,7320,RMA04_COL - Cote Lai,RMA04_COL-Co,RMA04_COL - Cote Lai,-27.5327777777778,-59.5763888888889,,,Argentina,INA,Rio Parana,AR_INA_7320
+183,7286,Las Conchas - La Punilla RP44,LasConchas-L,Las Conchas - La Punilla RP44,-26.0119444444444,-65.8230555555556,,,Argentina,INA,Rio Parana,AR_INA_7286
+184,46,Puerto Ruiz,PuertoRuiz,Puerto Ruiz,-33.2166666667,-59.3666666667,,,Argentina,INA,Rio Parana,AR_INA_46
+185,7338,RMA08_BPL - Bonpland,RMA08_BPL-Bo,RMA08_BPL - Bonpland,-29.8186111111111,-57.4297222222222,,,Argentina,INA,Rio Uruguay,AR_INA_7338
+186,55,Puerto Pilcomayo,PuertoPilcom,Puerto Pilcomayo,-25.3666666666667,-57.65,,,Argentina,INA,Rio Paraguay,AR_INA_55
+187,7201,CIRHBAS - MET LINEA PARANA,CIRHBAS-METL,CIRHBAS - MET LINEA PARANA,-28.0086111111111,-60.6463888888889,,,Argentina,INA,Rio Parana,AR_INA_7201
+188,6359,Salado - Puente Carretero,Salado-Puent,Salado - Puente Carretero,-34.6113888888889,-60.9572222222222,,,Argentina,INA,Rio de la Plata,AR_INA_6359
+189,5894,Riacho Victoria - Victoria,RiachoVictor,Riacho Victoria - Victoria,-32.6316666666667,-60.1652777777778,,,Argentina,INA,Rio Parana,AR_INA_5894
+190,7224,CIRHBAS - PLU NOGUES,CIRHBAS-PLUN,CIRHBAS - PLU NOGUES,-28.0377777777778,-59.6966666666667,,,Argentina,INA,Rio Parana,AR_INA_7224
+191,69,Alvear,Alvear,Alvear,-29.1,-56.55,,,Argentina,INA,Rio Uruguay,AR_INA_69
+192,7291,Marapa - RN Nº 157 Lamadrid,Marapa-RNNº1,Marapa - RN Nº 157 Lamadrid,-27.6572222222222,-65.2447222222222,,,Argentina,INA,,AR_INA_7291
+193,1063,Miriñay Río,MiriñayRío,Miriñay Río,-29.845637,-57.674446,,,Argentina,INA,Rio Uruguay,AR_INA_1063
+194,2826,Pilcomayo - Puesto Jerez,Pilcomayo-Pu,Pilcomayo - Puesto Jerez,-22.7280555555556,-62.2133333333333,,,Argentina,INA,Rio Paraguay,AR_INA_2826
+195,6446,De Las Barrancas-A.Corral RP23,DeLasBarranc,De Las Barrancas-A.Corral RP23,-32.6894444444444,-64.7202777777778,,,Argentina,INA,Rio Parana,AR_INA_6446
+196,6604,Areco - Puente Quemado,Areco-Puente,Areco - Puente Quemado,-34.2880555555556,-59.7027777777778,,,Argentina,INA,Rio Parana,AR_INA_6604
+197,45,Ibicuy,Ibicuy,Ibicuy,-33.7619777376355,-59.1800594404244,,,Argentina,INA,Rio Parana,AR_INA_45
+198,7305,Pescado - Cuatro Cedros,Pescado-Cuat,Pescado - Cuatro Cedros,-22.8294444444444,-64.5158333333333,,,Argentina,INA,Rio Paraguay,AR_INA_7305
+199,7247,Bermejo - Balapuca MET,Bermejo-Bala,Bermejo - Balapuca MET,-22.4925,-64.4636111111111,,,Argentina,INA,Rio Paraguay,AR_INA_7247
+200,40,Zárate,Zárate,Zárate,-34.0987818311696,-59.0108657589595,,,Argentina,INA,Rio Parana,AR_INA_40
+201,6400,Paraná - Bella Vista,Paraná-Bella,Paraná - Bella Vista,-28.5052777777778,-59.0497222222222,,,Argentina,INA,Rio Parana,AR_INA_6400
+202,7339,RMA08_BVI - Bella Vista,RMA08_BVI-Be,RMA08_BVI - Bella Vista,-28.5138888888889,-59.0275,,,Argentina,INA,Rio Parana,AR_INA_7339
+203,6602,Iruya - El Molino,Iruya-ElMoli,Iruya - El Molino,-22.5988888888889,-65.1502777777778,,,Argentina,INA,Rio Paraguay,AR_INA_6602
+204,7192,CIRHBAS - LIM LIMITE CHACO STA FE - CANAL LINEA PA,CIRHBAS-LIML,CIRHBAS - LIM LIMITE CHACO STA FE - CANAL LINEA PA,-28.0011111111111,-60.1161111111111,,,Argentina,INA,Rio Parana,AR_INA_7192
+205,7284,Las Cañas - Clavillo MET,LasCañas-Cla,Las Cañas - Clavillo MET,-27.3994444444444,-65.9797222222222,,,Argentina,INA,,AR_INA_7284
+206,2853,Gualeguay - Paso Alonso,Gualeguay-Pa,Gualeguay - Paso Alonso,-33.1005555555556,-59.2702777777778,,,Argentina,INA,Rio Parana,AR_INA_2853
+207,2113,Aº Colastiné - Autopista - A01,AºColastiné-,Aº Colastiné - Autopista - A01,-32.0177777777778,-60.9902777777778,,,Argentina,INA,Rio Parana,AR_INA_2113
+208,58,Bermejo,Bermejo,Bermejo,-26.92629,-58.506205,,,Argentina,INA,Rio Paraguay,AR_INA_58
+209,6542,Puesto Cam. San Jaime - RN127,PuestoCam.Sa,Puesto Cam. San Jaime - RN127,-30.2827777777778,-58.2511111111111,,,Argentina,INA,Rio Uruguay,AR_INA_6542
+210,6435,Piray Guazú - R. Nac. 12 Vieja,PirayGuazú-R,Piray Guazú - R. Nac. 12 Vieja,-26.4858333333333,-54.5883333333333,,,Argentina,INA,Rio Parana,AR_INA_6435
+211,7281,Lag. La Picasa-Aguas AbajoRN33,Lag.LaPicasa,Lag. La Picasa-Aguas AbajoRN33,-34.3619444444444,-62.7386111111111,,,Argentina,INA,,AR_INA_7281
+212,2129,Arrecifes - Arrecifes,Arrecifes-Ar,Arrecifes - Arrecifes,-34.0866666666667,-60.0072222222222,,,Argentina,INA,Rio Parana,AR_INA_2129
+213,7266,Empedrado-Ruta Provincial Nº6,Empedrado-Ru,Empedrado-Ruta Provincial Nº6,-27.8013888888889,-58.5052777777778,,,Argentina,INA,Rio Parana,AR_INA_7266
+214,7292,Met - FICH - UNL Santa Fe,Met-FICH-UNL,Met - FICH - UNL Santa Fe,-31.6402777777778,-60.6680555555556,,,Argentina,INA,Rio Parana,AR_INA_7292
+215,35,Villa Constitución,VillaConstit,Villa Constitución,-33.2354221667103,-60.3091044341421,,,Argentina,INA,Rio Parana,AR_INA_35
+216,7304,Paranay - El Alcázar,Paranay-ElAl,Paranay - El Alcázar,-26.7508333333333,-54.7558333333333,,,Argentina,INA,Rio Parana,AR_INA_7304
+217,1706,Oyarvide,Oyarvide,Oyarvide,-35.0999984741211,-57.13330078125,,,Argentina,INA,Rio de la Plata,AR_INA_1706
+218,1739,Atalaya,Atalaya,Atalaya,-35.015278,-57.536111,,,Argentina,INA,Rio de la Plata,AR_INA_1739
+219,2156,Laguna Iberá - Carlos Pellegri,LagunaIberá-,Laguna Iberá - Carlos Pellegri,-28.5380555555556,-57.1869444444444,,,Argentina,INA,Rio Parana,AR_INA_2156
+220,2205,Gualeguay - Villaguay,Gualeguay-Vi,Gualeguay - Villaguay,-31.8016666666667,-59.1261111111111,,,Argentina,INA,Rio Parana,AR_INA_2205
+221,67,Garruchos,Garruchos,Garruchos,-28.1833333333333,-55.65,,,Argentina,INA,Rio Uruguay,AR_INA_67
+222,39,Baradero,Baradero,Baradero,-33.8006916108445,-59.4955962110789,,,Argentina,INA,Rio Parana,AR_INA_39
+223,6702,Cuarto - La Carlota,Cuarto-LaCar,Cuarto - La Carlota,-33.4155555555556,-63.3086111111111,,,Argentina,INA,Rio Parana,AR_INA_6702
+224,6483,Desaguadero - Salto de la Tosc,Desaguadero-,Desaguadero - Salto de la Tosc,-34.0869444444444,-66.71,,,Argentina,INA,,AR_INA_6483
+225,7207,CIRHBAS - PF LAS GAMAS (LA IND,CIRHBAS-PFLA,CIRHBAS - PF LAS GAMAS (LA IND,-28.6461111111111,-61.9780555555556,,,Argentina,INA,Rio Parana,AR_INA_7207
+226,6597,Arenales - El Encon,Arenales-ElE,Arenales - El Encon,-24.8422222222222,-65.5933333333333,,,Argentina,INA,Rio Parana,AR_INA_6597
+227,2121,Aº El Monje - Autopista A01,AºElMonje-Au,Aº El Monje - Autopista A01,-32.3922222222222,-60.9408333333333,,,Argentina,INA,Rio Parana,AR_INA_2121
+228,6546,Las Lomitas,LasLomitas,Las Lomitas,-24.7119444444444,-60.5827777777778,,,Argentina,INA,Rio Paraguay,AR_INA_6546
+229,7222,CIRHBAS - PLU LOS GANSOS,CIRHBAS-PLUL,CIRHBAS - PLU LOS GANSOS,-27.8338888888889,-60.7113888888889,,,Argentina,INA,Rio Parana,AR_INA_7222
+230,6504,Seco - RN Nº 157,Seco-RNNº157,Seco - RN Nº 157,-27.3361111111111,-65.3175,,,Argentina,INA,,AR_INA_6504
+231,74,Monte Caseros,MonteCaseros,Monte Caseros,-30.25,-57.6333333333333,,,Argentina,INA,Rio Uruguay,AR_INA_74
+232,63,Alba Posse,AlbaPosse,Alba Posse,-27.572,-54.678494,,,Argentina,INA,Rio Uruguay,AR_INA_63
+233,7349,RMA1_MIR - Miramar,RMA1_MIR-Mir,RMA1_MIR - Miramar,-30.9219444444444,-62.6847222222222,,,Argentina,INA,,AR_INA_7349
+234,2194,Bermejo - Puerto Velaz,Bermejo-Puer,Bermejo - Puerto Velaz,-26.6605555555556,-58.6338888888889,,,Argentina,INA,Rio Paraguay,AR_INA_2194
+235,6742,Dique Sotomayor - Embalse,DiqueSotomay,Dique Sotomayor - Embalse,-28.59,-65.2883333333333,,,Argentina,INA,,AR_INA_6742
+236,7359,RMA11_LV - Lavalle,RMA11_LV-Lav,RMA11_LV - Lavalle,-27.6583333333333,-65.2430555555556,,,Argentina,INA,,AR_INA_7359
+237,2832,Corriente - Paso Lucero,Corriente-Pa,Corriente - Paso Lucero,-28.995,-58.5583333333333,,,Argentina,INA,Rio Parana,AR_INA_2832
+238,2856,San Fransisco Caimancito,SanFransisco,San Fransisco Caimancito,-23.7119444444444,-64.5397222222222,,,Argentina,INA,Rio Paraguay,AR_INA_2856
+239,2837,Nogoya - RN Nº12,Nogoya-RNNº1,Nogoya - RN Nº12,-32.3947222222222,-59.7638888888889,,,Argentina,INA,Rio Parana,AR_INA_2837
+240,6536,Iruya - Poscaya,Iruya-Poscay,Iruya - Poscaya,-22.4547222222222,-65.0805555555555,,,Argentina,INA,Rio Paraguay,AR_INA_6536
+241,7228,Pampa del Indio,PampadelIndi,Pampa del Indio,-25.9333333333333,-60.05,,,Argentina,INA,Rio Parana,AR_INA_7228
+242,6713,Salto Chico - Gualeguaychú,SaltoChico-G,Salto Chico - Gualeguaychú,-32.9841666666667,-58.3491666666667,,,Argentina,INA,Rio Uruguay,AR_INA_6713
+243,5873,Arroyo Las Piedras - Gob. Monteverde,ArroyoLasPie,Arroyo Las Piedras - Gob. Monteverde,-34.783421,-58.298648,,,Argentina,INA,Rio de la Plata,AR_INA_5873
+244,6586,Metán - Desembocadura,Metán-Desemb,Metán - Desembocadura,-25.3933333333333,-64.5922222222222,,,Argentina,INA,Rio Parana,AR_INA_6586
+245,6709,Esc. Mariano Moreno Nº232,Esc.MarianoM,Esc. Mariano Moreno Nº232,-23.8619444444444,-65.0913888888889,,,Argentina,INA,Rio Paraguay,AR_INA_6709
+246,6618,Yabebiry - Colonia Martires,Yabebiry-Col,Yabebiry - Colonia Martires,-27.4011111111111,-55.335,,,Argentina,INA,Rio Parana,AR_INA_6618
+247,6658,Paraguay - Puerto Dalmacia,Paraguay-Pue,Paraguay - Puerto Dalmacia,-25.875,-57.8730555555556,,,Argentina,INA,Rio Paraguay,AR_INA_6658
+248,6555,Santa Maria - Pie de Medano,SantaMaria-P,Santa Maria - Pie de Medano,-26.9955555555556,-66.2175,,,Argentina,INA,Rio Parana,AR_INA_6555
+249,2119,Segundo (Plujunta) - RP Nº 17,Segundo(Pluj,Segundo (Plujunta) - RP Nº 17,-31.0105555555556,-62.7883333333333,,,Argentina,INA,,AR_INA_2119
+250,6464,San Pedro - Ledesma - RN 34,SanPedro-Led,San Pedro - Ledesma - RN 34,-24.2644444444444,-64.8986111111111,,,Argentina,INA,Rio Paraguay,AR_INA_6464
+251,6651,Dulce - Tuhama,Dulce-Tuhama,Dulce - Tuhama,-28.0144444444444,-64.0980555555555,,,Argentina,INA,,AR_INA_6651
+252,6730,Coronda - Puerto Gaboto,Coronda-Puer,Coronda - Puerto Gaboto,-32.4275,-60.8158333333333,,,Argentina,INA,Rio Parana,AR_INA_6730
+253,93,Confluencia,Confluencia,Confluencia,-25.592701,-54.593363,,,Argentina,INA,Rio Parana,AR_INA_93
+254,7167,San Javier - Romang,SanJavier-Ro,San Javier - Romang,-29.505,-59.74,,,Argentina,INA,Rio Parana,AR_INA_7167
+255,7384,Segundo - Despeñaderos RN Nº 3,Segundo-Desp,Segundo - Despeñaderos RN Nº 3,-31.8033333333333,-64.3088888888889,,,Argentina,INA,,AR_INA_7384
+256,11,El Dorado,ElDorado,El Dorado,-26.3833333333333,-54.7,,,Argentina,INA,Rio Parana,AR_INA_11
+257,6380,Aº De las Chañaritas,AºDelasChaña,Aº De las Chañaritas,-34.2797222222222,-59.5894444444444,,,Argentina,INA,Rio Parana,AR_INA_6380
+258,7308,PN - Est. 1 El Impenetrable,PN-Est.1ElIm,PN - Est. 1 El Impenetrable,-25.0527777777778,-61.0441666666667,,,Argentina,INA,Rio Paraguay,AR_INA_7308
+259,6436,Iruya - Colanzulí,Iruya-Colanz,Iruya - Colanzulí,-22.8716666666667,-65.2144444444445,,,Argentina,INA,Rio Paraguay,AR_INA_6436
+260,6463,Ledesma -Fraile Pintado-RN 34 ,Ledesma-Frai,Ledesma -Fraile Pintado-RN 34 ,-23.9094444444444,-64.8080555555556,,,Argentina,INA,Rio Paraguay,AR_INA_6463
+261,6456,Dulce - Villa San Martín,Dulce-VillaS,Dulce - Villa San Martín,-28.3291666666667,-64.0066666666667,,,Argentina,INA,,AR_INA_6456
+262,14,Posadas,Posadas,Posadas,-27.3666666666667,-55.8833333333333,,,Argentina,INA,Rio Parana,AR_INA_14
+263,5874,Arroyo San Francisco - Dr. Torre,ArroyoSanFra,Arroyo San Francisco - Dr. Torre,-34.7650541,-58.3234008,,,Argentina,INA,Rio de la Plata,AR_INA_5874
+264,6576,Laguna Yema,LagunaYema,Laguna Yema,-24.2563888888889,-61.2419444444444,,,Argentina,INA,Rio Paraguay,AR_INA_6576
+265,7161,Piray Guazú - Pinar Ciba,PirayGuazú-P,Piray Guazú - Pinar Ciba,-26.5119444444444,-54.4536111111111,,,Argentina,INA,Rio Parana,AR_INA_7161
+266,7278,Iruya - Iruya,Iruya-Iruya,Iruya - Iruya,-22.7955555555556,-65.2158333333333,,,Argentina,INA,Rio Paraguay,AR_INA_7278
+267,6479,El Tala - El Brete,ElTala-ElBre,El Tala - El Brete,-26.0658333333333,-65.3411111111111,,,Argentina,INA,,AR_INA_6479
+268,174,San Justo - Ruta Provincial nº 2,SanJusto-Rut,San Justo - Ruta Provincial nº 2,-30.744031,-60.624247,,,Argentina,INA,Rio Parana,AR_INA_174
+269,6431,PN  - Copo  - El Aibal ,PN-Copo-ElAi,PN  - Copo  - El Aibal ,-25.9227777777778,-61.7138888888889,,,Argentina,INA,Rio Parana,AR_INA_6431
+270,2175,Canal Macapillo,CanalMacapil,Canal Macapillo,-25.4136111111111,-63.9761111111111,,,Argentina,INA,Rio Parana,AR_INA_2175
+271,1035,Garruchos,Garruchos,Garruchos,-28.177515,-55.642269,,,Argentina,INA,Rio Uruguay,AR_INA_1035
+272,70,La Cruz,LaCruz,La Cruz,-29.18062,-56.633977,,,Argentina,INA,Rio Uruguay,AR_INA_70
+273,7307,PN - El Nogalar de Los Toldos,PN-ElNogalar,PN - El Nogalar de Los Toldos,-22.2797222222222,-64.7030555555556,,,Argentina,INA,Rio Paraguay,AR_INA_7307
+274,7350,RMA1_PIL - Pilar,RMA1_PIL-Pil,RMA1_PIL - Pilar,-31.6677777777778,-63.8816666666667,,,Argentina,INA,,AR_INA_7350
+275,2857,Paraná - Chapetón,Paraná-Chape,Paraná - Chapetón,-31.6105555555556,-60.2947222222222,,,Argentina,INA,Rio Parana,AR_INA_2857
+276,6626,Guayquiraró - RN 12 - A°Curupí,Guayquiraró-,Guayquiraró - RN 12 - A°Curupí,-30.3511111111111,-59.5147222222222,,,Argentina,INA,Rio Parana,AR_INA_6626
+277,7348,RMA1_FDC - Falda del Carmen,RMA1_FDC-Fal,RMA1_FDC - Falda del Carmen,-31.5213888888889,-64.4655555555556,,,Argentina,INA,,AR_INA_7348
+278,6511,Paraguay - Las Palmas,Paraguay-Las,Paraguay - Las Palmas,-27.1180555555556,-58.6427777777778,,,Argentina,INA,Rio Paraguay,AR_INA_6511
+279,6599,Aº Los Amores - Escuela 1256,AºLosAmores-,Aº Los Amores - Escuela 1256,-28.2275,-59.7155555555556,,,Argentina,INA,Rio Parana,AR_INA_6599
+280,6627,Compuerta Alternativa Norte AD,CompuertaAlt,Compuerta Alternativa Norte AD,-34.2419444444444,-62.1211111111111,,,Argentina,INA,,AR_INA_6627
+281,7296,Negro - San Fernando,Negro-SanFer,Negro - San Fernando,-27.4355555555556,-58.9822222222222,,,Argentina,INA,Rio Parana,AR_INA_7296
+282,7311,RMA02_LUJ - Luján,RMA02_LUJ-Lu,RMA02_LUJ - Luján,-34.5880555555556,-59.0625,,,Argentina,INA,Rio Parana,AR_INA_7311
+283,7303,Paraná - Ita Cajón,Paraná-ItaCa,Paraná - Ita Cajón,-25.6047222222222,-54.5941666666667,,,Argentina,INA,Rio Parana,AR_INA_7303
+284,7235,Aº Golondrina - Fortín Olmos,AºGolondrina,Aº Golondrina - Fortín Olmos,-29.0655555555556,-60.4969444444444,,,Argentina,INA,Rio Parana,AR_INA_7235
+285,6391,Laguna La Margarita,LagunaLaMarg,Laguna La Margarita,-34.6533333333333,-63.7230555555556,,,Argentina,INA,,AR_INA_6391
+286,7206,CIRHBAS - PF KM 468,CIRHBAS-PFKM,CIRHBAS - PF KM 468,-28.0869444444444,-61.4630555555556,,,Argentina,INA,Rio Parana,AR_INA_7206
+287,73,Bompland,Bompland,Bompland,-29.872652,-57.332887,,,Argentina,INA,Rio Uruguay,AR_INA_73
+288,6652,Lipeo - Puente Colgante,Lipeo-Puente,Lipeo - Puente Colgante,-22.4311111111111,-64.7372222222222,,,Argentina,INA,Rio Paraguay,AR_INA_6652
+289,2672,Juramento - Finca Agropecuari,Juramento-Fi,Juramento - Finca Agropecuari,-25.1613888888889,-64.1061111111111,,,Argentina,INA,Rio Parana,AR_INA_2672
+290,7227,CIRHBAS - PLU SACHAYOJ,CIRHBAS-PLUS,CIRHBAS - PLU SACHAYOJ,-26.6805555555556,-61.8188888888889,,,Argentina,INA,Rio Parana,AR_INA_7227
+291,28,Hernandarias,Hernandarias,Hernandarias,-31.22650904,-59.99193936,,,Argentina,INA,Rio Parana,AR_INA_28
+292,2204,Carcarañá - Pueblo Andino,Carcarañá-Pu,Carcarañá - Pueblo Andino,-32.6733333333333,-60.8658333333333,,,Argentina,INA,Rio Parana,AR_INA_2204
+293,7347,RMA1_BAL - Bosque Alegre,RMA1_BAL-Bos,RMA1_BAL - Bosque Alegre,-31.5975,-64.5502777777778,,,Argentina,INA,,AR_INA_7347
+294,6439,Piray Mini - Valle Hermoso,PirayMini-Va,Piray Mini - Valle Hermoso,-26.355,-54.4983333333333,,,Argentina,INA,Rio Parana,AR_INA_6439
+295,7322,RMA04_PCH - Parque Nacional Chaco,RMA04_PCH-Pa,RMA04_PCH - Parque Nacional Chaco,-26.8069444444444,-59.6066666666667,,,Argentina,INA,Rio Parana,AR_INA_7322
+296,2815,Bermejo - Aguas Blancas MET,Bermejo-Agua,Bermejo - Aguas Blancas MET,-22.725,-64.3647222222222,,,Argentina,INA,Rio Paraguay,AR_INA_2815
+297,7198,CIRHBAS - MET EL COLORADO,CIRHBAS-METE,CIRHBAS - MET EL COLORADO,-27.9152777777778,-62.1777777777778,,,Argentina,INA,Rio Parana,AR_INA_7198
+298,7212,CIRHBAS - PF PAMPA HERMOSA,CIRHBAS-PFPA,CIRHBAS - PF PAMPA HERMOSA,-26.6369444444444,-61.3302777777778,,,Argentina,INA,Rio Parana,AR_INA_7212
+299,6549,Juramento - El Tunal,Juramento-El,Juramento - El Tunal,-25.2497222222222,-64.3902777777778,,,Argentina,INA,Rio Parana,AR_INA_6549
+300,7236,Aº Los Amores - RN Nº11,AºLosAmores-,Aº Los Amores - RN Nº11,-28.5558333333333,-59.3558333333333,,,Argentina,INA,Rio Parana,AR_INA_7236
+301,6623,Quinto - Canal Devoto RP 4,Quinto-Canal,Quinto - Canal Devoto RP 4,-33.9330555555556,-63.4491666666667,,,Argentina,INA,Rio Parana,AR_INA_6623
+302,2823,Juramento - Cabra Corral,Juramento-Ca,Juramento - Cabra Corral,-25.2677777777778,-65.2372222222222,,,Argentina,INA,Rio Parana,AR_INA_2823
+303,7238,Aº Pavón - Cnel. Bogado,AºPavón-Cnel,Aº Pavón - Cnel. Bogado,-33.36,-60.5766666666667,,,Argentina,INA,Rio Parana,AR_INA_7238
+304,81,Concepción del Uruguay,Concepciónde,Concepción del Uruguay,-32.4833333333333,-58.2333333333333,,,Argentina,INA,Rio Uruguay,AR_INA_81
+305,26,La Paz,LaPaz,La Paz,-30.73419972,-59.6381167,,,Argentina,INA,Rio Parana,AR_INA_26
+306,6747,Areco - San Antonio de Areco,Areco-SanAnt,Areco - San Antonio de Areco,-34.2405555555556,-59.4994444444444,,,Argentina,INA,Rio Parana,AR_INA_6747
+307,29,Paraná,Paraná,Paraná,-31.7182378629681,-60.5225697750899,,,Argentina,INA,Rio Parana,AR_INA_29
+308,2202,Cuarto - RN Nº 8,Cuarto-RNNº8,Cuarto - RN Nº 8,-33.1605555555556,-64.26,,,Argentina,INA,Rio Parana,AR_INA_2202
+309,16,Itá Ibaté,ItáIbaté,Itá Ibaté,-27.42336098,-57.33326783,,,Argentina,INA,Rio Parana,AR_INA_16
+310,7340,RMA08_CC - Curuzú Cuatiá,RMA08_CC-Cur,RMA08_CC - Curuzú Cuatiá,-29.8091666666667,-58.0419444444444,,,Argentina,INA,Rio Uruguay,AR_INA_7340
+311,5907,Paraná Las Palmas - Zárate,ParanáLasPal,Paraná Las Palmas - Zárate,-34.1019444444444,-59.0088888888889,,,Argentina,INA,Rio Parana,AR_INA_5907
+312,6659,Riacho Salado - Tatané - RN 11,RiachoSalado,Riacho Salado - Tatané - RN 11,-26.4077777777778,-58.3591666666667,,,Argentina,INA,Rio Paraguay,AR_INA_6659
+313,7199,CIRHBAS - MET INTIYACO,CIRHBAS-METI,CIRHBAS - MET INTIYACO,-28.6816666666667,-60.0683333333333,,,Argentina,INA,Rio Parana,AR_INA_7199
+314,7351,RMA1_VMA - Villa María,RMA1_VMA-Vil,RMA1_VMA - Villa María,-32.3272222222222,-63.23,,,Argentina,INA,Rio Parana,AR_INA_7351
+315,57,Puerto Formosa,PuertoFormos,Puerto Formosa,-26.1833333333333,-58.1833333333333,,,Argentina,INA,Rio Paraguay,AR_INA_57
+316,6422,Mocoretá - RN Nº 127,Mocoretá-RNN,Mocoretá - RN Nº 127,-30.1083333333333,-58.0588888888889,,,Argentina,INA,Rio Uruguay,AR_INA_6422
+317,7232,Aº Cululú - Grutly,AºCululú-Gru,Aº Cululú - Grutly,-31.2933333333333,-60.9788888888889,,,Argentina,INA,Rio Parana,AR_INA_7232
+318,7279,Iruya - San José,Iruya-SanJos,Iruya - San José,-22.8641666666667,-64.7052777777778,,,Argentina,INA,Rio Paraguay,AR_INA_7279
+319,105,Tostado,Tostado,Tostado,-29.2751666666667,-61.7439444444444,,,Argentina,INA,Rio Parana,AR_INA_105
+320,6738,Miraflores - Sayate,Miraflores-S,Miraflores - Sayate,-22.9008333333333,-65.8494444444444,,,Argentina,INA,,AR_INA_6738
+321,42,Escobar,Escobar,Escobar,-34.3,-58.7333333333,,,Argentina,INA,Rio Parana,AR_INA_42
+322,7208,CIRHBAS - PF LAS PIEDRITAS,CIRHBAS-PFLA,CIRHBAS - PF LAS PIEDRITAS,-26.8241666666667,-61.5672222222222,,,Argentina,INA,Rio Parana,AR_INA_7208
+323,6588,Uruguay-S.Javier-P.de la Barca,Uruguay-S.Ja,Uruguay-S.Javier-P.de la Barca,-27.8938888888889,-55.1358333333333,,,Argentina,INA,Rio Uruguay,AR_INA_6588
+324,7218,CIRHBAS - PLU EL DESCANSO,CIRHBAS-PLUE,CIRHBAS - PLU EL DESCANSO,-28.8472222222222,-61.3041666666667,,,Argentina,INA,Rio Parana,AR_INA_7218
+325,7378,Salí - Simoca,Salí-Simoca,Salí - Simoca,-27.3186111111111,-65.2277777777778,,,Argentina,INA,,AR_INA_7378
+326,2116,Paraguay - Pto. Formosa,Paraguay-Pto,Paraguay - Pto. Formosa,-26.1830555555556,-58.1619444444444,,,Argentina,INA,Rio Paraguay,AR_INA_2116
+327,2813,Miriñay - Paso Mesa,Miriñay-Paso,Miriñay - Paso Mesa,-28.9166666666667,-57.2363888888889,,,Argentina,INA,Rio Uruguay,AR_INA_2813
+328,6396,Cuarto - La Carlota LIM,Cuarto-LaCar,Cuarto - La Carlota LIM,-33.4075,-63.2941666666667,,,Argentina,INA,Rio Parana,AR_INA_6396
+329,5901,Paraná - Túnel subfluvial,Paraná-Túnel,Paraná - Túnel subfluvial,-31.72,-60.5175,,,Argentina,INA,Rio Parana,AR_INA_5901
+330,84,Boca Gualeguaychú,BocaGualegua,Boca Gualeguaychú,-33.0666666666667,-58.4166666666667,,,Argentina,INA,Rio Uruguay,AR_INA_84
+331,2671,Canal Finca Agropecuaria,CanalFincaAg,Canal Finca Agropecuaria,-25.1608333333333,-64.1058333333333,,,Argentina,INA,Rio Parana,AR_INA_2671
+332,7216,CIRHBAS - PLU EL 38 NORTE,CIRHBAS-PLUE,CIRHBAS - PLU EL 38 NORTE,-27.7794444444444,-59.6066666666667,,,Argentina,INA,Rio Parana,AR_INA_7216
+333,6698,Salado RP Nº 51 - Achupallas,SaladoRPNº51,Salado RP Nº 51 - Achupallas,-35.0880555555556,-60.1088888888889,,,Argentina,INA,Rio de la Plata,AR_INA_6698
+334,82,Campichuelo,Campichuelo,Campichuelo,-32.70101,-58.1834,,,Argentina,INA,Rio Uruguay,AR_INA_82
+335,2199,Corrientes - Los Laureles,Corrientes-L,Corrientes - Los Laureles,-29.7572222222222,-59.2172222222222,,,Argentina,INA,Rio Parana,AR_INA_2199
+336,6423,Aº Del Doll - RN 11,AºDelDoll-RN,Aº Del Doll - RN 11,-32.3058333333333,-60.4261111111111,,,Argentina,INA,Rio Parana,AR_INA_6423
+337,6544,Areco - Carmen de Areco,Areco-Carmen,Areco - Carmen de Areco,-34.3519444444444,-59.8169444444444,,,Argentina,INA,Rio Parana,AR_INA_6544
+338,7324,RMA05_ELD - Eldorado,RMA05_ELD-El,RMA05_ELD - Eldorado,-26.3933333333333,-54.5761111111111,,,Argentina,INA,Rio Parana,AR_INA_7324
+339,7187,CIRHBAS - LIM Aº RETOBADO - CRESPO,CIRHBAS-LIMA,CIRHBAS - LIM Aº RETOBADO - CRESPO,-30.3375,-60.6288888888889,,,Argentina,INA,Rio Parana,AR_INA_7187
+340,2227,Salado - RN Nº02,Salado-RNNº0,Salado - RN Nº02,-35.9622222222222,-57.8519444444444,,,Argentina,INA,Rio de la Plata,AR_INA_2227
+341,7321,RMA04_LAE - La Escondida,RMA04_LAE-La,RMA04_LAE - La Escondida,-27.1333333333333,-59.4727777777778,,,Argentina,INA,Rio Parana,AR_INA_7321
+342,2168,Guayquiraró - Pblo Libertador,Guayquiraró-,Guayquiraró - Pblo Libertador,-30.2211111111111,-59.385,,,Argentina,INA,Rio Parana,AR_INA_2168
+343,6481,Grande - Ruta Provincia Nº 9,Grande-RutaP,Grande - Ruta Provincia Nº 9,-32.9019444444444,-66.1055555555556,,,Argentina,INA,,AR_INA_6481
+344,7164,Canal Soberanía - Obra Control,CanalSoberan,Canal Soberanía - Obra Control,-27.5272222222222,-58.9427777777778,,,Argentina,INA,Rio Parana,AR_INA_7164
+345,6669,San Javier - Cayastá,SanJavier-Ca,San Javier - Cayastá,-31.1933333333333,-60.1530555555556,,,Argentina,INA,Rio Parana,AR_INA_6669
+346,9,Puerto Iguazú,PuertoIguazú,Puerto Iguazú,-25.5833333333333,-54.5666666666667,,,Argentina,INA,Rio Parana,AR_INA_9
+347,7317,RMA03_PTL - Puente Lavalle,RMA03_PTL-Pu,RMA03_PTL - Puente Lavalle,-25.6763888888889,-60.14,,,Argentina,INA,Rio Paraguay,AR_INA_7317
+348,1679,Santo Tomé,SantoTomé,Santo Tomé,-31.667601,-60.752233,,,Argentina,INA,Rio Parana,AR_INA_1679
+349,59,Isla del Cerrito,IsladelCerri,Isla del Cerrito,-27.3166666666667,-58.6166666666667,,,Argentina,INA,Rio Parana,AR_INA_59
+350,1701,Gualeguaychú FdX,Gualeguaychú,Gualeguaychú FdX,-33.0666666666667,-58.4166666666667,,,Argentina,INA,Rio Uruguay,AR_INA_1701
+351,6389,Las Tapias - Las Tapias,LasTapias-La,Las Tapias - Las Tapias,-32.8036111111111,-64.7763888888889,,,Argentina,INA,Rio Parana,AR_INA_6389
+352,7234,Aº Feliciano - Paso Correa RP2,AºFeliciano-,Aº Feliciano - Paso Correa RP2,-30.3930555555556,-58.7075,,,Argentina,INA,Rio Parana,AR_INA_7234
+353,6538,Iruya - Las Higueras,Iruya-LasHig,Iruya - Las Higueras,-22.7541666666667,-65.0972222222222,,,Argentina,INA,Rio Paraguay,AR_INA_6538
+354,7268,Esc Agr Nº3 Cnel.M.E.Arias-MET,EscAgrNº3Cne,Esc Agr Nº3 Cnel.M.E.Arias-MET,-23.1969444444444,-65.34,,,Argentina,INA,Rio Paraguay,AR_INA_7268
+355,2128,Lujan - Lujan,Lujan-Lujan,Lujan - Lujan,-34.5894444444444,-59.1783333333333,,,Argentina,INA,Rio Parana,AR_INA_2128
+356,7309,PN El Palmar de Colón,PNElPalmarde,PN El Palmar de Colón,-31.8638888888889,-58.2591666666667,,,Argentina,INA,Rio Uruguay,AR_INA_7309
+357,2203,Gualeguay - Rosario del Tala,Gualeguay-Ro,Gualeguay - Rosario del Tala,-32.3086111111111,-59.0769444444445,,,Argentina,INA,Rio Parana,AR_INA_2203
+358,7202,CIRHBAS - MET SACHAYOJ,CIRHBAS-METS,CIRHBAS - MET SACHAYOJ,-27.0111111111111,-62.0580555555556,,,Argentina,INA,Rio Parana,AR_INA_7202
+359,7357,RMA11_CO - Concepción,RMA11_CO-Con,RMA11_CO - Concepción,-27.3438888888889,-65.6172222222222,,,Argentina,INA,,AR_INA_7357
+360,2846,Pilcomayo - Misión La Paz,Pilcomayo-Mi,Pilcomayo - Misión La Paz,-22.3775,-62.5236111111111,,,Argentina,INA,Rio Paraguay,AR_INA_2846
+361,2830,Paraná Guazú - Brazo Largo,ParanáGuazú-,Paraná Guazú - Brazo Largo,-33.8830555555556,-58.9,,,Argentina,INA,Rio Parana,AR_INA_2830
+362,6622,Quinto - R.N. 35,Quinto-R.N.3,Quinto - R.N. 35,-34.2163888888889,-64.3861111111111,,,Argentina,INA,,AR_INA_6622
+363,61,El Soberbio,ElSoberbio,El Soberbio,-27.3,-54.2,,,Argentina,INA,Rio Uruguay,AR_INA_61
+364,77,Salto Grande Arriba,SaltoGrandeA,Salto Grande Arriba,-31.27547,-57.936945,,,Argentina,INA,Rio Uruguay,AR_INA_77
+365,5905,Paraná - Villa Constitución,Paraná-Villa,Paraná - Villa Constitución,-33.2272222222222,-60.32,,,Argentina,INA,Rio Parana,AR_INA_5905
+366,7302,Paraná - HID Chapetón,Paraná-HIDCh,Paraná - HID Chapetón,-31.5741666666667,-60.2833333333333,,,Argentina,INA,Rio Parana,AR_INA_7302
+367,66,Puerto Concepción,PuertoConcep,Puerto Concepción,-28.119193,-55.581369,,,Argentina,INA,Rio Uruguay,AR_INA_66
+368,7163,Laguna Maria Cristina,LagunaMariaC,Laguna Maria Cristina,-27.4788888888889,-58.9208333333333,,,Argentina,INA,Rio Parana,AR_INA_7163
+369,7275,Guayquiraró - La Grela,Guayquiraró-,Guayquiraró - La Grela,-30.3463888888889,-59.3005555555556,,,Argentina,INA,Rio Parana,AR_INA_7275
+370,7214,CIRHBAS - PLU A DENOMINAR 10,CIRHBAS-PLUA,CIRHBAS - PLU A DENOMINAR 10,-26.9075,-61.7138888888889,,,Argentina,INA,Rio Parana,AR_INA_7214
+371,7391,Utis - RP Nº 13,Utis-RPNº13,Utis - RP Nº 13,-29.2425,-63.1269444444444,,,Argentina,INA,,AR_INA_7391
+372,6444,Trapiche - Hosteria El Trapich,Trapiche-Hos,Trapiche - Hosteria El Trapich,-33.1058333333333,-66.0633333333333,,,Argentina,INA,,AR_INA_6444
+373,7185,CIRHBAS - LIM  LAGUNA EL BONETE - ARROYO GOLONDRIN,CIRHBAS-LIML,CIRHBAS - LIM  LAGUNA EL BONETE - ARROYO GOLONDRIN,-29.3880555555556,-60.5469444444444,,,Argentina,INA,Rio Parana,AR_INA_7185
+374,7382,Santa Catalina - Colonia Hogar,SantaCatalin,Santa Catalina - Colonia Hogar,-30.8491666666667,-64.2738888888889,,,Argentina,INA,,AR_INA_7382
+375,6461,Aº Las Garzas - RN Nº 11,AºLasGarzas-,Aº Las Garzas - RN Nº 11,-28.7766666666667,-59.4738888888889,,,Argentina,INA,Rio Parana,AR_INA_6461
+376,6578,Uruguay - El Soberbio,Uruguay-ElSo,Uruguay - El Soberbio,-27.2922222222222,-54.1955555555556,,,Argentina,INA,Rio Uruguay,AR_INA_6578
+377,7189,CIRHBAS - LIM CANAL INTERLAGOS-CANAL INTERLAGOS,CIRHBAS-LIMC,CIRHBAS - LIM CANAL INTERLAGOS-CANAL INTERLAGOS,-28.9947222222222,-60.5691666666667,,,Argentina,INA,Rio Parana,AR_INA_7189
+378,6592,A° Saltito - El Saltito,A°Saltito-El,A° Saltito - El Saltito,-27.4405555555556,-54.5766666666667,,,Argentina,INA,Rio Uruguay,AR_INA_6592
+379,6553,Bañado La Estrella - RP Nº28,BañadoLaEstr,Bañado La Estrella - RP Nº28,-24.4086111111111,-60.3341666666667,,,Argentina,INA,Rio Paraguay,AR_INA_6553
+380,18,Paso de la Patria,PasodelaPatr,Paso de la Patria,-27.3333333333333,-58.5833333333333,,,Argentina,INA,Rio Parana,AR_INA_18
+381,7248,Bermejo - P. Sarmiento,Bermejo-P.Sa,Bermejo - P. Sarmiento,-23.1438888888889,-64.1947222222222,,,Argentina,INA,Rio Paraguay,AR_INA_7248
+382,2807,Salado - El Arenal,Salado-ElAre,Salado - El Arenal,-26.3741666666667,-63.7244444444444,,,Argentina,INA,Rio Parana,AR_INA_2807
+383,6624,Aº El Aji - RN Nº35 y RN Nº7,AºElAji-RNNº,Aº El Aji - RN Nº35 y RN Nº7,-33.9311111111111,-64.3963888888889,,,Argentina,INA,,AR_INA_6624
+384,6633,Salado - RN Nº 11,Salado-RNNº1,Salado - RN Nº 11,-27.5413888888889,-59.1308333333333,,,Argentina,INA,Rio Parana,AR_INA_6633
+385,6395,Paraná - Vuelta de Obligado,Paraná-Vuelt,Paraná - Vuelta de Obligado,-33.5941666666667,-59.8130555555556,,,Argentina,INA,Rio Parana,AR_INA_6395
+386,6552,Acaragua - Campo Grande,Acaragua-Cam,Acaragua - Campo Grande,-27.2158333333333,-54.9725,,,Argentina,INA,Rio Uruguay,AR_INA_6552
+387,6432,Negro - Laguna Blanca,Negro-Laguna,Negro - Laguna Blanca,-27.2633333333333,-59.1961111111111,,,Argentina,INA,Rio Parana,AR_INA_6432
+388,6454,Negro-Obra de Ctrl. Agua Abajo,Negro-Obrade,Negro-Obra de Ctrl. Agua Abajo,-27.4563888888889,-58.8988888888889,,,Argentina,INA,Rio Parana,AR_INA_6454
+389,7243,Aº Vallimanca - RN 226,AºVallimanca,Aº Vallimanca - RN 226,-36.3711111111111,-60.9555555555556,,,Argentina,INA,Rio de la Plata,AR_INA_7243
+390,2233,Concepción del Uruguay - CARU,Concepciónde,Concepción del Uruguay - CARU,-32.477173,-58.221219,,,Argentina,INA,Rio Uruguay,AR_INA_2233
+391,6676,PN Trinidad - Condorito ,PNTrinidad-C,PN Trinidad - Condorito ,-31.6911111111111,-64.8527777777778,,,Argentina,INA,,AR_INA_6676
+392,6631,Dique Sotomayor - Aguas abajo,DiqueSotomay,Dique Sotomayor - Aguas abajo,-28.5911111111111,-65.2877777777778,,,Argentina,INA,,AR_INA_6631
+393,6577,Las Conchas - Coropampa,LasConchas-C,Las Conchas - Coropampa,-25.5091666666667,-65.5238888888889,,,Argentina,INA,Rio Parana,AR_INA_6577
+394,37,Ramallo,Ramallo,Ramallo,-33.4780656197056,-59.9957013181522,,,Argentina,INA,Rio Parana,AR_INA_37
+395,6628,Colorado - Villa de Mazán,Colorado-Vil,Colorado - Villa de Mazán,-28.6491666666667,-66.5491666666667,,,Argentina,INA,,AR_INA_6628
+396,36,San Nicolás,SanNicolás,San Nicolás,-33.3420008188866,-60.1895279977149,,,Argentina,INA,Rio Parana,AR_INA_36
+397,7197,CIRHBAS - MET CHARADAI,CIRHBAS-METC,CIRHBAS - MET CHARADAI,-27.6511111111111,-59.8580555555556,,,Argentina,INA,Rio Parana,AR_INA_7197
+398,7223,CIRHBAS - PLU LOTE 53,CIRHBAS-PLUL,CIRHBAS - PLU LOTE 53,-28.2730555555556,-62.0836111111111,,,Argentina,INA,Rio Parana,AR_INA_7223
+399,6480,Canal - Jume Esquina,Canal-JumeEs,Canal - Jume Esquina,-27.6966666666667,-63.9333333333333,,,Argentina,INA,Rio Parana,AR_INA_6480
+400,27,Santa Elena,SantaElena,Santa Elena,-30.95,-59.7833333333333,,,Argentina,INA,Rio Parana,AR_INA_27
+401,7316,RMA03_PIR - Pirané,RMA03_PIR-Pi,RMA03_PIR - Pirané,-25.7558333333333,-59.1172222222222,,,Argentina,INA,Rio Paraguay,AR_INA_7316
+402,19,Corrientes,Corrientes,Corrientes,-27.46364349,-58.8388696,,,Argentina,INA,Rio Parana,AR_INA_19
+403,6512,INA - Ezeiza,INA-Ezeiza,INA - Ezeiza,-34.7972222222222,-58.5202777777778,,,Argentina,INA,Rio de la Plata,AR_INA_6512
+404,48,Guazucito,Guazucito,Guazucito,-34.0166666667,-58.4,,,Argentina,INA,Rio Parana,AR_INA_48
+405,24,Reconquista,Reconquista,Reconquista,-29.23756092,-59.58115833,,,Argentina,INA,Rio Parana,AR_INA_24
+406,7381,Santa Catalina - Catalina 630,SantaCatalin,Santa Catalina - Catalina 630,-33.2844444444444,-64.3536111111111,,,Argentina,INA,,AR_INA_7381
+407,7383,Santa Sabina MET,SantaSabinaM,Santa Sabina MET,-30.8558333333333,-64.3086111111111,,,Argentina,INA,,AR_INA_7383
+408,7265,Durazno - La Florida,Durazno-LaFl,Durazno - La Florida,-32.2158333333333,-64.7658333333333,,,Argentina,INA,Rio Parana,AR_INA_7265
+409,80,Colón,Colón,Colón,-32.2333333333333,-58.1166666666667,,,Argentina,INA,Rio Uruguay,AR_INA_80
+410,7200,CIRHBAS - MET LAS GAMAS,CIRHBAS-METL,CIRHBAS - MET LAS GAMAS,-29.425,-60.3794444444444,,,Argentina,INA,Rio Parana,AR_INA_7200
+411,6498,Urueña -7 de Abril - RN34,Urueña-7deAb,Urueña -7 de Abril - RN34,-26.2188888888889,-64.5119444444444,,,Argentina,INA,Rio Parana,AR_INA_6498
+412,25,Esquina,Esquina,Esquina,-30.01924089,-59.53663483,,,Argentina,INA,Rio Parana,AR_INA_25
+413,7162,Aº El Rey - RN Nº11,AºElRey-RNNº,Aº El Rey - RN Nº11,-29.1333333333333,-59.6547222222222,,,Argentina,INA,Rio Parana,AR_INA_7162
+414,7249,Bermejo - Santa Victoria Oeste,Bermejo-Sant,Bermejo - Santa Victoria Oeste,-22.2486111111111,-64.9613888888889,,,Argentina,INA,Rio Paraguay,AR_INA_7249
+415,2847,PN Pilcomayo - Piquete del 8,PNPilcomayo-,PN Pilcomayo - Piquete del 8,-25.1233333333333,-58.1752777777778,,,Argentina,INA,Rio Paraguay,AR_INA_2847
+416,2131,Paraná - Itatí,Paraná- Itat,Paraná - Itatí,-27.2663888888889,-58.2444444444444,,,Argentina,INA,Rio Parana,AR_INA_2131
+417,6508,Paraná - Puerto Rico,Paraná-Puert,Paraná - Puerto Rico,-26.7916666666667,-55.025,,,Argentina,INA,Rio Parana,AR_INA_6508
+418,6459,Canal de Dios - Cruz Bajada,CanaldeDios-,Canal de Dios - Cruz Bajada,-25.7163888888889,-63.8905555555556,,,Argentina,INA,Rio Parana,AR_INA_6459
+419,7196,CIRHBAS - LIM VILLA GUILLERMINA-ARROYO LOS AMORES,CIRHBAS-LIMV,CIRHBAS - LIM VILLA GUILLERMINA-ARROYO LOS AMORES,-28.2744444444444,-59.4216666666667,,,Argentina,INA,Rio Parana,AR_INA_7196
+420,6469,Vipos - Toma Obras Sanitarias,Vipos-TomaOb,Vipos - Toma Obras Sanitarias,-26.4775,-65.3163888888889,,,Argentina,INA,,AR_INA_6469
+421,7261,Dique Paso de Las Carretas,DiquePasodeL,Dique Paso de Las Carretas,-33.3336111111111,-65.8669444444444,,,Argentina,INA,,AR_INA_7261
+422,60,Pepirí Miní,PepiríMiní,Pepirí Miní,-27.153744,-53.933149,,,Argentina,INA,Rio Uruguay,AR_INA_60
+423,6365,Mojotoro - Güemes,Mojotoro-Güe,Mojotoro - Güemes,-24.7316666666667,-65.0288888888889,,,Argentina,INA,Rio Paraguay,AR_INA_6365
+424,6595,Lag. La Picasa-Inter. Can. A22,Lag.LaPicasa,Lag. La Picasa-Inter. Can. A22,-34.4494444444444,-62.4133333333333,,,Argentina,INA,,AR_INA_6595
+425,7319,RMA04_CBN - Colonia Benitez,RMA04_CBN-Co,RMA04_CBN - Colonia Benitez,-27.3238888888889,-58.9525,,,Argentina,INA,Rio Parana,AR_INA_7319
+426,6428,Salado -A.Ab. Azud Cruz Bajada,Salado-A.Ab.,Salado -A.Ab. Azud Cruz Bajada,-25.7166666666667,-63.8916666666667,,,Argentina,INA,Rio Parana,AR_INA_6428
+427,1038,El Soberbio,ElSoberbio,El Soberbio,-27.298582,-54.193437,,,Argentina,INA,Rio Uruguay,AR_INA_1038
+428,7229,Salado Bs As -Lag. Salada Gde.,SaladoBsAs-L,Salado Bs As -Lag. Salada Gde.,-36.6741666666667,-57.2061111111111,,,Argentina,INA,Rio de la Plata,AR_INA_7229
+429,6707,Juramento - El Quebrachal,Juramento-El,Juramento - El Quebrachal,-25.3441666666667,-64.0461111111111,,,Argentina,INA,Rio Parana,AR_INA_6707
+430,7240,Aº Saladillo Amargo - RP Nº 81,AºSaladilloA,Aº Saladillo Amargo - RP Nº 81,-30.8402777777778,-60.4127777777778,,,Argentina,INA,Rio Parana,AR_INA_7240
+431,2193,Bermejo - Puerto Lavalle,Bermejo-Puer,Bermejo - Puerto Lavalle,-25.6511111111111,-60.1280555555556,,,Argentina,INA,Rio Paraguay,AR_INA_2193
+432,7301,Nogoya - RP Nº 11,Nogoya-RPNº1,Nogoya - RP Nº 11,-32.8419444444444,-59.8647222222222,,,Argentina,INA,Rio Parana,AR_INA_7301
+433,41,Campana,Campana,Campana,-34.1555854281116,-58.9581750062675,,,Argentina,INA,Rio Parana,AR_INA_41
+434,6522,Pepirí Guazú-Pte.Int.P.Rosales,PepiríGuazú-,Pepirí Guazú-Pte.Int.P.Rosales,-26.6133333333333,-53.7347222222222,,,Argentina,INA,Rio Uruguay,AR_INA_6522
+435,7165,Batel -RN Nº123,Batel-RNNº12,Batel -RN Nº123,-28.8994444444444,-58.6747222222222,,,Argentina,INA,Rio Parana,AR_INA_7165
+436,6678,Bermejo - Alarache,Bermejo-Alar,Bermejo - Alarache,-22.1902777777778,-64.6527777777778,,,Argentina,INA,Rio Paraguay,AR_INA_6678
+437,7362,RMA11_TC - U.N. Tucumán - RMA1,RMA11_TC-U.N,RMA11_TC - U.N. Tucumán - RMA1,-26.8436111111111,-65.2272222222222,,,Argentina,INA,,AR_INA_7362
