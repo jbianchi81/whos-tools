@@ -13,8 +13,14 @@ import pytz
 import re
 import sys
 import logging
-logging.basicConfig(filename="log/whos_client.log",level=logging.DEBUG,format="%(asctime)s %(levelname)s %(message)s")
-handler = logging.FileHandler("log/whos_client.log","w+")
+
+logging.basicConfig(
+    filename="log/whos_client.log",
+    filemode="w",
+    level=logging.DEBUG,
+    format="%(asctime)s %(levelname)s %(message)s",
+    force=True
+)
 
 class Client:
     """Functions for metadata retrieval from WHOS using timeseries API
@@ -192,7 +198,7 @@ class Client:
         self.threshold_begin_date = pytz.utc.localize(self.threshold_begin_date)
         self.fews_observed_properties = set(self.config["fews_observed_properties"]) if "fews_observed_properties" in self.config else self.fews_observed_properties 
     
-    def getMonitoringPoints(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None, country: str = None, provider : str = None) -> dict:
+    def getFeatures(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None, country: str = None, provider : str = None) -> dict:
         """Retrieves monitoring points as a geoJSON document from the timeseries API
         
         Parameters
@@ -224,10 +230,17 @@ class Client:
             A dict containing geoJSON data
         """
         
-        params = locals()
-        del params["view"]
-        del params["output"]
-        del params["self"]
+        params = {
+            "view": view,
+            "east": east,
+            "west": west, 
+            "north": north,
+            "south": south,
+            "offset": offset,
+            "limit": limit,
+            "country": country, 
+            "provider": provider
+        }
         for key in ["east","west","north","south","limit","offset","country","provider"]:
             if params[key] == None:
                 del params[key]
@@ -249,7 +262,75 @@ class Client:
             f.write(json.dumps(response.json(), indent=2, ensure_ascii=False))
             f.close()
         return response.json()
-    
+
+    def getFeatures(self, view: str = default_config["view"], east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None, country: str = None, provider : str = None, resumptionToken : str = None) -> dict:
+        """Retrieves features as a geoJSON document from the OM API
+        
+        Parameters
+        ----------
+        view : str
+            WHOS view identifier. Default whos-plata
+        east : float
+            Bounding box eastern longitude coordinate
+        west : float
+            Bounding box western longitude coordinate
+        north : float
+            Bounding box northern latitude coordinate
+        south : float
+            Bounding box southern latitude coordinate
+        offset : int
+            Start position of matched records
+        limit : int
+            Maximum number of matched records
+        output: string
+            Write JSON output into this file
+        country: string
+            Country code (ISO3)
+        provider: string
+            Provider code
+        resumptionToken: string
+            resumption token (pagination) 
+        
+        Returns
+        -------
+        dict
+            A dict containing JSON data
+        """
+        
+        params = {
+            "view": view,
+            "east": east,
+            "west": west, 
+            "north": north,
+            "south": south,
+            "offset": offset,
+            "limit": limit,
+            "country": country, 
+            "provider": provider,
+            "resumptionToken": resumptionToken
+        }
+        for key in ["east","west","north","south","limit","offset","country","provider","resumptionToken"]:
+            if params[key] == None:
+                del params[key]
+        # params["outputProperties"] = "country,monitoringPointOriginalIdentifier"
+        url = "%s/gs-service/services/essi/token/%s/view/%s/om-api/features" % (self.config["url"], self.config["token"], view)
+        logging.debug("url: %s" % url)
+        logging.debug(str({"params": params}))
+        try:
+            response = requests.get(url, params)
+        except:
+            raise Exception("request failed")
+        if(response.status_code >= 400):
+            raise Exception("request failed, status code: %s" % response.status_code)
+        if output is not None:
+            try: 
+                f = open(output,"w")
+            except:
+                raise Exception("Couldn't open file %s for writing" % output)
+            f.write(json.dumps(response.json(), indent=2, ensure_ascii=False))
+            f.close()
+        return response.json()
+
     def getTimeseries(self, view: str = default_config["view"], monitoringPoint: str = None, observedProperty: str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None, has_data = False, provider : str = None):
         """Retrieves timeseries as a geoJSON document from the timeseries API
 
@@ -308,7 +389,91 @@ class Client:
             f.write(json.dumps(result, indent=2, ensure_ascii=False))
             f.close()
         return result
-    
+
+    def getObservations(self, view: str = default_config["view"], feature: str = None, localFeatureIdentifier : str = None,  featureName : str = None, observationIdentifier : str = None, beginPosition: str = None, endPosition: str = None, east: float = None, west: float = None, north: float = None, south: float = None, observedProperty: str = None, ontology : str = None, timeInterpolation : str = None, intendedObservationSpacing : str = None, aggregationDuration : str = None, country : str = None, provider : str = None, offset: int = 1, limit: int = 10, output: str = None, has_data = False, resumptionToken : str = None):
+        """Retrieves observations as a JSON document from the OM API
+
+        Parameters
+        ----------
+        view: str = default_config["view"], 
+        feature: str = None, 
+        localFeatureIdentifier : str = None,  
+        featureName : str = None, 
+        observationIdentifier : str = None, 
+        beginPosition: str = None, 
+        endPosition: str = None, 
+        east: float = None, 
+        west: float = None, 
+        north: float = None, 
+        south: float = None, 
+        observedProperty: str = None, 
+        ontology : str = None, 
+        timeInterpolation : str = None, 
+        intendedObservationSpacing : str = None, 
+        aggregationDuration : str = None, 
+        country : str = None, 
+        provider : str = None, 
+        offset: int = 1, 
+        limit: int = 10, 
+        output: str = None, 
+        has_data = False,
+        resumptionToken : str = None
+        
+        Returns
+        -------
+        dict
+            A dict containing JSON data
+        """
+        
+        params = {
+            "view": view, 
+            "feature": feature, 
+            "localFeatureIdentifier": localFeatureIdentifier,  
+            "featureName": featureName, 
+            "observationIdentifier": observationIdentifier, 
+            "beginPosition": beginPosition, 
+            "endPosition": endPosition, 
+            "east": east, 
+            "west": west, 
+            "north": north, 
+            "south": south, 
+            "observedProperty": observedProperty, 
+            "ontology": ontology, 
+            "timeInterpolation": timeInterpolation, 
+            "intendedObservationSpacing": intendedObservationSpacing, 
+            "aggregationDuration": aggregationDuration, 
+            "country": country, 
+            "provider": provider, 
+            "offset": offset, 
+            "limit": limit,
+            "resumptionToken": resumptionToken
+        }
+        for key in ["feature", "localFeatureIdentifier",  "featureName", "observationIdentifier", "beginPosition", "endPosition", "east", "west", "north", "south", "observedProperty", "ontology", "timeInterpolation", "intendedObservationSpacing", "aggregationDuration", "country", "provider", "offset", "limit","resumptionToken"]:
+            if params[key] == None:
+                del params[key]
+        url = "%s/gs-service/services/essi/token/%s/view/%s/om-api/observations" % (self.config["url"], self.config["token"], view)
+        # print("url: %s" % url)
+        logging.debug("%s - %s?%s" % (str(datetime.now()), url, "&".join([ "%s=%s" % (key, params[key]) for key in params])))
+        try:
+            response = requests.get(url, params)
+        except:
+            raise Exception("request failed")
+        if(response.status_code >= 400):
+            raise Exception("request failed, status code: %s" % response.status_code)
+        # filter out features with no data
+        # xprint("%s - Elapsed: %s" % (str(datetime.now()),str(response.elapsed)))
+        result = response.json()
+        if has_data and "member" in result:
+            result["member"] = self.filterByAvailability(result["member"],self.threshold_begin_date) 
+        if output is not None:
+            try: 
+                f = open(output,"w")
+            except:
+                raise Exception("Couldn't open file %s for writing" % output)
+            f.write(json.dumps(result, indent=2, ensure_ascii=False))
+            f.close()
+        return result
+
     def monitoringPointsToFEWS(self,monitoringPoints : Union[str, dict],output=None): 
         """Converts monitoringPoints JSON to FEWS table
         
@@ -482,7 +647,9 @@ class Client:
         for v in variables:
             variableCode = v.find("./wml:variableCode",namespaces=namespaces).text
             variableName = v.find("./wml:variableName",namespaces=namespaces).text
-            unitName = v.find("./wml:unit/wml:unitName",namespaces=namespaces).text
+            unit_name = v.find("./wml:unit/wml:unitName",namespaces=namespaces)
+            unit_abrev = v.find("./wml:unit/wml:unitAbbreviation",namespaces=namespaces)
+            unitName = unit_name.text if unit_name is not None else unit_abrev.text if unit_abrev is not None else ""
             var_map.append({
                 "variableCode": variableCode,
                 "variableName": variableName,
@@ -559,7 +726,7 @@ class Client:
                 f.write(group.to_csv(index=False))
         return timeseries
 
-    def makeFewsTables(self,output_dir="",save_geojson=False,has_data=True,observedProperty=None,country=None,has_timestep=True,east=None,west=None,north=None,south=None, provider : str = None):
+    def makeFewsTables(self,output_dir="",save_geojson=False,has_data=True,observedProperty=None,country=None,has_timestep=True,east=None,west=None,north=None,south=None, provider : str = None, ontology : str = None, aggregationDuration : str = None):
         """Retrieves WHOS metadata and writes out FEWS tables
         
         Parameters
@@ -583,7 +750,7 @@ class Client:
         var_map = self.getVariableMapping()
         # if observedProperty and provider are both None, sets list of default observed properties to iterate over (to avoid huge load) 
         observedProperty = observedProperty if observedProperty is not None else None if provider is not None else list(self.fews_observed_properties)
-        monitoringPoints = self.getMonitoringPointsWithPagination(
+        features = self.getFeaturesWithPagination(
             json_output = output_dir / "monitoringPoints.json" if save_geojson else None,
             country = country,
             east=east,
@@ -591,17 +758,24 @@ class Client:
             north=north,
             south=south, 
             provider = provider)
-        stations_fews = self.monitoringPointsToFEWS(monitoringPoints)
+        stations_fews = self.monitoringPointsToFEWS(features)
         # get all WHOS-Plata timeseries metadata (using pagination)
-        timeseries = self.getTimeseriesWithPagination(
+        observations = self.getObservationsWithPagination(
             observedProperty=observedProperty, 
             json_output = Path(output_dir, "timeseries.json") if save_geojson else None, 
             has_data = has_data,
-            provider = provider)
-        logging.debug("timeseries length: %i" % len(timeseries["member"]))
+            country = country,
+            east=east,
+            west=west,
+            north=north,
+            south=south,
+            provider = provider,
+            ontology=ontology,
+            aggregationDuration=aggregationDuration)
+        logging.debug("timeseries length: %i" % len(observations["member"]))
         # station_organization = self.getOrganization(timeseries,stations_fews)
         timeseries_fews = self.timeseriesToFEWS(
-            timeseries, 
+            observations, 
             stations = stations_fews, 
             output = Path(output_dir, "timeseries.csv") if output_dir is not None and save_geojson else None
         )
@@ -642,7 +816,7 @@ class Client:
         for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
             logging.debug("getMonitoringPoints offset: %i" % i)
             output = output_dir / ("monitoringPointsResponse_%i.json" % i) if save_geojson else None
-            monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output, country = country, provider = provider)
+            monitoringPoints = self.getFeatures(offset=i,limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output, country = country, provider = provider)
             # convert to FEWS stations CSV, output as gauges.csv
             if "results" not in monitoringPoints:
                 logging.debug("no monitoring points found")
@@ -663,13 +837,57 @@ class Client:
             f.close()
         if fews_output:
             f = open(fews_output,"w")
+            f.write(stations.to_csv(index=False))
+            f.close()
+            return stations
+        else:
+            return result
+
+    def getFeaturesWithPagination(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, json_output: str = None, fews_output: str = None, save_json : bool = False, output_dir : str = "",country: str = None, provider : str = None) -> dict:
+        output_dir = Path(output_dir)
+        stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
+        results = []
+        page = 0
+        resumption_token = None
+        while 1 == 1: #for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
+            logging.debug("getFeatures page: %i" % page)
+            output = output_dir / ("FeaturesResponse_%i.json" % page) if save_json else None
+            if resumption_token is not None:
+                response = self.getFeatures(resumptionToken=resumption_token, limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output, country = country, provider = provider)
+            else:
+                response = self.getFeatures(limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output, country = country, provider = provider)
+            # convert to FEWS stations CSV, output as gauges.csv
+            if "results" not in response:
+                logging.debug("no monitoring points found")
+                break
+            results.extend(response["results"])
+            if fews_output:
+                stations_i = self.monitoringPointsToFEWS(response)
+                stations= pandas.concat([stations,stations_i])
+            if response["completed"] == False and "resumptionToken" in response:
+                resumption_token = response["resumptionToken"]
+                page = page + 1
+                continue
+            else:
+                break
+        result = {
+            # "type": "featureCollection",
+            "results": results
+        }
+        if json_output:
+            f = open(json_output,"w")
+            f.write(json.dumps(result, indent=2, ensure_ascii=False))
+            f.close()
+        if fews_output:
+            f = open(fews_output,"w")
             f.write(stations.to_csv())
             f.close()
             return stations
         else:
             return result
 
-    def getTimeseriesMulti(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None, has_data=False, provider : str = None):
+
+    def getTimeseriesMulti(self, view: str = default_config["view"], monitoringPoint: Union[list,str,None] = None, observedProperty: Union[list,str,None] = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None, has_data=False, provider : str = None):
         if monitoringPoint is not None:
             if type(monitoringPoint) == str:
                 monitoringPoint = [monitoringPoint]
@@ -713,7 +931,7 @@ class Client:
                 "member": member
             }
 
-    def getTimeseriesWithPagination(self, view: str = default_config["view"], monitoringPoint: list or str = None, observedProperty: list or str = None, beginPosition: str = None, endPosition: str = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "", grouped : bool = False, has_data : bool = True, provider : str = None) -> dict:
+    def getTimeseriesWithPagination(self, view: str = default_config["view"], monitoringPoint: Union[list,str] = None, observedProperty: Union[list,str,None] = None, beginPosition: str = None, endPosition: str = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "", grouped : bool = False, has_data : bool = True, provider : str = None) -> dict:
         output_dir = Path(output_dir)
         member = []
         var_map = self.getVariableMapping()
@@ -758,7 +976,62 @@ class Client:
                 return timeseries_fews
         else:
             return result
-        
+
+    def getObservationsWithPagination(self, json_output: str = None, fews_output: str = None, save_json : bool = False, output_dir : str = "", grouped : bool = False, has_data : bool = True, **kwargs) -> dict:
+        output_dir = Path(output_dir)
+        member = []
+        var_map = self.getVariableMapping()
+        timeseries_fews = None # pandas.DataFrame(columns= ["STATION_ID", "EXTERNAL_LOCATION_ID", "EXTERNAL_PARAMETER_ID", "TIMESTEP_HOUR", "UNIT", "IMPORT_SOURCE"])
+        resumption_token = None
+        page = 0
+        while 1 == 1:
+            logging.debug("getObservationsWithPagination, page: %i" % page)
+            output = output_dir / ("timeseriesResponse_%i.json" % page) if save_json else None
+            if resumption_token is not None:
+                response = self.getObservations(limit=self.config["timeseries_per_page"], output=output,has_data=False, resumptionToken=resumption_token)
+            else:
+                response = self.getObservations(limit=self.config["timeseries_per_page"],output=output,has_data=False, **kwargs)
+            if "member" not in response:
+                logging.debug("No timeseries found")
+                break
+            timeseries_length = len(response["member"])
+            logging.debug("Found %i members" % timeseries_length)
+            if has_data:
+                response["member"] = self.filterByAvailability(response["member"],self.threshold_begin_date)
+            logging.debug("Page: %i, length: %i, got %i timeseries after filtering" % (page,self.config["timeseries_per_page"],len(response["member"])))
+            timeseries_fews = pandas.concat([timeseries_fews,self.timeseriesToFEWS(response)]) if timeseries_fews is not None else self.timeseriesToFEWS(response)
+            member.extend(response["member"])
+            if response["completed"] == False and "resumptionToken" in response:
+                resumption_token = response["resumptionToken"]
+                page = page + 1
+                continue
+            else:
+                logging.debug("last page, breaking")
+                break
+        #group timeseries by variable using FEWS variable names and output each group to a separate .csv file
+        result = {
+            # "type": "featureCollection",
+            "member": member
+        }
+        if json_output:
+            f = open(json_output,"w")
+            f.write(json.dumps(result, indent=2, ensure_ascii=False))
+            f.close()
+        if fews_output:
+            if grouped:
+                timeseries_fews_grouped = self.groupTimeseriesByVar(timeseries_fews,var_map,output_dir=output_dir) # ,fews=True)
+                f = open(fews_output,"w")
+                f.write(timeseries_fews_grouped.to_csv(index=False))
+                f.close()
+                return timeseries_fews_grouped
+            else:
+                f = open(fews_output,"w")
+                f.write(timeseries_fews.to_csv(index=False))
+                f.close()
+                return timeseries_fews
+        else:
+            return result
+
     def getOrganizationCode(self, organizationName : str) -> str:
         if organizationName not in self.fews_organization_map:
             return self.fews_organization_map[organizationName].upper().replace(" ","")[0:5]
@@ -808,7 +1081,7 @@ if __name__ == "__main__":
     client = Client(config)
     import argparse
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('action',help="Action to perform. Accepts: 'monitoringPoints', 'timeseries', 'all'", type=str)
+    argparser.add_argument('action',help="Action to perform. Accepts: 'monitoringPoints', 'timeseries', 'all'", choices=['monitoringPoints', 'timeseries', 'all'])
     argparser.add_argument("-u","--url", help = "base url of WHOS server. Defaults to %s" % Client.default_config["url"],type=str)
     argparser.add_argument("-t","--token", help = "user token for WHOS server. Defaults to %s" % Client.default_config["token"],type=str)
     argparser.add_argument("-m","--monitoring_points_max", help = "Maximum index number of monitoring points request. Defaults to %s" % Client.default_config["monitoring_points_max"],type=int)
@@ -828,6 +1101,8 @@ if __name__ == "__main__":
     argparser.add_argument('-O','--output_dir',help = 'output directory for fews csv', type=str)
     argparser.add_argument('-c','--country',help = 'country code (ISO3)', type=str)
     argparser.add_argument('-P','--provider',help = 'provider code (i.e.: argentina-ina)', type=str)
+    argparser.add_argument('-N','--ontology',help = 'ontology (i.e.: whos)', type=str)
+    argparser.add_argument('-a','--aggregation-duration',help = 'aggregationDuration (i.e.: P1D)', type=str)
     args = argparser.parse_args()
     config = {}
     for key in ["url","token","monitoring_points_max","monitoring_points_per_page","timeseries_max","timeseries_per_page","view"]:
@@ -881,6 +1156,10 @@ if __name__ == "__main__":
             ts_args["fews_output"] = args.fews
         if args.provider:
             ts_args["provider"] = args.provider
+        if args.ontology:
+            ts_args["ontology"] = args.ontology
+        if args.aggregation_duration:
+            ts_args["aggregation_duration"] = args.aggregation_duration
         if "json_output" not in ts_args and "fews_output" not in ts_args:
             raise Exception("Missing arguments: at least one of json fews must be defined")
         client.getTimeseriesWithPagination(**ts_args)
@@ -901,6 +1180,10 @@ if __name__ == "__main__":
             all_args["north"] = args.bbox[3]
         if args.provider:
             all_args["provider"] = args.provider
+        if args.ontology:
+            all_args["ontology"] = args.ontology
+        if args.aggregation_duration:
+            all_args["aggregationDuration"] = args.aggregation_duration
         # make FEWS tables for WHOS-Plata (all stations and variables). Save into specified folder
         client.makeFewsTables(**all_args)
     else:

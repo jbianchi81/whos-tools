@@ -228,6 +228,9 @@ def seriesToFews(series : Union[str,list], output=None, monthly_stats=False,stat
                 data_frame[column] = None
         data_frame = data_frame[fews_series_columns[var_id]]
     logging.debug("columns: %s" % ",".join(data_frame.columns))
+    # change type of column TIMESTEP_HOUR to int
+    if "TIMESTEP_HOUR" in data_frame.columns:
+        data_frame["TIMESTEP_HOUR"] = data_frame["TIMESTEP_HOUR"].astype(int)
     if output is not None:
         try: 
             f = open(output,"w")
@@ -265,8 +268,8 @@ if __name__ == "__main__":
     import datetime
     from a5_client import Client
     a5_client = Client()
-    estaciones = a5_client.getEstaciones(has_obs=True, pais="Argentina", habilitar=True, geom="-68,-38,-53,-21")
-    json.dump(estaciones,open(args.output_locations_raw,"w"))
+    estaciones = a5_client.getEstaciones(has_obs=True, pais="Argentina", geom="-68,-38,-53,-21")
+    json.dump(estaciones,open(args.output_locations_raw,"w")) # habilitar=True
     # len(estaciones)
     # estaciones_fews = estacionesToFews("results/estaciones.json",output="results/estaciones_fews.csv")
     if exclude_stations is not None:
@@ -298,7 +301,7 @@ if __name__ == "__main__":
         i = i + by
     if output_series_raw is not None:
         series_raw = open(output_series_raw, "w")
-        json.dump(series_part, series_raw, indent = 2)
+        json.dump(series, series_raw, indent = 2)
     #len(series)
     #set([s["procedimiento"]["id"] for s in series])
     #set([s["estacion"]["id"] for s in series])
@@ -307,6 +310,8 @@ if __name__ == "__main__":
     # how_old_days = 180
     # series_filter = filter(lambda serie: serie["date_range"]["timeend"] is not None and datetime.fromisoformat(serie["date_range"]["timeend"].replace("Z","")) > datetime.now() - timedelta(days=how_old_days),series)
     # series = list(series_filter)
+    # filter out Precip where habilitar=false
+    series = [ s for s in series if s["estacion"]["habilitar"] == True or s["var"]["id"] not in [1, 31, 34] ]
     series_fews = seriesToFews(
         series,
         output=args.output_series_fews,
