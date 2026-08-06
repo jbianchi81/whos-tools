@@ -19,7 +19,7 @@ This folder contains:
 ```
     python -m venv .
     source bin/activate
-    python -m pip install requests pandas isodate datetime lxml typing geopandas shapely
+    python -m pip install requests pandas isodate datetime lxml typing geopandas shapely pywaterml
 ```
 ## Usage
 ### from python script / console

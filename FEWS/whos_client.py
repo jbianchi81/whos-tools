@@ -12,9 +12,82 @@ from shapely.geometry import Point
 import pytz
 import re
 import sys
+from pywaterml.waterML import WaterMLOperations
 import logging
-logging.basicConfig(filename="log/whos_client.log",level=logging.DEBUG,format="%(asctime)s %(levelname)s %(message)s")
+logging.basicConfig(filename="log/whos_client.log",level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s")
 handler = logging.FileHandler("log/whos_client.log","w+")
+from typing import TypedDict, Literal, List, Optional, cast, NotRequired, overload
+
+def parseDateTime(datetime_str : str) -> datetime:
+    return datetime.fromisoformat(
+        datetime_str.replace("Z", "+00:00")
+    )
+
+class SiteInfoDict(TypedDict):
+    siteName : str
+    latitude : str
+    longitude : str
+    network : str
+    siteCode : str
+    fullSiteCode : str
+    variableName : str
+    variableCode : str
+    fullVariableCode : str
+    variableCount : str
+    dataType : str
+    valueType : Optional[str]
+    generalCategory : Optional[str]
+    noDataValue : str
+    sampleMedium : Optional[str]
+    speciation : Optional[str]
+    timeUnitAbbreviation : str
+    timeUnitName : str
+    timeUnitType : Optional[str]
+    timeSupport : str
+    isRegular : str
+    unitAbbreviation : str
+    unitName : str
+    unitType : Optional[str]
+    methodID : str
+    methodDescription : str
+    qualityControlLevelID : str
+    definition : str
+    qualityControlLevelCode : str
+    citation : str
+    organization : str
+    description : str
+    beginDateTime : str
+    endDateTime : str
+    beginDateTimeUTC : str
+    endDateTimeUTC : str
+
+# def parseSiteInfoDict(siteinfo_dict : SiteInfoDict) -> TimeseriesDict:
+
+
+class PointDict(TypedDict):
+    coordinates : List[float]
+    type : Literal["Point"]
+
+class ParameterDict(TypedDict):
+    name : str
+    value : str
+
+class RelatedPartyDict(TypedDict):
+    organisationName : str
+    role : str
+    URL : str
+
+class FeatureResultDict(TypedDict):
+    shape : PointDict
+    parameter : List[ParameterDict]
+    name : str
+    id : str
+    relatedParty: List[RelatedPartyDict]
+
+class FeaturesResultDict(TypedDict):
+    results: List[FeatureResultDict]
+    completed: NotRequired[bool]
+    resumptionToken: NotRequired[str]
 
 class Client:
     """Functions for metadata retrieval from WHOS using timeseries API
@@ -174,8 +247,10 @@ class Client:
             "unitName": None
         }
     ]
+
+    features : List[FeatureResultDict]
     
-    def __init__(self,config: dict = None):
+    def __init__(self,config: Optional[dict] = None):
         """
         Parameters
         ----------
@@ -191,8 +266,21 @@ class Client:
         self.threshold_begin_date = datetime.now() - timedelta(days=self.config["begin_days"])
         self.threshold_begin_date = pytz.utc.localize(self.threshold_begin_date)
         self.fews_observed_properties = set(self.config["fews_observed_properties"]) if "fews_observed_properties" in self.config else self.fews_observed_properties 
+        self.features = []
     
-    def getMonitoringPoints(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, offset: int = None, limit: int = None, output: str = None, country: str = None, provider : str = None) -> dict:
+    def getMonitoringPoints(
+            self, 
+            view: str = default_config["view"],
+            east: Optional[float] = None, 
+            west: Optional[float] = None, 
+            north: Optional[float] = None, 
+            south: Optional[float] = None, 
+            offset: Optional[int] = None, 
+            limit: Optional[int] = None, 
+            output: Optional[str] = None, 
+            country: Optional[str] = None, 
+            provider : Optional[str] = None,
+            resumptionToken : Optional[str] = None) -> FeaturesResultDict:
         """Retrieves monitoring points as a geoJSON document from the timeseries API
         
         Parameters
@@ -217,6 +305,8 @@ class Client:
             Country code (ISO3)
         provider: string
             Provider code
+        resumptionToken : string
+            pagination resumption token
         
         Returns
         -------
@@ -228,11 +318,11 @@ class Client:
         del params["view"]
         del params["output"]
         del params["self"]
-        for key in ["east","west","north","south","limit","offset","country","provider"]:
+        for key in ["east","west","north","south","limit","offset","country","provider", "resumptionToken"]:
             if params[key] == None:
                 del params[key]
         params["outputProperties"] = "country,monitoringPointOriginalIdentifier"
-        url = "%s/gs-service/services/essi/token/%s/view/%s/timeseries-api/monitoring-points" % (self.config["url"], self.config["token"], view)
+        url = "%s/gs-service/services/essi/token/%s/view/%s/om-api/features" % (self.config["url"], self.config["token"], view)
         logging.debug("url: %s" % url)
         logging.debug(str({"params": params}))
         try:
@@ -249,6 +339,113 @@ class Client:
             f.write(json.dumps(response.json(), indent=2, ensure_ascii=False))
             f.close()
         return response.json()
+
+    def getSiteInfoOfSites(
+            self,
+            sites : Union[pandas.DataFrame, List[FeatureResultDict]],
+            view: str = default_config["view"],
+            beginPosition: Optional[str] = None, 
+            endPosition: Optional[str] = None,
+            provider : Optional[str] = None,
+            variableName : Optional[str] = None,
+            json_output : Optional[str] = None,
+            fews_output : Optional[str] = None
+    ) -> List[SiteInfoDict]:
+        if json_output is not None:
+            j_out = open(json_output,"w")
+            j_out.write("[")
+        else:
+            j_out = None
+        first = True
+        siteinfo_list : List[SiteInfoDict] = []
+        if isinstance(sites, pandas.DataFrame):
+            for i, site in sites.iterrows():
+                siteinfo = self.getSiteInfo(
+                    site["STATION_ID"],
+                    view,
+                    beginPosition, 
+                    endPosition,
+                    provider,
+                    variableName
+                )
+                siteinfo_list.extend(siteinfo)
+                if j_out is not None:
+                    for item in siteinfo:
+                        if not first:
+                            j_out.write(",\n")
+                        json.dump(item, j_out)
+                        first = False
+        else:
+            for site in sites:
+                siteinfo = self.getSiteInfo(
+                    site["id"],
+                    view,
+                    beginPosition, 
+                    endPosition,
+                    provider,
+                    variableName
+                )
+                siteinfo_list.extend(siteinfo)
+                if j_out is not None:
+                    for item in siteinfo:
+                        if not first:
+                            j_out.write(",\n")
+                        json.dump(item, j_out)
+                        first = False
+        if j_out is not None:
+            j_out.write("]")
+            # json.dump(siteinfo_list, open(json_output, "w"))
+        if fews_output is not None:
+            sites_fews = sites if isinstance(sites, pandas.DataFrame) else self.monitoringPointsToFEWS({"results":sites})
+            self.siteinfoToFEWS(
+                siteinfo_list,
+                output=fews_output, 
+                stations=sites_fews)
+        return siteinfo_list
+
+    def getSiteInfo(
+            self,
+            monitoringPoint : str,
+            view: str = default_config["view"],
+            beginPosition: Optional[str] = None, 
+            endPosition: Optional[str] = None,
+            provider : Optional[str] = None,
+            variableName : Optional[Union[List[str],str]] = None
+    ) -> List[SiteInfoDict]:
+        url = "%s/gs-service/services/essi/token/%s/view/%s/cuahsi_1_1.asmx?WSDL" % (self.config["url"], self.config["token"], view)
+        water = WaterMLOperations(url = url)
+        siteInfo = water.GetSiteInfo(monitoringPoint)
+        if not isinstance(siteInfo, dict):
+            raise Exception("Invalid siteinfo response, must be dict")
+        if "siteInfo" not in siteInfo:
+            logging.error("No siteinfo found for %s" % monitoringPoint)
+            return []
+        if not len(siteInfo["siteInfo"]):
+            logging.error("No siteinfo found for %s. Length 0" % monitoringPoint)
+            return []
+        results : List[SiteInfoDict] = []
+        for item in siteInfo["siteInfo"]:
+            if beginPosition is not None:
+                edt = parseDateTime(item["endDateTime"])
+                bp = parseDateTime(beginPosition)
+                if edt < bp:
+                    continue
+            if endPosition is not None:
+                bdt = parseDateTime(item["beginDateTime"])
+                ep = parseDateTime(endPosition)
+                if bdt > ep:
+                    continue
+            if provider is not None:
+                if item["network"] != provider:
+                    continue
+            if variableName is not None:
+                if isinstance(variableName, list):
+                    if item["variableName"] not in variableName:
+                        continue
+                elif item["variableName"] != variableName:
+                    continue
+            results.append(item)
+        return results
     
     def getTimeseries(self, view: str = default_config["view"], monitoringPoint: str = None, observedProperty: str = None, beginPosition: str = None, endPosition: str = None, offset: int = 1, limit: int = 10, output: str = None, has_data = False, provider : str = None):
         """Retrieves timeseries as a geoJSON document from the timeseries API
@@ -309,7 +506,7 @@ class Client:
             f.close()
         return result
     
-    def monitoringPointsToFEWS(self,monitoringPoints : Union[str, dict],output=None): 
+    def monitoringPointsToFEWS(self,monitoringPoints : Union[str, FeaturesResultDict],output=None): 
         """Converts monitoringPoints JSON to FEWS table
         
         Parameters
@@ -328,7 +525,7 @@ class Client:
         """
         if isinstance(monitoringPoints,str):
             with open(monitoringPoints,"r") as f: 
-                monitoringPoints = json.load(f)
+                monitoringPoints = cast(FeaturesResultDict, json.load(f))
         rows = []
         for item in monitoringPoints["results"]:
             monitoring_point_parameters = {}
@@ -369,6 +566,77 @@ class Client:
                 # print("is within subbasin %s" % self.basins.nombre_2[i])
                 subbasin = self.basins.nombre_3[i]
         return subbasin
+
+    def siteinfoToFEWS(
+            self,
+            siteinfo : Union[str,List[SiteInfoDict]], 
+            output : Optional[str] = None, 
+            stations : Optional[pandas.DataFrame] = None):
+            """Converts siteinfo records to FEWS table
+            
+            Parameters
+            ----------
+            siteinfo : dict or list of SiteInfoDict
+                Result of getSiteInfo
+                If str: JSON file to read from
+                If dict: getSiteInfo return value  
+            output: string
+                Write CSV output into this file
+            stations: DataFrame
+            result of monitoringPointsToFews
+            if not None adds station metadata to series
+        
+            
+            Returns
+            -------
+            DataFrame
+                A data frame of the time series in FEWS format
+            """
+            if stations is not None:
+                if stations.index.name != 'STATION_ID':
+                    stations = stations.set_index("STATION_ID")
+    
+             # timeseries: str => path to timeseries geojson file or dict => same already parsed into dict 
+            if isinstance(siteinfo,str):
+                with open(siteinfo,"r") as f: 
+                    siteinfo = cast(List[SiteInfoDict], json.load(f))
+            rows = []
+            for item in siteinfo:
+                timestep_hour = float(item["timeSupport"]) if item["timeUnitAbbreviation"] == "h" else float(item["timeSupport"]) / 60 if item["timeUnitAbbreviation"] == "m" else float(item["timeSupport"]) * 24 if item["timeUnitAbbreviation"] == "d" else None
+                row = {
+                    "STATION_ID": item["siteCode"],
+                    "EXTERNAL_LOCATION_ID": item["siteCode"],
+                    "EXTERNAL_PARAMETER_ID": item["variableCode"],
+                    "TIMESTEP_HOUR": timestep_hour,
+                    "UNIT": item["unitAbbreviation"],
+                    "IMPORT_SOURCE": "WHOS",
+                    "IMPORT": True
+                    # THRESHOLD_1   THRESHOLD_2	THRESHOLD_3	THRESHOLD_4 -> not present in WHOS
+                }
+                if stations is not None:
+                    if row["STATION_ID"] not in stations.index:
+                        logging.warning("STATION_ID %s not found in stations" % row["STATION_ID"])
+                        continue
+                    row["STATION_NAME"] =  stations["STATION_NAME"][row["STATION_ID"]]
+                    row["LATITUDE"] = stations["LATITUDE"][row["STATION_ID"]]
+                    row["LONGITUDE"] = stations["LONGITUDE"][row["STATION_ID"]]
+                    row["ALTITUDE"] = stations["ALTITUDE"][row["STATION_ID"]]
+                    row["TYPE"] = stations["TYPE"][row["STATION_ID"]]
+                    row["COUNTRY"] = stations["COUNTRY"][row["STATION_ID"]]
+                    row["ORGANIZATION"] = stations["ORGANIZATION"][row["STATION_ID"]]
+                    row["SUBBASIN"] = stations["SUBBASIN"][row["STATION_ID"]]
+                    row["ORIGINAL_STATION_ID"] = stations["ORIGINAL_STATION_ID"][row["STATION_ID"]]
+                    row["PARENT_ID"] = "%s_%s_%s"  % (row["COUNTRY"].upper()[0:2] if row["COUNTRY"] is not None else "", row["ORGANIZATION"], row["ORIGINAL_STATION_ID"])
+                rows.append(row)
+            data_frame = pandas.DataFrame(rows)
+            if output is not None:
+                try: 
+                    f = open(output,"w")
+                except:
+                    raise Exception("Couldn't open file %s for writing" % output)
+                f.write(data_frame.to_csv(index=False))
+                f.close()
+            return data_frame
     
     def timeseriesToFEWS(self,timeseries : Union[str,dict], output=None, stations=None):
         """Converts timeseries geoJSON to FEWS table
@@ -635,28 +903,84 @@ class Client:
             return timeseries_fews
         return timeseries_fews[~pandas.isna(timeseries_fews["TIMESTEP_HOUR"])]
 
-    def getMonitoringPointsWithPagination(self, view: str = default_config["view"],east: float = None, west: float = None, north: float = None, south: float = None, json_output: str = None, fews_output: str = None, save_geojson : bool = False, output_dir : str = "",country: str = None, provider : str = None) -> dict:
+    @overload
+    def getMonitoringPointsWithPagination(
+            self, 
+            fews_output: None = None, 
+            view: str = default_config["view"],
+            east: Optional[float] = None, 
+            west: Optional[float] = None, 
+            north: Optional[float] = None, 
+            south: Optional[float] = None, 
+            json_output: Optional[str] = None, 
+            save_geojson : bool = False, 
+            output_dir : Union[Path,str] = "",
+            country: Optional[str] = None, 
+            provider : Optional[str] = None) -> FeaturesResultDict: ...
+    @overload
+    def getMonitoringPointsWithPagination(
+            self,
+            fews_output: str, 
+            view: str = default_config["view"],
+            east: Optional[float] = None, 
+            west: Optional[float] = None, 
+            north: Optional[float] = None, 
+            south: Optional[float] = None, 
+            json_output: Optional[str] = None,
+            save_geojson : bool = False, 
+            output_dir : Union[Path,str] = "",
+            country: Optional[str] = None, 
+            provider : Optional[str] = None) -> pandas.DataFrame: ...
+    def getMonitoringPointsWithPagination(
+            self,  
+            fews_output: Optional[str] = None,
+            view: str = default_config["view"],
+            east: Optional[float] = None, 
+            west: Optional[float] = None, 
+            north: Optional[float] = None, 
+            south: Optional[float] = None, 
+            json_output: Optional[str] = None, 
+            save_geojson : bool = False, 
+            output_dir : Union[Path,str] = "",
+            country: Optional[str] = None, 
+            provider : Optional[str] = None) -> Union[FeaturesResultDict, pandas.DataFrame]:
         output_dir = Path(output_dir)
         stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
         results = []
-        for i in range(1,self.config["monitoring_points_max"],self.config["monitoring_points_per_page"]):
-            logging.debug("getMonitoringPoints offset: %i" % i)
-            output = output_dir / ("monitoringPointsResponse_%i.json" % i) if save_geojson else None
-            monitoringPoints = self.getMonitoringPoints(offset=i,limit=self.config["monitoring_points_per_page"],west = west, south = south, east = east, north = north, output=output, country = country, provider = provider)
+        resumptionToken : Optional[str] = None
+        completed : bool = False
+        page = 0
+        while completed == False:
+            logging.debug("getMonitoringPoints page: %i" % page)
+            page = page + 1
+            output = f"{output_dir}/monitoringPointsResponse_{page}.json" if save_geojson else None
+            monitoringPoints = self.getMonitoringPoints(
+                resumptionToken=resumptionToken,
+                limit=self.config["monitoring_points_per_page"],
+                west = west, 
+                south = south, 
+                east = east, 
+                north = north, 
+                output=output, 
+                country = country, 
+                provider = provider)
             # convert to FEWS stations CSV, output as gauges.csv
             if "results" not in monitoringPoints:
                 logging.debug("no monitoring points found")
                 break
+            resumptionToken = monitoringPoints["resumptionToken"] if "resumptionToken" in monitoringPoints else None
+            completed = monitoringPoints["completed"] if "completed" in monitoringPoints else True
             results.extend(monitoringPoints["results"])
             if fews_output:
                 stations_i = self.monitoringPointsToFEWS(monitoringPoints)
                 stations= pandas.concat([stations,stations_i])
-            if len(monitoringPoints["results"]) < self.config["monitoring_points_per_page"]:
-                break
-        result = {
+            # if len(monitoringPoints["results"]) < self.config["monitoring_points_per_page"]:
+            #     break
+        result : FeaturesResultDict = {
             # "type": "featureCollection",
             "results": results
         }
+        self.features = results
         if json_output:
             f = open(json_output,"w")
             f.write(json.dumps(result, indent=2, ensure_ascii=False))
@@ -808,7 +1132,7 @@ if __name__ == "__main__":
     client = Client(config)
     import argparse
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('action',help="Action to perform. Accepts: 'monitoringPoints', 'timeseries', 'all'", type=str)
+    argparser.add_argument('action',help="Action to perform. Accepts: 'monitoringPoints', 'timeseries', 'siteinfo', 'all'", type=str)
     argparser.add_argument("-u","--url", help = "base url of WHOS server. Defaults to %s" % Client.default_config["url"],type=str)
     argparser.add_argument("-t","--token", help = "user token for WHOS server. Defaults to %s" % Client.default_config["token"],type=str)
     argparser.add_argument("-m","--monitoring_points_max", help = "Maximum index number of monitoring points request. Defaults to %s" % Client.default_config["monitoring_points_max"],type=int)
@@ -828,6 +1152,7 @@ if __name__ == "__main__":
     argparser.add_argument('-O','--output_dir',help = 'output directory for fews csv', type=str)
     argparser.add_argument('-c','--country',help = 'country code (ISO3)', type=str)
     argparser.add_argument('-P','--provider',help = 'provider code (i.e.: argentina-ina)', type=str)
+    argparser.add_argument('-S', '--sites', help="sites file (json) result of monitoringPoints", type=str)
     args = argparser.parse_args()
     config = {}
     for key in ["url","token","monitoring_points_max","monitoring_points_per_page","timeseries_max","timeseries_per_page","view"]:
@@ -884,6 +1209,33 @@ if __name__ == "__main__":
         if "json_output" not in ts_args and "fews_output" not in ts_args:
             raise Exception("Missing arguments: at least one of json fews must be defined")
         client.getTimeseriesWithPagination(**ts_args)
+    elif args.action.lower() == "siteinfo":
+        ts_args = {}
+        if args.view:
+            ts_args["view"] = args.view
+        # if args.monitoringPoint:
+        #     ts_args["monitoringPoint"] = args.monitoringPoint
+        if args.observedProperty:
+            ts_args["variableName"] = args.observedProperty
+        if args.beginPosition:
+            ts_args["beginPosition"] = args.beginPosition
+        if args.endPosition:
+            ts_args["endPosition"] = args.endPosition
+        if args.json:
+            ts_args["json_output"] = args.json
+        if args.fews:
+            ts_args["fews_output"] = args.fews
+        if args.provider:
+            ts_args["provider"] = args.provider
+        if "json_output" not in ts_args and "fews_output" not in ts_args:
+            raise Exception("Missing arguments: at least one of json fews must be defined")
+        if args.sites is None:
+            raise Exception("Must set --sites <sites_file_path>")
+        try:
+            sites = json.load(open(args.sites))["results"]
+        except Exception:
+            sites = pandas.read_csv(args.sites)
+        client.getSiteInfoOfSites(sites, **ts_args)
     elif args.action.lower() == "all":
         all_args = {
             "save_geojson": True
@@ -904,5 +1256,5 @@ if __name__ == "__main__":
         # make FEWS tables for WHOS-Plata (all stations and variables). Save into specified folder
         client.makeFewsTables(**all_args)
     else:
-        raise Exception("Invalid action. Choose one of 'monitoringPoints', 'timeseries', 'all'")
+        raise Exception("Invalid action. Choose one of 'monitoringPoints', 'timeseries', 'siteinfo', 'all'")
 
