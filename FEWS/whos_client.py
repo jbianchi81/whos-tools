@@ -14,7 +14,7 @@ import re
 import sys
 from pywaterml.waterML import WaterMLOperations
 import logging
-logging.basicConfig(filename="log/whos_client.log",level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s")
+logging.basicConfig(filename="log/whos_client.log",level=logging.DEBUG,format="%(asctime)s %(levelname)s %(message)s")
 handler = logging.FileHandler("log/whos_client.log","w+")
 from typing import TypedDict, Literal, List, Optional, cast, NotRequired, overload
 
@@ -280,7 +280,10 @@ class Client:
             output: Optional[str] = None, 
             country: Optional[str] = None, 
             provider : Optional[str] = None,
-            resumptionToken : Optional[str] = None) -> FeaturesResultDict:
+            resumptionToken : Optional[str] = None,
+            feature: Optional[str] = None,
+            localFeatureIdentifier: Optional[str] = None,
+            featureName: Optional[str] = None) -> FeaturesResultDict:
         """Retrieves monitoring points as a geoJSON document from the timeseries API
         
         Parameters
@@ -307,6 +310,12 @@ class Client:
             Provider code
         resumptionToken : string
             pagination resumption token
+        feature : string
+            feature identifier
+        localFeatureIdentifier : string
+            local feature identifier
+        featureName : string
+            feature name
         
         Returns
         -------
@@ -318,7 +327,7 @@ class Client:
         del params["view"]
         del params["output"]
         del params["self"]
-        for key in ["east","west","north","south","limit","offset","country","provider", "resumptionToken"]:
+        for key in ["east","west","north","south","limit","offset","country","provider", "resumptionToken", "feature", "localFeatureIdentifier","featureName"]:
             if params[key] == None:
                 del params[key]
         params["outputProperties"] = "country,monitoringPointOriginalIdentifier"
@@ -342,7 +351,7 @@ class Client:
 
     def getSiteInfoOfSites(
             self,
-            sites : Union[pandas.DataFrame, List[FeatureResultDict]],
+            sites : Union[pandas.DataFrame, List[FeatureResultDict], List[str]],
             view: str = default_config["view"],
             beginPosition: Optional[str] = None, 
             endPosition: Optional[str] = None,
@@ -377,8 +386,9 @@ class Client:
                         first = False
         else:
             for site in sites:
+                site_id = site if isinstance(site, str) else site["id"]
                 siteinfo = self.getSiteInfo(
-                    site["id"],
+                    site_id,
                     view,
                     beginPosition, 
                     endPosition,
@@ -396,7 +406,7 @@ class Client:
             j_out.write("]")
             # json.dump(siteinfo_list, open(json_output, "w"))
         if fews_output is not None:
-            sites_fews = sites if isinstance(sites, pandas.DataFrame) else self.monitoringPointsToFEWS({"results":sites})
+            sites_fews = sites if isinstance(sites, pandas.DataFrame) else self.monitoringPointsToFEWS({"results":sites}) if len(sites) and isinstance(sites[0], dict) else None
             self.siteinfoToFEWS(
                 siteinfo_list,
                 output=fews_output, 
@@ -916,7 +926,10 @@ class Client:
             save_geojson : bool = False, 
             output_dir : Union[Path,str] = "",
             country: Optional[str] = None, 
-            provider : Optional[str] = None) -> FeaturesResultDict: ...
+            provider : Optional[str] = None,
+            feature: Optional[str] = None,
+            localFeatureIdentifier: Optional[str] = None,
+            featureName: Optional[str] = None) -> FeaturesResultDict: ...
     @overload
     def getMonitoringPointsWithPagination(
             self,
@@ -930,7 +943,10 @@ class Client:
             save_geojson : bool = False, 
             output_dir : Union[Path,str] = "",
             country: Optional[str] = None, 
-            provider : Optional[str] = None) -> pandas.DataFrame: ...
+            provider : Optional[str] = None,
+            feature: Optional[str] = None,
+            localFeatureIdentifier: Optional[str] = None,
+            featureName: Optional[str] = None) -> pandas.DataFrame: ...
     def getMonitoringPointsWithPagination(
             self,  
             fews_output: Optional[str] = None,
@@ -943,7 +959,10 @@ class Client:
             save_geojson : bool = False, 
             output_dir : Union[Path,str] = "",
             country: Optional[str] = None, 
-            provider : Optional[str] = None) -> Union[FeaturesResultDict, pandas.DataFrame]:
+            provider : Optional[str] = None,
+            feature: Optional[str] = None,
+            localFeatureIdentifier: Optional[str] = None,
+            featureName: Optional[str] = None) -> Union[FeaturesResultDict, pandas.DataFrame]:
         output_dir = Path(output_dir)
         stations = pandas.DataFrame(columns= ["STATION_ID", "STATION_NAME", "STATION_SHORTNAME", "TOOLTIP", "LATITUDE", "LONGITUDE", "ALTITUDE", "COUNTRY", "ORGANIZATION", "SUBBASIN"])
         results = []
@@ -963,7 +982,10 @@ class Client:
                 north = north, 
                 output=output, 
                 country = country, 
-                provider = provider)
+                provider = provider,
+                feature = feature,
+                localFeatureIdentifier = localFeatureIdentifier,
+                featureName = featureName)
             # convert to FEWS stations CSV, output as gauges.csv
             if "results" not in monitoringPoints:
                 logging.debug("no monitoring points found")
@@ -1181,6 +1203,8 @@ if __name__ == "__main__":
             mp_args["country"] = args.country
         if args.provider:
             mp_args["provider"] = args.provider
+        if args.monitoringPoint:
+            mp_args["feature"] = args.monitoringPoint[0]
         if "json_output" not in mp_args and "fews_output" not in mp_args:
             raise Exception("Missing arguments: at least one of json fews must be defined")
         client.getMonitoringPointsWithPagination(**mp_args)
